@@ -1,40 +1,40 @@
+---
+id: accueil
+title: Accueil
+slug: /accueil
+sidebar_position: 1
+---
 
-<h1 class="content-title-main">TEKBOT ROBOTICS CHALLENGE 2025</h1>
-<p class="content-subtitle">Documentation Technique des Tests de Présélection</p>
-<div class="content-pill">5 Semaines de Défis Techniques</div>
+# TEKBOT ROBOTICS CHALLENGE 2025
+# Documentations des Tests Techniques de présélection
 
-## 🏆 Contexte Général
-Dans le cadre de la Tekbot Robotics Challenge 2K25, un processus de présélection rigoureux, s'étalant sur cinq semaines, est mis en place afin d'évaluer les compétences techniques des équipes participantes. Chaque semaine, une nouvelle compétence sera mise à l'épreuve.
-Ainsi chaque sous-équipe de vos équipes respectives devront démontrer leur expertise en électronique, mécanique et informatique à travers des épreuves techniques.
+## 📅 Contexte général
+
+Dans le cadre de la Tekbot Robotics Challenge 2K25, un processus de présélection rigoureux, s'étalant sur cinq semaines, est mis en place afin d'évaluer les compétences techniques des équipes participantes. Chaque semaine, une nouvelle compétence sera mise à l'épreuve. Ainsi chaque sous-équipe de vos équipes respectives devront démontrer leur expertise en électronique, mécanique et informatique à travers des épreuves techniques.
+
 L'objectif de cette présélection est d'identifier les équipes les plus qualifiées, polyvalentes et capables de travailler en synergie. À la fin du parcours, un test final rassemblera toutes les sous-équipes de chaque équipe afin de relever un défi multidisciplinaire.
 
-## 📅 Planning Détaillé des Tests
-### Semaine 1 <span class="date-pill-md">05/06/2025 au 12/06/2025</span>
-**Objectif :** Maîtrise des bases et initialisation.
-- **Électronique :** Compréhension des schémas, soudure de base.
-- **Mécanique :** Assemblage d'un châssis simple.
-- **IT :** Configuration de l'environnement de développement.
+## 🏆 Tableau récapitulatif des tests de présélection
 
-### Semaine 2 <span class="date-pill-md">12/06/2025 au 19/06/2025</span>
-**Objectif :** Intégration des capteurs et actionneurs.
-- **Électronique :** Interface capteurs (distance, ligne).
-- **Mécanique :** Intégration de moteurs et roues.
-- **IT :** Programmation de mouvements de base.
+| Domaine | Tests | Durée |
+|---------|-------|--------|
+| Électronique | Test 1: Test input : Gyroscope et accéléromètre | 1 semaine |
+| | Test 2: Test communication : La boîte noire | 1 semaine |
+| | Test 3: Test output: Réalisation d'un afficheur 7 segments | 1 semaine |
+| IT | Test 1: Réalisation d'un système de classe de gestion d'un Robot | 1 semaine |
+| | Test 2: Introduction à ROS2 | 1 semaine |
+| | Test 3: Création d'un Algorithme de Pathfinding | 1 semaine |
+| Mécanique | Test 1: Niveau Débutant | 1 semaine |
+| | Test 2: Niveau Intermédiaire | 1 semaine |
+| | Test 3: Niveau Avancé | 1 semaine |
+| Électronique, IT, Mécanique | Test final : Réalisation d'un système de convoyeur | 2 semaines |
 
-### Semaine 3 <span class="date-pill-md">19/06/2025 au 26/06/2025</span>
-**Objectif :** Navigation et interaction simple.
-- **Électronique :** Gestion de l'alimentation, communication inter-cartes.
-- **Mécanique :** Conception d'un effecteur simple (pince, etc.).
-- **IT :** Algorithmes de suivi de ligne, évitement d'obstacles.
+## 📅 Planning des tests de présélection
 
-### Semaine 4 <span class="date-pill-md">26/06/2025 au 03/07/2025</span>
-**Objectif :** Tâches complexes et autonomie.
-- Tests avancés et préparation au test final.
-
-### Semaine 5 <span class="date-pill-md">03/07/2025 au 10/07/2025</span>
-**Objectif :** Optimisation et robustesse.
-- Finalisation des robots, tests d'endurance.
-
-## Test Final <span class="date-pill-md">À partir du 10/07/2025</span>
-Une épreuve multidisciplinaire combinant tous les aspects abordés.
+| Phase | Durée | Tests |
+|---------|------|-------|
+| Semaine 1 | 1 semaine | Réalisation et documentation des tests 1<br/>Review en fin de semaine :<br/>- Présentation et notation<br/>- Test 1 (électronique, IT, mécanique) |
+| Semaine 2 | 1 semaine | Réalisation et documentation des tests 2<br/>Review en fin de semaine :<br/>- Présentation et notation<br/>- Test 2 (électronique, IT, mécanique) |
+| Semaine 3 | 1 semaine | Réalisation et documentation des tests 3<br/>Review en fin de semaine :<br/>- Présentation et notation<br/>- Test 3 (électronique, IT, mécanique) |
+| Semaines 4 et 5 | 2 semaines | Réalisation et documentation du test final<br/>Review finale :<br/>- Présentation et notation (3h)
         

@@ -1,0 +1,58 @@
+classDiagram
+    class Robot {
+        <<Abstract>>
+        +id: UUID
+        +name: str
+        +position: Tuple[float, float]
+        +orientation: float
+        +energy_source: str
+        +generator_level: int
+        +is_active: bool
+        +sensors: List[Any]
+        +move(direction, distance)*
+        +rotate(angle)*
+        +stop()*
+        +status()*
+        +start()
+        +consume_energy(amount)
+        +add_sensor(sensor)
+        +remove_sensor(sensor)
+        +distance_to(other)
+    }
+
+    class WheeledRobot {
+        +wheel_base: float
+        +storage_capacity: int
+        +storage_bag: List[Any]
+        +state: State
+        +obstacle_threshold: float
+        +v_lin_cmd: float
+        +v_ang_cmd: float
+        +set_motor_speed(left, right)
+        +add_to_storage(item)
+        +move(direction, distance)
+        +rotate(angle)
+        +stop()
+        +detect_obstacle(obstacle_position)
+        +avoid_obstacle()
+        +is_storage_full()
+        +status()
+    }
+
+    class RoboticArm {
+        +num_joints: int
+        +joint_angles: List[float]
+        +end_effector_position: Tuple[float, float]
+        +holding_item: Optional[str]
+        +move(target_position)
+        +rotate(joint_index, angle)
+        +stop()
+        +status()
+        +set_joint_angle(joint_index, angle)
+        +reset_arm()
+        +pick(item)
+        +place(item, target_position)
+    }
+
+    Robot <|-- WheeledRobot
+    Robot <|-- RoboticArm
