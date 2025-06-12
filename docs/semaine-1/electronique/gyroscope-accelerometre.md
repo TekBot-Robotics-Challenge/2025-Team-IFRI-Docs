@@ -79,37 +79,37 @@ Le TEKBOT Robotics Challenge 2025 est une compétition internationale annuelle, 
 * **Rôle dans le montage:** Mesure l'orientation et l'accélération. 
 * **Image:**
     * Img 2 : MPU-6050
-    ![MPU6050](../../../media/semaine-1/electronique/MPU6050.jpg)
+    ![MPU6050](images/MPU6050.jpg)
 
 ### Écran LCD HD44780 16×2:
 * **Description:** Afficheur alphanumérique 16 colonnes × 2 lignes en mode 4 bits. 
 * **Rôle dans le montage:** Présente en temps réel l'orientation et l'intensité du mouvement. 
 * **Image:**
     * Img 3 : Ecran LCD
-    ![Ecran LCD](../../../media/semaine-1/electronique/LCD_Screen.jpg)
+    ![Ecran LCD](images/LCD_Screen.jpg)
 
 ### Potentiomètre 10kΩ:
 * **Description:** Résistance variable linéaire. 
 * **Rôle dans le montage:** Permet d'ajuster le contraste de l'écran LCD. 
 * **Image:**
     * Img 4 : Potentiomètre
-    ![Potentiomètre 10kΩ](../../../media/semaine-1/electronique/Pot_10K.jpg)
+    ![Potentiomètre 10kΩ](images/Pot_10K.jpg)
 
 ### Pile rechargeable 9V:
 * **Description:** Source de tension. 
 * **Rôle dans le montage:** Fournit une alimentation stable à l'Arduino, au module et à l'écran. 
 * **Image:**
     * Img 5 : Pile 9V rechargeable
-    ![Pile 9V](../../../media/semaine-1/electronique/Pile_9v.jpg)
+    ![Pile 9V](images/Pile_9v.jpg)
 
 ### Breadboard + fils Dupont:
 * **Description:** Plaque d'essai sans soudure et câbles colorés. 
 * **Rôle dans le montage:** Montage rapide, structuré et réutilisable. 
 * **Images:**
     * Img 6 : Breadboard
-    ![Breadboard](../../../media/semaine-1/electronique/breadboard.jpeg)
+    ![Breadboard](images/breadboard.jpeg)
     * Img 7 : Fils Dupont
-    ![Fils Dupont (Jumpers)](../../../media/semaine-1/electronique/dupont_connectors.avif)
+    ![Fils Dupont (Jumpers)](images/dupont_connectors.avif)
 
 ## 2.2 Outils Logiciels
 
@@ -118,7 +118,7 @@ Le TEKBOT Robotics Challenge 2025 est une compétition internationale annuelle, 
 * **Lien de téléchargement/Documentation:** https://www.arduino.cc/en/software 
 * **Image:**
     * Img 8 : Logo/Image Arduino IDE
-    ![Arduino IDE](../../../media/semaine-1/electronique/Arduino-IDE-Interface.png)
+    ![Arduino IDE](images/Arduino-IDE-Interface.png)
 
 ### I2Cdevlib / MPU6050
 * **Description:** Bibliothèque Arduino pour communiquer facilement avec le MPU-6050, inclut fonctions de calibration et DMP. 
@@ -133,7 +133,7 @@ Le TEKBOT Robotics Challenge 2025 est une compétition internationale annuelle, 
 * **Lien de téléchargement/Documentation:** https://kicad.org/download/ 
 * **Image:**
     * Img 9 : Logo/Image KiCad
-    ![KiCad](../../../media/semaine-1/electronique/Kicad.avif)
+    ![KiCad](images/Kicad.avif)
 
 ### Git / GitHub
 * **Description:** Outils de versionning et d'hébergement de code. 
@@ -301,7 +301,7 @@ Chaque étape s'enchaîne dans la boucle principale (`loop()`), produisant un sy
 Pour garantir la clarté et la reproductibilité de notre montage, nous avons réalisé un schéma dans KiCad 7.0. Ci-dessous le rendu principal, suivi d'une explication progressive.
 
 * **Figure:** Fig 1 : Schema_Kicad
-    ![Schema KiCad](../../../media/semaine-1/electronique/Kicade-Schema-Official.png)
+    ![Schema KiCad](images/Kicade-Schema-Official.png)
 
 ## 5.1 Description des parties du schéma
 
