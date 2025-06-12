@@ -1,6 +1,6 @@
 ### Class: `Robot` (Abstract Base Class)
 
-![UML Class Diagram](../../../media/diagram.png)
+![UML Class Diagram](diagram.png)
 
 
 [Wheeled Robot](wheeledrobot.md)
