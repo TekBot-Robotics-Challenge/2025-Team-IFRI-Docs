@@ -18,13 +18,13 @@ L'objectif de cette présélection est d'identifier les équipes les plus qualif
 
 | Domaine | Tests | Durée |
 |---------|-------|--------|
-| Électronique | Test 1: Test input : Gyroscope et accéléromètre | 1 semaine |
+| Électronique | [Test 1: Test input : Gyroscope et accéléromètre](semaine-1/electronique/gyroscope-accelerometre.md) | 1 semaine |
 | | Test 2: Test communication : La boîte noire | 1 semaine |
 | | Test 3: Test output: Réalisation d'un afficheur 7 segments | 1 semaine |
-| IT | Test 1: Réalisation d'un système de classe de gestion d'un Robot | 1 semaine |
+| IT | [Test 1: Réalisation d'un système de classe de gestion d'un Robot](semaine-1/it/robot.md) | 1 semaine |
 | | Test 2: Introduction à ROS2 | 1 semaine |
 | | Test 3: Création d'un Algorithme de Pathfinding | 1 semaine |
-| Mécanique | Test 1: Niveau Débutant | 1 semaine |
+| Mécanique | [Test 1: Niveau Débutant](semaine-1/mecanique/documentation_meca.md) | 1 semaine |
 | | Test 2: Niveau Intermédiaire | 1 semaine |
 | | Test 3: Niveau Avancé | 1 semaine |
 | Électronique, IT, Mécanique | Test final : Réalisation d'un système de convoyeur | 2 semaines |
