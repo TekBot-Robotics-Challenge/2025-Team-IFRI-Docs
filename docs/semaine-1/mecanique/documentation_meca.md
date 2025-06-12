@@ -171,5 +171,9 @@ a) Après avoir fixé l'embout de vérin dans sa position minimale, les coordonn
 ### Emplacement des fichiers
 Les fichiers contenant les pièces modélisées ainsi que l'assemblage sont situées dans le dossier **Beginner_test_meca**.
 
+## Video de la Pince en mouvement
+
+[video](https://vimeo.com/manage/videos/1092855533/480fde870c)
+
 ### Contribution au projet
 Les apports de contribution sont les bienvenus.
