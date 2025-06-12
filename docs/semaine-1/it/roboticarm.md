@@ -1,6 +1,6 @@
 # `RoboticArm` Class Documentation
 
-![Robotic Arm Image](robotic_arm.svg)
+![RoboticArm](robotic_arm.svg)
 
 The `RoboticArm` class is a concrete implementation of the `Robot` abstract base class. It models an articulated robotic arm with multiple joints, capable of precise movements, picking up, and placing objects.
 
@@ -40,6 +40,27 @@ The item currently being held by the end effector.
 
 ### `__init__(name, position, orientation, energy_source, num_joints=6)`
 Initializes a new `RoboticArm` instance.
+
+```python
+    def __init__(
+            self,
+            name: str,
+            position: Tuple[float, float],
+            orientation: float,
+            energy_source: str,
+            num_joints: int = 6
+    ) -> None:
+        """
+        Initialize the robotic arm with the given parameters.
+        """
+        super().__init__(name=name, position=position, orientation=orientation, energy_source=energy_source)
+        if not isinstance(num_joints, int) or num_joints < 2:
+            raise ValueError("A robotic arm must have at least 2 joints.")
+        self._joint_angles: List[float] = [0.0] * num_joints  # Angles in degrees
+        self._num_joints = num_joints
+        self._end_effector_position: Tuple[float, float] = position
+        self._holding_item: Optional[str] = None
+```
 
 -   **Parameters:**
     -   `name` (`str`): Name of the robotic arm.
@@ -82,6 +103,25 @@ print(f"Initial joint angles: {arm.joint_angles}")
 
 ### `move(target_position)`
 Moves the arm's end effector to a specified target (x, y) position. This is a simplified 2D movement.
+
+```python
+def move(self, target_position: Tuple[float, float]) -> None:
+    """
+    Move the end effector to a target position (2D for simplicity).
+    """
+    if not self.is_active:
+        self._logger.warning("Cannot move: Robotic arm is inactive.")
+        return
+    if not (isinstance(target_position, tuple) and len(target_position) == 2):
+        raise ValueError("Target position must be a tuple (x, y).")
+    
+    angle = math.degrees(math.atan2(target_position[1] - self.position[1], target_position[0] - self.position[0]))
+    self._joint_angles = [angle / self._num_joints] * self._num_joints
+    self._end_effector_position = target_position
+    self.consume_energy(1.0)
+    self._logger.info(f"Moved end effector to {target_position} with joint angles {self._joint_angles}")
+```
+
 -   **Parameters:**
     -   `target_position` (`Tuple[float, float]`): The desired (x, y) coordinates for the end effector.
 -   **Returns:** `None`
@@ -99,6 +139,24 @@ Moves the arm's end effector to a specified target (x, y) position. This is a si
 
 ### `rotate(joint_index, angle)`
 Rotates a specific joint of the arm by a given angle (relative rotation).
+
+```python
+    def rotate(self, joint_index: int, angle: float) -> None:
+        """
+        Rotate a specific joint by a given angle (in degrees).
+        """
+        if not self.is_active:
+            self._logger.warning("Cannot rotate: Robotic arm is inactive.")
+            return
+        if not (0 <= joint_index < self._num_joints):
+            raise IndexError("Invalid joint index.")
+        
+        self._joint_angles[joint_index] = (self._joint_angles[joint_index] + angle) % 360
+        self.orientation = (math.degrees(self.orientation) + angle) % 360
+        self.consume_energy(0.1)
+        self._logger.info(f"Rotated joint {joint_index} by {angle} radians. New angle: {self._joint_angles[joint_index]}")
+```
+
 -   **Parameters:**
     -   `joint_index` (`int`): The index of the joint to rotate (0 to `num_joints - 1`).
     -   `angle` (`float`): The angle in degrees to rotate the joint by (can be positive or negative).
@@ -117,6 +175,16 @@ Rotates a specific joint of the arm by a given angle (relative rotation).
 
 ### `stop()`
 Stops all movements of the robotic arm and deactivates it.
+
+```python
+    def stop(self) -> None:
+        """
+        Stop all movements of the robotic arm.
+        """
+        self.is_active = False
+        self._logger.info("Robotic arm stopped.")
+```
+
 -   **Returns:** `None`
 -   **Description:** Sets `is_active` to `False`. Logs the stop action.
 -   **Example:**
@@ -128,6 +196,14 @@ Stops all movements of the robotic arm and deactivates it.
 
 ### `status()`
 Provides a string summarizing the current status of the `RoboticArm`.
+
+```python
+    def status(self) -> str:
+        return (f"RoboticArm(ID: {self.id}, Name: {self.name}, Position: {self.position}, "
+                f"End-Effector: {self._end_effector_position}, Orientation: {self.orientation:.2f} rad, "
+                f"Joints: {self._joint_angles}, Holding: {self._holding_item}, "
+                f"Active: {self.is_active}, Generator level: {self.generator_level})")
+```
 -   **Returns:** `str`
 -   **Description:** Includes ID, name, base position, end-effector position, base orientation, joint angles, holding item, active status, and generator level.
 -   **Example:**
@@ -137,6 +213,18 @@ Provides a string summarizing the current status of the `RoboticArm`.
 
 ### `set_joint_angle(joint_index, angle)`
 Sets a specific joint to a given absolute angle.
+
+```python
+    def set_joint_angle(self, joint_index: int, angle: float) -> None:
+        """
+        Set a specific joint to a given angle (in degrees).
+        """
+        if not (0 <= joint_index < self._num_joints):
+            raise IndexError("Invalid joint index.")
+        self._joint_angles[joint_index] = angle % 360
+        self._logger.info(f"Set joint {joint_index} to {angle} degrees.")
+```
+
 -   **Parameters:**
     -   `joint_index` (`int`): The index of the joint to set.
     -   `angle` (`float`): The desired absolute angle in degrees for the joint (will be normalized to 0-360).
@@ -153,6 +241,15 @@ Sets a specific joint to a given absolute angle.
 
 ### `reset_arm()`
 Resets all joint angles to zero, moves the end effector to the arm's base position, and clears any held item.
+
+``` python
+def reset_arm(self) -> None:
+    self._joint_angles = [0.0] * self._num_joints
+    self._end_effector_position = self.position
+    self._holding_item = None
+    self._logger.info("Robotic arm reset to home position.")
+```
+
 -   **Returns:** `None`
 -   **Description:** Logs the reset action.
 -   **Example:**
@@ -165,6 +262,23 @@ Resets all joint angles to zero, moves the end effector to the arm's base positi
 
 ### `pick(item)`
 Picks up an item with the robotic arm's end effector.
+
+```python
+    def pick(self, item: str) -> None:
+        """
+        Pick up an item with the robotic arm's end effector.
+        """
+        if not self.is_active:
+            self._logger.warning(f"Cannot pick {item}: Robotic arm is inactive.")
+            return
+        if self._holding_item is not None:
+            self._logger.warning(f"Already holding {self._holding_item}, cannot pick {item}.")
+            return
+        self._holding_item = item
+        self.consume_energy(0.5)
+        self._logger.info(f"Picked up {item} at {self._end_effector_position}.")
+```
+
 -   **Parameters:**
     -   `item` (`str`): The name or identifier of the item to pick up.
 -   **Returns:** `None`
@@ -180,6 +294,23 @@ Picks up an item with the robotic arm's end effector.
 
 ### `place(item, target_position)`
 Places the currently held item at a target position.
+
+```python
+    def place(self, item: str, target_position: Tuple[float, float]) -> None:
+        """
+        Place the currently held item at a target position or Storage Bag.
+        """
+        if not self.is_active:
+            self._logger.warning(f"Cannot place {item}: Robotic arm is inactive.")
+            return
+        if self._holding_item != item:
+            self._logger.warning(f"Cannot place {item}: Not currently holding it.")
+            return
+        self.move(target_position)
+        self._holding_item = None
+        self.consume_energy(0.5)
+        self._logger.info(f"Placed {item} at {target_position}.")
+```
 -   **Parameters:**
     -   `item` (`str`): The name or identifier of the item to place (must match `_holding_item`).
     -   `target_position` (`Tuple[float, float]`): The (x, y) coordinates where the item should be placed.
