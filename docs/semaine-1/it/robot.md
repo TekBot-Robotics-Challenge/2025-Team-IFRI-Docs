@@ -3,8 +3,10 @@
 ![UML Class Diagram](diagram.png)
 
 
-[Wheeled Robot](wheeledrobot.md)
-[Robotic Arm](roboticarm.md)
+
+1- [Wheeled Robot](wheeledrobot.md)
+
+2- [Robotic Arm](roboticarm.md)
 #### Overview
 
 The `Robot` class is an abstract base class (ABC) that defines the common interface and core functionalities for all robot types within the simulation environment. It handles fundamental attributes like identity, position, orientation, energy, and basic actions. Being an ABC, it cannot be instantiated directly; instead, concrete robot classes must inherit from it and implement its abstract methods.
