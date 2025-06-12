@@ -133,7 +133,9 @@ Le TEKBOT Robotics Challenge 2025 est une compétition internationale annuelle, 
 * **Lien de téléchargement/Documentation:** https://kicad.org/download/ 
 * **Image:**
     * Img 9 : Logo/Image KiCad
-    ![KiCad](images/Kicad.avif)
+    <picture>
+       <source srcset="Kicad.avif" type="image/avif">
+   </picture>
 
 ### Git / GitHub
 * **Description:** Outils de versionning et d'hébergement de code. 
