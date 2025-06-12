@@ -130,12 +130,7 @@ Le TEKBOT Robotics Challenge 2025 est une compétition internationale annuelle, 
 
 ### KiCad
 * **Description:** Suite open-source pour la création de schémas électroniques et de layouts de circuits imprimés. 
-* **Lien de téléchargement/Documentation:** https://kicad.org/download/ 
-* **Image:**
-    * Img 9 : Logo/Image KiCad
-    <picture>
-       <source srcset="Kicad.avif" type="image/avif">
-   </picture>
+* **Lien de téléchargement/Documentation:** https://kicad.org/download/
 
 ### Git / GitHub
 * **Description:** Outils de versionning et d'hébergement de code. 
