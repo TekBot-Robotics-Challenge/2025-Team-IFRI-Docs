@@ -78,10 +78,10 @@
         "path": "docs/semaine-1/mecanique",
         "children": [
           {
-            "id": "file-cao-solidworks-md",
-            "name": "cao-solidworks.md",
+            "id": "file-documentation-meca-md",
+            "name": "documentation_meca.md",
             "type": "file",
-            "path": "docs/semaine-1/mecanique/cao-solidworks.md"
+            "path": "docs/semaine-1/mecanique/documentation_meca.md"
           }
         ]
       }
