@@ -489,7 +489,7 @@ Chaque cycle dure 100 ms (~10 Hz) :
 **Vidéo de démonstration :**
 Vous pouvez visionner une démonstration de notre système en action ci-dessous :
 
-![Vidéo demo](lien-youtube)
+[Vidéo demo](https://vimeo.com/manage/videos/1092850492)
 
 ---
 
