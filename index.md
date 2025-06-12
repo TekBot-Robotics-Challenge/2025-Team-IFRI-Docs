@@ -26,7 +26,7 @@ L'objectif de cette présélection est d'identifier les équipes les plus qualif
 
 | Semaine | Date | Tests |
 |---------|------|-------|
-| ![Semaine1](media/accueil.md) | 05/06/2025 au 12/06/2025 | Réalisation et documentation des tests 1<br/>Review - 12/06/2025<br/>16h-18h : présentation et notation<br/>Test 1 (électronique, IT, mécanique) |
+| ![Semaine1](docs/accueil.md) | 05/06/2025 au 12/06/2025 | Réalisation et documentation des tests 1<br/>Review - 12/06/2025<br/>16h-18h : présentation et notation<br/>Test 1 (électronique, IT, mécanique) |
 | Semaine 2 | 12/06/2025 au 19/06/2025 | Réalisation et documentation des tests 2<br/>Review - 19/06/2025<br/>16h-18h : présentation et notation<br/>Test 2 (électronique, IT, mécanique) |
 | Semaine 3 | 19/06/2025 au 26/06/2025 | Réalisation et documentation des tests 3<br/>Review - 26/06/2025<br/>16h-18h : présentation et notation<br/>Test 3 (électronique, IT, mécanique) |
 | Semaine 4 et 5 | 26/06/2025 au 10/07/2025 | Réalisation et documentation du test final<br/>Final Review - 10/07/2025<br/>16h - 19h : présentation et notation
