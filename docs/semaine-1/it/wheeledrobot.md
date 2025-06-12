@@ -280,7 +280,7 @@ Moves the robot forward or backward by a specified distance.
 ### `rotate(angle)`
 Rotates the robot to a new absolute orientation.
 
-```
+```python
     def rotate(self, angle: float) -> None:
         if not self.is_active:
             self._logger.warning("Cannot rotate: Robot is inactive.")
