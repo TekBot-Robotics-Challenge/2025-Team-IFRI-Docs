@@ -15,8 +15,8 @@ La conception des pièces a été réalisée avec le logiciel de modélisation *
 - Tous les trous sont débouchants sauf indication contraire
 - **Matériau** : acier AISI 1020 ; Densité : 0,0079 g/mm^3
 
-![Pièce 1 - Vue détaillée](../../../media/mecasset/picture_piece_1_trc.jpg)
-![Pièce 1 - Vue complète](../../../media/mecasset/picture_piece_1_full.jpg)
+![Pièce 1 - Vue détaillée](../../media/mecasset/picture_piece_1_trc.jpg)
+![Pièce 1 - Vue complète](../../media/mecasset/picture_piece_1_full.jpg)
 
 **Etapes de réalisation de ce croquis**
 1. Création d'un nouveau projet
@@ -48,8 +48,8 @@ La conception des pièces a été réalisée avec le logiciel de modélisation *
 - Tous les trous sont débouchants sauf indication contraire
 - **Matériau** : Aluminium Alliage 1060 ; Densité : 0.0027 g/mm^3
 
-![Pièce 2 - Vue détaillée](../../../media/mecasset/picture_piece_2_trc.jpg)
-![Pièce 2 - Vue complète](../../../media/mecasset/picture_piece_2_full.jpg)
+![Pièce 2 - Vue détaillée](../../media/mecasset/picture_piece_2_trc.jpg)
+![Pièce 2 - Vue complète](../../media/mecasset/picture_piece_2_full.jpg)
 
 **Etapes de réalisation de ce croquis**
 1. Création d'un nouveau projet
@@ -80,8 +80,8 @@ La masse de cette pièce est **290.80 grammes**.
 - Tous les trous sont débouchants sauf indication contraire
 - **Matériau** : acier AISI 1020 ; Densité : 0,0079 g/mm^3
 
-![Pièce 3 - Vue détaillée](../../../media/mecasset/picture_piece_3_trc.jpg)
-![Pièce 3 - Vue complète](../../../media/mecasset/picture_piece_3_full.jpg)
+![Pièce 3 - Vue détaillée](../../media/mecasset/picture_piece_3_trc.jpg)
+![Pièce 3 - Vue complète](../../media/mecasset/picture_piece_3_full.jpg)
 
 **Etapes de réalisation de ce croquis**
 1. Esquisse du profil de base
@@ -113,8 +113,8 @@ La masse de cette pièce est **1633.25 grammes**.
 - Tous les trous sont débouchants sauf indication contraire
 - **Matériau** : Aluminium Alliage 1060 ; Densité : 0.0027 g/mm^3
 
-![Pièce 4 - Vue détaillée](../../../media/mecasset/picture_piece_4_trc.jpg)
-![Pièce 4 - Vue complète](../../../media/mecasset/picture_piece_4_full.jpg)
+![Pièce 4 - Vue détaillée](../../media/mecasset/picture_piece_4_trc.jpg)
+![Pièce 4 - Vue complète](../../media/mecasset/picture_piece_4_full.jpg)
 
 **Etapes de réalisation de ce croquis**
 1. Esquisse de base
@@ -153,8 +153,8 @@ La masse de cette pièce est **297.29 grammes**.
 - **Décimales** : 2
 - **Origine de l'assemblage** : Celui du fichier assemblage Pince
 
-![Détails de l'assemblage](../../../media/mecasset/Piece_assemblage_trc.jpg)
-![Vue d'ensemble de l'assemblage](../../../media/mecasset/Piece_assemblage.jpg)
+![Détails de l'assemblage](../../media/mecasset/Piece_assemblage_trc.jpg)
+![Vue d'ensemble de l'assemblage](../../media/mecasset/Piece_assemblage.jpg)
 
 L'étape de l'assemblage de pièces consiste à former une pince mécanique. Le travail a été réalisé en respectant les contraintes imposées par les plans d'assemblage.
 
