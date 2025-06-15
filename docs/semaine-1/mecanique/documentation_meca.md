@@ -38,6 +38,8 @@ La conception des pièces a été réalisée avec le logiciel de modélisation *
 6. Configuer la matière recommandée : **acier AISI 1020 ; Densité : 0,0079 g/mm^3**
    - Aller dans l'onglet **matériau** puis sélectionner éditer matériau puis choisir l'option acier AISI 1020.
 
+[Pièce 1](pieces/Piece_1/piece_1.SLDPRT)
+
 7. Calcul de la masse
    - Pour trouver la masse, aller dans l'onglet **propriété de masse** et régler la densité et les décimales. La masse de cette pièce est **2811.1991 grammes**.
 
@@ -69,7 +71,9 @@ La conception des pièces a été réalisée avec le logiciel de modélisation *
 6. Calcul de la masse
    - Attribuer le matériau : Aluminium Alliage 1060 via l'option **"Matériau"**.
    - Utiliser l'onglet **"Propriétés de masse"** pour obtenir la **masse exacte en grammes** de la pièce.
-     
+
+[Pièce 2](pieces/Piece_2/piece_2.SLDPRT)
+
 La masse de cette pièce est **290.80 grammes**.
 
 
@@ -103,6 +107,7 @@ La masse de cette pièce est **290.80 grammes**.
    - Attribuer le matériau demandé : **acier AISI 1020**.
    - Utiliser **"Propriétés de masse"** pour obtenir la **masse exacte en grammes**.
 
+[Pièce 3](pieces/Piece_3/piece_3.SLDPRT)
 La masse de cette pièce est **1633.25 grammes**.
 
 
@@ -145,6 +150,8 @@ La masse de cette pièce est **1633.25 grammes**.
 - Vérifier les contraintes dimensionnelles
 - Valider l'assemblage des différentes fonctions
 
+[Pièce 4](pieces/Piece_4/piece_4.SLDPRT)
+
 La masse de cette pièce est **297.29 grammes**.
 
 ### Assemblage
@@ -158,6 +165,9 @@ La masse de cette pièce est **297.29 grammes**.
 
 L'étape de l'assemblage de pièces consiste à former une pince mécanique. Le travail a été réalisé en respectant les contraintes imposées par les plans d'assemblage.
 
+[Pince](pieces/Assemblage/assemblage%20pince.SLDASM)
+
+
 a) Après avoir fixé l'embout de vérin dans sa position minimale, les coordonnées du centre de masse de cet assemblage sont les suivantes : 
 - X = **-29.15 mm**
 - Y = **0.16 mm**
@@ -169,7 +179,12 @@ a) Après avoir fixé l'embout de vérin dans sa position minimale, les coordonn
 - Z = **19.86 mm**
 
 ### Emplacement des fichiers
-Les fichiers contenant les pièces modélisées ainsi que l'assemblage sont situées dans le dossier **Beginner_test_meca**.
+Ci-joint les fichiers des pièces modélisées : 
+- [Pièce 1](pieces/Piece_1/piece_1.SLDPRT)
+- [Pièce 2](pieces/Piece_2/piece_2.SLDPRT)
+- [Pièce 3](pieces/Piece_3/piece_3.SLDPRT)
+- [Pièce 4](pieces/Piece_4/piece_4.SLDPRT)
+- [Pince](pieces/Assemblage/assemblage%20pince.SLDASM)
 
 ## Video de la Pince en mouvement
 
