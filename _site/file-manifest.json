@@ -1,0 +1,132 @@
+[
+  {
+    "id": "file-intro-md",
+    "name": "intro.md",
+    "type": "file",
+    "path": "docs/intro.md"
+  },
+  {
+    "id": "folder-accueil",
+    "name": "Accueil",
+    "type": "folder",
+    "path": "docs",
+    "children": [
+      {
+        "id": "file-accueil-md",
+        "name": "accueil.md",
+        "type": "file",
+        "path": "docs/accueil.md"
+      }
+    ]
+  },
+  {
+    "id": "folder-semaine-1",
+    "name": "Semaine 1 Tests Débutant",
+    "type": "folder",
+    "path": "docs/semaine-1",
+    "children": [
+      {
+        "id": "file-sem1-pres-md",
+        "name": "presentation.md",
+        "type": "file",
+        "path": "docs/semaine-1/presentation.md"
+      },
+      {
+        "id": "folder-electronique-1",
+        "name": "Électronique",
+        "type": "folder",
+        "path": "docs/semaine-1/electronique",
+        "children": [
+          {
+            "id": "file-readme-md",
+            "name": "README.md",
+            "type": "file",
+            "path": "docs/semaine-1/electronique/README.md"
+          }
+        ]
+      },
+      {
+        "id": "folder-it-1",
+        "name": "IT",
+        "type": "folder",
+        "path": "docs/semaine-1/it",
+        "children": [
+          {
+            "id": "file-robot-md",
+            "name": "robot.md",
+            "type": "file",
+            "path": "docs/semaine-1/it/robot.md"
+          },
+          {
+            "id": "file-roboticarm-md",
+            "name": "roboticarm.md",
+            "type": "file",
+            "path": "docs/semaine-1/it/roboticarm.md"
+          },
+          {
+            "id": "file-wheeledrobot-md",
+            "name": "wheeledrobot.md",
+            "type": "file",
+            "path": "docs/semaine-1/it/wheeledrobot.md"
+          }
+        ]
+      },
+      {
+        "id": "folder-mecanique-1",
+        "name": "Mécanique",
+        "type": "folder",
+        "path": "docs/semaine-1/mecanique",
+        "children": [
+          {
+            "id": "file-documentation-meca-md",
+            "name": "documentation_meca.md",
+            "type": "file",
+            "path": "docs/semaine-1/mecanique/documentation_meca.md"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "folder-semaine-2",
+    "name": "Semaine 2 (À venir)",
+    "type": "folder",
+    "path": "docs/semaine-2",
+    "children": [
+      {
+        "id": "file-sem2-pres-md",
+        "name": "presentation.md",
+        "type": "file",
+        "path": "docs/semaine-2/presentation.md"
+      }
+    ]
+  },
+  {
+    "id": "folder-semaine-3",
+    "name": "Semaine 3 (À venir)",
+    "type": "folder",
+    "path": "docs/semaine-3",
+    "children": [
+      {
+        "id": "file-sem3-pres-md",
+        "name": "presentation.md",
+        "type": "file",
+        "path": "docs/semaine-3/presentation.md"
+      }
+    ]
+  },
+  {
+    "id": "folder-test-final",
+    "name": "Test Final (À venir)",
+    "type": "folder",
+    "path": "docs/test-final",
+    "children": [
+      {
+        "id": "file-testfinal-pres-md",
+        "name": "presentation.md",
+        "type": "file",
+        "path": "docs/test-final/presentation.md"
+      }
+    ]
+  }
+]

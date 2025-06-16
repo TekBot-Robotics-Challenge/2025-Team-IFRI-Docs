@@ -1,0 +1,18 @@
+title: Documentation Équipe IFRI 2025
+description: Documentation technique et guides pour l'équipe IFRI
+baseurl: ""
+
+# Configuration pour GitHub Pages
+theme: jekyll-theme-minimal
+
+# Plugins
+plugins:
+  - jekyll-relative-links
+
+# Exclusions
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - vendor

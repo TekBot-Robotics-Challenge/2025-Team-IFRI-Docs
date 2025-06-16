@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoboticArm Class Documentation | Documentation Équipe IFRI 2025</title>
+  <link rel="stylesheet" href="/assets/css/style.css?v=6408b52a12175e3c1ed23c5c9a9f1329786875ad">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="sidebar">
+  <div class="sidebar-header">
+    <img src="/assets/images/logo.png" alt="Logo" class="logo">
+    <h2>TRC 2025</h2>
+  </div>
+  
+  <ul class="sidebar-nav">
+    <!-- Accueil -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-home"></i> ACCUEIL
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item ">
+          <a href="/">Introduction</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/accueil">Présentation détaillée</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Semaine 1 -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-calendar-week"></i> SEMAINE 1
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item ">
+          <a href="/docs/semaine-1/presentation">Présentation</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-1/electronique/README">Électronique: Gyroscope</a>
+        </li>
+        <li class="nav-item active">
+          <a href="/docs/semaine-1/it/robot">IT: Gestion Robot</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-1/mecanique/documentation_meca">Mécanique: Conception</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Semaine 2 -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-calendar-week"></i> SEMAINE 2
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item ">
+          <a href="/docs/semaine-2/presentation">Présentation</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-2/electronique">Électronique: Boîte noire</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-2/it">IT: ROS2</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-2/mecanique">Mécanique: Intermédiaire</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Semaine 3 -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-calendar-week"></i> SEMAINE 3
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item ">
+          <a href="/docs/semaine-3/presentation">Présentation</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-3/electronique">Électronique: Afficheur</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-3/it">IT: Pathfinding</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-3/mecanique">Mécanique: Avancé</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Test Final -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-trophy"></i> TEST FINAL
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item ">
+          <a href="/docs/test-final/presentation">Présentation</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/test-final/guide-test-final">Guide du test final</a>
+        </li>
+      </ul>
+    </div>
+  </ul>
+</div>
+
+
+    
+    <div class="main-content">
+      <header class="header">
+  <div class="header-title">
+    <h1>RoboticArm Class Documentation</h1>
+  </div>
+  <div class="header-actions">
+    <div class="header-search">
+      <input type="text" class="search-bar" placeholder="Rechercher..." id="searchInput">
+    </div>
+    <div class="header-theme-toggle">
+      <button id="themeToggle" aria-label="Changer de thème">🌙</button>
+    </div>
+  </div>
+</header>
+
+      
+      <div class="markdown-content">
+        <h1 id="roboticarm-class-documentation"><code class="language-plaintext highlighter-rouge">RoboticArm</code> Class Documentation</h1>
+
+<p><img src="/docs/semaine-1/it/robotic_arm.svg" alt="RoboticArm" /></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">RoboticArm</code> class is a concrete implementation of the <code class="language-plaintext highlighter-rouge">Robot</code> abstract base class. It models an articulated robotic arm with multiple joints, capable of precise movements, picking up, and placing objects.</p>
+
+<h2 id="purpose">Purpose</h2>
+
+<ul>
+  <li>To simulate a stationary or mounted robotic arm with multiple degrees of freedom (represented by joints).</li>
+  <li>To provide functionalities for controlling joint angles, moving the end effector to specific positions, and manipulating objects.</li>
+  <li>To manage the state of the arm, including what item it might be holding.</li>
+</ul>
+
+<h2 id="properties">Properties</h2>
+
+<p>Inherits all properties from <code class="language-plaintext highlighter-rouge">Robot</code> (<code class="language-plaintext highlighter-rouge">id</code>, <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">position</code> (base position), <code class="language-plaintext highlighter-rouge">orientation</code> (base orientation), <code class="language-plaintext highlighter-rouge">energy_source</code>, <code class="language-plaintext highlighter-rouge">generator_level</code>, <code class="language-plaintext highlighter-rouge">is_active</code>, <code class="language-plaintext highlighter-rouge">sensors</code>).</p>
+
+<h3 id="joint_angles"><code class="language-plaintext highlighter-rouge">joint_angles</code></h3>
+<p>A list of current angles for each joint of the robotic arm, in degrees.</p>
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">List[float]</code></li>
+  <li><strong>Access:</strong> Read-write (setter normalizes angles to 0-359.99… degrees and logs changes).</li>
+  <li><strong>Description:</strong> The length of the list is determined by <code class="language-plaintext highlighter-rouge">num_joints</code>.</li>
+</ul>
+
+<h3 id="num_joints"><code class="language-plaintext highlighter-rouge">num_joints</code></h3>
+<p>The number of joints in the robotic arm.</p>
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">int</code></li>
+  <li><strong>Access:</strong> Read-only</li>
+  <li><strong>Description:</strong> Must be at least 2.</li>
+</ul>
+
+<h3 id="end_effector_position"><code class="language-plaintext highlighter-rouge">end_effector_position</code></h3>
+<p>The current (x, y) coordinates of the arm’s end effector (gripper/tool).</p>
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Tuple[float, float]</code></li>
+  <li><strong>Access:</strong> Read-only (updated by <code class="language-plaintext highlighter-rouge">move</code> method).</li>
+</ul>
+
+<h3 id="holding_item"><code class="language-plaintext highlighter-rouge">holding_item</code></h3>
+<p>The item currently being held by the end effector.</p>
+<ul>
+  <li><strong>Type:</strong> <code class="language-plaintext highlighter-rouge">Optional[str]</code> (or <code class="language-plaintext highlighter-rouge">Any</code>, depending on how items are represented)</li>
+  <li><strong>Access:</strong> Read-only (updated by <code class="language-plaintext highlighter-rouge">pick</code> and <code class="language-plaintext highlighter-rouge">place</code> methods).</li>
+</ul>
+
+<h2 id="initialization">Initialization</h2>
+
+<h3 id="__init__name-position-orientation-energy_source-num_joints6"><code class="language-plaintext highlighter-rouge">__init__(name, position, orientation, energy_source, num_joints=6)</code></h3>
+<p>Initializes a new <code class="language-plaintext highlighter-rouge">RoboticArm</code> instance.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">position</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+            <span class="n">orientation</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">energy_source</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">num_joints</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="s">"""
+        Initialize the robotic arm with the given parameters.
+        """</span>
+        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="n">orientation</span><span class="p">,</span> <span class="n">energy_source</span><span class="o">=</span><span class="n">energy_source</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">num_joints</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">num_joints</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">"A robotic arm must have at least 2 joints."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_joint_angles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_joints</span>  <span class="c1"># Angles in degrees
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">_num_joints</span> <span class="o">=</span> <span class="n">num_joints</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_end_effector_position</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">position</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_holding_item</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Parameters:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">name</code> (<code class="language-plaintext highlighter-rouge">str</code>): Name of the robotic arm.</li>
+      <li><code class="language-plaintext highlighter-rouge">position</code> (<code class="language-plaintext highlighter-rouge">Tuple[float, float]</code>): The (x, y) coordinates of the arm’s base.</li>
+      <li><code class="language-plaintext highlighter-rouge">orientation</code> (<code class="language-plaintext highlighter-rouge">float</code>): The base orientation of the arm in radians.</li>
+      <li><code class="language-plaintext highlighter-rouge">energy_source</code> (<code class="language-plaintext highlighter-rouge">str</code>): Energy source (from <code class="language-plaintext highlighter-rouge">Robot.ENERGY_SOURCE</code>).</li>
+      <li><code class="language-plaintext highlighter-rouge">num_joints</code> (<code class="language-plaintext highlighter-rouge">int</code>, optional): The number of joints for the arm. Defaults to 6. Must be &gt;= 2.</li>
+    </ul>
+  </li>
+  <li><strong>Raises:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ValueError</code>: If <code class="language-plaintext highlighter-rouge">num_joints</code> is less than 2, or if <code class="language-plaintext highlighter-rouge">energy_source</code> is invalid (via <code class="language-plaintext highlighter-rouge">super().__init__</code>).</li>
+      <li><code class="language-plaintext highlighter-rouge">TypeError</code>: For invalid parameter types (via <code class="language-plaintext highlighter-rouge">super().__init__</code> or direct checks).</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Example:</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">robot</span> <span class="kn">import</span> <span class="n">Robot</span>
+<span class="kn">from</span> <span class="nn">roboticArm</span> <span class="kn">import</span> <span class="n">RoboticArm</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">arm</span> <span class="o">=</span> <span class="n">RoboticArm</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">"Dexter"</span><span class="p">,</span>
+    <span class="n">position</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+    <span class="n">orientation</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">energy_source</span><span class="o">=</span><span class="s">"electric"</span><span class="p">,</span>
+    <span class="n">num_joints</span><span class="o">=</span><span class="mi">4</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Created robotic arm: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> with </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">num_joints</span><span class="si">}</span><span class="s"> joints."</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Initial joint angles: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">joint_angles</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="properties--setter">Properties &amp; Setter</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">joint_angles</code></td>
+      <td>Copy of current angles (degrees).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">num_joints</code></td>
+      <td>Read-only joint count.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">end_effector_position</code></td>
+      <td>Current (x, y) of end-effector.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">holding_item</code></td>
+      <td>Name of grasped item or <code class="language-plaintext highlighter-rouge">None</code>.</td>
+    </tr>
+    <tr>
+      <td>Setter <code class="language-plaintext highlighter-rouge">joint_angles</code></td>
+      <td>Validates list length and numeric values, wraps to [0, 360).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="methods">Methods</h2>
+
+<h3 id="movetarget_position"><code class="language-plaintext highlighter-rouge">move(target_position)</code></h3>
+<p>Moves the arm’s end effector to a specified target (x, y) position. This is a simplified 2D movement.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_position</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="s">"""
+    Move the end effector to a target position (2D for simplicity).
+    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">.</span><span class="n">is_active</span><span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">warning</span><span class="p">(</span><span class="s">"Cannot move: Robotic arm is inactive."</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">target_position</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_position</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">"Target position must be a tuple (x, y)."</span><span class="p">)</span>
+    
+    <span class="n">angle</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">target_position</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="p">.</span><span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">target_position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="p">.</span><span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">_joint_angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">angle</span> <span class="o">/</span> <span class="bp">self</span><span class="p">.</span><span class="n">_num_joints</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">_num_joints</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">_end_effector_position</span> <span class="o">=</span> <span class="n">target_position</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">consume_energy</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s">"Moved end effector to </span><span class="si">{</span><span class="n">target_position</span><span class="si">}</span><span class="s"> with joint angles </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">_joint_angles</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Parameters:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">target_position</code> (<code class="language-plaintext highlighter-rouge">Tuple[float, float]</code>): The desired (x, y) coordinates for the end effector.</li>
+    </ul>
+  </li>
+  <li><strong>Returns:</strong> <code class="language-plaintext highlighter-rouge">None</code></li>
+  <li><strong>Description:</strong> If active, calculates a simplified angle to the target and distributes it among joints. Updates <code class="language-plaintext highlighter-rouge">_end_effector_position</code>. Consumes energy. Logs the movement.</li>
+  <li><strong>Raises:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ValueError</code>: If <code class="language-plaintext highlighter-rouge">target_position</code> is not a tuple (x, y).</li>
+    </ul>
+  </li>
+  <li><strong>Example:</strong>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arm</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">arm</span><span class="p">.</span><span class="n">generator_level</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Initial end effector position: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">end_effector_position</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="n">arm</span><span class="p">.</span><span class="n">move</span><span class="p">((</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span> <span class="c1"># Move to (1.0, 0.5)
+</span><span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"New end effector position: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">end_effector_position</span><span class="si">}</span><span class="s">, Joint angles: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">joint_angles</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="rotatejoint_index-angle"><code class="language-plaintext highlighter-rouge">rotate(joint_index, angle)</code></h3>
+<p>Rotates a specific joint of the arm by a given angle (relative rotation).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joint_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">angle</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="s">"""
+        Rotate a specific joint by a given angle (in degrees).
+        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">warning</span><span class="p">(</span><span class="s">"Cannot rotate: Robotic arm is inactive."</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">joint_index</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">_num_joints</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="nb">IndexError</span><span class="p">(</span><span class="s">"Invalid joint index."</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="p">.</span><span class="n">_joint_angles</span><span class="p">[</span><span class="n">joint_index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">_joint_angles</span><span class="p">[</span><span class="n">joint_index</span><span class="p">]</span> <span class="o">+</span> <span class="n">angle</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">orientation</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">degrees</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">orientation</span><span class="p">)</span> <span class="o">+</span> <span class="n">angle</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">consume_energy</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s">"Rotated joint </span><span class="si">{</span><span class="n">joint_index</span><span class="si">}</span><span class="s"> by </span><span class="si">{</span><span class="n">angle</span><span class="si">}</span><span class="s"> radians. New angle: </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">_joint_angles</span><span class="p">[</span><span class="n">joint_index</span><span class="p">]</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Parameters:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">joint_index</code> (<code class="language-plaintext highlighter-rouge">int</code>): The index of the joint to rotate (0 to <code class="language-plaintext highlighter-rouge">num_joints - 1</code>).</li>
+      <li><code class="language-plaintext highlighter-rouge">angle</code> (<code class="language-plaintext highlighter-rouge">float</code>): The angle in degrees to rotate the joint by (can be positive or negative).</li>
+    </ul>
+  </li>
+  <li><strong>Returns:</strong> <code class="language-plaintext highlighter-rouge">None</code></li>
+  <li><strong>Description:</strong> If active, updates the specified joint’s angle (normalized to 0-360). Also updates the arm’s base <code class="language-plaintext highlighter-rouge">orientation</code> by the same angle (this might be an oversimplification depending on the arm’s kinematics model). Consumes energy. Logs the rotation.</li>
+  <li><strong>Raises:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">IndexError</code>: If <code class="language-plaintext highlighter-rouge">joint_index</code> is invalid.</li>
+    </ul>
+  </li>
+  <li><strong>Example:</strong>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arm</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">arm</span><span class="p">.</span><span class="n">generator_level</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Initial angle of joint 0: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">joint_angles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="n">arm</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">joint_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mf">45.0</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"New angle of joint 0: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">joint_angles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s">, Arm orientation: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">orientation</span><span class="si">}</span><span class="s"> rad"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="stop"><code class="language-plaintext highlighter-rouge">stop()</code></h3>
+<p>Stops all movements of the robotic arm and deactivates it.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="s">"""
+        Stop all movements of the robotic arm.
+        """</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">is_active</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Robotic arm stopped."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Returns:</strong> <code class="language-plaintext highlighter-rouge">None</code></li>
+  <li><strong>Description:</strong> Sets <code class="language-plaintext highlighter-rouge">is_active</code> to <code class="language-plaintext highlighter-rouge">False</code>. Logs the stop action.</li>
+  <li><strong>Example:</strong>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arm</span><span class="p">.</span><span class="n">move</span><span class="p">((</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">arm</span><span class="p">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Arm active: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">is_active</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="status"><code class="language-plaintext highlighter-rouge">status()</code></h3>
+<p>Provides a string summarizing the current status of the <code class="language-plaintext highlighter-rouge">RoboticArm</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s">"RoboticArm(ID: </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="nb">id</span><span class="si">}</span><span class="s">, Name: </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">, Position: </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">position</span><span class="si">}</span><span class="s">, "</span>
+                <span class="sa">f</span><span class="s">"End-Effector: </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">_end_effector_position</span><span class="si">}</span><span class="s">, Orientation: </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">orientation</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s"> rad, "</span>
+                <span class="sa">f</span><span class="s">"Joints: </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">_joint_angles</span><span class="si">}</span><span class="s">, Holding: </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">_holding_item</span><span class="si">}</span><span class="s">, "</span>
+                <span class="sa">f</span><span class="s">"Active: </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">is_active</span><span class="si">}</span><span class="s">, Generator level: </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">generator_level</span><span class="si">}</span><span class="s">)"</span><span class="p">)</span>
+</code></pre></div></div>
+<ul>
+  <li><strong>Returns:</strong> <code class="language-plaintext highlighter-rouge">str</code></li>
+  <li><strong>Description:</strong> Includes ID, name, base position, end-effector position, base orientation, joint angles, holding item, active status, and generator level.</li>
+  <li><strong>Example:</strong>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">arm</span><span class="p">.</span><span class="n">status</span><span class="p">())</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="set_joint_anglejoint_index-angle"><code class="language-plaintext highlighter-rouge">set_joint_angle(joint_index, angle)</code></h3>
+<p>Sets a specific joint to a given absolute angle.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">set_joint_angle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joint_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">angle</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="s">"""
+        Set a specific joint to a given angle (in degrees).
+        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">joint_index</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">_num_joints</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="nb">IndexError</span><span class="p">(</span><span class="s">"Invalid joint index."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_joint_angles</span><span class="p">[</span><span class="n">joint_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">angle</span> <span class="o">%</span> <span class="mi">360</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s">"Set joint </span><span class="si">{</span><span class="n">joint_index</span><span class="si">}</span><span class="s"> to </span><span class="si">{</span><span class="n">angle</span><span class="si">}</span><span class="s"> degrees."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Parameters:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">joint_index</code> (<code class="language-plaintext highlighter-rouge">int</code>): The index of the joint to set.</li>
+      <li><code class="language-plaintext highlighter-rouge">angle</code> (<code class="language-plaintext highlighter-rouge">float</code>): The desired absolute angle in degrees for the joint (will be normalized to 0-360).</li>
+    </ul>
+  </li>
+  <li><strong>Returns:</strong> <code class="language-plaintext highlighter-rouge">None</code></li>
+  <li><strong>Description:</strong> Logs the action.</li>
+  <li><strong>Raises:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">IndexError</code>: If <code class="language-plaintext highlighter-rouge">joint_index</code> is invalid.</li>
+    </ul>
+  </li>
+  <li><strong>Example:</strong>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arm</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">arm</span><span class="p">.</span><span class="n">set_joint_angle</span><span class="p">(</span><span class="n">joint_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mf">90.0</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Joint 1 angle set to: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">joint_angles</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="reset_arm"><code class="language-plaintext highlighter-rouge">reset_arm()</code></h3>
+<p>Resets all joint angles to zero, moves the end effector to the arm’s base position, and clears any held item.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">reset_arm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">_joint_angles</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">_num_joints</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">_end_effector_position</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">position</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">_holding_item</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Robotic arm reset to home position."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Returns:</strong> <code class="language-plaintext highlighter-rouge">None</code></li>
+  <li><strong>Description:</strong> Logs the reset action.</li>
+  <li><strong>Example:</strong>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arm</span><span class="p">.</span><span class="n">move</span><span class="p">((</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="n">arm</span><span class="p">.</span><span class="n">pick</span><span class="p">(</span><span class="s">"SampleBox"</span><span class="p">)</span>
+<span class="n">arm</span><span class="p">.</span><span class="n">reset_arm</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Arm reset. Joints: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">joint_angles</span><span class="si">}</span><span class="s">, End Effector: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">end_effector_position</span><span class="si">}</span><span class="s">, Holding: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">holding_item</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="pickitem"><code class="language-plaintext highlighter-rouge">pick(item)</code></h3>
+<p>Picks up an item with the robotic arm’s end effector.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">pick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="s">"""
+        Pick up an item with the robotic arm's end effector.
+        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s">"Cannot pick </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s">: Robotic arm is inactive."</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">_holding_item</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s">"Already holding </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">_holding_item</span><span class="si">}</span><span class="s">, cannot pick </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s">."</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_holding_item</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">consume_energy</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s">"Picked up </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s"> at </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">_end_effector_position</span><span class="si">}</span><span class="s">."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Parameters:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">item</code> (<code class="language-plaintext highlighter-rouge">str</code>): The name or identifier of the item to pick up.</li>
+    </ul>
+  </li>
+  <li><strong>Returns:</strong> <code class="language-plaintext highlighter-rouge">None</code></li>
+  <li><strong>Description:</strong> If active and not already holding an item, sets <code class="language-plaintext highlighter-rouge">_holding_item</code> to the specified <code class="language-plaintext highlighter-rouge">item</code>. Consumes energy. Logs the action.</li>
+  <li><strong>Example:</strong>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arm</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">arm</span><span class="p">.</span><span class="n">generator_level</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">arm</span><span class="p">.</span><span class="n">move</span><span class="p">((</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span> <span class="c1"># Move to item location
+</span><span class="n">arm</span><span class="p">.</span><span class="n">pick</span><span class="p">(</span><span class="s">"ComponentA"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Arm is now holding: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">holding_item</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="placeitem-target_position"><code class="language-plaintext highlighter-rouge">place(item, target_position)</code></h3>
+<p>Places the currently held item at a target position.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">place</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_position</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="s">"""
+        Place the currently held item at a target position or Storage Bag.
+        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s">"Cannot place </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s">: Robotic arm is inactive."</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">_holding_item</span> <span class="o">!=</span> <span class="n">item</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s">"Cannot place </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s">: Not currently holding it."</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="n">target_position</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_holding_item</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">consume_energy</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s">"Placed </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s"> at </span><span class="si">{</span><span class="n">target_position</span><span class="si">}</span><span class="s">."</span><span class="p">)</span>
+</code></pre></div></div>
+<ul>
+  <li><strong>Parameters:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">item</code> (<code class="language-plaintext highlighter-rouge">str</code>): The name or identifier of the item to place (must match <code class="language-plaintext highlighter-rouge">_holding_item</code>).</li>
+      <li><code class="language-plaintext highlighter-rouge">target_position</code> (<code class="language-plaintext highlighter-rouge">Tuple[float, float]</code>): The (x, y) coordinates where the item should be placed.</li>
+    </ul>
+  </li>
+  <li><strong>Returns:</strong> <code class="language-plaintext highlighter-rouge">None</code></li>
+  <li><strong>Description:</strong> If active and holding the specified <code class="language-plaintext highlighter-rouge">item</code>, moves the end effector to <code class="language-plaintext highlighter-rouge">target_position</code>, then clears <code class="language-plaintext highlighter-rouge">_holding_item</code>. Consumes energy. Logs the action.</li>
+  <li><strong>Example:</strong>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">arm</span><span class="p">.</span><span class="n">holding_item</span> <span class="o">==</span> <span class="s">"ComponentA"</span><span class="p">:</span>
+    <span class="n">arm</span><span class="p">.</span><span class="n">place</span><span class="p">(</span><span class="s">"ComponentA"</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Placed ComponentA. Arm holding: </span><span class="si">{</span><span class="n">arm</span><span class="p">.</span><span class="n">holding_item</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Not holding ComponentA or arm inactive."</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="example-scenario-pick-and-place-operation">Example Scenario: Pick and Place Operation</h2>
+
+<p>This scenario demonstrates initializing a <code class="language-plaintext highlighter-rouge">RoboticArm</code>, activating it, moving its end effector, picking up an object, moving again, and then placing the object.</p>
+
+<p><a href="../../tests/test_robotic_arm.py">Test RoboticArm Example</a></p>
+
+      </div>
+      
+      <footer class="site-footer">
+        <p>&copy; 2025 Documentation Équipe IFRI 2025. Tous droits réservés.</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
+      <footer>
+        <p>&copy; 2025 Équipe IFRI. Tous droits réservés.</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

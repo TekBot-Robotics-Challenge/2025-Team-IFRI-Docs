@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Semaine 2 : Tests Intermédiaires | Documentation Équipe IFRI 2025</title>
+  <link rel="stylesheet" href="/assets/css/style.css?v=6408b52a12175e3c1ed23c5c9a9f1329786875ad">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="sidebar">
+  <div class="sidebar-header">
+    <img src="/assets/images/logo.png" alt="Logo" class="logo">
+    <h2>TRC 2025</h2>
+  </div>
+  
+  <ul class="sidebar-nav">
+    <!-- Accueil -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-home"></i> ACCUEIL
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item ">
+          <a href="/">Introduction</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/accueil">Présentation détaillée</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Semaine 1 -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-calendar-week"></i> SEMAINE 1
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item ">
+          <a href="/docs/semaine-1/presentation">Présentation</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-1/electronique/README">Électronique: Gyroscope</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-1/it/robot">IT: Gestion Robot</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-1/mecanique/documentation_meca">Mécanique: Conception</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Semaine 2 -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-calendar-week"></i> SEMAINE 2
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item active">
+          <a href="/docs/semaine-2/presentation">Présentation</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-2/electronique">Électronique: Boîte noire</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-2/it">IT: ROS2</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-2/mecanique">Mécanique: Intermédiaire</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Semaine 3 -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-calendar-week"></i> SEMAINE 3
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item ">
+          <a href="/docs/semaine-3/presentation">Présentation</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-3/electronique">Électronique: Afficheur</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-3/it">IT: Pathfinding</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/semaine-3/mecanique">Mécanique: Avancé</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Test Final -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-trophy"></i> TEST FINAL
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item ">
+          <a href="/docs/test-final/presentation">Présentation</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/docs/test-final/guide-test-final">Guide du test final</a>
+        </li>
+      </ul>
+    </div>
+  </ul>
+</div>
+
+
+    
+    <div class="main-content">
+      <header class="header">
+  <div class="header-title">
+    <h1>Semaine 2 : Tests Intermédiaires</h1>
+  </div>
+  <div class="header-actions">
+    <div class="header-search">
+      <input type="text" class="search-bar" placeholder="Rechercher..." id="searchInput">
+    </div>
+    <div class="header-theme-toggle">
+      <button id="themeToggle" aria-label="Changer de thème">🌙</button>
+    </div>
+  </div>
+</header>
+
+      
+      <div class="markdown-content">
+        <h1 id="semaine-2--tests-intermédiaires">Semaine 2 : Tests Intermédiaires</h1>
+
+<p>⚠️ <strong>Note importante : La documentation détaillée de cette phase n’est pas encore disponible car cette étape de la compétition n’a pas encore débuté.</strong></p>
+
+<p><em>La documentation complète sera publiée au début de la semaine 2.</em></p>
+
+<h2 id="présentation-générale">Présentation générale</h2>
+
+<p>Cette deuxième semaine est consacrée aux tests de niveau intermédiaire pour chaque domaine. Ces tests permettront d’évaluer des compétences plus avancées et la capacité à gérer des projets plus complexes.</p>
+
+<h2 id="tests-par-domaine">Tests par domaine</h2>
+
+<h3 id="test-électronique--la-boîte-noire">Test Électronique : La boîte noire</h3>
+<p>Le test consiste à réaliser un système d’enregistrement et de transmission de données :</p>
+<ul>
+  <li>Conception d’une boîte noire avec le capteur de la semaine 1</li>
+  <li>Transmission des données en temps réel via I2C</li>
+  <li>Réalisation d’un PCB avec Atmega328P</li>
+  <li>Station de contrôle avec affichage LCD</li>
+</ul>
+
+<h3 id="test-it--introduction-à-ros2">Test IT : Introduction à ROS2</h3>
+<p>Le test vise à évaluer les compétences en robotique avec ROS2 :</p>
+<ul>
+  <li>Création d’un package ROS2 pour la gestion de capteurs</li>
+  <li>Implémentation de nodes publisher et subscriber</li>
+  <li>Gestion des données de capteurs en temps réel</li>
+  <li>Documentation et tests du système</li>
+</ul>
+
+<h3 id="test-mécanique--conception-intermédiaire">Test Mécanique : Conception intermédiaire</h3>
+<p>Le test évalue les compétences avancées en CAO :</p>
+<ul>
+  <li>Modélisation de pièces complexes</li>
+  <li>Gestion des modifications et des contraintes</li>
+  <li>Assemblage de maillons de chaîne</li>
+  <li>Calculs de centres de masse</li>
+</ul>
+
+<h2 id="planning-de-la-semaine">Planning de la semaine</h2>
+
+<ul>
+  <li><strong>Du 12/06 au 18/06/2025</strong> : Réalisation des tests</li>
+  <li><strong>19/06/2025 (16h-18h)</strong> : Présentation et évaluation
+    <ul>
+      <li>Revue des réalisations</li>
+      <li>Démonstration du fonctionnement</li>
+      <li>Questions-réponses avec le jury</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="livrables-attendus">Livrables attendus</h2>
+
+<p>Pour chaque test :</p>
+<ul>
+  <li>Code source et documentation sur GitHub</li>
+  <li>Schémas électroniques et PCB (pour l’électronique)</li>
+  <li>Modèles 3D et assemblages (pour la mécanique)</li>
+  <li>Package ROS2 fonctionnel (pour l’IT)</li>
+  <li>Vidéos de démonstration</li>
+  <li>Présentation pour la revue finale</li>
+</ul>
+
+      </div>
+      
+      <footer class="site-footer">
+        <p>&copy; 2025 Documentation Équipe IFRI 2025. Tous droits réservés.</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
+      <footer>
+        <p>&copy; 2025 Équipe IFRI. Tous droits réservés.</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

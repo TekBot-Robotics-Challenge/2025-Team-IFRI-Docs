@@ -1,0 +1,5 @@
+{
+  "name": "Docusaurus Structure Visualizer",
+  "description": "A React application to visualize a Docusaurus project's file and folder structure with an interactive tree view. Helps understand and navigate complex documentation layouts.",
+  "requestFramePermissions": []
+}

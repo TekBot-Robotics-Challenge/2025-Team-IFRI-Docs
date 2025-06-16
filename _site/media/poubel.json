@@ -1,0 +1,62 @@
+{
+    "id": "folder-semaine-2",
+    "name": "Semaine 2 (12/06-19/06)",
+    "type": "folder",
+    "path": "docs/semaine-2",
+    "children": [
+      { "id": "file-sem2-cat-json", "name": "_category_.json", "type": "file", "path": "docs/semaine-2/_category_.json" },
+      { "id": "file-sem2-pres-md", "name": "presentation.md", "type": "file", "path": "docs/semaine-2/presentation.md" },
+      {
+        "id": "folder-sem2-mecanique", "name": "Mécanique", "type": "folder", "path": "docs/semaine-2/mecanique",
+        "children": [
+          { "id": "file-sem2-meca-cat-json", "name": "_category_.json", "type": "file", "path": "docs/semaine-2/mecanique/_category_.json" },
+          { "id": "file-sem2-meca-integration-md", "name": "integration-moteurs.md", "type": "file", "path": "docs/semaine-2/mecanique/integration-moteurs.md" }
+        ]
+      },
+      {
+        "id": "folder-sem2-it", "name": "IT", "type": "folder", "path": "docs/semaine-2/it",
+        "children": [
+          { "id": "file-sem2-it-cat-json", "name": "_category_.json", "type": "file", "path": "docs/semaine-2/it/_category_.json" },
+          { "id": "file-sem2-it-debug-md", "name": "debuggage-code.md", "type": "file", "path": "docs/semaine-2/it/debuggage-code.md" },
+          { "id": "file-sem2-it-mouvement-md", "name": "programmation-mouvements.md", "type": "file", "path": "docs/semaine-2/it/programmation-mouvements.md" }
+        ]
+      },
+      {
+        "id": "folder-sem2-electronique", "name": "Électronique", "type": "folder", "path": "docs/semaine-2/electronique",
+        "children": [
+          { "id": "file-sem2-elec-cat-json", "name": "_category_.json", "type": "file", "path": "docs/semaine-2/electronique/_category_.json" },
+          { "id": "file-sem2-elec-capteurs-md", "name": "interface-capteurs.md", "type": "file", "path": "docs/semaine-2/electronique/interface-capteurs.md" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "folder-semaine-3",
+    "name": "Semaine 3 (19/06-26/06)",
+    "type": "folder",
+    "path": "docs/semaine-3",
+    "children": [
+      { "id": "file-sem3-cat-json", "name": "_category_.json", "type": "file", "path": "docs/semaine-3/_category_.json" },
+      { "id": "file-sem3-pres-md", "name": "presentation.md", "type": "file", "path": "docs/semaine-3/presentation.md" }
+    ]
+  },
+  {
+    "id": "folder-test-final",
+    "name": "Test Final (26/06-10/07)",
+    "type": "folder",
+    "path": "docs/test-final",
+    "children": [
+      { "id": "file-testfinal-cat-json", "name": "_category_.json", "type": "file", "path": "docs/test-final/_category_.json" },
+      { "id": "file-testfinal-guide-md", "name": "guide-test-final.md", "type": "file", "path": "docs/test-final/guide-test-final.md" }
+    ]
+  },
+  {
+    "id": "folder-hidden-ideas",
+    "name": "_idees-non-classees",
+    "type": "folder",
+    "path": "docs/_idees-non-classees",
+    "children": [
+        { "id": "file-hidden-idea1-md", "name": "idee1.md", "type": "file", "path": "docs/_idees-non-classees/idee1.md"}
+    ]
+  }
+]

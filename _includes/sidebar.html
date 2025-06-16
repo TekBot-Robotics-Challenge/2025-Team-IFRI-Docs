@@ -1,0 +1,102 @@
+<div class="sidebar">
+  <div class="sidebar-header">
+    <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Logo" class="logo">
+    <h2>TRC 2025</h2>
+  </div>
+  
+  <ul class="sidebar-nav">
+    <!-- Accueil -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-home"></i> ACCUEIL
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item {% if page.url == '/' or page.url contains '/index.html' %}active{% endif %}">
+          <a href="{{ '/' | relative_url }}">Introduction</a>
+        </li>
+        <li class="nav-item {% if page.url contains '/accueil' %}active{% endif %}">
+          <a href="{{ '/accueil' | relative_url }}">Présentation détaillée</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Semaine 1 -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-calendar-week"></i> SEMAINE 1
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item {% if page.url contains '/docs/semaine-1/presentation' %}active{% endif %}">
+          <a href="{{ '/docs/semaine-1/presentation' | relative_url }}">Présentation</a>
+        </li>
+        <li class="nav-item {% if page.url contains '/docs/semaine-1/electronique/README' %}active{% endif %}">
+          <a href="{{ '/docs/semaine-1/electronique/README' | relative_url }}">Électronique: Gyroscope</a>
+        </li>
+        <li class="nav-item {% if page.url contains '/docs/semaine-1/it/robot' %}active{% endif %}">
+          <a href="{{ '/docs/semaine-1/it/robot' | relative_url }}">IT: Gestion Robot</a>
+        </li>
+        <li class="nav-item {% if page.url contains '/docs/semaine-1/mecanique/documentation_meca' %}active{% endif %}">
+          <a href="{{ '/docs/semaine-1/mecanique/documentation_meca' | relative_url }}">Mécanique: Conception</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Semaine 2 -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-calendar-week"></i> SEMAINE 2
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item {% if page.url contains '/docs/semaine-2/presentation' %}active{% endif %}">
+          <a href="{{ '/docs/semaine-2/presentation' | relative_url }}">Présentation</a>
+        </li>
+        <li class="nav-item {% if page.url contains '/docs/semaine-2/electronique' %}active{% endif %}">
+          <a href="{{ '/docs/semaine-2/electronique' | relative_url }}">Électronique: Boîte noire</a>
+        </li>
+        <li class="nav-item {% if page.url contains '/docs/semaine-2/it' %}active{% endif %}">
+          <a href="{{ '/docs/semaine-2/it' | relative_url }}">IT: ROS2</a>
+        </li>
+        <li class="nav-item {% if page.url contains '/docs/semaine-2/mecanique' %}active{% endif %}">
+          <a href="{{ '/docs/semaine-2/mecanique' | relative_url }}">Mécanique: Intermédiaire</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Semaine 3 -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-calendar-week"></i> SEMAINE 3
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item {% if page.url contains '/docs/semaine-3/presentation' %}active{% endif %}">
+          <a href="{{ '/docs/semaine-3/presentation' | relative_url }}">Présentation</a>
+        </li>
+        <li class="nav-item {% if page.url contains '/docs/semaine-3/electronique' %}active{% endif %}">
+          <a href="{{ '/docs/semaine-3/electronique' | relative_url }}">Électronique: Afficheur</a>
+        </li>
+        <li class="nav-item {% if page.url contains '/docs/semaine-3/it' %}active{% endif %}">
+          <a href="{{ '/docs/semaine-3/it' | relative_url }}">IT: Pathfinding</a>
+        </li>
+        <li class="nav-item {% if page.url contains '/docs/semaine-3/mecanique' %}active{% endif %}">
+          <a href="{{ '/docs/semaine-3/mecanique' | relative_url }}">Mécanique: Avancé</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Test Final -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-trophy"></i> TEST FINAL
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item {% if page.url contains '/docs/test-final/presentation' %}active{% endif %}">
+          <a href="{{ '/docs/test-final/presentation' | relative_url }}">Présentation</a>
+        </li>
+        <li class="nav-item {% if page.url contains '/docs/test-final/guide-test-final' %}active{% endif %}">
+          <a href="{{ '/docs/test-final/guide-test-final' | relative_url }}">Guide du test final</a>
+        </li>
+      </ul>
+    </div>
+  </ul>
+</div>
+
