@@ -50,24 +50,62 @@ body {
   margin: 0;
   padding: 0;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.page-wrapper {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 
-/* Sidebar styling */
-.sidebar {
+/* Header styling */
+.site-header {
   background-color: var(--bg-primary);
-  width: 250px;
-  position: fixed;
-  height: 100%;
-  overflow-y: auto;
-  transition: background-color 0.3s ease;
-  border-right: 1px solid var(--border-color);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: var(--bg-primary);
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 22px;
+  color: var(--header-primary);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Page wrapper (sidebar + main content) */
+.page-wrapper {
+  display: flex;
+  flex: 1; /* Permet au wrapper de prendre tout l'espace disponible */
+  min-height: 0; /* Important pour que le footer reste en bas */
+  padding-top: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  height: calc(100vh - 60px); /* Hauteur de l'écran moins header */
+  position: sticky;
+  top: 60px; /* Position après le header */
+  overflow-y: auto;
+  background-color: var(--bg-primary);
+  border-right: 1px solid var(--border-color);
 }
 
 .sidebar-header {
@@ -166,13 +204,14 @@ body {
 
 /* Main content styling */
 .main-content {
-  margin-left: 250px;
-  padding: 40px;
-  width: calc(100% - 250px);
-  min-height: 100vh;
+  flex: 1;
+  padding: 30px 40px;
+  background-color: var(--bg-secondary);
+  min-height: calc(100vh - 120px); /* Hauteur moins header et footer */
   position: relative;
   box-sizing: border-box;
   transition: background-color 0.3s ease;
+  padding-bottom: 70px; /* Ajoute un padding en bas pour éviter que le contenu soit masqué par le footer */
 }
 
 .main-content h1, .main-content h2, .main-content h3,
@@ -313,44 +352,57 @@ th {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    position: relative;
-    height: auto;
-    z-index: 20;
-  }
-  
-  .main-content {
-    margin-left: 0;
-    width: 100%;
-    padding: 20px;
-  }
-  
   .page-wrapper {
     flex-direction: column;
   }
   
-  .header {
+  .sidebar {
+    width: 100%;
+    height: auto;
     position: relative;
+    top: 0;
   }
   
-  .menu-toggle {
-    display: block;
+  .main-content {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .site-header {
+    position: relative;
   }
 }
 
 /* Styles pour assurer que le contenu est bien espacé */
 .site-footer {
-  margin-top: 40px;
-  padding-top: 20px;
+  background-color: var(--bg-primary);
+  width: 100%;
+  padding: 16px 0;
   border-top: 1px solid var(--border-color);
-  transition: border-color 0.3s ease;
+  text-align: center;
+  position: fixed; /* Fixe le footer en bas de l'écran */
+  bottom: 0; /* Ancre au bas de la fenêtre */
+  left: 0; /* S'étend depuis la gauche */
+  right: 0; /* Jusqu'à la droite */
+  z-index: 50; /* S'assure qu'il est au-dessus du contenu */
+}
+
+.site-footer .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--text-muted);
 }
 
 /* Fix pour les README markdown */
 .markdown-content {
   overflow: auto;
   padding-bottom: 50px;
+  margin-bottom: 50px; /* Marge supplémentaire pour éviter que le contenu touche le footer */
 }
 
 /* Menu mobile toggle button */
