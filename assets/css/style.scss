@@ -302,20 +302,7 @@ th {
   border-color: #5865f2;
 }
 
-/* Header and search bar */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-color);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
+/* Search bar */
 .search-bar {
   background-color: var(--bg-primary);
   border-radius: 4px;
@@ -373,7 +360,7 @@ th {
   }
 }
 
-/* Styles pour assurer que le contenu est bien espacé */
+/* Footer styling - corrigé pour s'étendre sur toute la largeur */
 .site-footer {
   background-color: var(--bg-primary);
   width: 100%;
