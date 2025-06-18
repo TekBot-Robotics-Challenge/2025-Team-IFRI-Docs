@@ -189,9 +189,9 @@ Ci-joint les fichiers des pièces modélisées :
   
 - [Pièce IV](pieces/Piece_4/piece_4.SLDPRT)
   
-- [Dosier A](pieces/Dossier%20A.zip)
+- [Dossier A](pieces/Dossier%20%20A.zip)
   
-- [Dosier B](pieces/Dossier%20B.zip)
+- [Dossier B](pieces/Dossier%20%20B.zip)
 
 
 
