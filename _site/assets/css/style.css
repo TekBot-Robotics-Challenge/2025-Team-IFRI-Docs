@@ -268,6 +268,25 @@ body { background-color: var(--bg-secondary); color: var(--text-normal); font-fa
 
 .sidebar-nav .nav-item.active a { color: var(--interactive-active); background-color: var(--sidebar-active); }
 
+/* Sous-menu pour les éléments enfants */
+.nav-item-with-children { margin-bottom: 4px; }
+
+.nav-item-parent { color: var(--interactive-normal); font-size: 14px; padding: 8px 20px 8px 30px; cursor: pointer; transition: background-color 0.15s ease, color 0.15s ease; border-radius: 4px; margin: 2px 8px; display: flex; justify-content: space-between; align-items: center; }
+
+.nav-item-parent::after { content: "▼"; font-size: 9px; transition: transform 0.2s ease; }
+
+.nav-item-with-children.collapsed .nav-item-parent::after { transform: rotate(-90deg); }
+
+.nav-item-parent:hover { color: var(--interactive-hover); background-color: var(--sidebar-hover); }
+
+.nav-children { list-style: none; padding: 0; margin: 0 0 0 15px; }
+
+.nav-item-with-children.collapsed .nav-children { display: none; }
+
+.nav-children .nav-item { padding: 0; font-size: 13px; }
+
+.nav-children .nav-item a { padding: 6px 15px 6px 30px; }
+
 /* Main content styling */
 .main-content { flex: 1; padding: 30px 40px; background-color: var(--bg-secondary); min-height: calc(100vh - 120px); /* Hauteur moins header et footer */ position: relative; box-sizing: border-box; transition: background-color 0.3s ease; padding-bottom: 70px; /* Ajoute un padding en bas pour éviter que le contenu soit masqué par le footer */ }
 
@@ -302,9 +321,7 @@ th { background-color: var(--table-header-bg); text-align: left; transition: bac
 
 .alert.info { border-color: #5865f2; }
 
-/* Header and search bar */
-.header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 10; transition: background-color 0.3s ease, border-color 0.3s ease; }
-
+/* Search bar */
 .search-bar { background-color: var(--bg-primary); border-radius: 4px; padding: 8px 12px; border: 1px solid var(--border-color); color: var(--text-normal); width: 300px; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
 
 /* Theme toggle button */
