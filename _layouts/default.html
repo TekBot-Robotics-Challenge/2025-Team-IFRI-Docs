@@ -11,29 +11,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+  <!-- Header en dehors de la structure sidebar/main-content -->
+  <header class="site-header">
+    {% include header.html %}
+  </header>
+
   <div class="page-wrapper">
     {% include sidebar.html %}
     
     <div class="main-content">
-      {% include header.html %}
-      
       <div class="markdown-content">
         {{ content }}
       </div>
-      
-      <footer class="site-footer">
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title | default: site.github.repository_name }}. Tous droits réservés.</p>
-      </footer>
     </div>
   </div>
+
+  <!-- Footer en dehors de la structure sidebar/main-content -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title | default: site.github.repository_name }}. Tous droits réservés.</p>
+    </div>
+  </footer>
 
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
-      <footer>
-        <p>&copy; {{ site.time | date: '%Y' }} Équipe IFRI. Tous droits réservés.</p>
-      </footer>
-    </div>
-  </div>
-</body>
 </html>

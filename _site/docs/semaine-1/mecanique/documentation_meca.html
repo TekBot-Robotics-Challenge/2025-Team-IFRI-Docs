@@ -4,15 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tests de mécaniques - TRC 2025 | Documentation Équipe IFRI 2025</title>
-  <link rel="stylesheet" href="/assets/css/style.css?v=6408b52a12175e3c1ed23c5c9a9f1329786875ad">
+  <link rel="stylesheet" href="/assets/css/style.css?v=8afbd38d806b7d05863d38e3b3fc6af8d7435aa1">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+  <!-- Header en dehors de la structure sidebar/main-content -->
+  <header class="site-header">
+    <div class="header">
+  <div class="header-title">
+    <h1>Tests de mécaniques - TRC 2025</h1>
+  </div>
+  <div class="header-actions">
+    <div class="header-search">
+      <input type="text" class="search-bar" placeholder="Rechercher..." id="searchInput">
+    </div>
+    <div class="header-theme-toggle">
+      <button id="themeToggle" aria-label="Changer de thème">🌙</button>
+    </div>
+  </div>
+</div>
+
+  </header>
+
   <div class="page-wrapper">
     <div class="sidebar">
   <div class="sidebar-header">
-    <img src="/assets/images/logo.png" alt="Logo" class="logo">
+    <img src="/media/image.png" alt="Logo" class="logo">
     <h2>TRC 2025</h2>
   </div>
   
@@ -27,7 +45,7 @@
           <a href="/">Introduction</a>
         </li>
         <li class="nav-item ">
-          <a href="/accueil">Présentation détaillée</a>
+          <a href="/docs/accueil">Présentation détaillée</a>
         </li>
       </ul>
     </div>
@@ -41,14 +59,47 @@
         <li class="nav-item ">
           <a href="/docs/semaine-1/presentation">Présentation</a>
         </li>
-        <li class="nav-item ">
-          <a href="/docs/semaine-1/electronique/README">Électronique: Gyroscope</a>
+        
+        <!-- Électronique Semaine 1 -->
+        <li class="nav-item-with-children">
+          <div class="nav-item-parent">
+            <i class="fas fa-microchip"></i> Électronique
+          </div>
+          <ul class="nav-children">
+            <li class="nav-item ">
+              <a href="/docs/semaine-1/electronique/gyroscope-accelerometre">Gyroscope et Accéléromètre</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item ">
-          <a href="/docs/semaine-1/it/robot">IT: Gestion Robot</a>
+        
+        <!-- IT Semaine 1 -->
+        <li class="nav-item-with-children">
+          <div class="nav-item-parent">
+            <i class="fas fa-laptop-code"></i> Classe Robot
+          </div>
+          <ul class="nav-children">
+            <li class="nav-item ">
+              <a href="/docs/semaine-1/it/robot">Robot</a>
+            </li>
+            <li class="nav-item ">
+              <a href="/docs/semaine-1/it/wheelegrobot">WheeledRobot</a>
+            </li>
+            <li class="nav-item ">
+              <a href="/docs/semaine-1/it/roboticarm">RoboticArm</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item active">
-          <a href="/docs/semaine-1/mecanique/documentation_meca">Mécanique: Conception</a>
+        
+        <!-- Mécanique Semaine 1 -->
+        <li class="nav-item-with-children">
+          <div class="nav-item-parent">
+            <i class="fas fa-cogs"></i> Mécanique
+          </div>
+          <ul class="nav-children">
+            <li class="nav-item active">
+              <a href="/docs/semaine-1/mecanique/documentation_meca">Documentation</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
@@ -62,14 +113,41 @@
         <li class="nav-item ">
           <a href="/docs/semaine-2/presentation">Présentation</a>
         </li>
-        <li class="nav-item ">
-          <a href="/docs/semaine-2/electronique">Électronique: Boîte noire</a>
+        
+        <!-- Électronique Semaine 2 -->
+        <li class="nav-item-with-children">
+          <div class="nav-item-parent">
+            <i class="fas fa-microchip"></i> Électronique
+          </div>
+          <ul class="nav-children">
+            <li class="nav-item ">
+              <a href="/docs/semaine-2/electronique/boite_noire">Boîte noire</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item ">
-          <a href="/docs/semaine-2/it">IT: ROS2</a>
+        
+        <!-- IT Semaine 2 -->
+        <li class="nav-item-with-children">
+          <div class="nav-item-parent">
+            <i class="fas fa-laptop-code"></i> IT
+          </div>
+          <ul class="nav-children">
+            <li class="nav-item ">
+              <a href="/docs/semaine-2/it/ros2">ROS2</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item ">
-          <a href="/docs/semaine-2/mecanique">Mécanique: Intermédiaire</a>
+        
+        <!-- Mécanique Semaine 2 -->
+        <li class="nav-item-with-children">
+          <div class="nav-item-parent">
+            <i class="fas fa-cogs"></i> Mécanique
+          </div>
+          <ul class="nav-children">
+            <li class="nav-item ">
+              <a href="/docs/semaine-2/mecanique/intermediaire">Niveau Intermédiaire</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
@@ -83,14 +161,41 @@
         <li class="nav-item ">
           <a href="/docs/semaine-3/presentation">Présentation</a>
         </li>
-        <li class="nav-item ">
-          <a href="/docs/semaine-3/electronique">Électronique: Afficheur</a>
+        
+        <!-- Électronique Semaine 3 -->
+        <li class="nav-item-with-children">
+          <div class="nav-item-parent">
+            <i class="fas fa-microchip"></i> Électronique
+          </div>
+          <ul class="nav-children">
+            <li class="nav-item ">
+              <a href="/docs/semaine-3/electronique/afficheur">Afficheur</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item ">
-          <a href="/docs/semaine-3/it">IT: Pathfinding</a>
+        
+        <!-- IT Semaine 3 -->
+        <li class="nav-item-with-children">
+          <div class="nav-item-parent">
+            <i class="fas fa-laptop-code"></i> IT
+          </div>
+          <ul class="nav-children">
+            <li class="nav-item ">
+              <a href="/docs/semaine-3/it/pathfinding">Pathfinding</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item ">
-          <a href="/docs/semaine-3/mecanique">Mécanique: Avancé</a>
+        
+        <!-- Mécanique Semaine 3 -->
+        <li class="nav-item-with-children">
+          <div class="nav-item-parent">
+            <i class="fas fa-cogs"></i> Mécanique
+          </div>
+          <ul class="nav-children">
+            <li class="nav-item ">
+              <a href="/docs/semaine-3/mecanique/avance">Niveau Avancé</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
@@ -115,21 +220,6 @@
 
     
     <div class="main-content">
-      <header class="header">
-  <div class="header-title">
-    <h1>Tests de mécaniques - TRC 2025</h1>
-  </div>
-  <div class="header-actions">
-    <div class="header-search">
-      <input type="text" class="search-bar" placeholder="Rechercher..." id="searchInput">
-    </div>
-    <div class="header-theme-toggle">
-      <button id="themeToggle" aria-label="Changer de thème">🌙</button>
-    </div>
-  </div>
-</header>
-
-      
       <div class="markdown-content">
         <h1 id="tests-de-mécaniques---trc-2025">Tests de mécaniques - TRC 2025</h1>
 
@@ -412,20 +502,17 @@ La masse de cette pièce est <strong>1633.25 grammes</strong>.</p>
 <p>Les apports de contribution sont les bienvenus.</p>
 
       </div>
-      
-      <footer class="site-footer">
-        <p>&copy; 2025 Documentation Équipe IFRI 2025. Tous droits réservés.</p>
-      </footer>
     </div>
   </div>
+
+  <!-- Footer en dehors de la structure sidebar/main-content -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Documentation Équipe IFRI 2025. Tous droits réservés.</p>
+    </div>
+  </footer>
 
   <script src="/assets/js/main.js"></script>
 </body>
 </html>
-      <footer>
-        <p>&copy; 2025 Équipe IFRI. Tous droits réservés.</p>
-      </footer>
-    </div>
-  </div>
-</body>
 </html>

@@ -93,3 +93,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// Gestion des sous-menus
+document.addEventListener('DOMContentLoaded', function() {
+  // Gestion des sous-menus (IT)
+  const itemsWithChildren = document.querySelectorAll('.nav-item-with-children');
+  itemsWithChildren.forEach(function(item) {
+    const parent = item.querySelector('.nav-item-parent');
+    parent.addEventListener('click', function() {
+      item.classList.toggle('collapsed');
+    });
+    
+    // Détecter si un enfant est actif et ouvrir le parent
+    const activeChild = item.querySelector('.nav-item.active');
+    if (activeChild) {
+      item.classList.remove('collapsed');
+    } else {
+      item.classList.add('collapsed');
+    }
+  });
+});
