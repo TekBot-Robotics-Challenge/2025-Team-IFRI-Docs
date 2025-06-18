@@ -302,7 +302,9 @@ th { background-color: var(--table-header-bg); text-align: left; transition: bac
 
 .alert.info { border-color: #5865f2; }
 
-/* Search bar */
+/* Header and search bar */
+.header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 10; transition: background-color 0.3s ease, border-color 0.3s ease; }
+
 .search-bar { background-color: var(--bg-primary); border-radius: 4px; padding: 8px 12px; border: 1px solid var(--border-color); color: var(--text-normal); width: 300px; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
 
 /* Theme toggle button */
@@ -317,7 +319,7 @@ th { background-color: var(--table-header-bg); text-align: left; transition: bac
   .sidebar { width: 100%; height: auto; position: relative; top: 0; }
   .main-content { width: 100%; padding: 20px; }
   .site-header { position: relative; } }
-/* Footer styling - corrigé pour s'étendre sur toute la largeur */
+/* Styles pour assurer que le contenu est bien espacé */
 .site-footer { background-color: var(--bg-primary); width: 100%; padding: 16px 0; border-top: 1px solid var(--border-color); text-align: center; position: fixed; /* Fixe le footer en bas de l'écran */ bottom: 0; /* Ancre au bas de la fenêtre */ left: 0; /* S'étend depuis la gauche */ right: 0; /* Jusqu'à la droite */ z-index: 50; /* S'assure qu'il est au-dessus du contenu */ }
 
 .site-footer .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
