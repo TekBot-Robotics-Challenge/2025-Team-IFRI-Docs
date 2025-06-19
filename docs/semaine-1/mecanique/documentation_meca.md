@@ -9,7 +9,7 @@ La conception des pièces a été réalisée avec le logiciel de modélisation *
 
 ## Présentation des croquis
 ### Pièce 1
-**Caractéristiques** : 
+**Caractéristiques** :
 - **Systèmes d'unités** : MMGS (millimètre, gramme, seconde) ;
 - **Décimales** : 2
 - Tous les trous sont débouchants sauf indication contraire
