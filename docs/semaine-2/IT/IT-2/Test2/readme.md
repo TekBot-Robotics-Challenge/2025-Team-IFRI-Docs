@@ -64,7 +64,7 @@ streamlit run streamlit_app.py
 
 ## Documentation
 
-- [`sensor_publisher`](readme_P.md)
-- [`sensor_subscriber`](readme_S.md)
-- [`sensor_launch`](readme_launch.md)
-- [`app streamlit`](readme_st.md)
+- [`sensor_publisher`](https://github.com/TekBot-Robotics-Challenge/2025-Team-IFRI-Docs/blob/main/docs/semaine-2/IT/IT%202/Test2/readme_P.md)
+- [`sensor_subscriber`](https://github.com/TekBot-Robotics-Challenge/2025-Team-IFRI-Docs/blob/main/docs/semaine-2/IT/IT%202/Test2/readme_S.md)
+- [`sensor_launch`](https://github.com/TekBot-Robotics-Challenge/2025-Team-IFRI-Docs/blob/main/docs/semaine-2/IT/IT%202/Test2/readme_launch.md)
+- [`app streamlit`](https://github.com/TekBot-Robotics-Challenge/2025-Team-IFRI-Docs/blob/main/docs/semaine-2/IT/IT%202/Test2/readme_st.md)
