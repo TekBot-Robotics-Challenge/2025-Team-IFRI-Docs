@@ -15,28 +15,77 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Fonction pour scanner les fichiers markdown (simulation basée sur votre structure)
+    // Fonction pour scanner les fichiers markdown - PROBLÈME ICI
     async function scanDocumentFiles() {
-        // Structure réelle basée sur votre dossier Documentation
-        return {
-            'root': ['index.md', 'accueil.md'], // Fichiers à la racine de Documentation
-            'semaine-1': {
-                'electronique': ['gyroscope-accelerometre.md'],
-                'it': ['robot.md', 'classes-avancees.md', 'tests-unitaires.md'],
-                'mecanique': ['documentation_meca.md', 'conception-3d.md']
-            },
-            'semaine-2': {
-                'electronique': ['boite-noire.md', 'communication-serie.md'],
-                'it': ['ros2-intro.md', 'ros2-nodes.md'],
-                'mecanique': ['niveau-intermediaire.md']
-            },
-            'semaine-3': {
-                'electronique': ['afficheur-7segments.md'],
-                'it': ['pathfinding.md', 'algorithmes-avances.md'],
-                'mecanique': ['niveau-avance.md']
-            },
-            'test-final': ['convoyeur.md', 'integration.md']
+        // PROBLÈME: Cette fonction retourne une structure statique
+        // au lieu de scanner réellement le dossier Documentation
+        
+        // Essayer d'abord de charger depuis le fichier généré
+        if (window.getDocumentStructure) {
+            return window.getDocumentStructure();
+        }
+        
+        // Fallback vers une structure basée sur les fichiers réellement présents
+        try {
+            // Tenter de détecter les fichiers réels via l'API GitHub ou fetch
+            const realStructure = await detectRealFileStructure();
+            return realStructure;
+        } catch (error) {
+            console.warn('Impossible de détecter la structure réelle, utilisation du fallback');
+            
+            // Structure fallback basée sur vos fichiers existants
+            return {
+                'root': ['index.md', 'accueil.md'],
+                'semaine-1': {
+                    'electronique': ['gyroscope-accelerometre.md'],
+                    'it': ['robot.md'],
+                    'mecanique': ['documentation_meca.md']
+                }
+                // Plus de structure basée sur ce qui existe vraiment
+            };
+        }
+    }
+
+    // Nouvelle fonction pour détecter la structure réelle
+    async function detectRealFileStructure() {
+        const structure = {
+            'root': []
         };
+        
+        // Essayer de charger les fichiers connus qui existent
+        const knownFiles = [
+            { path: 'Documentation/index.md', section: 'root' },
+            { path: 'Documentation/accueil.md', section: 'root' },
+            { path: 'Documentation/semaine-1/electronique/gyroscope-accelerometre.md', section: 'semaine-1', domain: 'electronique' },
+            { path: 'Documentation/semaine-1/it/robot.md', section: 'semaine-1', domain: 'it' },
+            { path: 'Documentation/semaine-1/mecanique/documentation_meca.md', section: 'semaine-1', domain: 'mecanique' }
+        ];
+        
+        for (const file of knownFiles) {
+            try {
+                // Vérifier si le fichier existe en tentant de le fetch
+                const response = await fetch(file.path, { method: 'HEAD' });
+                if (response.ok) {
+                    // Le fichier existe, l'ajouter à la structure
+                    if (file.section === 'root') {
+                        structure.root.push(file.path.split('/').pop());
+                    } else {
+                        if (!structure[file.section]) {
+                            structure[file.section] = {};
+                        }
+                        if (!structure[file.section][file.domain]) {
+                            structure[file.section][file.domain] = [];
+                        }
+                        structure[file.section][file.domain].push(file.path.split('/').pop());
+                    }
+                    console.log(`Fichier détecté: ${file.path}`);
+                }
+            } catch (error) {
+                console.log(`Fichier non trouvé: ${file.path}`);
+            }
+        }
+        
+        return structure;
     }
 
     // Fonction pour mettre à jour spécifiquement la section Documentation
