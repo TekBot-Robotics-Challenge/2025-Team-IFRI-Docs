@@ -1,22 +1,119 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Démarrage de la sidebar');
+    console.log('Démarrage de la sidebar avec auto-détection');
     
     // Charger la structure et construire la sidebar
     loadAndBuildSidebar();
     
     async function loadAndBuildSidebar() {
         try {
+            // Essayer de charger le JSON d'abord
             const response = await fetch('structure.json');
-            const structure = await response.json();
+            let structure = await response.json();
+            
+            // Vérifier et compléter avec les fichiers réels
+            structure = await autoDetectFiles(structure);
             buildSidebar(structure);
         } catch (error) {
             console.error('Erreur chargement structure:', error);
+            // Fallback: auto-détection complète
+            const structure = await autoDetectFiles({});
+            buildSidebar(structure);
         }
+    }
+    
+    // Auto-détection des fichiers MD dans la structure Documentation
+    async function autoDetectFiles(baseStructure) {
+        console.log('Auto-détection des fichiers...');
+        
+        // Liste des fichiers potentiels à vérifier
+        const filesToCheck = [
+            // Semaine 1
+            { section: 'semaine-1', domain: 'electronique', files: ['gyroscope-accelerometre.md', 'capteurs-avances.md', 'circuits-analogiques.md'] },
+            { section: 'semaine-1', domain: 'it', files: ['robot.md', 'classes-avancees.md', 'tests-unitaires.md', 'architecture.md'] },
+            { section: 'semaine-1', domain: 'mecanique', files: ['documentation_meca.md', 'conception-3d.md', 'materiaux.md'] },
+            
+            // Semaine 2
+            { section: 'semaine-2', domain: 'electronique', files: ['boite-noire.md', 'communication-serie.md', 'protocoles.md'] },
+            { section: 'semaine-2', domain: 'it', files: ['ros2-intro.md', 'ros2-nodes.md', 'ros2-topics.md'] },
+            { section: 'semaine-2', domain: 'mecanique', files: ['niveau-intermediaire.md', 'assemblage.md', 'tolerances.md'] },
+            
+            // Semaine 3
+            { section: 'semaine-3', domain: 'electronique', files: ['afficheur-7segments.md', 'interfaces.md', 'pcb-design.md'] },
+            { section: 'semaine-3', domain: 'it', files: ['pathfinding.md', 'algorithmes-avances.md', 'optimisation.md'] },
+            { section: 'semaine-3', domain: 'mecanique', files: ['niveau-avance.md', 'simulation.md', 'analyse-contraintes.md'] },
+            
+            // Test final
+            { section: 'test-final', domain: null, files: ['convoyeur.md', 'integration.md', 'tests-systeme.md'] }
+        ];
+        
+        const detectedStructure = { ...baseStructure };
+        
+        for (const item of filesToCheck) {
+            for (const filename of item.files) {
+                const path = item.domain ? 
+                    `Documentation/${item.section}/${item.domain}/${filename}` :
+                    `Documentation/${item.section}/${filename}`;
+                
+                try {
+                    // Tenter de charger le fichier pour vérifier s'il existe
+                    const response = await fetch(path, { method: 'HEAD' });
+                    if (response.ok) {
+                        // Le fichier existe, l'ajouter à la structure
+                        if (!detectedStructure[item.section]) {
+                            detectedStructure[item.section] = item.domain ? {} : [];
+                        }
+                        
+                        if (item.domain) {
+                            if (!detectedStructure[item.section][item.domain]) {
+                                detectedStructure[item.section][item.domain] = [];
+                            }
+                            
+                            // Vérifier si le fichier n'est pas déjà dans la liste
+                            const exists = detectedStructure[item.section][item.domain].some(f => f.name === filename);
+                            if (!exists) {
+                                detectedStructure[item.section][item.domain].push({
+                                    name: filename,
+                                    title: generateTitle(filename),
+                                    path: path
+                                });
+                                console.log(`Fichier détecté: ${path}`);
+                            }
+                        } else {
+                            // Section sans domaine (test-final)
+                            const exists = detectedStructure[item.section].some(f => f.name === filename);
+                            if (!exists) {
+                                detectedStructure[item.section].push({
+                                    name: filename,
+                                    title: generateTitle(filename),
+                                    path: path
+                                });
+                                console.log(`Fichier détecté: ${path}`);
+                            }
+                        }
+                    }
+                } catch (error) {
+                    // Fichier n'existe pas, continuer
+                    console.log(`Fichier non trouvé: ${path}`);
+                }
+            }
+        }
+        
+        return detectedStructure;
+    }
+    
+    // Générer un titre à partir du nom de fichier
+    function generateTitle(filename) {
+        return filename
+            .replace('.md', '')
+            .replace(/[-_]/g, ' ')
+            .replace(/\b\w/g, l => l.toUpperCase());
     }
     
     function buildSidebar(structure) {
         const container = document.getElementById('documentation');
         if (!container) return;
+        
+        console.log('Construction sidebar avec structure:', structure);
         
         // Garder les éléments statiques
         const staticHTML = `
@@ -41,6 +138,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Configurer le toggle principal
         setupMainToggle();
+        
+        console.log('Sidebar construite avec succès');
     }
     
     function createSectionHTML(sectionKey, sectionData) {
@@ -66,16 +165,18 @@ document.addEventListener('DOMContentLoaded', function() {
             Object.keys(sectionData).forEach(domainKey => {
                 const domainName = getDomainName(domainKey);
                 const domainIcon = getDomainIcon(domainKey);
+                const domainFiles = sectionData[domainKey];
+                
                 html += `
                     <li>
                         <div class="domain-header" data-domain="${sectionKey}-${domainKey}">
-                            ${domainIcon} ${domainName}
+                            ${domainIcon} ${domainName} (${domainFiles.length})
                             <span class="arrow">▶</span>
                         </div>
                         <ul class="domain-content" id="content-${sectionKey}-${domainKey}" style="display: none;">
                 `;
                 
-                sectionData[domainKey].forEach(file => {
+                domainFiles.forEach(file => {
                     html += `<li><a href="#" class="file-link" data-file='${JSON.stringify(file)}'>${file.title}</a></li>`;
                 });
                 
@@ -183,6 +284,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // Ajouter une fonction pour rafraîchir la sidebar
+    window.refreshSidebar = async function() {
+        console.log('Rafraîchissement de la sidebar...');
+        await loadAndBuildSidebar();
+    };
+    
+    // Auto-refresh toutes les 30 secondes en mode développement
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        setInterval(async () => {
+            console.log('Auto-refresh de la sidebar...');
+            await loadAndBuildSidebar();
+        }, 30000); // 30 secondes
+    }
+    
     // Fonctions utilitaires
     function getSectionName(key) {
         const names = {
@@ -217,130 +332,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
             
-            console.log(`Clic sur fichier: ${file.title}`);
-            
-            // Retirer l'état actif des autres liens
-            document.querySelectorAll('.file-link').forEach(l => {
-                l.style.backgroundColor = '';
-                l.style.borderLeftColor = 'transparent';
-                l.style.color = '#b9bbbe';
-            });
-            
-            // Activer ce lien
-            this.style.backgroundColor = '#5865f2';
-            this.style.borderLeftColor = '#fff';
-            this.style.color = '#fff';
-            
-            // Afficher le contenu du fichier
-            displayFileContent(file, section, domain);
-        });
-        
-        li.appendChild(link);
-        return li;
-    }
-    
-    // Afficher le contenu d'un fichier
-    function displayFileContent(file, section, domain) {
-        const contentBody = document.querySelector('.content-body');
-        const fileId = file.name.replace('.md', '').replace(/[^a-zA-Z0-9]/g, '-');
-        
-        // Créer ou trouver la section
-        let fileSection = document.getElementById(fileId);
-        if (!fileSection) {
-            fileSection = document.createElement('section');
-            fileSection.id = fileId;
-            contentBody.appendChild(fileSection);
-        }
-        
-        const filePath = domain ? 
-            `Documentation/${section}/${domain}/${file.name}` : 
-            `Documentation/${section}/${file.name}`;
-        
-        fileSection.innerHTML = `
-            <h2>📄 ${file.title}</h2>
-            <div class="file-content">
-                <div class="info-box">
-                    <span class="info-icon">📄</span>
-                    <div>
-                        <p><strong>Fichier:</strong> <code>${filePath}</code></p>
-                        <p><strong>Section:</strong> ${getSectionName(section)}</p>
-                        ${domain ? `<p><strong>Domaine:</strong> ${getDomainName(domain)}</p>` : ''}
-                        <p><strong>Statut:</strong> Prêt pour la documentation</p>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        // Scroll vers la section
-        fileSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    
-    // Setup du toggle principal Documentation
-    function setupMainDocToggle() {
-        const mainToggle = document.querySelector('[data-section="documentation"]');
-        const docSection = document.getElementById('documentation');
-        
-        if (!mainToggle || !docSection) return;
-        
-        const arrow = mainToggle.querySelector('.arrow');
-        if (arrow) arrow.textContent = '▼'; // Ouvert par défaut
-        
-        mainToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            console.log('Toggle Documentation principal');
-            
-            docSection.classList.toggle('collapsed');
-            if (docSection.classList.contains('collapsed')) {
-                arrow.textContent = '▶';
-                console.log('Documentation fermée');
-            } else {
-                arrow.textContent = '▼';
-                console.log('Documentation ouverte');
-            }
-        });
-    }
-    
-    // Fonctions utilitaires
-    function getSectionName(key) {
-        const names = {
-            'semaine-1': 'Semaine 1',
-            'semaine-2': 'Semaine 2',
-            'semaine-3': 'Semaine 3', 
-            'test-final': 'Test Final'
-        };
-        return names[key] || key;
-    }
-    
-    function getSectionIcon(key) {
-        const icons = {
-            'semaine-1': '📅',
-            'semaine-2': '📅',
-            'semaine-3': '📅',
-            'test-final': '🏆'
-        };
-        return icons[key] || '📄';
-    }
-    
-    function getDomainName(key) {
-        const names = {
-            'electronique': 'Électronique',
-            'it': 'Informatique',
-            'mecanique': 'Mécanique'
-        };
-        return names[key] || key;
-    }
-    
-    function getDomainIcon(key) {
-        const icons = {
-            'electronique': '⚡',
-            'it': '💻',
-            'mecanique': '🔧'
-        };
-        return icons[key] || '📄';
-    }
-    
-    // Initialiser la sidebar
-    buildSidebar();
-});
