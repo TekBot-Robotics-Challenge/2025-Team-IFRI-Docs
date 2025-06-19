@@ -44,13 +44,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const documentationSection = document.getElementById('documentation');
         if (!documentationSection) return;
 
-        // Vider le contenu existant de la section documentation
+        // Vider le contenu existant de la section documentation SAUF les éléments statiques
+        const staticItems = documentationSection.querySelectorAll('li:not([data-dynamic])');
         documentationSection.innerHTML = '';
+        
+        // Remettre les éléments statiques
+        staticItems.forEach(item => documentationSection.appendChild(item));
 
         // Ajouter les fichiers de la racine d'abord
         if (structure.root && structure.root.length > 0) {
             structure.root.forEach(file => {
                 const fileItem = createFileItem(file, 'Documentation');
+                fileItem.setAttribute('data-dynamic', 'true');
                 documentationSection.appendChild(fileItem);
             });
         }
@@ -61,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const sectionData = structure[sectionKey];
             const sectionItem = createDocumentationSubSection(sectionKey, sectionData);
+            sectionItem.setAttribute('data-dynamic', 'true');
             documentationSection.appendChild(sectionItem);
         });
 
@@ -72,23 +78,39 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupDocumentationToggle() {
         const docToggle = document.querySelector('[data-section="documentation"]');
         const documentationSection = document.getElementById('documentation');
+        const arrow = docToggle ? docToggle.querySelector('.arrow') : null;
         
-        if (docToggle && documentationSection) {
-            // Enlever la classe collapsed pour s'assurer qu'elle s'affiche
-            documentationSection.classList.remove('collapsed');
+        if (docToggle && documentationSection && arrow) {
+            // Définir l'état initial : replié avec flèche vers la droite
+            documentationSection.classList.add('collapsed');
+            arrow.textContent = '▶';
             
-            // Configurer le toggle
-            docToggle.addEventListener('click', function() {
-                const arrow = this.querySelector('.arrow');
-                
-                documentationSection.classList.toggle('collapsed');
-                
-                if (documentationSection.classList.contains('collapsed')) {
-                    arrow.textContent = '▶';
-                } else {
-                    arrow.textContent = '▼';
-                }
-            });
+            // Supprimer les anciens event listeners
+            docToggle.removeEventListener('click', handleDocumentationToggle);
+            
+            // Ajouter le nouvel event listener
+            docToggle.addEventListener('click', handleDocumentationToggle);
+        }
+    }
+
+    // Handler pour le toggle de Documentation
+    function handleDocumentationToggle(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const documentationSection = document.getElementById('documentation');
+        const arrow = this.querySelector('.arrow');
+        
+        if (documentationSection && arrow) {
+            documentationSection.classList.toggle('collapsed');
+            
+            if (documentationSection.classList.contains('collapsed')) {
+                arrow.textContent = '▶';
+                console.log('Documentation fermée');
+            } else {
+                arrow.textContent = '▼'; 
+                console.log('Documentation ouverte');
+            }
         }
     }
 
@@ -254,10 +276,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fonction pour charger le contenu d'un fichier
     async function loadFileContent(filePath, targetId) {
         try {
-            // Simuler le chargement de contenu
             console.log(`Chargement du fichier: ${filePath}`);
             
-            // Ajouter une section pour ce contenu dans la page principale
             let targetSection = document.getElementById(targetId);
             if (!targetSection) {
                 targetSection = document.createElement('section');
@@ -273,7 +293,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
             
-            // Faire défiler vers la section
             targetSection.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
@@ -286,8 +305,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Configuration des toggles pour tous les éléments
     function setupAllToggles() {
-        // Toggles pour les sous-sections
+        // Délégation d'événements pour tous les toggles
         document.addEventListener('click', function(e) {
+            // Toggles pour les sous-sections
             if (e.target.classList.contains('subsection-toggle') || 
                 e.target.closest('.subsection-toggle')) {
                 
@@ -348,31 +368,11 @@ document.addEventListener('DOMContentLoaded', function() {
     loadDocumentStructure();
     setupAllToggles();
     
-    // Fonction pour rafraîchir la structure (appelée périodiquement ou sur demande)
+    // Fonction pour rafraîchir la structure
     window.refreshDocumentStructure = function() {
         loadDocumentStructure();
     };
 });
-                    });
-                }
-                
-                // Update active state
-                document.querySelector('.nav-item.active')?.classList.remove('active');
-                this.closest('.nav-item')?.classList.add('active');
-            });
-        }
-    });
-    
-    // Highlight current section on scroll
-    function updateActiveSection() {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (window.scrollY >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-        
         navLinks.forEach(link => {
             const linkHref = link.getAttribute('href');
             if (linkHref && linkHref.startsWith('#')) {

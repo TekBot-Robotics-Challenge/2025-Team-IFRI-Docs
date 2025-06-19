@@ -477,6 +477,18 @@ section {
     margin-bottom: 50px;
 }
 
+/* Assurer que la section Documentation est visible */
+#documentation {
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+#documentation.collapsed {
+    max-height: 0 !important;
+    overflow: hidden;
+}
+
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
