@@ -224,4 +224,5 @@ En utilisant SolidWorks 2025, nous avons défini un modèle paramétrique pilot
 ## Références et Liens Utiles
 - Manuel SolidWorks 2025 – Chap. Équations et Variables
 - Tutoriels suivis
-  - 
+  - https://youtu.be/PQHjY9_b94w?si=Ah0PxEUdaubB3jMf
+  - https://youtu.be/ESkXkDUmsNc?si=8zdjJDQK-7fBHAwG
