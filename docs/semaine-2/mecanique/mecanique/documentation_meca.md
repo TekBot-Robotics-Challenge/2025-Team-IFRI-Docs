@@ -52,12 +52,14 @@ Le pôle mécanique a pour mission de concevoir, modéliser et valider des compo
 
 
 ## Matériel, Outils et Environnement
-| Élément            | Détail                                     |
-|--------------------|--------------------------------------------|
-| Logiciel           | SolidWorks 2025                            |
-| Matériau           | Acier AISI 1020 (densité 0.0079 g/mm³)     |
-| Unités             | MMGS (mm, g, s), précision ±0.01 mm/g      |
-| Plugins/Librairies | Toolbox standard, équations globales       |
+
+| **Élément**         | **Détail**                                  |
+|---------------------|----------------------------------------------|
+| Logiciel            | SolidWorks 2025                              |
+| Matériau            | Acier AISI 1020 (densité : 0.0079 g/mm³)     |
+| Unités              | MMGS (mm, g, s), précision ±0.01 mm/g        |
+| Plugins/Librairies  | Toolbox standard, équations globales         |
+
 
 
 ## Conception et Réalisation des Pièces
