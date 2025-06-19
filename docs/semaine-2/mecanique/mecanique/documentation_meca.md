@@ -89,87 +89,120 @@ Le pôle mécanique a pour mission de concevoir, modéliser et valider des compo
 
 
 #### 5.3.3. Définition des Variables Globales
+
 - A = 81 / 84 mm  
 - B = 57 / 59 mm  
 - C = 43 / 45 mm  
 
 #### 5.3.4. Opérations de Volume (Extrusion, Congés)
-1. **Extrusion Bossage/Base** sur épaisseur C.  
-2. **Découpe** : extrémités profilées selon A, B.  
-3. **Congés** :
-   - R5 sur arêtes internes avant enlèvement latéral.  
+
+1. **Extrusion Bossage/Base** sur épaisseur C.
+   
+3. **Découpe** : extrémités profilées selon A, B.
+    
+4. **Congés** :
+   - R5 sur arêtes internes avant enlèvement latéral.
+       
    - R29 sur bords externes en finition.  
 
 
 #### 5.3.5. Contrôles et Validation Géométrique
-- Utiliser la fonction « Vérifier géométrie » pour détecter surfaces non-manifold.  
-- Visualiser la masse via Propriétés —> Propriétés de masse.  
+
+- Utiliser la fonction « Vérifier géométrie » pour détecter surfaces non-manifold.
+  
+- Visualiser la masse via Propriétés —> Propriétés de masse.
+  
 - Comparer contre valeurs attendues.
 
 #### 5.3.6. Exportation des Pièces
+
 - Enregistrer chaque variante sous `partieX.SLDPRT`.  
 
 ### 5.4. Illustrations et Captures d’Écran
 - Organisation des images dans un dossier `images/` contenant :
+  
   - les fichiers images des différentes parties à chaque étape de la modélisation.
+    
 - Insérer légendes et repères (flèches, annotations) sur chaque capture.
 
 ## Résultats et Réponses aux Questions du Test
 
 ### 7.1. Partie 1 – Variations de A, B, C
 
+
 ![Vue détaillée de la pièce](images/picture_piece_partie1.png)
+
 
 **Question A**
 
 * Valeurs : A = 81 mm, B = 57 mm, C = 43 mm
+  
 * Fichier : [Télécharger la pièce](Partie%201/piece_partie1_a.SLDPRT)
+  
 * Masse : **939.54 grammes**
+  
   ![Propriétés de masse](images/picture_mass_properties_partie1_a.jpg)
 
 
 **Question B**
 
 * Valeurs : A = 84 mm, B = 59 mm, C = 45 mm
+  
 * Fichier : [Télécharger la pièce](Partie%201/piece_partie1_b.SLDPRT)
+  
 * Masse : **1032.32 grammes**
+  
   ![Propriétés de masse](images/picture_mass_properties_partie1_b.png)
 
 ### 7.2. Partie 2 – Cas supplémentaire
+
 - Vue de la pièce modéliséé
 
 ![Vue détaillée de la pièce](images/picture_piece_partie2.png)
 
 - Fichier contenant la pièce modélisée
+  
 Fichier : [Télécharger la pièce](Partie%202/piece_partie2.SLDPRT)
 
 * Masse : **628.18 grammes**
+  
   ![Propriétés de masse](images/picture_mass_properties_partie2.png)
 
 ### 7.3. Partie 3 – Exemple de réduction
-- Vue de la pièce de modélisée : 
+- Vue de la pièce de modélisée :
+  
 ![Vue détaillée de la pièce](images/picture_piece_partie3.png)
 
 Fichier contenant la pièce modélisée :
+
 * Fichier : [Télécharger la pièce](Partie%203/picture_piece_partie3.SLDPRT)
+  
 * Masse : **432.58 grammes**
+  
   ![Propriétés de masse](images/picture_mass_properties_partie3.png)
 
 
 
 ### 7.4. Assemblage et Centre de Masse
-- **Fichiers** : `assemblage_question_a.SLDASM`, `assemblage_question_b.SLDASM`  
+
+- **Fichiers** : `assemblage_question_a.SLDASM`, `assemblage_question_b.SLDASM`
+  
 - **Centre de masse** :
-  - Config. A (A=25°, B=125°, C=130°): (X=327.67, Y=-98.39, Z=-102.91)  
+  - Config. A (A=25°, B=125°, C=130°): (X=327.67, Y=-98.39, Z=-102.91)
+      
   - Config. B (A=30°, B=115°, C=135°): (X=348.66, Y=-88.48, Z=-91.40)
 
 **Image Assemblage:**
+
 ![Vue détaillée de la pièce - Question a](images/picture_assemblage_a.png)
+
 ![Vue détaillée de la pièce - Question b](images/picture_assemblage_b.png)
+
 
 **Résultat**
 
 Fichiers : 
+
 [Télécharger la pièce - Question a](Assemblage/assemblage_question_a.SLDASM)
 
 [Télécharger la pièce - Question b](Assemblage/assemblage_question_b.SLDASM)
@@ -178,22 +211,26 @@ Fichiers :
 **Réponses aux questions**
 
 ![Question a](images/picture_mass_properties_a.png)
+
 a) Les coordonnées du centre de masse pour A = 25 degrees ; B = 125 degrees ; C = 130 degrees sont : 
 - X = **327.67**
 - Y = **- 98.39**
 - Z = **- 102.91**
 
 ![Question b](images/picture_mass_properties_b.png)
+
 b) Les coordonnées du centre de masse pour A = 30 degrees ; B = 115 degrees ; C = 135 degrees sont :
 - X = **348.66**
 - Y = **- 88.48**
 - Z = **- 91.40**
 
 ## Difficultés Rencontrées et Solutions Apportées
-| Problème                                   | Analyse détaillée                                                                 | Solution mise en place                                                       |
-|--------------------------------------------|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| Application des congés dans espaces étroits| Impossibilité de sélectionner toutes les arêtes sans erreurs de géométrie         | Séparation en deux opérations : congés internes d’abord, puis externes       |                    |
-| Validation du centre de masse              | Position non-conforme aux spécifications angulaires                               | Calibration via mesures sur assemblage simulé, ajustement des axes de référence |
+
+| **Problème**                                | **Analyse détaillée**                                                             | **Solution mise en place**                                                    |
+|--------------------------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Application des congés dans espaces étroits | Impossibilité de sélectionner toutes les arêtes sans erreurs de géométrie        | Séparation en deux opérations : congés internes d’abord, puis externes        |
+| Validation du centre de masse               | Position non-conforme aux spécifications angulaires                              | Calibration via mesures sur assemblage simulé, ajustement des axes de référence |
+
 
 ---
 
