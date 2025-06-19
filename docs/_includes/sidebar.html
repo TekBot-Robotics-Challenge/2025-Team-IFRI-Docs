@@ -1,0 +1,110 @@
+<nav class="sidebar-nav">
+    <ul>
+        <li>
+            <a href="{{ '/Documentation/accueil' | relative_url }}">
+                <i class="fas fa-home"></i> Accueil
+            </a>
+        </li>
+        
+        <!-- Semaine 1 -->
+        <li class="has-children">
+            <div class="nav-item">
+                <a href="{{ '/Documentation/semaine-1' | relative_url }}">
+                    <i class="fas fa-calendar-week"></i> Semaine 1
+                </a>
+                <button class="submenu-toggle"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+                <!-- Électronique -->
+                <li class="has-children">
+                    <div class="nav-item">
+                        <a href="{{ '/Documentation/semaine-1/electronique' | relative_url }}">
+                            <i class="fas fa-microchip"></i> Électronique
+                        </a>
+                        <button class="submenu-toggle"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{{ '/Documentation/semaine-1/electronique/gyroscope-accelerometre' | relative_url }}">
+                                <i class="fas fa-cog"></i> Gyroscope et accéléromètre
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- IT -->
+                <li class="has-children">
+                    <div class="nav-item">
+                        <a href="{{ '/Documentation/semaine-1/it' | relative_url }}">
+                            <i class="fas fa-laptop-code"></i> IT
+                        </a>
+                        <button class="submenu-toggle"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{{ '/Documentation/semaine-1/it/robot' | relative_url }}">
+                                <i class="fas fa-robot"></i> Gestion d'un Robot
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- Mécanique -->
+                <li class="has-children">
+                    <div class="nav-item">
+                        <a href="{{ '/Documentation/semaine-1/mecanique' | relative_url }}">
+                            <i class="fas fa-cogs"></i> Mécanique
+                        </a>
+                        <button class="submenu-toggle"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{{ '/Documentation/semaine-1/mecanique/documentation_meca' | relative_url }}">
+                                <i class="fas fa-file-alt"></i> Documentation Mécanique
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        
+        <!-- Semaine 2 -->
+        <li class="has-children">
+            <div class="nav-item">
+                <a href="{{ '/Documentation/semaine-2' | relative_url }}">
+                    <i class="fas fa-calendar-week"></i> Semaine 2
+                </a>
+                <button class="submenu-toggle"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+                <!-- Les sous-éléments seront ajoutés lorsque disponibles -->
+                <li>
+                    <a href="#"><i class="fas fa-info-circle"></i> À venir</a>
+                </li>
+            </ul>
+        </li>
+        
+        <!-- Semaine 3 -->
+        <li class="has-children">
+            <div class="nav-item">
+                <a href="{{ '/Documentation/semaine-3' | relative_url }}">
+                    <i class="fas fa-calendar-week"></i> Semaine 3
+                </a>
+                <button class="submenu-toggle"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+                <!-- Les sous-éléments seront ajoutés lorsque disponibles -->
+                <li>
+                    <a href="#"><i class="fas fa-info-circle"></i> À venir</a>
+                </li>
+            </ul>
+        </li>
+        
+        <!-- Test Final -->
+        <li>
+            <a href="{{ '/Documentation/test-final' | relative_url }}">
+                <i class="fas fa-flag-checkered"></i> Test Final
+            </a>
+        </li>
+    </ul>
+</nav>

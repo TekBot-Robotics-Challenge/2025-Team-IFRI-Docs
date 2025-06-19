@@ -1,0 +1,31 @@
+# Configuration Jekyll pour le site de documentation IFRI 2025
+title: Documentation Équipe IFRI 2025
+description: Documentation officielle de l'équipe IFRI pour l'année académique 2025
+theme: jekyll-theme-minimal
+baseurl: "/2025-Team-IFRI-Docs"
+url: "https://2025-team-ifri-docs.github.io"
+
+# Configuration de la navigation
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclusions
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Collections pour la documentation
+collections:
+  documentation:
+    output: true
+    permalink: /:collection/:path/

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {% seo %}
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>{{ site.title }}</h2>
+                <button id="sidebar-toggle-close" class="sidebar-toggle"><i class="fas fa-times"></i></button>
+            </div>
+            {% include sidebar.html %}
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="top-bar">
+                <button id="sidebar-toggle-open" class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+                <div class="breadcrumbs">
+                    <a href="{{ '/' | relative_url }}">Accueil</a>
+                    {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+                    {% for crumb in crumbs offset: 1 %}
+                        {% if forloop.last %}
+                            / <span>{{ page.title }}</span>
+                        {% else %}
+                            / <a href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' | capitalize }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <main class="content">
+                {{ content }}
+            </main>
+            
+            <footer>
+                <p>&copy; 2025 Équipe IFRI. Tous droits réservés.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('sidebar-toggle-open').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.add('active');
+        });
+        
+        document.getElementById('sidebar-toggle-close').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.remove('active');
+        });
+
+        // Expand current section
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const menuItems = document.querySelectorAll('.sidebar-nav li');
+            
+            menuItems.forEach(item => {
+                const link = item.querySelector('a');
+                if (link && currentPath.includes(link.getAttribute('href'))) {
+                    let parent = item;
+                    while (parent) {
+                        if (parent.classList.contains('has-children')) {
+                            parent.classList.add('expanded');
+                        }
+                        parent = parent.parentElement && parent.parentElement.closest('li');
+                    }
+                }
+            });
+        });
+
+        // Toggle submenu
+        const submenuToggles = document.querySelectorAll('.submenu-toggle');
+        submenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const parent = this.closest('li');
+                parent.classList.toggle('expanded');
+            });
+        });
+    </script>
+</body>
+</html>
