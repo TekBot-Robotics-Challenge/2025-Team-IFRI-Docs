@@ -216,11 +216,6 @@ b) Les coordonnées du centre de masse pour A = 30 degrees ; B = 115 degrees ; C
 
 ---
 
-## Résumé pour Présentation (2 min)
-En utilisant SolidWorks 2025, nous avons défini un modèle paramétrique piloté par trois variables globales (A, B, C). Après avoir réalisé une esquisse 2D détaillée intégrant lignes, arcs, trous et congés, nous avons extrudé la forme selon l’épaisseur C, puis appliqué les congés internes et externes de manière séquencée. La fonction « Vérifier géométrie » et les propriétés de masse ont permis de valider chaque variante : 939.54 g, 1032.32 g, 628.18 g et 432.58 g. Les principaux défis (conflits d’équations, congés en espaces confinés) ont été surmontés par une réorganisation des équations et l’utilisation de l’option « Jusqu’à suivant ». L’assemblage final, accompagné de la mesure précise du centre de masse pour deux configurations angulaires, garantit la conformité aux exigences dynamiques. Cette méthodologie assure la flexibilité des itérations futures et la traçabilité complète du processus.
-
----
-
 ## Références et Liens Utiles
 - Manuel SolidWorks 2025 – Chap. Équations et Variables
 - Tutoriels suivis
