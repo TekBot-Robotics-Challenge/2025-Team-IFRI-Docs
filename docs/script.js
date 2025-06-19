@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
             documentationSection.appendChild(sectionItem);
         });
 
-        // Configurer le toggle principal - État initial ouvert pour voir le contenu
-        setupDocumentationToggle();
+        // CORRECTION: Configurer le toggle APRÈS avoir ajouté tout le contenu
+        setTimeout(() => setupDocumentationToggle(), 100);
         console.log('Section Documentation mise à jour avec succès');
     }
 
@@ -85,30 +85,46 @@ document.addEventListener('DOMContentLoaded', function() {
         const docToggle = document.querySelector('[data-section="documentation"]');
         const documentationSection = document.getElementById('documentation');
         
-        if (docToggle && documentationSection) {
-            // État initial : OUVERT pour voir le contenu
-            documentationSection.classList.remove('collapsed');
-            const arrow = docToggle.querySelector('.arrow');
-            if (arrow) arrow.textContent = '▼';
+        if (!docToggle || !documentationSection) {
+            console.error('Toggle ou section documentation non trouvés');
+            return;
+        }
+
+        console.log('Configuration du toggle Documentation');
+        
+        // CORRECTION: Supprimer tous les anciens event listeners
+        const newToggle = docToggle.cloneNode(true);
+        docToggle.parentNode.replaceChild(newToggle, docToggle);
+        
+        // État initial : OUVERT pour voir le contenu
+        documentationSection.classList.remove('collapsed');
+        const arrow = newToggle.querySelector('.arrow');
+        if (arrow) arrow.textContent = '▼';
+        
+        // CORRECTION: Event listener sur le nouveau élément
+        newToggle.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
             
-            // Event listener
-            docToggle.addEventListener('click', function(event) {
-                event.preventDefault();
-                event.stopPropagation();
+            console.log('Clic sur Documentation toggle détecté');
+            
+            const docSection = document.getElementById('documentation');
+            const arrowElement = this.querySelector('.arrow');
+            
+            if (docSection && arrowElement) {
+                docSection.classList.toggle('collapsed');
                 
-                documentationSection.classList.toggle('collapsed');
-                
-                if (documentationSection.classList.contains('collapsed')) {
-                    arrow.textContent = '▶';
+                if (docSection.classList.contains('collapsed')) {
+                    arrowElement.textContent = '▶';
                     console.log('Documentation fermée');
                 } else {
-                    arrow.textContent = '▼';
+                    arrowElement.textContent = '▼';
                     console.log('Documentation ouverte');
                 }
-            });
-            
-            console.log('Toggle Documentation configuré - État initial: ouvert');
-        }
+            }
+        });
+        
+        console.log('Toggle Documentation configuré - État initial: ouvert');
     }
 
     // Créer une sous-section
@@ -242,41 +258,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Configuration des toggles pour sous-sections et domaines
     function setupAllToggles() {
-        document.addEventListener('click', function(e) {
-            // Toggles sous-sections
-            if (e.target.classList.contains('subsection-toggle') || 
-                e.target.closest('.subsection-toggle')) {
-                
-                const toggle = e.target.classList.contains('subsection-toggle') ? 
-                    e.target : e.target.closest('.subsection-toggle');
-                
-                const sectionId = toggle.getAttribute('data-section');
-                const section = document.getElementById(sectionId);
-                const arrow = toggle.querySelector('.arrow');
-                
-                if (section && arrow) {
-                    section.classList.toggle('expanded');
-                    arrow.textContent = section.classList.contains('expanded') ? '▼' : '▶';
-                }
-            }
+        // CORRECTION: Event delegation pour éviter les conflits
+        document.removeEventListener('click', handleToggleClick);
+        document.addEventListener('click', handleToggleClick);
+    }
+
+    function handleToggleClick(e) {
+        // Toggles sous-sections
+        if (e.target.classList.contains('subsection-toggle') || 
+            e.target.closest('.subsection-toggle')) {
             
-            // Toggles domaines
-            if (e.target.classList.contains('domain-toggle') || 
-                e.target.closest('.domain-toggle')) {
-                
-                const toggle = e.target.classList.contains('domain-toggle') ? 
-                    e.target : e.target.closest('.domain-toggle');
-                
-                const sectionId = toggle.getAttribute('data-section');
-                const section = document.getElementById(sectionId);
-                const arrow = toggle.querySelector('.arrow');
-                
-                if (section && arrow) {
-                    section.classList.toggle('expanded');
-                    arrow.textContent = section.classList.contains('expanded') ? '▼' : '▶';
-                }
+            const toggle = e.target.classList.contains('subsection-toggle') ? 
+                e.target : e.target.closest('.subsection-toggle');
+            
+            const sectionId = toggle.getAttribute('data-section');
+            const section = document.getElementById(sectionId);
+            const arrow = toggle.querySelector('.arrow');
+            
+            if (section && arrow) {
+                section.classList.toggle('expanded');
+                arrow.textContent = section.classList.contains('expanded') ? '▼' : '▶';
+                console.log(`Sous-section ${sectionId} ${section.classList.contains('expanded') ? 'ouverte' : 'fermée'}`);
             }
-        });
+        }
+        
+        // Toggles domaines
+        if (e.target.classList.contains('domain-toggle') || 
+            e.target.closest('.domain-toggle')) {
+            
+            const toggle = e.target.classList.contains('domain-toggle') ? 
+                e.target : e.target.closest('.domain-toggle');
+            
+            const sectionId = toggle.getAttribute('data-section');
+            const section = document.getElementById(sectionId);
+            const arrow = toggle.querySelector('.arrow');
+            
+            if (section && arrow) {
+                section.classList.toggle('expanded');
+                arrow.textContent = section.classList.contains('expanded') ? '▼' : '▶';
+                console.log(`Domaine ${sectionId} ${section.classList.contains('expanded') ? 'ouvert' : 'fermé'}`);
+            }
+        }
     }
 
     // Fonctions utilitaires
@@ -338,24 +360,3 @@ document.addEventListener('DOMContentLoaded', function() {
     loadDocumentStructure();
     setupAllToggles();
 });
-                
-                const toggle = e.target.classList.contains('subsection-toggle') ? 
-                    e.target : e.target.closest('.subsection-toggle');
-                
-                const sectionId = toggle.getAttribute('data-section');
-                const section = document.getElementById(sectionId);
-                const arrow = toggle.querySelector('.arrow');
-                
-                if (section && arrow) {
-                    section.classList.toggle('expanded');
-                    arrow.textContent = section.classList.contains('expanded') ? '▼' : '▶';
-                }
-            }
-            
-            // Toggles domaines
-            if (e.target.classList.contains('domain-toggle') || 
-                e.target.closest('.domain-toggle')) {
-                
-                const toggle = e.target.classList.contains('domain-toggle') ? 
-                    e.target : e.target.closest('.domain-toggle');
-                
