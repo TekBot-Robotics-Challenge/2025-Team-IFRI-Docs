@@ -202,7 +202,7 @@ b) Les coordonnées du centre de masse pour A = 30 degrees ; B = 115 degrees ; C
 
 ## Video des pièces
 
-<iframe src="https://player.vimeo.com/video/1092855533?h=480fde870c" 
+<iframe src="https://player.vimeo.com/video/1094752656?h=85ffe3b354"  
         width="500" height="300" 
         frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
         allowfullscreen>
