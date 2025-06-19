@@ -159,6 +159,12 @@ body {
 
 .file-link {
     position: relative;
+    display: block;
+    padding: 6px 50px;
+    color: #b9bbbe;
+    text-decoration: none;
+    font-size: 12px;
+    transition: all 0.2s;
 }
 
 .file-link::before {
@@ -167,9 +173,14 @@ body {
     font-size: 10px;
 }
 
-.file-link.active-file {
-    background-color: #5865f2 !important;
-    color: #fff !important;
+.file-link:hover {
+    background-color: #393c43;
+    color: #dcddde;
+}
+
+.file-link.active {
+    background-color: #5865f2;
+    color: #fff;
     font-weight: 600;
 }
 
@@ -513,4 +524,32 @@ section {
     .content-body {
         padding: 20px;
     }
+}
+
+/* Styles pour la sidebar dépliable */
+.section-header, .domain-header {
+    padding: 8px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #b9bbbe;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.section-header:hover, .domain-header:hover {
+    background-color: #393c43;
+}
+
+.domain-header {
+    padding-left: 35px;
+    font-size: 13px;
+}
+
+.section-content, .domain-content {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
