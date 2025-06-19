@@ -4,32 +4,32 @@ description: Documentation officielle de l'équipe IFRI pour l'année académiqu
 baseurl: "/2025-Team-IFRI-Docs"
 url: "https://2025-team-ifri-docs.github.io"
 
-# Configuration de build
+# Configuration Jekyll - important pour le traitement des fichiers
 markdown: kramdown
+theme: jekyll-theme-minimal
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-highlighter: rouge
 
 # Plugins
 plugins:
   - jekyll-seo-tag
 
-# Exclusions
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - vendor
-  - README.md
-
-# Inclusions spécifiques - important pour inclure les fichiers de documentation
+# Inclusions spécifiques
 include:
   - .nojekyll
   - Documentation
 
-# Valeurs par défaut
+# Valeurs par défaut pour les layouts
 defaults:
   - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: "Documentation"
+    values:
+      layout: "default"
       path: ""
     values:
       layout: "default"
