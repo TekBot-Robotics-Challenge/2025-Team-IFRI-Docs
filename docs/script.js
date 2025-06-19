@@ -26,10 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (section.classList.contains('collapsed')) {
                     arrow.textContent = '▶';
-                    arrow.style.transform = 'rotate(0deg)';
                 } else {
                     arrow.textContent = '▼';
-                    arrow.style.transform = 'rotate(0deg)';
                 }
             }
         });
@@ -47,215 +45,216 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (section.classList.contains('expanded')) {
                     arrow.textContent = '▼';
-                    arrow.style.transform = 'rotate(0deg)';
                 } else {
                     arrow.textContent = '▶';
-                    arrow.style.transform = 'rotate(0deg)';
                 }
             }
         });
     });
     
-    // Handle navigation active states
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section');
+    // Get main elements
     const mainContent = document.getElementById('main-content');
     const mainHeader = document.getElementById('main-header');
     const markdownContainer = document.getElementById('markdown-container');
     
     // Handle markdown file links
-    const markdownLinks = document.querySelectorAll('.markdown-link');
-    markdownLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('markdown-link')) {
             e.preventDefault();
-            const filePath = this.getAttribute('data-file');
+            const filePath = e.target.getAttribute('data-file');
             loadMarkdownFile(filePath);
             
             // Update active state
             document.querySelector('.nav-item.active')?.classList.remove('active');
-            this.closest('.nav-item')?.classList.add('active');
-        });
+            e.target.closest('.nav-item')?.classList.add('active');
+        }
     });
     
     // Function to load markdown files
     async function loadMarkdownFile(filePath) {
         try {
+            console.log('Loading file:', filePath);
             const response = await fetch(filePath);
-            if (!response.ok) throw new Error('File not found');
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
             
             const markdownText = await response.text();
             const htmlContent = convertMarkdownToHTML(markdownText);
             
             // Hide main content and show markdown content
-            mainContent.classList.add('hidden');
-            mainHeader.classList.add('hidden');
-            markdownContainer.classList.add('active');
-            
-            // Add back button and content
-            markdownContainer.innerHTML = `
-                <a href="#" class="back-button" id="back-to-main">Retour à l'accueil</a>
-                ${htmlContent}
-            `;
+            if (mainContent) mainContent.classList.add('hidden');
+            if (mainHeader) mainHeader.classList.add('hidden');
+            if (markdownContainer) {
+                markdownContainer.classList.add('active');
+                markdownContainer.innerHTML = `
+                    <a href="#" class="back-button" id="back-to-main">Retour à l'accueil</a>
+                    <div class="markdown-wrapper">
+                        ${htmlContent}
+                    </div>
+                `;
+            }
             
             // Handle back button
-            document.getElementById('back-to-main').addEventListener('click', function(e) {
-                e.preventDefault();
-                showMainContent();
-            });
+            const backButton = document.getElementById('back-to-main');
+            if (backButton) {
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMainContent();
+                });
+            }
             
             // Scroll to top
             window.scrollTo(0, 0);
             
         } catch (error) {
             console.error('Error loading markdown file:', error);
+            
             // Show error message
-            markdownContainer.innerHTML = `
-                <a href="#" class="back-button" id="back-to-main">Retour à l'accueil</a>
-                <div class="info-box" style="background-color: #dc3545;">
-                    <span class="info-icon">⚠️</span>
-                    <p>Erreur lors du chargement du fichier: ${filePath}</p>
-                </div>
-            `;
-            
-            mainContent.classList.add('hidden');
-            mainHeader.classList.add('hidden');
-            markdownContainer.classList.add('active');
-            
-            document.getElementById('back-to-main').addEventListener('click', function(e) {
-                e.preventDefault();
-                showMainContent();
-            });
+            if (markdownContainer) {
+                markdownContainer.innerHTML = `
+                    <a href="#" class="back-button" id="back-to-main">Retour à l'accueil</a>
+                    <div class="info-box" style="background-color: #dc3545; margin: 20px 0;">
+                        <span class="info-icon">⚠️</span>
+                        <div>
+                            <p style="margin: 0; color: white;"><strong>Erreur lors du chargement du fichier:</strong></p>
+                            <p style="margin: 0; color: white;">${filePath}</p>
+                            <p style="margin: 5px 0 0 0; color: white; font-size: 14px;">${error.message}</p>
+                        </div>
+                    </div>
+                `;
+                
+                if (mainContent) mainContent.classList.add('hidden');
+                if (mainHeader) mainHeader.classList.add('hidden');
+                markdownContainer.classList.add('active');
+                
+                const backButton = document.getElementById('back-to-main');
+                if (backButton) {
+                    backButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        showMainContent();
+                    });
+                }
+            }
         }
     }
     
     // Function to show main content
     function showMainContent() {
-        mainContent.classList.remove('hidden');
-        mainHeader.classList.remove('hidden');
-        markdownContainer.classList.remove('active');
+        if (mainContent) mainContent.classList.remove('hidden');
+        if (mainHeader) mainHeader.classList.remove('hidden');
+        if (markdownContainer) markdownContainer.classList.remove('active');
         
-        // Reset active navigation
+        // Reset active navigation to home
         document.querySelector('.nav-item.active')?.classList.remove('active');
-        document.querySelector('a[href="#accueil"]').closest('.nav-item').classList.add('active');
+        const homeLink = document.querySelector('a[href="#accueil"]');
+        if (homeLink) {
+            homeLink.closest('.nav-item')?.classList.add('active');
+        }
     }
     
-    // Simple markdown to HTML converter
+    // Improved markdown to HTML converter
     function convertMarkdownToHTML(markdown) {
         let html = markdown;
         
-        // Headers
+        // Remove front matter (YAML between ---)
+        html = html.replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
+        
+        // Convert headers
         html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
         html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
         html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
         
-        // Bold
-        html = html.replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>');
+        // Convert bold and italic
+        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
         
-        // Italic
-        html = html.replace(/\*(.*)\*/gim, '<em>$1</em>');
+        // Convert links
+        html = html.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="$2" class="link">$1</a>');
         
-        // Links
-        html = html.replace(/\[([^\]]*)\]\(([^\)]*)\)/gim, '<a href="$2" class="link">$1</a>');
+        // Convert code blocks
+        html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
         
-        // Code blocks
-        html = html.replace(/```([\s\S]*?)```/gim, '<pre><code>$1</code></pre>');
+        // Convert inline code
+        html = html.replace(/`([^`]*)`/g, '<code>$1</code>');
         
-        // Inline code
-        html = html.replace(/`([^`]*)`/gim, '<code>$1</code>');
-        
-        // Tables
-        html = html.replace(/\|(.+)\|/g, function(match, content) {
-            const cells = content.split('|').map(cell => cell.trim());
-            return '<tr>' + cells.map(cell => `<td>${cell}</td>`).join('') + '</tr>';
+        // Convert tables
+        const tableRegex = /\|(.+)\|\n\|[-\s\|]+\|\n((?:\|.+\|\n?)*)/g;
+        html = html.replace(tableRegex, function(match, header, rows) {
+            const headerCells = header.split('|').filter(cell => cell.trim()).map(cell => `<th>${cell.trim()}</th>`).join('');
+            const rowsHtml = rows.trim().split('\n').map(row => {
+                const cells = row.split('|').filter(cell => cell.trim()).map(cell => `<td>${cell.trim()}</td>`).join('');
+                return `<tr>${cells}</tr>`;
+            }).join('');
+            return `<table><thead><tr>${headerCells}</tr></thead><tbody>${rowsHtml}</tbody></table>`;
         });
         
-        html = html.replace(/(<tr>.*<\/tr>)/s, '<table>$1</table>');
+        // Convert line breaks to paragraphs
+        html = html.split('\n\n').map(paragraph => {
+            paragraph = paragraph.trim();
+            if (paragraph && !paragraph.startsWith('<')) {
+                return `<p>${paragraph}</p>`;
+            }
+            return paragraph;
+        }).join('\n');
         
-        // Paragraphs
-        html = html.replace(/\n\n/gim, '</p><p>');
-        html = '<p>' + html + '</p>';
-        
-        // Clean up
+        // Clean up empty paragraphs and fix formatting
         html = html.replace(/<p><\/p>/g, '');
-        html = html.replace(/<p>(<h[1-6]>)/g, '$1');
-        html = html.replace(/(<\/h[1-6]>)<\/p>/g, '$1');
-        html = html.replace(/<p>(<table>)/g, '$1');
-        html = html.replace(/(<\/table>)<\/p>/g, '$1');
-        html = html.replace(/<p>(<pre>)/g, '$1');
-        html = html.replace(/(<\/pre>)<\/p>/g, '$1');
+        html = html.replace(/<p>(<h[1-6]>.*?<\/h[1-6]>)<\/p>/g, '$1');
+        html = html.replace(/<p>(<table>[\s\S]*?<\/table>)<\/p>/g, '$1');
+        html = html.replace(/<p>(<pre>[\s\S]*?<\/pre>)<\/p>/g, '$1');
         
         return html;
     }
     
-    // Smooth scrolling for regular navigation links
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') && link.getAttribute('href').startsWith('#') && !link.classList.contains('markdown-link')) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                // Show main content if markdown is active
-                if (markdownContainer.classList.contains('active')) {
-                    showMainContent();
-                }
-                
-                if (targetElement) {
-                    setTimeout(() => {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 100);
-                }
-                
-                // Update active state
-                document.querySelector('.nav-item.active')?.classList.remove('active');
-                this.closest('.nav-item')?.classList.add('active');
-            });
+    // Handle regular navigation links
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('nav-link') && 
+            !e.target.classList.contains('markdown-link') && 
+            e.target.getAttribute('href') && 
+            e.target.getAttribute('href').startsWith('#')) {
+            
+            e.preventDefault();
+            const targetId = e.target.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            // Show main content if markdown is active
+            if (markdownContainer && markdownContainer.classList.contains('active')) {
+                showMainContent();
+            }
+            
+            if (targetElement) {
+                setTimeout(() => {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 100);
+            }
+            
+            // Update active state
+            document.querySelector('.nav-item.active')?.classList.remove('active');
+            e.target.closest('.nav-item')?.classList.add('active');
         }
     });
     
-    // Highlight current section on scroll
-    function updateActiveSection() {
-        if (markdownContainer.classList.contains('active')) return;
-        
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (window.scrollY >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            const linkHref = link.getAttribute('href');
-            if (linkHref && linkHref.startsWith('#') && !link.classList.contains('markdown-link')) {
-                link.closest('.nav-item')?.classList.remove('active');
-                if (linkHref === '#' + current) {
-                    link.closest('.nav-item')?.classList.add('active');
+    // Search functionality
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const allNavItems = document.querySelectorAll('.nav-item');
+            
+            allNavItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm) || searchTerm === '') {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
                 }
-            }
+            });
         });
     }
-    
-    window.addEventListener('scroll', updateActiveSection);
-    updateActiveSection();
-    
-    // Search functionality
-    searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const allNavItems = document.querySelectorAll('.nav-item');
-        
-        allNavItems.forEach(item => {
-            const text = item.textContent.toLowerCase();
-            if (text.includes(searchTerm) || searchTerm === '') {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
     
     // Initialize collapsed state for some sections
     const initialCollapsed = ['semaine2', 'semaine3', 'test-final'];
@@ -265,4 +264,5 @@ document.addEventListener('DOMContentLoaded', function() {
             section.classList.add('collapsed');
         }
     });
+});
 });

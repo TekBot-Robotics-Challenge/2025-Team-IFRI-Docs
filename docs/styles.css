@@ -237,15 +237,20 @@ body {
 /* Add styles for markdown content display */
 .markdown-content {
     display: none;
-    padding: 40px;
-    max-width: 1000px;
+    padding: 0;
     background-color: #36393f;
     position: relative;
     z-index: 10;
+    width: 100%;
 }
 
 .markdown-content.active {
     display: block;
+}
+
+.markdown-wrapper {
+    padding: 40px;
+    max-width: 1000px;
 }
 
 .markdown-content h1 {
@@ -347,13 +352,22 @@ body {
     font-style: italic;
 }
 
+.markdown-content .link {
+    color: #00aff4;
+    text-decoration: none;
+}
+
+.markdown-content .link:hover {
+    text-decoration: underline;
+}
+
 /* Hide main content when markdown is active */
 .content-body.hidden {
-    display: none;
+    display: none !important;
 }
 
 .content-header.hidden {
-    display: none;
+    display: none !important;
 }
 
 /* Back button for markdown content */
@@ -368,7 +382,7 @@ body {
     border-radius: 6px;
     font-size: 14px;
     font-weight: 500;
-    margin-bottom: 20px;
+    margin: 20px 40px;
     transition: background-color 0.2s ease;
 }
 
