@@ -10,25 +10,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Handle collapsible sections
+    // Handle collapsible sections - Fix the toggle functionality
     const sectionToggles = document.querySelectorAll('.section-toggle');
     
     sectionToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
             const sectionId = this.getAttribute('data-section');
             const section = document.getElementById(sectionId);
             const arrow = this.querySelector('.arrow');
             
+            console.log('Toggling section:', sectionId); // Debug
+            
             if (section) {
-                section.classList.toggle('collapsed');
-                section.classList.toggle('expanded');
-                
-                if (section.classList.contains('expanded')) {
+                // Toggle classes
+                if (section.classList.contains('collapsed')) {
+                    section.classList.remove('collapsed');
+                    section.classList.add('expanded');
                     arrow.textContent = '▼';
-                    arrow.style.transform = 'rotate(0deg)';
+                    console.log('Expanded section:', sectionId); // Debug
                 } else {
+                    section.classList.remove('expanded');
+                    section.classList.add('collapsed');
                     arrow.textContent = '▶';
-                    arrow.style.transform = 'rotate(0deg)';
+                    console.log('Collapsed section:', sectionId); // Debug
                 }
             }
         });
@@ -52,16 +59,39 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Function to load markdown files
+    // Function to load markdown files - Updated for better file loading
     async function loadMarkdownFile(filePath) {
         try {
             console.log('Loading file:', filePath);
-            const response = await fetch(filePath);
             
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            // Try different path variations for GitHub Pages
+            const possiblePaths = [
+                filePath,
+                `./${filePath}`,
+                `../${filePath}`,
+                `/${filePath}`
+            ];
+            
+            let response = null;
+            let workingPath = null;
+            
+            for (const path of possiblePaths) {
+                try {
+                    response = await fetch(path);
+                    if (response.ok) {
+                        workingPath = path;
+                        break;
+                    }
+                } catch (err) {
+                    console.log(`Failed to load from: ${path}`);
+                }
             }
             
+            if (!response || !response.ok) {
+                throw new Error(`Could not load file: ${filePath}`);
+            }
+            
+            console.log(`Successfully loaded from: ${workingPath}`);
             const markdownText = await response.text();
             const htmlContent = convertMarkdownToHTML(markdownText);
             
@@ -92,32 +122,36 @@ document.addEventListener('DOMContentLoaded', function() {
             
         } catch (error) {
             console.error('Error loading markdown file:', error);
-            
-            // Show error message
-            if (markdownContainer) {
-                markdownContainer.innerHTML = `
-                    <a href="#" class="back-button" id="back-to-main">Retour à l'accueil</a>
-                    <div class="info-box" style="background-color: #dc3545; margin: 40px;">
-                        <span class="info-icon">⚠️</span>
-                        <div>
-                            <p style="margin: 0; color: white;"><strong>Erreur lors du chargement du fichier:</strong></p>
-                            <p style="margin: 0; color: white;">${filePath}</p>
-                            <p style="margin: 5px 0 0 0; color: white; font-size: 14px;">${error.message}</p>
-                        </div>
+            showErrorMessage(filePath, error.message);
+        }
+    }
+    
+    // Function to show error message
+    function showErrorMessage(filePath, errorMessage) {
+        if (markdownContainer) {
+            markdownContainer.innerHTML = `
+                <a href="#" class="back-button" id="back-to-main">Retour à l'accueil</a>
+                <div class="info-box" style="background-color: #dc3545; margin: 40px;">
+                    <span class="info-icon">⚠️</span>
+                    <div>
+                        <p style="margin: 0; color: white;"><strong>Erreur lors du chargement du fichier:</strong></p>
+                        <p style="margin: 0; color: white;">${filePath}</p>
+                        <p style="margin: 5px 0 0 0; color: white; font-size: 14px;">${errorMessage}</p>
+                        <p style="margin: 10px 0 0 0; color: white; font-size: 12px;">Vérifiez que le fichier existe dans le dossier Documentation.</p>
                     </div>
-                `;
-                
-                if (mainContent) mainContent.classList.add('hidden');
-                if (mainHeader) mainHeader.classList.add('hidden');
-                markdownContainer.classList.add('active');
-                
-                const backButton = document.getElementById('back-to-main');
-                if (backButton) {
-                    backButton.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        showMainContent();
-                    });
-                }
+                </div>
+            `;
+            
+            if (mainContent) mainContent.classList.add('hidden');
+            if (mainHeader) mainHeader.classList.add('hidden');
+            markdownContainer.classList.add('active');
+            
+            const backButton = document.getElementById('back-to-main');
+            if (backButton) {
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMainContent();
+                });
             }
         }
     }
@@ -172,10 +206,17 @@ document.addEventListener('DOMContentLoaded', function() {
             return `<table><thead><tr>${headerCells}</tr></thead><tbody>${rowsHtml}</tbody></table>`;
         });
         
+        // Convert unordered lists
+        html = html.replace(/^\* (.+$)/gim, '<li>$1</li>');
+        html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+        
+        // Convert numbered lists
+        html = html.replace(/^\d+\. (.+$)/gim, '<li>$1</li>');
+        
         // Convert line breaks to paragraphs
         html = html.split('\n\n').map(paragraph => {
             paragraph = paragraph.trim();
-            if (paragraph && !paragraph.startsWith('<')) {
+            if (paragraph && !paragraph.startsWith('<') && !paragraph.match(/^(#{1,6}|[-*]|\d+\.)/)) {
                 return `<p>${paragraph}</p>`;
             }
             return paragraph;
@@ -186,6 +227,8 @@ document.addEventListener('DOMContentLoaded', function() {
         html = html.replace(/<p>(<h[1-6]>.*?<\/h[1-6]>)<\/p>/g, '$1');
         html = html.replace(/<p>(<table>[\s\S]*?<\/table>)<\/p>/g, '$1');
         html = html.replace(/<p>(<pre>[\s\S]*?<\/pre>)<\/p>/g, '$1');
+        html = html.replace(/<p>(<ul>[\s\S]*?<\/ul>)<\/p>/g, '$1');
+        html = html.replace(/<p>(<ol>[\s\S]*?<\/ol>)<\/p>/g, '$1');
         
         return html;
     }
@@ -194,6 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('nav-link') && 
             !e.target.classList.contains('markdown-link') && 
+            !e.target.classList.contains('disabled') &&
             e.target.getAttribute('href') && 
             e.target.getAttribute('href').startsWith('#')) {
             
