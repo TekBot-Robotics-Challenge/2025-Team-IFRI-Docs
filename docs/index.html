@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEKBOT Robotics Challenge 2025 - Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3>TEKBOT 2025</h3>
+                <p>Documentation Équipe IFRI</p>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Rechercher..." class="search-input">
+                <span class="search-shortcut">Ctrl K</span>
+            </div>
+
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#accueil" class="nav-link active">🏠 Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Documentation/index.md" class="nav-link markdown-link" data-file="Documentation/index.md">📋 Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Documentation/accueil.md" class="nav-link markdown-link" data-file="Documentation/accueil.md">📄 Contexte Général</a>
+                </li>
+            </ul>
+
+            <div class="section-divider">SEMAINE 1</div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <div class="section-toggle" data-section="electronique-s1">
+                        <span class="section-icon">⚡</span>
+                        <span>Électronique</span>
+                        <span class="arrow">▶</span>
+                    </div>
+                    <ul class="section-content collapsed" id="electronique-s1">
+                        <li><a href="Documentation/semaine-1/electronique/gyroscope-accelerometre.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/electronique/gyroscope-accelerometre.md">📄 Gyroscope et Accéléromètre</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <div class="section-toggle" data-section="informatique-s1">
+                        <span class="section-icon">💻</span>
+                        <span>Informatique</span>
+                        <span class="arrow">▶</span>
+                    </div>
+                    <ul class="section-content collapsed" id="informatique-s1">
+                        <li><a href="Documentation/semaine-1/it/wheeledrobotMD.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/it/wheeledrobotMD.md">📄 Wheeled Robot</a></li>
+                        <li><a href="Documentation/semaine-1/it/robot.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/it/robot.md">📄 Système Robot</a></li>
+                        <li><a href="Documentation/semaine-1/it/roboticam.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/it/roboticam.md">📄 Robotic Camera</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <div class="section-toggle" data-section="mecanique-s1">
+                        <span class="section-icon">🔧</span>
+                        <span>Mécanique</span>
+                        <span class="arrow">▶</span>
+                    </div>
+                    <ul class="section-content collapsed" id="mecanique-s1">
+                        <li><a href="Documentation/semaine-1/mecanique/documentation_meca.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/mecanique/documentation_meca.md">📄 Documentation Mécanique</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="section-divider">SEMAINE 2</div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <div class="section-toggle" data-section="electronique-s2">
+                        <span class="section-icon">⚡</span>
+                        <span>Électronique</span>
+                        <span class="arrow">▶</span>
+                    </div>
+                    <ul class="section-content collapsed" id="electronique-s2">
+                        <li><a href="#" class="nav-link disabled">📄 La Boîte Noire</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <div class="section-toggle" data-section="informatique-s2">
+                        <span class="section-icon">💻</span>
+                        <span>Informatique</span>
+                        <span class="arrow">▶</span>
+                    </div>
+                    <ul class="section-content collapsed" id="informatique-s2">
+                        <li><a href="#" class="nav-link disabled">📄 Introduction à ROS2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <div class="section-toggle" data-section="mecanique-s2">
+                        <span class="section-icon">🔧</span>
+                        <span>Mécanique</span>
+                        <span class="arrow">▶</span>
+                    </div>
+                    <ul class="section-content collapsed" id="mecanique-s2">
+                        <li><a href="#" class="nav-link disabled">📄 Niveau Intermédiaire</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="section-divider">SEMAINE 3</div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <div class="section-toggle" data-section="electronique-s3">
+                        <span class="section-icon">⚡</span>
+                        <span>Électronique</span>
+                        <span class="arrow">▶</span>
+                    </div>
+                    <ul class="section-content collapsed" id="electronique-s3">
+                        <li><a href="#" class="nav-link disabled">📄 Afficheur 7 Segments</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <div class="section-toggle" data-section="informatique-s3">
+                        <span class="section-icon">💻</span>
+                        <span>Informatique</span>
+                        <span class="arrow">▶</span>
+                    </div>
+                    <ul class="section-content collapsed" id="informatique-s3">
+                        <li><a href="#" class="nav-link disabled">📄 Algorithme de Pathfinding</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <div class="section-toggle" data-section="mecanique-s3">
+                        <span class="section-icon">🔧</span>
+                        <span>Mécanique</span>
+                        <span class="arrow">▶</span>
+                    </div>
+                    <ul class="section-content collapsed" id="mecanique-s3">
+                        <li><a href="#" class="nav-link disabled">📄 Niveau Avancé</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="section-divider">TEST FINAL</div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <div class="section-toggle" data-section="test-final">
+                        <span class="section-icon">🏆</span>
+                        <span>Multidisciplinaire</span>
+                        <span class="arrow">▶</span>
+                    </div>
+                    <ul class="section-content collapsed" id="test-final">
+                        <li><a href="#" class="nav-link disabled">📄 Système de Convoyeur</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="content-header" id="main-header">
+                <h1>TEKBOT Robotics Challenge 2025</h1>
+                <div class="page-nav">
+                    <span>Sur cette page</span>
+                    <ul class="page-nav-list">
+                        <li><a href="#contexte">Contexte général</a></li>
+                        <li><a href="#tableau-recap">Tableau récapitulatif</a></li>
+                        <li><a href="#planning">Planning</a></li>
+                        <li><a href="#objectifs">Objectifs</a></li>
+                        <li><a href="#format">Format des Épreuves</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-body" id="main-content">
+                <section id="accueil">
+                    <div class="hero-section">
+                        <h2>📋 Documentation des Tests Techniques de présélection</h2>
+                        <p class="lead">Bienvenue dans la documentation officielle du TEKBOT Robotics Challenge 2025. Ce guide complet vous accompagnera tout au long du processus de présélection organisé par l'équipe IFRI.</p>
+                    </div>
+                </section>
+
+                <section id="contexte">
+                    <h2>📅 Contexte général</h2>
+                    <p>Dans le cadre de la Tekbot Robotics Challenge 2K25, un processus de présélection rigoureux, s'étalant sur cinq semaines, est mis en place afin d'évaluer les compétences techniques des équipes participantes. Chaque semaine, une nouvelle compétence sera mise à l'épreuve.</p>
+                    
+                    <div class="info-box">
+                        <span class="info-icon">💡</span>
+                        <p>L'objectif de cette présélection est d'identifier les équipes les plus qualifiées, polyvalentes et capables de travailler en synergie.</p>
+                    </div>
+
+                    <p>Ainsi chaque sous-équipe de vos équipes respectives devront démontrer leur expertise en électronique, mécanique et informatique à travers des épreuves techniques.</p>
+                </section>
+
+                <section id="tableau-recap">
+                    <h2>🏆 Tableau récapitulatif des tests de présélection</h2>
+                    <div class="table-container">
+                        <table class="doc-table">
+                            <thead>
+                                <tr>
+                                    <th>Domaine</th>
+                                    <th>Tests</th>
+                                    <th>Durée</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3" class="domain-cell electronique">⚡ Électronique</td>
+                                    <td>Test 1: Test input : Gyroscope et accéléromètre</td>
+                                    <td>1 semaine</td>
+                                </tr>
+                                <tr>
+                                    <td>Test 2: Test communication : La boîte noire</td>
+                                    <td>1 semaine</td>
+                                </tr>
+                                <tr>
+                                    <td>Test 3: Test output: Réalisation d'un afficheur 7 segments</td>
+                                    <td>1 semaine</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3" class="domain-cell informatique">💻 IT</td>
+                                    <td>Test 1: Réalisation d'un système de classe de gestion d'un Robot</td>
+                                    <td>1 semaine</td>
+                                </tr>
+                                <tr>
+                                    <td>Test 2: Introduction à ROS2</td>
+                                    <td>1 semaine</td>
+                                </tr>
+                                <tr>
+                                    <td>Test 3: Création d'un Algorithme de Pathfinding</td>
+                                    <td>1 semaine</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3" class="domain-cell mecanique">🔧 Mécanique</td>
+                                    <td>Test 1: Niveau Débutant</td>
+                                    <td>1 semaine</td>
+                                </tr>
+                                <tr>
+                                    <td>Test 2: Niveau Intermédiaire</td>
+                                    <td>1 semaine</td>
+                                </tr>
+                                <tr>
+                                    <td>Test 3: Niveau Avancé</td>
+                                    <td>1 semaine</td>
+                                </tr>
+                                <tr>
+                                    <td class="domain-cell final">🏆 Multidisciplinaire</td>
+                                    <td>Test final : Réalisation d'un système de convoyeur</td>
+                                    <td>2 semaines</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="planning">
+                    <h2>📅 Planning des tests de présélection</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div class="timeline-content">
+                                <h3>Semaine 1</h3>
+                                <p>Réalisation et documentation des tests 1</p>
+                                <small>Review en fin de semaine</small>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div class="timeline-content">
+                                <h3>Semaine 2</h3>
+                                <p>Réalisation et documentation des tests 2</p>
+                                <small>Review en fin de semaine</small>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div class="timeline-content">
+                                <h3>Semaine 3</h3>
+                                <p>Réalisation et documentation des tests 3</p>
+                                <small>Review en fin de semaine</small>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">4-5</div>
+                            <div class="timeline-content">
+                                <h3>Semaines 4 et 5</h3>
+                                <p>Réalisation et documentation du test final</p>
+                                <small>Review finale (3h)</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="objectifs">
+                    <h2>🏆 Objectifs du Challenge</h2>
+                    <p>Le TEKBOT Robotics Challenge vise à stimuler l'innovation et la collaboration parmi les étudiants passionnés de robotique.</p>
+                    
+                    <h3>Ce qui est évalué :</h3>
+                    <ul class="feature-list">
+                        <li><strong>Ingéniosité Technique</strong> : Capacité à trouver des solutions créatives aux problèmes.</li>
+                        <li><strong>Performance du Robot</strong> : Efficacité et fiabilité du robot lors des épreuves.</li>
+                        <li><strong>Travail d'Équipe</strong> : Collaboration et communication au sein de l'équipe.</li>
+                        <li><strong>Documentation</strong> : Clarté et complétude de la documentation technique.</li>
+                    </ul>
+                </section>
+
+                <section id="format">
+                    <h2>🎮 Format des Épreuves</h2>
+                    <p>Le challenge se déroule sur plusieurs semaines, chaque semaine introduisant de nouvelles tâches et contraintes.</p>
+                    
+                    <blockquote class="quote">
+                        "L'innovation distingue entre un leader et un suiveur." - Steve Jobs
+                    </blockquote>
+                    
+                    <p>Préparez-vous à une aventure exigeante mais enrichissante !</p>
+                </section>
+            </div>
+
+            <!-- Container for markdown content -->
+            <div class="markdown-content" id="markdown-container">
+                <!-- Markdown content will be loaded here -->
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

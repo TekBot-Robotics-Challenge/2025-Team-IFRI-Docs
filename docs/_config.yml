@@ -1,0 +1,41 @@
+title: TEKBOT Robotics Challenge 2025
+description: Documentation officielle de l'équipe IFRI
+baseurl: ""
+url: "https://2025-team-ifri-docs.github.io"
+
+# GitHub Pages settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+
+# Include files
+include:
+  - "_*"
+  - "Documentation"
+
+# Exclude files
+exclude:
+  - "README.md"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "node_modules"
+  - "vendor"
+
+# Collections
+collections:
+  documentation:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "documentation"
+    values:
+      layout: "default"

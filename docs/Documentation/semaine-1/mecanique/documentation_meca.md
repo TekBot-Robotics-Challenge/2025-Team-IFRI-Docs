@@ -108,6 +108,7 @@ La masse de cette pièce est **290.80 grammes**.
    - Utiliser **"Propriétés de masse"** pour obtenir la **masse exacte en grammes**.
 
 [Pièce 3](pieces/Piece_3/piece_3.SLDPRT)
+
 La masse de cette pièce est **1633.25 grammes**.
 
 
@@ -165,7 +166,7 @@ La masse de cette pièce est **297.29 grammes**.
 
 L'étape de l'assemblage de pièces consiste à former une pince mécanique. Le travail a été réalisé en respectant les contraintes imposées par les plans d'assemblage.
 
-[Pince](pieces/Assemblage/assemblage%20pince.SLDASM)
+[Pince](pieces/assemblage%20pince.SLDASM)
 
 
 a) Après avoir fixé l'embout de vérin dans sa position minimale, les coordonnées du centre de masse de cet assemblage sont les suivantes : 
@@ -180,15 +181,29 @@ a) Après avoir fixé l'embout de vérin dans sa position minimale, les coordonn
 
 ### Emplacement des fichiers
 Ci-joint les fichiers des pièces modélisées : 
-- [Pièce 1](pieces/Piece_1/piece_1.SLDPRT)
-- [Pièce 2](pieces/Piece_2/piece_2.SLDPRT)
-- [Pièce 3](pieces/Piece_3/piece_3.SLDPRT)
-- [Pièce 4](pieces/Piece_4/piece_4.SLDPRT)
-- [Pince](pieces/Assemblage/assemblage%20pince.SLDASM)
+- [Pièce I](pieces/Piece_1/piece_1.SLDPRT)
+  
+- [Pièce II](pieces/Piece_2/piece_2.SLDPRT)
+  
+- [Pièce III](pieces/Piece_3/piece_3.SLDPRT)
+  
+- [Pièce IV](pieces/Piece_4/piece_4.SLDPRT)
+  
+- [Dossier A](pieces/Dossier%20%20A.zip)
+  
+- [Dossier B](pieces/Dossier%20%20B.zip)
+
+
 
 ## Video de la Pince en mouvement
 
-[video](https://vimeo.com/manage/videos/1092855533/480fde870c)
+<iframe src="https://player.vimeo.com/video/1092855533?h=480fde870c" 
+        width="500" height="300" 
+        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
+        allowfullscreen>
+</iframe>
+
+#### Vidéo explicative
 
 ### Contribution au projet
 Les apports de contribution sont les bienvenus.
