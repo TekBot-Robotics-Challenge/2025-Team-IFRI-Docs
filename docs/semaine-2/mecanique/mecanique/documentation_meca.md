@@ -201,10 +201,14 @@ b) Les coordonnées du centre de masse pour A = 30 degrees ; B = 115 degrees ; C
 
 
 ## Section Vidéo et Médias
-- **Vidéo tutoriel** : démonstration des étapes clés (2 min).  
-- **Liens** : 
-  - YouTube : `https://youtu.be/…`  
-  - Repos GitHub : `https://github.com/TekBot-Robotics-Challenge/2025-Team-IFRI-Docs`
+
+## Video des pièces
+
+<iframe src="[https://player.vimeo.com/video/1092855533?h=480fde870c](https://vimeo.com/manage/videos/1094752656/85ffe3b354)" 
+        width="500" height="300" 
+        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
+        allowfullscreen>
+</iframe>
 
 ---
 
