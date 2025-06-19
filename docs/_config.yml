@@ -1,0 +1,29 @@
+title: TEKBOT Robotics Challenge 2025
+description: Documentation officielle du TEKBOT Robotics Challenge 2025
+
+# Configuration Jekyll
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Collections
+collections:
+  documentation:
+    output: true
+    permalink: /:collection/:path/
+
+# Exclude files
+exclude:
+  - node_modules/
+  - .git/
+  - README.md
+  - package*.json
+
+# Include files
+include:
+  - _*
