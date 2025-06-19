@@ -1,0 +1,43 @@
+---
+layout: default
+title: Page non trouvée
+permalink: /404.html
+---
+
+<div class="error-page">
+  <h1>Page non trouvée</h1>
+  <p>La page que vous recherchez n'existe pas ou a été déplacée.</p>
+  <a href="{{ '/' | relative_url }}" class="button">Retour à l'accueil</a>
+</div>
+
+<style>
+  .error-page {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .error-page h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #e53935;
+  }
+  
+  .button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #3367d6;
+    color: white;
+    text-decoration: none;
+  }
+</style>
