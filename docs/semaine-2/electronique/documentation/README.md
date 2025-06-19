@@ -165,12 +165,12 @@ After a crash, crucial data is stored in the BlackBox's EEPROM. It can be recove
 
 For an in-depth exploration of the various aspects of this project, please consult the following documents:
 
-* **Hardware Used**: [documentation/hardware.md](hardware.md)
-* **Software (Firmware)**: [documentation/software_firmware.md](software_firmware.md)
-* **Assembly and Configuration Guide**: [documentation/assembly_configuration.md](assembly_configuration.md)
-* **Full Results and Demonstration**: [documentation/results_demonstration.md](results_demonstration.md)
-* **Possible Improvements**: [documentation/possible_improvements.md](possible_improvements.md)
-* **Troubleshooting (FAQ)**: [documentation/troubleshooting.md](troubleshooting.md)
+* **Hardware Used**: [Hardware.md](hardware.md)
+* **Software (Firmware)**: [Software_firmware.md](software_firmware.md)
+* **Assembly and Configuration Guide**: [Assembly_configuration.md](assembly_configuration.md)
+* **Full Results and Demonstration**: [Results_demonstration.md](results_demonstration.md)
+* **Possible Improvements**: [Possible_improvements.md](possible_improvements.md)
+* **Troubleshooting (FAQ)**: [Troubleshooting.md](troubleshooting.md)
 
 ---
 
