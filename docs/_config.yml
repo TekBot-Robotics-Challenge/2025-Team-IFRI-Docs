@@ -1,31 +1,31 @@
-# Configuration Jekyll pour le site de documentation IFRI 2025
+# Configuration du site
 title: Documentation Équipe IFRI 2025
 description: Documentation officielle de l'équipe IFRI pour l'année académique 2025
 baseurl: "/2025-Team-IFRI-Docs"
 url: "https://2025-team-ifri-docs.github.io"
 
-# Configuration Jekyll
-markdown: kramdown
-highlighter: rouge
+# Structure de navigation
+collections:
+  documentation:
+    output: true
+    permalink: /:collection/:path/
 
-# Configuration de la navigation
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: "default"
+# Configuration de build
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+highlighter: rouge
 
 # Plugins
 plugins:
   - jekyll-seo-tag
-  - jekyll-sitemap
 
 # Exclusions
 exclude:
   - Gemfile
   - Gemfile.lock
-  - node_modules
   - vendor
+  - README.md
   - README.md
 
 # Inclusions spécifiques

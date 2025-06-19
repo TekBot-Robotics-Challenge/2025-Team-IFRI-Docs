@@ -4,82 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     {% seo %}
 </head>
 <body>
     <div class="container">
-        <div class="sidebar" id="sidebar">
+        <aside class="sidebar">
             <div class="sidebar-header">
                 <h2>{{ site.title }}</h2>
-                <button id="sidebar-toggle-close" class="sidebar-toggle"><i class="fas fa-times"></i></button>
             </div>
             {% include sidebar.html %}
-        </div>
-        
+        </aside>
+
         <div class="content-wrapper">
             <div class="top-bar">
-                <button id="sidebar-toggle-open" class="sidebar-toggle"><i class="fas fa-bars"></i></button>
-                <div class="breadcrumbs">
+                <div class="breadcrumb">
                     <a href="{{ '/' | relative_url }}">Accueil</a>
-                    {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+                    {% assign crumbs = page.url | remove:'/index' | split: '/' %}
                     {% for crumb in crumbs offset: 1 %}
                         {% if forloop.last %}
-                            / <span>{{ page.title }}</span>
+                            <span>/</span> {{ page.title }}
                         {% else %}
-                            / <a href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' | capitalize }}</a>
+                            {% assign crumb_url = crumbs | slice: 1, forloop.index | join: '/' %}
+                            <span>/</span> <a href="{{ '/' | append: crumb_url | relative_url }}">{{ crumb | replace:'-',' ' | capitalize }}</a>
                         {% endif %}
                     {% endfor %}
                 </div>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" style="display:none;">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            
-            <main class="content">
-                {{ content }}
-            </main>
-            
-            <footer>
-                <p>&copy; 2025 Équipe IFRI. Tous droits réservés.</p>
-            </footer>
+
+            <div class="main-content">
+                <div class="primary-content">
+                    {{ content }}
+                </div>
+                
+                <div class="page-toc">
+                    <div class="page-toc-title">
+                        Sur cette page
+                    </div>
+                    <div id="toc-container"></div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        document.getElementById('sidebar-toggle-open').addEventListener('click', function() {
-            document.getElementById('sidebar').classList.add('active');
+        // Generate table of contents
+        document.addEventListener('DOMContentLoaded', function() {
+            const headers = document.querySelectorAll('.primary-content h2, .primary-content h3');
+            const tocContainer = document.getElementById('toc-container');
+            
+            if (headers.length > 0) {
+                const tocList = document.createElement('ul');
+                
+                headers.forEach(function(header) {
+                    // Create anchor ID if not exists
+                    if (!header.id) {
+                        header.id = header.textContent.toLowerCase()
+                            .replace(/[^\w\s]/gi, '')
+                            .replace(/\s+/g, '-');
+                    }
+                    
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = '#' + header.id;
+                    link.textContent = header.textContent;
+                    
+                    // Indent h3 elements
+                    if (header.tagName === 'H3') {
+                        listItem.style.paddingLeft = '15px';
+                    }
+                    
+                    listItem.appendChild(link);
+                    tocList.appendChild(listItem);
+                });
+                
+                tocContainer.appendChild(tocList);
+            }
         });
         
-        document.getElementById('sidebar-toggle-close').addEventListener('click', function() {
-            document.getElementById('sidebar').classList.remove('active');
-        });
-
-        // Expand current section
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentPath = window.location.pathname;
-            const menuItems = document.querySelectorAll('.sidebar-nav li');
-            
-            menuItems.forEach(item => {
-                const link = item.querySelector('a');
-                if (link && currentPath.includes(link.getAttribute('href'))) {
-                    let parent = item;
-                    while (parent) {
-                        if (parent.classList.contains('has-children')) {
-                            parent.classList.add('expanded');
-                        }
-                        parent = parent.parentElement && parent.parentElement.closest('li');
-                    }
-                }
-            });
-        });
-
-        // Toggle submenu
-        const submenuToggles = document.querySelectorAll('.submenu-toggle');
-        submenuToggles.forEach(toggle => {
-            toggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                const parent = this.closest('li');
-                parent.classList.toggle('expanded');
-            });
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('open');
         });
     </script>
 </body>
