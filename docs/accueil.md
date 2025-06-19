@@ -19,7 +19,7 @@ L'objectif de cette présélection est d'identifier les équipes les plus qualif
 | Domaine | Tests | Durée |
 |---------|-------|--------|
 | Électronique | [Test 1: Test input : Gyroscope et accéléromètre](semaine-1/electronique/gyroscope-accelerometre.md) | 1 semaine |
-| | [Test 2: Test communication : La boîte noire](semaine-2/electronique/documentation/gyroscope-accelerometre.md) | 1 semaine |
+| | [Test 2: Test communication : La boîte noire](semaine-2/electronique/documentation/assembly_configuration.md) | 1 semaine |
 | | Test 3: Test output: Réalisation d'un afficheur 7 segments | 1 semaine |
 | IT | [Test 1: Réalisation d'un système de classe de gestion d'un Robot](semaine-1/it/robot.md) | 1 semaine |
 | | [Test 2: Introduction à ROS2](semaine-2/IT/IT%202/Test2/readme.md) | 1 semaine |
