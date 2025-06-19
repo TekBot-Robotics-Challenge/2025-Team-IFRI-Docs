@@ -215,16 +215,18 @@ Fichiers :
 ![Question a](images/picture_mass_properties_a.png)
 
 a) Les coordonnées du centre de masse pour A = 25 degrees ; B = 125 degrees ; C = 130 degrees sont : 
-- X = **327.67**
-- Y = **- 98.39**
-- Z = **- 102.91**
+
+- X = **348.66**
+- Y = **- 88.48**
+- Z = **- 91.40**
 
 ![Question b](images/picture_mass_properties_b.png)
 
 b) Les coordonnées du centre de masse pour A = 30 degrees ; B = 115 degrees ; C = 135 degrees sont :
-- X = **348.66**
-- Y = **- 88.48**
-- Z = **- 91.40**
+
+- X = **327.67**
+- Y = **- 98.39**
+- Z = **- 102.91**
 
 ## Difficultés Rencontrées et Solutions Apportées
 
