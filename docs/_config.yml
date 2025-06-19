@@ -1,16 +1,16 @@
-# Configuration du site
 title: Documentation Équipe IFRI 2025
-description: Documentation officielle de l'équipe IFRI pour l'année académique 2025
+description: Documentation officielle de l'équipe IFRI pour l'année 2025
 baseurl: "/2025-Team-IFRI-Docs"
-url: "https://2025-team-ifri-docs.github.io"
 
-# Configuration Jekyll - important pour le traitement des fichiers
+# Simplifier la configuration
 markdown: kramdown
-theme: jekyll-theme-minimal
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+theme: minima
 
+plugins:
+  - jekyll-seo-tag
+
+include:
+  - Documentation
 # Plugins
 plugins:
   - jekyll-seo-tag

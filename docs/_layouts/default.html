@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    {% seo %}
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <aside class="sidebar">
+        <div class="sidebar">
             <div class="sidebar-header">
                 <h2>{{ site.title }}</h2>
             </div>
             {% include sidebar.html %}
-        </aside>
-
-        <div class="content-wrapper">
-            <div class="top-bar">
-                <div class="breadcrumb">
-                    <a href="{{ '/' | relative_url }}">Accueil</a>
-                    {% assign crumbs = page.url | remove:'/index' | split: '/' %}
+        </div>
+        <div class="content">
+            <div class="content-header">
+                <h1>{{ page.title }}</h1>
+            </div>
+            <div class="content-body">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
                     {% for crumb in crumbs offset: 1 %}
                         {% if forloop.last %}
                             <span>/</span> {{ page.title }}

@@ -1,23 +1,23 @@
 <nav class="sidebar-nav">
-    <div class="sidebar-nav-section">Principal</div>
+    <div class="sidebar-nav-section">Documentation</div>
     <ul>
         <li><a href="{{ '/Documentation/accueil' | relative_url }}" class="sidebar-nav-item {% if page.url contains '/Documentation/accueil' %}active{% endif %}">Accueil</a></li>
     </ul>
-
-    <div class="sidebar-nav-section">Semaines</div>
+    
+    <div class="sidebar-nav-section">Semaine 1</div>
     <ul>
-        <!-- Semaine 1 -->
-        <li>
-            <a href="javascript:void(0);" class="sidebar-nav-item sidebar-toggle {% if page.url contains '/Documentation/semaine-1' %}active expanded{% endif %}">Semaine 1</a>
-            <ul class="sidebar-submenu" {% if page.url contains '/Documentation/semaine-1' %}style="display: block;"{% endif %}>
-                <!-- Electronique -->
-                <li>
-                    <a href="javascript:void(0);" class="sidebar-nav-item sidebar-toggle {% if page.url contains '/Documentation/semaine-1/electronique' %}active expanded{% endif %}">Électronique</a>
-                    <ul class="sidebar-submenu" {% if page.url contains '/Documentation/semaine-1/electronique' %}style="display: block;"{% endif %}>
-                        <li><a href="{{ '/Documentation/semaine-1/electronique/gyroscope-accelerometre' | relative_url }}" class="sidebar-nav-item {% if page.url contains '/Documentation/semaine-1/electronique/gyroscope-accelerometre' %}active{% endif %}">Gyroscope et accéléromètre</a></li>
-                    </ul>
-                </li>
-                
+        <li><a href="{{ '/Documentation/semaine-1/electronique/gyroscope-accelerometre' | relative_url }}" class="sidebar-nav-item {% if page.url contains '/Documentation/semaine-1/electronique' %}active{% endif %}">Électronique</a></li>
+        <li><a href="{{ '/Documentation/semaine-1/it/robot' | relative_url }}" class="sidebar-nav-item {% if page.url contains '/Documentation/semaine-1/it' %}active{% endif %}">IT</a></li>
+        <li><a href="{{ '/Documentation/semaine-1/mecanique/documentation_meca' | relative_url }}" class="sidebar-nav-item {% if page.url contains '/Documentation/semaine-1/mecanique' %}active{% endif %}">Mécanique</a></li>
+    </ul>
+    
+    <div class="sidebar-nav-section">Semaines suivantes</div>
+    <ul>
+        <li><a href="#" class="sidebar-nav-item">Semaine 2</a></li>
+        <li><a href="#" class="sidebar-nav-item">Semaine 3</a></li>
+        <li><a href="#" class="sidebar-nav-item">Test Final</a></li>
+    </ul>
+</nav>
                 <!-- IT -->
                 <li>
                     <a href="javascript:void(0);" class="sidebar-nav-item sidebar-toggle {% if page.url contains '/Documentation/semaine-1/it' %}active expanded{% endif %}">IT</a>
