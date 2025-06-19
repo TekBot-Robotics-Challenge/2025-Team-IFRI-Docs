@@ -1,250 +1,195 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Charger la structure depuis le fichier JSON
-    async function loadDocumentStructure() {
+    console.log('Initialisation de la sidebar');
+    
+    // Charger la structure JSON
+    async function loadStructure() {
         try {
             const response = await fetch('structure.json');
-            const structure = await response.json();
-            console.log('Structure chargée:', structure);
-            updateDocumentationSection(structure);
+            const data = await response.json();
+            console.log('Structure JSON chargée:', data);
+            buildSidebar(data);
         } catch (error) {
-            console.error('Erreur lors du chargement de structure.json:', error);
-            // Fallback en cas d'erreur
-            loadFallbackStructure();
+            console.error('Erreur chargement JSON:', error);
+            buildSidebar(getFallbackData());
         }
     }
-
-    // Structure de fallback si le JSON ne se charge pas
-    function loadFallbackStructure() {
-        const fallbackStructure = {
+    
+    // Structure de fallback
+    function getFallbackData() {
+        return {
             "root": [
                 {"name": "index.md", "path": "Documentation/index.md", "title": "Introduction"},
                 {"name": "accueil.md", "path": "Documentation/accueil.md", "title": "Accueil"}
             ],
             "semaine-1": {
-                "electronique": [{"name": "gyroscope-accelerometre.md", "path": "Documentation/semaine-1/electronique/gyroscope-accelerometre.md", "title": "Gyroscope et Accéléromètre"}],
+                "electronique": [
+                    {"name": "gyroscope-accelerometre.md", "path": "Documentation/semaine-1/electronique/gyroscope-accelerometre.md", "title": "Gyroscope et Accéléromètre"}
+                ],
                 "it": [
                     {"name": "robot.md", "path": "Documentation/semaine-1/it/robot.md", "title": "Système de gestion Robot"},
                     {"name": "classes-avancees.md", "path": "Documentation/semaine-1/it/classes-avancees.md", "title": "Classes Avancées"},
                     {"name": "tests-unitaires.md", "path": "Documentation/semaine-1/it/tests-unitaires.md", "title": "Tests Unitaires"}
                 ],
                 "mecanique": [
-                    {"name": "documentation_meca.md", "path": "Documentation/semaine-1/mecanique/documentation_meca.md", "title": "Documentation Mécanique"},
-                    {"name": "conception-3d.md", "path": "Documentation/semaine-1/mecanique/conception-3d.md", "title": "Conception 3D"}
+                    {"name": "documentation_meca.md", "path": "Documentation/semaine-1/mecanique/documentation_meca.md", "title": "Documentation Mécanique"}
                 ]
             }
         };
-        updateDocumentationSection(fallbackStructure);
     }
-
-    // Mettre à jour la section Documentation
-    function updateDocumentationSection(structure) {
-        const documentationSection = document.getElementById('documentation');
-        if (!documentationSection) {
-            console.error('Section documentation non trouvée');
+    
+    // Construire la sidebar complètement
+    function buildSidebar(structure) {
+        const docSection = document.getElementById('documentation');
+        if (!docSection) {
+            console.error('Section documentation introuvable');
             return;
         }
-
-        console.log('Mise à jour de la section Documentation avec', Object.keys(structure).length, 'sections');
-
-        // Garder les éléments statiques
-        const staticItems = [];
-        documentationSection.querySelectorAll('li:not([data-dynamic])').forEach(item => {
-            staticItems.push(item.cloneNode(true));
-        });
-
-        // Vider et remettre les éléments statiques
-        documentationSection.innerHTML = '';
-        staticItems.forEach(item => documentationSection.appendChild(item));
-
-        // Ajouter les fichiers de la racine
-        if (structure.root && structure.root.length > 0) {
+        
+        // Vider tout le contenu dynamique
+        const staticItems = Array.from(docSection.querySelectorAll('li:not([data-dynamic])'));
+        docSection.innerHTML = '';
+        
+        // Remettre les éléments statiques
+        staticItems.forEach(item => docSection.appendChild(item));
+        
+        // Ajouter les fichiers root
+        if (structure.root) {
             structure.root.forEach(file => {
-                const fileItem = createFileItem(file);
-                fileItem.setAttribute('data-dynamic', 'true');
-                documentationSection.appendChild(fileItem);
+                const li = createFileListItem(file);
+                li.setAttribute('data-dynamic', 'true');
+                docSection.appendChild(li);
             });
         }
-
-        // Ajouter les sections par semaine
-        Object.keys(structure).forEach(sectionKey => {
-            if (sectionKey === 'root') return;
-
-            const sectionData = structure[sectionKey];
-            const sectionItem = createDocumentationSubSection(sectionKey, sectionData);
-            sectionItem.setAttribute('data-dynamic', 'true');
-            documentationSection.appendChild(sectionItem);
+        
+        // Ajouter chaque section
+        Object.keys(structure).forEach(key => {
+            if (key === 'root') return;
+            
+            const section = structure[key];
+            const li = createSectionItem(key, section);
+            li.setAttribute('data-dynamic', 'true');
+            docSection.appendChild(li);
         });
-
-        // CORRECTION: Configurer SEULEMENT le toggle principal
-        setupDocumentationToggle();
-        console.log('Section Documentation mise à jour avec succès');
-    }
-
-    // Configurer SEULEMENT le toggle principal de Documentation
-    function setupDocumentationToggle() {
-        const docToggle = document.querySelector('[data-section="documentation"]');
-        const documentationSection = document.getElementById('documentation');
         
-        if (!docToggle || !documentationSection) {
-            console.error('Toggle ou section documentation non trouvés');
-            return;
-        }
-
-        // État initial : OUVERT pour voir le contenu
-        documentationSection.classList.remove('collapsed');
-        const arrow = docToggle.querySelector('.arrow');
-        if (arrow) arrow.textContent = '▼';
-        
-        console.log('Toggle Documentation configuré');
+        // Configurer le toggle principal
+        setupMainToggle();
+        console.log('Sidebar construite avec succès');
     }
-
-    // Créer une sous-section AVEC event listeners intégrés
-    function createDocumentationSubSection(sectionKey, sectionData) {
+    
+    // Créer un item de section (semaine ou test-final)
+    function createSectionItem(sectionKey, sectionData) {
         const li = document.createElement('li');
-        const sectionName = getSectionDisplayName(sectionKey);
-        const sectionIcon = getSectionIcon(sectionKey);
-
+        
+        // Créer le toggle
+        const toggleDiv = document.createElement('div');
+        toggleDiv.className = 'subsection-toggle';
+        toggleDiv.innerHTML = `${getIcon(sectionKey)} ${getDisplayName(sectionKey)} <span class="toggle-arrow">▶</span>`;
+        
+        // Créer la liste de contenu
+        const contentUl = document.createElement('ul');
+        contentUl.className = 'subsection-content';
+        contentUl.style.display = 'none';
+        
         if (Array.isArray(sectionData)) {
             // Section simple (test-final)
-            const toggle = document.createElement('div');
-            toggle.className = 'subsection-toggle';
-            toggle.setAttribute('data-section', `doc-${sectionKey}`);
-            toggle.innerHTML = `${sectionIcon} ${sectionName}<span class="arrow">▶</span>`;
-
-            const ul = document.createElement('ul');
-            ul.className = 'subsection-list';
-            ul.id = `doc-${sectionKey}`;
-
             sectionData.forEach(file => {
-                const fileItem = createFileItem(file);
-                ul.appendChild(fileItem);
+                const fileItem = createFileListItem(file);
+                contentUl.appendChild(fileItem);
             });
-
-            // AJOUTER l'event listener DIRECTEMENT ici
-            toggle.addEventListener('click', function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                
-                const arrow = this.querySelector('.arrow');
-                console.log(`Clic sur ${sectionKey}`);
-                
-                ul.classList.toggle('expanded');
-                if (ul.classList.contains('expanded')) {
-                    arrow.textContent = '▼';
-                    console.log(`${sectionKey} ouvert`);
-                } else {
-                    arrow.textContent = '▶';
-                    console.log(`${sectionKey} fermé`);
-                }
-            });
-
-            li.appendChild(toggle);
-            li.appendChild(ul);
         } else {
             // Section avec domaines (semaines)
-            const toggle = document.createElement('div');
-            toggle.className = 'subsection-toggle';
-            toggle.setAttribute('data-section', `doc-${sectionKey}`);
-            toggle.innerHTML = `${sectionIcon} ${sectionName}<span class="arrow">▶</span>`;
-
-            const ul = document.createElement('ul');
-            ul.className = 'subsection-list';
-            ul.id = `doc-${sectionKey}`;
-
             Object.keys(sectionData).forEach(domainKey => {
                 const domainFiles = sectionData[domainKey];
-                const domainItem = createDomainSubItem(domainKey, domainFiles, sectionKey);
-                ul.appendChild(domainItem);
+                const domainItem = createDomainItem(domainKey, domainFiles);
+                contentUl.appendChild(domainItem);
             });
-
-            // AJOUTER l'event listener DIRECTEMENT ici
-            toggle.addEventListener('click', function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                
-                const arrow = this.querySelector('.arrow');
-                console.log(`Clic sur ${sectionKey}`);
-                
-                ul.classList.toggle('expanded');
-                if (ul.classList.contains('expanded')) {
-                    arrow.textContent = '▼';
-                    console.log(`${sectionKey} ouvert`);
-                } else {
-                    arrow.textContent = '▶';
-                    console.log(`${sectionKey} fermé`);
-                }
-            });
-
-            li.appendChild(toggle);
-            li.appendChild(ul);
         }
-
+        
+        // Event listener pour le toggle
+        toggleDiv.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const arrow = this.querySelector('.toggle-arrow');
+            console.log(`Toggle section: ${sectionKey}`);
+            
+            if (contentUl.style.display === 'none') {
+                contentUl.style.display = 'block';
+                arrow.textContent = '▼';
+                console.log(`${sectionKey} ouvert`);
+            } else {
+                contentUl.style.display = 'none';
+                arrow.textContent = '▶';
+                console.log(`${sectionKey} fermé`);
+            }
+        });
+        
+        li.appendChild(toggleDiv);
+        li.appendChild(contentUl);
         return li;
     }
-
-    // Créer un domaine AVEC event listener intégré
-    function createDomainSubItem(domainKey, files, parentSection) {
+    
+    // Créer un item de domaine (electronique, it, mecanique)
+    function createDomainItem(domainKey, files) {
         const li = document.createElement('li');
-        const domainName = getDomainDisplayName(domainKey);
-        const domainIcon = getDomainIcon(domainKey);
         
-        const toggle = document.createElement('div');
-        toggle.className = 'domain-toggle';
-        toggle.setAttribute('data-section', `doc-${parentSection}-${domainKey}`);
-        toggle.innerHTML = `${domainIcon} ${domainName}<span class="arrow">▶</span>`;
-
-        const ul = document.createElement('ul');
-        ul.className = 'domain-list';
-        ul.id = `doc-${parentSection}-${domainKey}`;
-
+        // Créer le toggle du domaine
+        const toggleDiv = document.createElement('div');
+        toggleDiv.className = 'domain-toggle';
+        toggleDiv.innerHTML = `${getDomainIcon(domainKey)} ${getDomainName(domainKey)} <span class="toggle-arrow">▶</span>`;
+        toggleDiv.style.paddingLeft = '20px';
+        
+        // Créer la liste des fichiers
+        const filesUl = document.createElement('ul');
+        filesUl.className = 'domain-files';
+        filesUl.style.display = 'none';
+        filesUl.style.paddingLeft = '20px';
+        
         files.forEach(file => {
-            const fileItem = createFileItem(file);
-            ul.appendChild(fileItem);
+            const fileItem = createFileListItem(file);
+            filesUl.appendChild(fileItem);
         });
-
-        // AJOUTER l'event listener DIRECTEMENT ici
-        toggle.addEventListener('click', function(event) {
-            event.preventDefault();
-            event.stopPropagation();
+        
+        // Event listener pour le domaine
+        toggleDiv.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             
-            const arrow = this.querySelector('.arrow');
-            console.log(`Clic sur ${domainKey} de ${parentSection}`);
+            const arrow = this.querySelector('.toggle-arrow');
+            console.log(`Toggle domaine: ${domainKey}`);
             
-            ul.classList.toggle('expanded');
-            if (ul.classList.contains('expanded')) {
+            if (filesUl.style.display === 'none') {
+                filesUl.style.display = 'block';
                 arrow.textContent = '▼';
                 console.log(`${domainKey} ouvert`);
             } else {
+                filesUl.style.display = 'none';
                 arrow.textContent = '▶';
                 console.log(`${domainKey} fermé`);
             }
         });
-
-        li.appendChild(toggle);
-        li.appendChild(ul);
+        
+        li.appendChild(toggleDiv);
+        li.appendChild(filesUl);
         return li;
     }
-
-    // Créer un élément de fichier avec liens corrects
-    function createFileItem(file) {
+    
+    // Créer un item de fichier
+    function createFileListItem(file) {
         const li = document.createElement('li');
         const a = document.createElement('a');
         
-        const displayName = file.title || getFileDisplayName(file.name);
-        const fileId = file.name.replace('.md', '').replace(/[^a-zA-Z0-9]/g, '-');
-        
-        a.href = `#${fileId}`;
+        a.href = '#';
         a.className = 'nav-link file-link';
-        a.textContent = displayName;
-        a.setAttribute('data-file', file.path);
+        a.textContent = file.title;
+        a.style.paddingLeft = '40px';
         
-        // Event listener pour charger le fichier
         a.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log(`Clic sur fichier: ${file.path}`);
-            loadFileContent(file.path, fileId, displayName);
+            console.log(`Clic sur fichier: ${file.title}`);
+            loadFile(file);
             
-            // Mettre à jour l'état actif
+            // Retirer l'état actif des autres
             document.querySelectorAll('.file-link').forEach(link => 
                 link.classList.remove('active-file'));
             this.classList.add('active-file');
@@ -253,65 +198,120 @@ document.addEventListener('DOMContentLoaded', function() {
         li.appendChild(a);
         return li;
     }
-
-    // Charger contenu d'un fichier avec vérification des liens
-    async function loadFileContent(filePath, targetId, displayName) {
-        try {
-            console.log(`Tentative de chargement du fichier: ${filePath}`);
-            
-            let targetSection = document.getElementById(targetId);
-            if (!targetSection) {
-                targetSection = document.createElement('section');
-                targetSection.id = targetId;
-                document.querySelector('.content-body').appendChild(targetSection);
-            }
-            
-            // Essayer de charger le fichier réel
-            try {
-                const response = await fetch(filePath);
-                if (response.ok) {
-                    const content = await response.text();
-                    targetSection.innerHTML = `
-                        <h2>📄 ${displayName}</h2>
-                        <div class="file-content">
-                            <div class="markdown-content">${content}</div>
-                        </div>
-                    `;
-                    console.log(`Fichier chargé avec succès: ${filePath}`);
-                } else {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-            } catch (fetchError) {
-                console.warn(`Impossible de charger ${filePath}, affichage du placeholder`);
-                targetSection.innerHTML = `
-                    <h2>📄 ${displayName}</h2>
-                    <div class="file-content">
-                        <div class="info-box">
-                            <span class="info-icon">📄</span>
-                            <div>
-                                <p><strong>Fichier:</strong> <code>${filePath}</code></p>
-                                <p><strong>Statut:</strong> Prêt à être documenté</p>
-                                <p>Ce fichier sera bientôt disponible avec le contenu complet de la documentation.</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            // Faire défiler vers la section
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            
-        } catch (error) {
-            console.error('Erreur lors du chargement du fichier:', error);
+    
+    // Charger un fichier
+    function loadFile(file) {
+        const contentBody = document.querySelector('.content-body');
+        const fileId = file.name.replace('.md', '').replace(/[^a-zA-Z0-9]/g, '-');
+        
+        // Créer ou mettre à jour la section
+        let section = document.getElementById(fileId);
+        if (!section) {
+            section = document.createElement('section');
+            section.id = fileId;
+            contentBody.appendChild(section);
         }
+        
+        section.innerHTML = `
+            <h2>📄 ${file.title}</h2>
+            <div class="file-content">
+                <div class="info-box">
+                    <span class="info-icon">📄</span>
+                    <div>
+                        <p><strong>Fichier:</strong> <code>${file.path}</code></p>
+                        <p><strong>Statut:</strong> Prêt pour la documentation</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Scroll vers la section
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-
-    // SUPPRIMER toutes les anciennes fonctions de toggle
-    // Ne plus utiliser setupDynamicToggles() ni setupAllToggles()
-
+    
+    // Configurer le toggle principal de Documentation
+    function setupMainToggle() {
+        const mainToggle = document.querySelector('[data-section="documentation"]');
+        const docSection = document.getElementById('documentation');
+        
+        if (!mainToggle || !docSection) return;
+        
+        const mainArrow = mainToggle.querySelector('.arrow');
+        
+        // État initial ouvert
+        if (mainArrow) mainArrow.textContent = '▼';
+        
+        mainToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('Toggle Documentation principal');
+            
+            if (docSection.style.display === 'none') {
+                docSection.style.display = 'block';
+                if (mainArrow) mainArrow.textContent = '▼';
+                console.log('Documentation ouverte');
+            } else {
+                docSection.style.display = 'none';
+                if (mainArrow) mainArrow.textContent = '▶';
+                console.log('Documentation fermée');
+            }
+        });
+    }
+    
+    // Fonctions utilitaires
+    function getDisplayName(key) {
+        const names = {
+            'semaine-1': 'Semaine 1',
+            'semaine-2': 'Semaine 2',
+            'semaine-3': 'Semaine 3',
+            'test-final': 'Test Final'
+        };
+        return names[key] || key;
+    }
+    
+    function getIcon(key) {
+        const icons = {
+            'semaine-1': '📅',
+            'semaine-2': '📅',
+            'semaine-3': '📅',
+            'test-final': '🏆'
+        };
+        return icons[key] || '📄';
+    }
+    
+    function getDomainName(key) {
+        const names = {
+            'electronique': 'Électronique',
+            'it': 'Informatique',
+            'mecanique': 'Mécanique'
+        };
+        return names[key] || key;
+    }
+    
+    function getDomainIcon(key) {
+        const icons = {
+            'electronique': '⚡',
+            'it': '💻',
+            'mecanique': '🔧'
+        };
+        return icons[key] || '📄';
+    }
+    
+    // Recherche
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+    }
+    
+    // Démarrer l'application
+    loadStructure();
+});
     // Recherche
     const searchInput = document.querySelector('.search-input');
     document.addEventListener('keydown', function(e) {
