@@ -122,7 +122,7 @@ body {
     font-size: 13px;
 }
 
-.subsection-list, .domain-list {
+.subsection-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -131,57 +131,13 @@ body {
     transition: max-height 0.3s ease;
 }
 
-.subsection-list.expanded, .domain-list.expanded {
-    max-height: 300px;
+.subsection-list.expanded {
+    max-height: 200px;
 }
 
-.domain-toggle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 40px;
-    color: #b9bbbe;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.domain-toggle:hover {
-    background-color: #393c43;
-    color: #dcddde;
-}
-
-.domain-list .nav-link {
-    padding-left: 60px;
+.subsection-list .nav-link {
+    padding-left: 50px;
     font-size: 12px;
-}
-
-.file-link {
-    position: relative;
-    display: block;
-    padding: 6px 50px;
-    color: #b9bbbe;
-    text-decoration: none;
-    font-size: 12px;
-    transition: all 0.2s;
-}
-
-.file-link::before {
-    content: '📄';
-    margin-right: 8px;
-    font-size: 10px;
-}
-
-.file-link:hover {
-    background-color: #393c43;
-    color: #dcddde;
-}
-
-.file-link.active {
-    background-color: #5865f2;
-    color: #fff;
-    font-weight: 600;
 }
 
 .search-container {
@@ -221,6 +177,8 @@ body {
     flex: 1;
     margin-left: 280px;
     background-color: #36393f;
+    position: relative;
+    z-index: 1;
 }
 
 .content-header {
@@ -276,119 +234,151 @@ body {
     max-width: 1000px;
 }
 
-.hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 30px;
-    border-radius: 12px;
-    margin-bottom: 40px;
-    color: white;
+/* Add styles for markdown content display */
+.markdown-content {
+    display: none;
+    padding: 40px;
+    max-width: 1000px;
+    background-color: #36393f;
+    position: relative;
+    z-index: 10;
 }
 
-.hero-section h2 {
-    font-size: 32px;
-    margin-bottom: 15px;
+.markdown-content.active {
+    display: block;
 }
 
-.lead {
-    font-size: 18px;
-    opacity: 0.9;
-    line-height: 1.6;
-}
-
-.content-body p {
+.markdown-content h1 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 700;
     margin-bottom: 20px;
-    color: #dcddde;
-    font-size: 16px;
+    border-bottom: 2px solid #5865f2;
+    padding-bottom: 10px;
 }
 
-.content-body h2 {
+.markdown-content h2 {
     color: #fff;
     font-size: 28px;
-    font-weight: 600;
-    margin: 40px 0 20px 0;
-}
-
-.content-body h3 {
-    color: #fff;
-    font-size: 20px;
     font-weight: 600;
     margin: 30px 0 15px 0;
 }
 
-.info-box {
-    background-color: #5865f2;
-    color: white;
-    padding: 16px;
-    border-radius: 8px;
-    margin: 20px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+.markdown-content h3 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 25px 0 12px 0;
 }
 
-.info-icon {
-    font-size: 18px;
-    margin-top: 2px;
+.markdown-content p {
+    color: #dcddde;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
 }
 
-.info-box p {
-    margin: 0;
-    color: white;
+.markdown-content ul, .markdown-content ol {
+    color: #dcddde;
+    margin: 16px 0;
+    padding-left: 20px;
 }
 
-.table-container {
-    overflow-x: auto;
-    margin: 20px 0;
+.markdown-content li {
+    margin-bottom: 8px;
 }
 
-.doc-table {
+.markdown-content table {
     width: 100%;
     border-collapse: collapse;
+    margin: 20px 0;
     background-color: #2f3136;
     border-radius: 8px;
     overflow: hidden;
 }
 
-.doc-table th,
-.doc-table td {
+.markdown-content th,
+.markdown-content td {
     padding: 12px 16px;
     text-align: left;
     border-bottom: 1px solid #40444b;
+    color: #dcddde;
 }
 
-.doc-table th {
+.markdown-content th {
     background-color: #5865f2;
     color: white;
     font-weight: 600;
 }
 
-.doc-table td {
-    color: #dcddde;
+.markdown-content code {
+    background-color: #2f3136;
+    color: #f8f8f2;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
 }
 
-.domain-cell {
-    font-weight: 600;
-    vertical-align: middle;
+.markdown-content pre {
+    background-color: #2f3136;
+    border: 1px solid #202225;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px 0;
+    overflow-x: auto;
 }
 
-.domain-cell.electronique {
-    background-color: rgba(255, 193, 7, 0.1);
-    border-left: 4px solid #ffc107;
+.markdown-content pre code {
+    background: none;
+    padding: 0;
 }
 
-.domain-cell.informatique {
-    background-color: rgba(40, 167, 69, 0.1);
-    border-left: 4px solid #28a745;
+.markdown-content blockquote {
+    background-color: #2f3136;
+    border-left: 4px solid #5865f2;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
 }
 
-.domain-cell.mecanique {
-    background-color: rgba(220, 53, 69, 0.1);
-    border-left: 4px solid #dc3545;
+.markdown-content blockquote p {
+    margin: 0;
+    font-style: italic;
 }
 
-.domain-cell.final {
-    background-color: rgba(102, 126, 234, 0.1);
-    border-left: 4px solid #667eea;
+/* Hide main content when markdown is active */
+.content-body.hidden {
+    display: none;
+}
+
+.content-header.hidden {
+    display: none;
+}
+
+/* Back button for markdown content */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #5865f2;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #4752c4;
+}
+
+.back-button::before {
+    content: '←';
+    font-size: 16px;
 }
 
 .timeline {
@@ -488,18 +478,6 @@ section {
     margin-bottom: 50px;
 }
 
-/* Assurer que la section Documentation est visible */
-#documentation {
-    max-height: 1000px;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-}
-
-#documentation.collapsed {
-    max-height: 0 !important;
-    overflow: hidden;
-}
-
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
@@ -521,35 +499,7 @@ section {
         font-size: 32px;
     }
     
-    .content-body {
+    .content-body, .markdown-content {
         padding: 20px;
     }
-}
-
-/* Styles pour la sidebar dépliable */
-.section-header, .domain-header {
-    padding: 8px 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #b9bbbe;
-    font-size: 14px;
-    font-weight: 500;
-    transition: background-color 0.2s;
-}
-
-.section-header:hover, .domain-header:hover {
-    background-color: #393c43;
-}
-
-.domain-header {
-    padding-left: 35px;
-    font-size: 13px;
-}
-
-.section-content, .domain-content {
-    list-style: none;
-    padding: 0;
-    margin: 0;
 }
