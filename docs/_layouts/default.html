@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     {% seo %}
 </head>
 <body>
@@ -30,12 +30,15 @@
                         {% if forloop.last %}
                             <span>/</span> {{ page.title }}
                         {% else %}
-                            {% assign crumb_url = crumbs | slice: 1, forloop.index | join: '/' %}
-                            <span>/</span> <a href="{{ '/' | append: crumb_url | relative_url }}">{{ crumb | replace:'-',' ' | capitalize }}</a>
+                            {% assign crumb_url = '' %}
+                            {% for i in (1..forloop.index) %}
+                                {% assign crumb_url = crumb_url | append: '/' | append: crumbs[i] %}
+                            {% endfor %}
+                            <span>/</span> <a href="{{ crumb_url | relative_url }}">{{ crumb | replace:'-',' ' | capitalize }}</a>
                         {% endif %}
                     {% endfor %}
                 </div>
-                <button id="mobile-menu-toggle" class="mobile-menu-toggle" style="display:none;">
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -55,12 +58,9 @@
         </div>
     </div>
 
-    <script>
-        // Generate table of contents
-        document.addEventListener('DOMContentLoaded', function() {
-            const headers = document.querySelectorAll('.primary-content h2, .primary-content h3');
-            const tocContainer = document.getElementById('toc-container');
-            
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
             if (headers.length > 0) {
                 const tocList = document.createElement('ul');
                 

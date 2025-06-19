@@ -4,15 +4,10 @@ description: Documentation officielle de l'équipe IFRI pour l'année académiqu
 baseurl: "/2025-Team-IFRI-Docs"
 url: "https://2025-team-ifri-docs.github.io"
 
-# Structure de navigation
-collections:
-  documentation:
-    output: true
-    permalink: /:collection/:path/
-
 # Configuration de build
 markdown: kramdown
 kramdown:
+  input: GFM
   syntax_highlighter: rouge
 highlighter: rouge
 
@@ -26,14 +21,19 @@ exclude:
   - Gemfile.lock
   - vendor
   - README.md
-  - README.md
 
-# Inclusions spécifiques
+# Inclusions spécifiques - important pour inclure les fichiers de documentation
 include:
   - .nojekyll
+  - Documentation
 
-# Collections pour la documentation
-collections:
-  documentation:
-    output: true
-    permalink: /:collection/:path/
+# Valeurs par défaut
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: "Documentation"
+    values:
+      layout: "default"
