@@ -1,0 +1,23 @@
+
+1. Arduino IDE
+   Description: Environnement de développement pour écrire, compiler et téléverser le code sur les cartes Arduino et ATmega.
+   Téléchargement: https://www.arduino.cc/en/software
+
+2. Bibliothèques Arduino (installables via le Gestionnaire de Bibliothèques de l'IDE)
+   a. Wire.h: Communication I2C. (Incluse avec l'IDE)
+   b. Adafruit_MPU6050.h: Capteur MPU-6050. (GitHub: https://github.com/adafruit/Adafruit_MPU6050)
+   c. Adafruit_Sensor.h: Dépendance de Adafruit_MPU6050. (GitHub: https://github.com/adafruit/Adafruit_Unified_Sensor)
+   d. EEPROM.h: Mémoire EEPROM de l'ATmega. (Incluse avec l'IDE)
+   e. LiquidCrystal_I2C.h: Écrans LCD via I2C. (GitHub: https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library)
+
+3. Terminal (ou Invite de Commande)
+   Description: Sous Linux, pour vérifier les ports série (ls /dev/tty*) et les permissions (sudo usermod).
+   Téléchargement: Intégré au système d'exploitation.
+
+4. avrdude
+   Description: Outil en ligne de commande pour téléverser le code sur les ATmega.
+   Téléchargement: Fourni avec l'Arduino IDE.
+
+5. KiCad
+   Description: Suite logicielle pour la conception de circuits imprimés (PCB).
+   Téléchargement: https://www.kicad.org/download/

@@ -1,0 +1,28 @@
+I2C Maitre - Demarrage
+Envoi du message a l'esclave...
+Envoi du message a l'esclave...
+Envoi du message a l'esclave...
+
+
+
+
+Essai1 (Esclave):
+I2C Esclave - Demarrage
+Message recu du Maitre: Hello Esclave!
+Message recu du Maitre: Hello Esclave!
+Message recu du Maitre: Hello Esclave!
+
+---
+Essai2 (Esclave):
+I2C Esclave - Demarrage
+(Rien ne s'affiche. L'esclave n'a rien reçu. Problème de câblage I2C ou adresses différentes.)
+
+---
+Essai3 (Esclave):
+I2C Esclave - Demarrage
+Message recu du Maitre: Hello Esclave!
+Message recu du Maitre:
+Message recu du Maitre: Hello Esclave!
+(Des messages manquants ou incomplets indiquent une communication I2C instable.)
+
+

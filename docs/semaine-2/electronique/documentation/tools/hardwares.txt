@@ -1,0 +1,40 @@
+
+1.  Microcontrôleur: ATmega328P
+    Description: Le cerveau de vos cartes (Boîte Noire et Station de Contrôle). C'est le microcontrôleur principal des cartes Arduino Uno.
+    Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf
+
+2.  Module Capteur: MPU-6050 (Module Gyroscope + Accéléromètre)
+    Description: Le capteur de mouvement pour la Boîte Noire, fournissant les données de roulis, tangage et accélération.
+    Datasheet: (Pour la puce elle-même, InvenSense MPU-6050) https://www.cdiweb.com/datasheets/invensense/MPU-6050_DataSheet_V3.4.pdf
+    (Note: Le module que vous achetez intègre la puce MPU-6050 et des composants périphériques. La datasheet du module spécifique peut varier, mais celle de la puce est la plus importante.)
+
+3.  Écran LCD: LCD 16x2 ou 20x4 avec module I2C
+    Description: L'affichage pour la Station de Contrôle. Il est souvent vendu avec un adaptateur I2C intégré (basé sur une puce PCF8574 ou similaire).
+    Datasheet (Exemple pour LCD 16x2 standard HD44780): https://www.sparkfun.com/datasheets/LCD/HD44780.pdf
+    Datasheet (Exemple pour puce I2C PCF8574): https://www.ti.com/lit/ds/symlink/pcf8574.pdf
+    (Note: Le module I2C simplifie le câblage. L'adresse I2C la plus courante est 0x27 ou 0x3F.)
+
+4.  Câbles Jumper (M/M, F/F, M/F)
+    Description: Utilisés pour les connexions temporaires sur breadboard et entre les modules et l'ATmega.
+    Datasheet: Non applicable (ce sont des fils).
+
+5.  Breadboard (Plaque d'essai)
+    Description: Permet de prototyper rapidement les circuits sans soudure.
+    Datasheet: Non applicable.
+
+6.  Adaptateur USB vers Série (FTDI ou équivalent, souvent intégré sur les cartes Arduino Uno)
+    Description: Utilisé pour communiquer avec l'ATmega328P (moniteur série) et téléverser le code s'il est utilisé en standalone (sans une carte Arduino Uno complète).
+    Datasheet (Exemple pour puce FT232RL): https://ftdichip.com/wp-content/uploads/2020/08/DS_FT232R.pdf
+
+7.  Programmateur ICSP (In-Circuit Serial Programming)
+    Description: Pour téléverser le firmware sur l'ATmega328P lorsque vous l'utilisez "nu" (sans bootloader ou avec un bootloader qui ne gère pas le port série). Une carte Arduino Uno configurée avec le sketch "ArduinoISP" est souvent utilisée comme programmateur.
+    Datasheet: Non applicable (c'est un outil/méthode, pas un composant discret).
+
+8.  Quartz 16 MHz et Condensateurs 22 pF (si ATmega328P est utilisé nu sans carte Arduino)
+    Description: Composants nécessaires pour fournir l'horloge externe stable de 16 MHz à l'ATmega328P, essentielle à son bon fonctionnement et à la bonne communication.
+    Datasheet (Exemple pour Quartz 16 MHz): Les datasheets varient selon le fabricant, une recherche pour "16MHz crystal datasheet" donnera des exemples.
+    Datasheet (Exemple pour Condensateur Céramique 22 pF): Les datasheets varient selon le fabricant, une recherche pour "22pF ceramic capacitor datasheet" donnera des exemples.
+
+9.  Résistances (Pull-up pour I2C, si non intégrées aux modules)
+    Description: Les lignes SDA et SCL du bus I2C nécessitent des résistances de "pull-up" (généralement 4.7kΩ) pour fonctionner correctement. Les modules (MPU-6050, LCD I2C) les intègrent souvent.
+    Datasheet: Non applicable (normes de résistance).
