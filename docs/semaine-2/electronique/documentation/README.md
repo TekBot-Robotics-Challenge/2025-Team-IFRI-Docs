@@ -132,7 +132,11 @@ In normal operation mode, the BlackBox continuously acquires orientation and acc
 
 * **Control Station Display**: The LCD screen of the Control Station will display real-time Roll (R:), Pitch (P:), and Z-axis Acceleration (AccelZ:) angles measured by the BlackBox. These values should change according to the BlackBox's movements.
 
+<<<<<<< HEAD
     ![Normal Operation](doc/images/normal_operation_gif_placeholder.gif)
+=======
+    ![Normal Operation](images/normal_operation_gif_placeholder.gif)
+>>>>>>> f176090ca831cf17086b6f3d92c77ea76c286a7b
 
 #### 3. Crash Detection
 
@@ -146,7 +150,11 @@ The system is designed to detect a significant impact, simulating a crash, based
 * **Control Station Behavior**:
     * As soon as it receives the crash status from the BlackBox, the LCD screen switches to display a clear alert message: "!!! CRASH !!!" on the first line and "DATA FROZEN" on the second.
 
+<<<<<<< HEAD
     ![Crash Detection](doc/images/crash_detection_gif_placeholder.gif)
+=======
+    ![Crash Detection](images/crash_detection_gif_placeholder.gif)
+>>>>>>> f176090ca831cf17086b6f3d92c77ea76c286a7b
 
 #### 4. Post-Crash Data Recovery
 
@@ -157,7 +165,11 @@ After a crash, crucial data is stored in the BlackBox's EEPROM. It can be recove
 3.  **Send the exact command**: `READ_CRASH_DATA` (followed by a carriage return; ensure "Newline" is selected in the serial monitor options).
 4.  The BlackBox will respond by displaying the recorded data (Roll, Pitch, AccelZ) in CSV format, allowing for further analysis.
 
+<<<<<<< HEAD
     ![Data Recovery](doc/images/data_recovery_screenshot_placeholder.png)
+=======
+    ![Data Recovery](images/data_recovery_screenshot_placeholder.png)
+>>>>>>> f176090ca831cf17086b6f3d92c77ea76c286a7b
 
 ---
 
@@ -165,12 +177,21 @@ After a crash, crucial data is stored in the BlackBox's EEPROM. It can be recove
 
 For an in-depth exploration of the various aspects of this project, please consult the following documents:
 
+<<<<<<< HEAD
 * **Hardware Used**: [documentation/hardware.md](documentation/hardware.md)
 * **Software (Firmware)**: [documentation/software_firmware.md](documentation/software_firmware.md)
 * **Assembly and Configuration Guide**: [documentation/assembly_configuration.md](documentation/assembly_configuration.md)
 * **Full Results and Demonstration**: [documentation/results_demonstration.md](documentation/results_demonstration.md)
 * **Possible Improvements**: [documentation/possible_improvements.md](documentation/possible_improvements.md)
 * **Troubleshooting (FAQ)**: [documentation/troubleshooting.md](documentation/troubleshooting.md)
+=======
+* **Hardware Used**: [Hardware.md](hardware.md)
+* **Software (Firmware)**: [Software_firmware.md](software_firmware.md)
+* **Assembly and Configuration Guide**: [Assembly_configuration.md](assembly_configuration.md)
+* **Full Results and Demonstration**: [Results_demonstration.md](results_demonstration.md)
+* **Possible Improvements**: [Possible_improvements.md](possible_improvements.md)
+* **Troubleshooting (FAQ)**: [Troubleshooting.md](troubleshooting.md)
+>>>>>>> f176090ca831cf17086b6f3d92c77ea76c286a7b
 
 ---
 
@@ -180,6 +201,7 @@ The most compelling elements are the visuals of the system in action. The images
 
 * **Normal Mode Demonstration**:
     * Visualize the dynamic display of roll, pitch, and Z-axis acceleration data on the Control Station screen based on the BlackBox's movements.
+<<<<<<< HEAD
     ![Normal Operation](doc/images/normal_operation_gif_placeholder.gif)
 * **Crash Detection Demonstration**:
     * Observe the Control Station display's transition to "!!! CRASH !!!" mode upon impact detection.
@@ -187,6 +209,15 @@ The most compelling elements are the visuals of the system in action. The images
 * **Post-Crash Data Recovery Demonstration**:
     * Illustration of the connection procedure and command sending to retrieve essential data stored in the EEPROM via the serial monitor.
     ![Data Recovery](doc/images/data_recovery_screenshot_placeholder.png)
+=======
+    ![Normal Operation](images/normal_operation_gif_placeholder.gif)
+* **Crash Detection Demonstration**:
+    * Observe the Control Station display's transition to "!!! CRASH !!!" mode upon impact detection.
+    ![Crash Detection](images/crash_detection_gif_placeholder.gif)
+* **Post-Crash Data Recovery Demonstration**:
+    * Illustration of the connection procedure and command sending to retrieve essential data stored in the EEPROM via the serial monitor.
+    ![Data Recovery](images/data_recovery_screenshot_placeholder.png)
+>>>>>>> f176090ca831cf17086b6f3d92c77ea76c286a7b
 
 **Note**: For a complete and interactive demonstration, please refer to the project's presentation video (link below).
 
@@ -216,4 +247,8 @@ The "BlackBox & Control Station - IFRI" system represents a complete and robust 
 
 This project is distributed under the MIT License. The terms of this license permit the use, modification, and distribution of the code.
 
+<<<<<<< HEAD
 For more details, consult the [`LICENSE`](LICENSE) file at the root of this repository.
+=======
+For more details, consult the [`LICENSE`](LICENSE) file at the root of this repository.
+>>>>>>> f176090ca831cf17086b6f3d92c77ea76c286a7b

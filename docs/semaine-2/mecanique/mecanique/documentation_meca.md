@@ -27,8 +27,6 @@
 8. [Section Vidéo et Médias](#section-vid%C3%A9o-et-m%C3%A9dias)
 9. [Annexes Techniques](#annexes-techniques)
 10. [Glossaire](#glossaire)
-11. [Résumé pour Présentation (2 min)](#r%C3%A9sum%C3%A9-pour-pr%C3%A9sentation-2-min)
-12. [Références et Liens Utiles](#r%C3%A9férences-et-liens-utiles)
 
 ## Introduction et Contexte
 Le pôle mécanique a pour mission de concevoir, modéliser et valider des composants assurant la solidité et la précision du robot. Cette documentation vise à :
@@ -54,12 +52,14 @@ Le pôle mécanique a pour mission de concevoir, modéliser et valider des compo
 
 
 ## Matériel, Outils et Environnement
-| Élément            | Détail                                     |
-|--------------------|--------------------------------------------|
-| Logiciel           | SolidWorks 2025                            |
-| Matériau           | Acier AISI 1020 (densité 0.0079 g/mm³)     |
-| Unités             | MMGS (mm, g, s), précision ±0.01 mm/g      |
-| Plugins/Librairies | Toolbox standard, équations globales       |
+
+| **Élément**         | **Détail**                                  |
+|---------------------|----------------------------------------------|
+| Logiciel            | SolidWorks 2025                              |
+| Matériau            | Acier AISI 1020 (densité : 0.0079 g/mm³)     |
+| Unités              | MMGS (mm, g, s), précision ±0.01 mm/g        |
+| Plugins/Librairies  | Toolbox standard, équations globales         |
+
 
 
 ## Conception et Réalisation des Pièces
@@ -91,120 +91,161 @@ Le pôle mécanique a pour mission de concevoir, modéliser et valider des compo
 
 
 #### 5.3.3. Définition des Variables Globales
+
 - A = 81 / 84 mm  
 - B = 57 / 59 mm  
 - C = 43 / 45 mm  
 
 #### 5.3.4. Opérations de Volume (Extrusion, Congés)
-1. **Extrusion Bossage/Base** sur épaisseur C.  
-2. **Découpe** : extrémités profilées selon A, B.  
-3. **Congés** :
-   - R5 sur arêtes internes avant enlèvement latéral.  
+
+1. **Extrusion Bossage/Base** sur épaisseur C.
+   
+3. **Découpe** : extrémités profilées selon A, B.
+    
+4. **Congés** :
+   - R5 sur arêtes internes avant enlèvement latéral.
+       
    - R29 sur bords externes en finition.  
 
 
 #### 5.3.5. Contrôles et Validation Géométrique
-- Utiliser la fonction « Vérifier géométrie » pour détecter surfaces non-manifold.  
-- Visualiser la masse via Propriétés —> Propriétés de masse.  
+
+- Utiliser la fonction « Vérifier géométrie » pour détecter surfaces non-manifold.
+  
+- Visualiser la masse via Propriétés —> Propriétés de masse.
+  
 - Comparer contre valeurs attendues.
 
 #### 5.3.6. Exportation des Pièces
+
 - Enregistrer chaque variante sous `partieX.SLDPRT`.  
 
 ### 5.4. Illustrations et Captures d’Écran
 - Organisation des images dans un dossier `images/` contenant :
+  
   - les fichiers images des différentes parties à chaque étape de la modélisation.
+    
 - Insérer légendes et repères (flèches, annotations) sur chaque capture.
 
 ## Résultats et Réponses aux Questions du Test
 
 ### 7.1. Partie 1 – Variations de A, B, C
 
-![Vue détaillée de la pièce](/mecanique/images/picture_piece_partie1.png)
+
+![Vue détaillée de la pièce](images/picture_piece_partie1.png)
+
 
 **Question A**
 
 * Valeurs : A = 81 mm, B = 57 mm, C = 43 mm
-* Fichier : [Télécharger la pièce](/mecanique/Partie%201/piece_partie1_a.SLDPRT)
+  
+* Fichier : [Télécharger la pièce](Partie%201/piece_partie1_a.SLDPRT)
+  
 * Masse : **939.54 grammes**
-  ![Propriétés de masse](/mecanique/images/picture_mass_properties_partie1_a.jpg)
+  
+  ![Propriétés de masse](images/picture_mass_properties_partie1_a.jpg)
 
 
 **Question B**
 
 * Valeurs : A = 84 mm, B = 59 mm, C = 45 mm
-* Fichier : [Télécharger la pièce](/mecanique/Partie%201/piece_partie1_b.SLDPRT)
+  
+* Fichier : [Télécharger la pièce](Partie%201/piece_partie1_b.SLDPRT)
+  
 * Masse : **1032.32 grammes**
-  ![Propriétés de masse](/mecanique/images/picture_mass_properties_partie1_b.png)
+  
+  ![Propriétés de masse](images/picture_mass_properties_partie1_b.png)
 
 ### 7.2. Partie 2 – Cas supplémentaire
+
 - Vue de la pièce modéliséé
 
-![Vue détaillée de la pièce](/mecanique/images/picture_piece_partie2.png)
+![Vue détaillée de la pièce](images/picture_piece_partie2.png)
 
 - Fichier contenant la pièce modélisée
-Fichier : [Télécharger la pièce](/docs/semaine-2/mecanique/Partie%202/piece_partie2.SLDPRT)
+  
+Fichier : [Télécharger la pièce](Partie%202/piece_partie2.SLDPRT)
 
 * Masse : **628.18 grammes**
-  ![Propriétés de masse](/mecanique/images/picture_mass_properties_partie2.png)
+  
+  ![Propriétés de masse](images/picture_mass_properties_partie2.png)
 
 ### 7.3. Partie 3 – Exemple de réduction
-- Vue de la pièce de modélisée : 
-![Vue détaillée de la pièce](/mecanique/images/picture_piece_partie3.png)
+- Vue de la pièce de modélisée :
+  
+![Vue détaillée de la pièce](images/picture_piece_partie3.png)
 
 Fichier contenant la pièce modélisée :
-* Fichier : [Télécharger la pièce](/mecanique/Partie%203/picture_piece_partie3.SLDPRT)
+
+* Fichier : [Télécharger la pièce](Partie%203/picture_piece_partie3.SLDPRT)
+  
 * Masse : **432.58 grammes**
-  ![Propriétés de masse](/mecanique/images/picture_mass_properties_partie3.png)
+  
+  ![Propriétés de masse](images/picture_mass_properties_partie3.png)
 
 
 
 ### 7.4. Assemblage et Centre de Masse
-- **Fichiers** : `assemblage_question_a.SLDASM`, `assemblage_question_b.SLDASM`  
+
+- **Fichiers** : `assemblage_question_a.SLDASM`, `assemblage_question_b.SLDASM`
+  
 - **Centre de masse** :
-  - Config. A (A=25°, B=125°, C=130°): (X=327.67, Y=-98.39, Z=-102.91)  
+  - Config. A (A=25°, B=125°, C=130°): (X=327.67, Y=-98.39, Z=-102.91)
+      
   - Config. B (A=30°, B=115°, C=135°): (X=348.66, Y=-88.48, Z=-91.40)
 
 **Image Assemblage:**
-![Vue détaillée de la pièce - Question a](/mecanique/images/picture_assemblage_a.png)
-![Vue détaillée de la pièce - Question b](/mecanique/images/picture_assemblage_b.png)
+
+![Vue détaillée de la pièce - Question a](images/picture_assemblage_a.png)
+
+![Vue détaillée de la pièce - Question b](images/picture_assemblage_b.png)
+
 
 **Résultat**
 
 Fichiers : 
-[Télécharger la pièce - Question a](/mecanique/Assemblage/assemblage_question_a.SLDASM)
 
-[Télécharger la pièce - Question b](/mecanique/Assemblage/assemblage_question_b.SLDASM)
+[Télécharger la pièce - Question a](Assemblage/assemblage_question_a.SLDASM)
+
+[Télécharger la pièce - Question b](Assemblage/assemblage_question_b.SLDASM)
 
 
 **Réponses aux questions**
 
-![Question a](/mecanique/images/picture_mass_properties_a.png)
+![Question a](images/picture_mass_properties_a.png)
+
 a) Les coordonnées du centre de masse pour A = 25 degrees ; B = 125 degrees ; C = 130 degrees sont : 
 - X = **327.67**
 - Y = **- 98.39**
 - Z = **- 102.91**
 
-![Question b](/mecanique/images/picture_mass_properties_b.png)
+![Question b](images/picture_mass_properties_b.png)
+
 b) Les coordonnées du centre de masse pour A = 30 degrees ; B = 115 degrees ; C = 135 degrees sont :
 - X = **348.66**
 - Y = **- 88.48**
 - Z = **- 91.40**
 
 ## Difficultés Rencontrées et Solutions Apportées
-| Problème                                   | Analyse détaillée                                                                 | Solution mise en place                                                       |
-|--------------------------------------------|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| Application des congés dans espaces étroits| Impossibilité de sélectionner toutes les arêtes sans erreurs de géométrie         | Séparation en deux opérations : congés internes d’abord, puis externes       |                    |
-| Validation du centre de masse              | Position non-conforme aux spécifications angulaires                               | Calibration via mesures sur assemblage simulé, ajustement des axes de référence |
+
+| **Problème**                                | **Analyse détaillée**                                                             | **Solution mise en place**                                                    |
+|--------------------------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Application des congés dans espaces étroits | Impossibilité de sélectionner toutes les arêtes sans erreurs de géométrie        | Séparation en deux opérations : congés internes d’abord, puis externes        |
+| Validation du centre de masse               | Position non-conforme aux spécifications angulaires                              | Calibration via mesures sur assemblage simulé, ajustement des axes de référence |
+
 
 ---
 
 
 ## Section Vidéo et Médias
-- **Vidéo tutoriel** : démonstration des étapes clés (2 min).  
-- **Liens** : 
-  - YouTube : `https://youtu.be/…`  
-  - Repos GitHub : `https://github.com/TekBot-Robotics-Challenge/2025-Team-IFRI-Docs`
+
+## Video des pièces
+
+<iframe src="https://player.vimeo.com/video/1094752656?h=85ffe3b354"  
+        width="500" height="300" 
+        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
+        allowfullscreen>
+</iframe>
 
 ---
 
@@ -213,11 +254,3 @@ b) Les coordonnées du centre de masse pour A = 30 degrees ; B = 115 degrees ; C
 - **Congé** : arrondi appliqué sur une arête.  
 - **Équations globales** : variables paramétrant le modèle.  
 - **Manifold** : surface continue sans discontinuité.
-
----
-
-## Références et Liens Utiles
-- Manuel SolidWorks 2025 – Chap. Équations et Variables
-- Tutoriels suivis
-  - https://youtu.be/PQHjY9_b94w?si=Ah0PxEUdaubB3jMf
-  - https://youtu.be/ESkXkDUmsNc?si=8zdjJDQK-7fBHAwG
