@@ -12,9 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle collapsible sections
     const sectionToggles = document.querySelectorAll('.section-toggle');
-    const subsectionToggles = document.querySelectorAll('.subsection-toggle');
     
-    // Section toggles
     sectionToggles.forEach(toggle => {
         toggle.addEventListener('click', function() {
             const sectionId = this.getAttribute('data-section');
@@ -23,30 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (section) {
                 section.classList.toggle('collapsed');
-                
-                if (section.classList.contains('collapsed')) {
-                    arrow.textContent = '▶';
-                } else {
-                    arrow.textContent = '▼';
-                }
-            }
-        });
-    });
-    
-    // Subsection toggles
-    subsectionToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            const sectionId = this.getAttribute('data-section');
-            const section = document.getElementById(sectionId);
-            const arrow = this.querySelector('.arrow');
-            
-            if (section) {
                 section.classList.toggle('expanded');
                 
                 if (section.classList.contains('expanded')) {
                     arrow.textContent = '▼';
+                    arrow.style.transform = 'rotate(0deg)';
                 } else {
                     arrow.textContent = '▶';
+                    arrow.style.transform = 'rotate(0deg)';
                 }
             }
         });
@@ -65,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
             loadMarkdownFile(filePath);
             
             // Update active state
-            document.querySelector('.nav-item.active')?.classList.remove('active');
-            e.target.closest('.nav-item')?.classList.add('active');
+            document.querySelector('.nav-link.active')?.classList.remove('active');
+            e.target.classList.add('active');
         }
     });
     
@@ -115,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (markdownContainer) {
                 markdownContainer.innerHTML = `
                     <a href="#" class="back-button" id="back-to-main">Retour à l'accueil</a>
-                    <div class="info-box" style="background-color: #dc3545; margin: 20px 0;">
+                    <div class="info-box" style="background-color: #dc3545; margin: 40px;">
                         <span class="info-icon">⚠️</span>
                         <div>
                             <p style="margin: 0; color: white;"><strong>Erreur lors du chargement du fichier:</strong></p>
@@ -147,10 +129,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (markdownContainer) markdownContainer.classList.remove('active');
         
         // Reset active navigation to home
-        document.querySelector('.nav-item.active')?.classList.remove('active');
+        document.querySelector('.nav-link.active')?.classList.remove('active');
         const homeLink = document.querySelector('a[href="#accueil"]');
         if (homeLink) {
-            homeLink.closest('.nav-item')?.classList.add('active');
+            homeLink.classList.add('active');
         }
     }
     
@@ -171,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
         html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
         
         // Convert links
-        html = html.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="$2" class="link">$1</a>');
+        html = html.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="$2" style="color: #00aff4; text-decoration: none;">$1</a>');
         
         // Convert code blocks
         html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
@@ -234,8 +216,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Update active state
-            document.querySelector('.nav-item.active')?.classList.remove('active');
-            e.target.closest('.nav-item')?.classList.add('active');
+            document.querySelector('.nav-link.active')?.classList.remove('active');
+            e.target.classList.add('active');
         }
     });
     
@@ -255,14 +237,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
-    // Initialize collapsed state for some sections
-    const initialCollapsed = ['semaine2', 'semaine3', 'test-final'];
-    initialCollapsed.forEach(id => {
-        const section = document.getElementById(id);
-        if (section) {
-            section.classList.add('collapsed');
-        }
-    });
-});
 });
