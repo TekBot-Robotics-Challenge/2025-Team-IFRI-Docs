@@ -284,4 +284,24 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    
+    // Back to top button functionality
+    const backToTopButton = document.getElementById('backToTop');
+    
+    // Show button when user scrolls down 300px from the top
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+    
+    // Scroll to top when button is clicked
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });
