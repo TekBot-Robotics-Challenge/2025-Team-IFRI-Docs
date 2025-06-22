@@ -187,10 +187,13 @@ document.addEventListener('DOMContentLoaded', function() {
         html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
         
         // Convert links
-        html = html.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="$2" style="color: #00aff4; text-decoration: none;">$1</a>');
+        html = html.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="$2">$1</a>');
         
-        // Convert code blocks
-        html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+        // Enhanced code blocks with language detection
+        html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, function(match, language, content) {
+            const lang = language || 'text';
+            return `<pre data-language="${lang}"><code>${content}</code></pre>`;
+        });
         
         // Convert inline code
         html = html.replace(/`([^`]*)`/g, '<code>$1</code>');
