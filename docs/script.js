@@ -186,28 +186,11 @@ document.addEventListener('DOMContentLoaded', function() {
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
         
-        // Process images separately with special handling
-        const imageRegex = /!\[([^\]]*)\]\(([^\)]*)\)/g;
-        const images = [];
-        let match;
-        let index = 0;
+        // Convert images (must come before links)
+        html = html.replace(/!\[([^\]]*)\]\(([^\)]*)\)/g, '<img src="$2" alt="$1">');
         
-        // Extract images and replace with placeholders
-        while ((match = imageRegex.exec(html)) !== null) {
-            const placeholder = `__IMAGE_PLACEHOLDER_${index}__`;
-            const imageTag = `<img src="${match[2]}" alt="${match[1]}">`;
-            images.push({ placeholder, imageTag });
-            html = html.replace(match[0], placeholder);
-            index++;
-        }
-        
-        // Convert links (now images are safely out of the way)
+        // Convert links
         html = html.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="$2">$1</a>');
-        
-        // Replace image placeholders with actual <img> tags
-        images.forEach(img => {
-            html = html.replace(img.placeholder, img.imageTag);
-        });
         
         // Enhanced code blocks with language detection
         html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, function(match, language, content) {
@@ -273,7 +256,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 showMainContent();
             }
             
-            if
+            if (targetElement) {
+                setTimeout(() => {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 100);
+            }
+            
+            // Update active state
+            document.querySelector('.nav-link.active')?.classList.remove('active');
+            e.target.classList.add('active');
+        }
+    });
+    
+    // Search functionality
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
             const allNavItems = document.querySelectorAll('.nav-item');
             
