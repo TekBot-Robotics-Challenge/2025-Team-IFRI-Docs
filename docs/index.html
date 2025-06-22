@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEKBOT Robotics Challenge 2025 - Documentation</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Theme toggle button -->
@@ -15,8 +16,11 @@
     <div class="container">
         <nav class="sidebar">
             <div class="sidebar-header">
-                <h3>TEKBOT 2025</h3>
-                <p>Documentation Équipe IFRI</p>
+                <img src="https://ifri-benin.com/wp-content/uploads/2023/10/IFRI-LOGO.png" alt="IFRI Logo" class="sidebar-logo">
+                <div>
+                    <h3>TRC 2025</h3>
+                    <p>Documentation IFRI</p>
+                </div>
             </div>
             
             <div class="search-container">
@@ -26,133 +30,199 @@
 
             <ul class="nav-list">
                 <li class="nav-item">
-                    <a href="#accueil" class="nav-link active">🏠 Accueil</a>
+                    <a href="#accueil" class="nav-link active">
+                        <span class="nav-link-icon"><i class="fas fa-home"></i></span>
+                        Accueil
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="Documentation/index.md" class="nav-link markdown-link" data-file="Documentation/index.md">📋 Introduction</a>
+                    <a href="Documentation/index.md" class="nav-link markdown-link" data-file="Documentation/index.md">
+                        <span class="nav-link-icon"><i class="fas fa-book"></i></span>
+                        Introduction
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="Documentation/accueil.md" class="nav-link markdown-link" data-file="Documentation/accueil.md">📄 Contexte Général</a>
+                    <a href="Documentation/accueil.md" class="nav-link markdown-link" data-file="Documentation/accueil.md">
+                        <span class="nav-link-icon"><i class="fas fa-info-circle"></i></span>
+                        Contexte Général
+                    </a>
                 </li>
             </ul>
 
-            <div class="section-divider">SEMAINE 1</div>
+            <div class="section-divider">
+                <span class="section-divider-icon"><i class="fas fa-calendar"></i></span>
+                SEMAINE 1
+            </div>
             <ul class="nav-list">
                 <li class="nav-item">
                     <div class="section-toggle" data-section="electronique-s1">
-                        <span class="section-icon">⚡</span>
+                        <span class="section-icon"><i class="fas fa-bolt"></i></span>
                         <span>Électronique</span>
                         <span class="arrow">▶</span>
                     </div>
                     <ul class="section-content collapsed" id="electronique-s1">
-                        <li><a href="Documentation/semaine-1/electronique/gyroscope-accelerometre.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/electronique/gyroscope-accelerometre.md">📄 Gyroscope et Accéléromètre</a></li>
+                        <li><a href="Documentation/semaine-1/electronique/gyroscope-accelerometre.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/electronique/gyroscope-accelerometre.md">
+                            <span class="nav-link-icon"><i class="fas fa-microchip"></i></span>
+                            Gyroscope et Accéléromètre
+                        </a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <div class="section-toggle" data-section="informatique-s1">
-                        <span class="section-icon">💻</span>
+                        <span class="section-icon"><i class="fas fa-laptop-code"></i></span>
                         <span>Informatique</span>
                         <span class="arrow">▶</span>
                     </div>
                     <ul class="section-content collapsed" id="informatique-s1">
-                        <li><a href="Documentation/semaine-1/it/robot.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/it/robot.md">📄 Wheeled Robot</a></li>
-                        <li><a href="Documentation/semaine-1/it/roboticarm.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/it/roboticarm.md">📄 Système Robot</a></li>
-                        <li><a href="Documentation/semaine-1/it/wheeledrobot.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/it/wheeledrobot.md">📄 Robotic Camera</a></li>
+                        <li><a href="Documentation/semaine-1/it/robot.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/it/robot.md">
+                            <span class="nav-link-icon"><i class="fas fa-robot"></i></span>
+                            Wheeled Robot
+                        </a></li>
+                        <li><a href="Documentation/semaine-1/it/roboticarm.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/it/roboticarm.md">
+                            <span class="nav-link-icon"><i class="fas fa-hand-paper"></i></span>
+                            Système Robot
+                        </a></li>
+                        <li><a href="Documentation/semaine-1/it/wheeledrobot.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/it/wheeledrobot.md">
+                            <span class="nav-link-icon"><i class="fas fa-camera"></i></span>
+                            Robotic Camera
+                        </a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <div class="section-toggle" data-section="mecanique-s1">
-                        <span class="section-icon">🔧</span>
+                        <span class="section-icon"><i class="fas fa-cog"></i></span>
                         <span>Mécanique</span>
                         <span class="arrow">▶</span>
                     </div>
                     <ul class="section-content collapsed" id="mecanique-s1">
-                        <li><a href="Documentation/semaine-1/mecanique/documentation_meca.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/mecanique/documentation_meca">📄 Documentation Mécanique</a></li>
+                        <li><a href="Documentation/semaine-1/mecanique/documentation_meca.md" class="nav-link markdown-link" data-file="Documentation/semaine-1/mecanique/documentation_meca">
+                            <span class="nav-link-icon"><i class="fas fa-tools"></i></span>
+                            Documentation Mécanique
+                        </a></li>
                     </ul>
                 </li>
             </ul>
 
-            <div class="section-divider">SEMAINE 2</div>
+            <div class="section-divider">
+                <span class="section-divider-icon"><i class="fas fa-calendar"></i></span>
+                SEMAINE 2
+            </div>
             <ul class="nav-list">
                 <li class="nav-item">
                     <div class="section-toggle" data-section="electronique-s2">
-                        <span class="section-icon">⚡</span>
+                        <span class="section-icon"><i class="fas fa-bolt"></i></span>
                         <span>Électronique</span>
                         <span class="arrow">▶</span>
                     </div>
                     <ul class="section-content collapsed" id="electronique-s2">
-                        <li><a href="#" class="nav-link disabled">📄 La Boîte Noire</a></li>
+                        <li><a href="#" class="nav-link disabled">
+                            <span class="nav-link-icon"><i class="fas fa-cube"></i></span>
+                            La Boîte Noire
+                        </a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <div class="section-toggle" data-section="informatique-s2">
-                        <span class="section-icon">💻</span>
+                        <span class="section-icon"><i class="fas fa-laptop-code"></i></span>
                         <span>Informatique</span>
                         <span class="arrow">▶</span>
                     </div>
                     <ul class="section-content collapsed" id="informatique-s2">
-                        <li><a href="Documentation/semaine-2/IT/readme.md" class="nav-link markdown-link" data-file="Documentation/semaine-2/IT/readme.md">📄 Introduction à ROS2</a></li>
-                        <li><a href="Documentation/semaine-2/IT/readme_launch.md" class="nav-link markdown-link" data-file="Documentation/semaine-2/IT/readme_launch.md">📄 sensor_launch</a></li>
-                        <li><a href="Documentation/semaine-2/IT/readme_S.md" class="nav-link markdown-link" data-file="Documentation/semaine-2/IT/readme_S.md">📄 sensor_subscriber</a></li>
-                        <li><a href="Documentation/semaine-2/IT/readme_st.md" class="nav-link markdown-link" data-file="Documentation/semaine-2/IT/readme_st.md">📄 streamlit_app</a></li>
+                        <li><a href="Documentation/semaine-2/IT/readme.md" class="nav-link markdown-link" data-file="Documentation/semaine-2/IT/readme.md">
+                            <span class="nav-link-icon"><i class="fas fa-book-open"></i></span>
+                            Introduction à ROS2
+                        </a></li>
+                        <li><a href="Documentation/semaine-2/IT/readme_launch.md" class="nav-link markdown-link" data-file="Documentation/semaine-2/IT/readme_launch.md">
+                            <span class="nav-link-icon"><i class="fas fa-rocket"></i></span>
+                            sensor_launch
+                        </a></li>
+                        <li><a href="Documentation/semaine-2/IT/readme_S.md" class="nav-link markdown-link" data-file="Documentation/semaine-2/IT/readme_S.md">
+                            <span class="nav-link-icon"><i class="fas fa-download"></i></span>
+                            sensor_subscriber
+                        </a></li>
+                        <li><a href="Documentation/semaine-2/IT/readme_st.md" class="nav-link markdown-link" data-file="Documentation/semaine-2/IT/readme_st.md">
+                            <span class="nav-link-icon"><i class="fas fa-chart-line"></i></span>
+                            streamlit_app
+                        </a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <div class="section-toggle" data-section="mecanique-s2">
-                        <span class="section-icon">🔧</span>
+                        <span class="section-icon"><i class="fas fa-cog"></i></span>
                         <span>Mécanique</span>
                         <span class="arrow">▶</span>
                     </div>
                     <ul class="section-content collapsed" id="mecanique-s2">
-                        <li><a href="Documentation/semaine-2/mecanique/documentation_meca.md" class="nav-link markdown-link" data-file="Documentation/semaine-2/mecanique/documentation_meca.md" >📄 Niveau Intermédiaire</a></li>
+                        <li><a href="Documentation/semaine-2/mecanique/documentation_meca.md" class="nav-link markdown-link" data-file="Documentation/semaine-2/mecanique/documentation_meca.md">
+                            <span class="nav-link-icon"><i class="fas fa-cogs"></i></span>
+                            Niveau Intermédiaire
+                        </a></li>
                     </ul>
                 </li>
             </ul>
 
-            <div class="section-divider">SEMAINE 3</div>
+            <div class="section-divider">
+                <span class="section-divider-icon"><i class="fas fa-calendar"></i></span>
+                SEMAINE 3
+            </div>
             <ul class="nav-list">
                 <li class="nav-item">
                     <div class="section-toggle" data-section="electronique-s3">
-                        <span class="section-icon">⚡</span>
+                        <span class="section-icon"><i class="fas fa-bolt"></i></span>
                         <span>Électronique</span>
                         <span class="arrow">▶</span>
                     </div>
                     <ul class="section-content collapsed" id="electronique-s3">
-                        <li><a href="#" class="nav-link disabled">📄 Afficheur 7 Segments</a></li>
+                        <li><a href="#" class="nav-link disabled">
+                            <span class="nav-link-icon"><i class="fas fa-tv"></i></span>
+                            Afficheur 7 Segments
+                        </a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <div class="section-toggle" data-section="informatique-s3">
-                        <span class="section-icon">💻</span>
+                        <span class="section-icon"><i class="fas fa-laptop-code"></i></span>
                         <span>Informatique</span>
                         <span class="arrow">▶</span>
                     </div>
                     <ul class="section-content collapsed" id="informatique-s3">
-                        <li><a href="#" class="nav-link disabled">📄 Algorithme de Pathfinding</a></li>
+                        <li><a href="#" class="nav-link disabled">
+                            <span class="nav-link-icon"><i class="fas fa-map"></i></span>
+                            Algorithme de Pathfinding
+                        </a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <div class="section-toggle" data-section="mecanique-s3">
-                        <span class="section-icon">🔧</span>
+                        <span class="section-icon"><i class="fas fa-cog"></i></span>
                         <span>Mécanique</span>
                         <span class="arrow">▶</span>
                     </div>
                     <ul class="section-content collapsed" id="mecanique-s3">
-                        <li><a href="#" class="nav-link disabled">📄 Niveau Avancé</a></li>
+                        <li><a href="#" class="nav-link disabled">
+                            <span class="nav-link-icon"><i class="fas fa-level-up-alt"></i></span>
+                            Niveau Avancé
+                        </a></li>
                     </ul>
                 </li>
             </ul>
 
-            <div class="section-divider">TEST FINAL</div>
+            <div class="section-divider">
+                <span class="section-divider-icon"><i class="fas fa-trophy"></i></span>
+                TEST FINAL
+            </div>
             <ul class="nav-list">
                 <li class="nav-item">
                     <div class="section-toggle" data-section="test-final">
-                        <span class="section-icon">🏆</span>
+                        <span class="section-icon"><i class="fas fa-tasks"></i></span>
                         <span>Multidisciplinaire</span>
                         <span class="arrow">▶</span>
                     </div>
                     <ul class="section-content collapsed" id="test-final">
-                        <li><a href="#" class="nav-link disabled">📄 Système de Convoyeur</a></li>
+                        <li><a href="#" class="nav-link disabled">
+                            <span class="nav-link-icon"><i class="fas fa-conveyor-belt"></i></span>
+                            Système de Convoyeur
+                        </a></li>
                     </ul>
                 </li>
             </ul>

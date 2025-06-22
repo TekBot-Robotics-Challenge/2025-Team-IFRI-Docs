@@ -7,34 +7,42 @@
 :root {
     /* Light theme (default) */
     --bg-primary: #ffffff;
-    --bg-secondary: #f2f3f5;
-    --bg-tertiary: #e3e5e8;
-    --text-primary: #2e3338;
-    --text-secondary: #4f5660;
-    --text-muted: #747f8d;
-    --border-color: #e3e5e8;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --text-muted: #6c757d;
+    --border-color: #dee2e6;
     --accent-color: #ff7b47; /* New orange accent color instead of blue */
     --accent-hover: #e86a36;
     --header-gradient: linear-gradient(135deg, #ff7b47 0%, #fd5e38 100%);
     --sidebar-width: 280px;
+    --section-bg: #f1f3f5;
+    --active-item-bg: rgba(255, 123, 71, 0.1);
+    --hover-bg: rgba(0, 0, 0, 0.03);
 }
 
 /* Dark theme */
 .dark-theme {
-    --bg-primary: #36393f;
-    --bg-secondary: #2f3136;
-    --bg-tertiary: #202225;
-    --text-primary: #dcddde;
-    --text-secondary: #b9bbbe;
-    --text-muted: #72767d;
-    --border-color: #40444b;
+    --bg-primary: #212529;
+    --bg-secondary: #343a40;
+    --bg-tertiary: #495057;
+    --text-primary: #f8f9fa;
+    --text-secondary: #e9ecef;
+    --text-muted: #adb5bd;
+    --border-color: #495057;
     --accent-color: #ff7b47;
     --accent-hover: #e86a36;
     --header-gradient: linear-gradient(135deg, #ff7b47 0%, #fd5e38 100%);
+    --section-bg: #2c3137;
+    --active-item-bg: rgba(255, 123, 71, 0.15);
+    --hover-bg: rgba(255, 255, 255, 0.05);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -46,7 +54,7 @@ body {
     min-height: 100vh;
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle Button - Improved styling */
 .theme-toggle {
     position: fixed;
     top: 20px;
@@ -56,7 +64,8 @@ body {
     height: 40px;
     border-radius: 50%;
     background-color: var(--bg-secondary);
-    border: 2px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,6 +75,7 @@ body {
 
 .theme-toggle:hover {
     transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .theme-toggle-icon {
@@ -73,6 +83,7 @@ body {
     color: var(--text-primary);
 }
 
+/* Sidebar - Major visual improvements */
 .sidebar {
     width: var(--sidebar-width);
     background-color: var(--bg-secondary);
@@ -82,41 +93,71 @@ body {
     height: 100vh;
     z-index: 100;
     transition: background-color 0.3s;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    padding-bottom: 20px;
 }
 
+/* Sidebar header - More professional styling */
 .sidebar-header {
-    padding: 20px;
+    padding: 16px 20px;
     border-bottom: 1px solid var(--border-color);
-    background: var(--header-gradient);
-    color: white;
+    background: #fff;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    object-fit: contain;
 }
 
 .sidebar-header h3 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: var(--text-primary);
 }
 
 .sidebar-header p {
     font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 2px;
     opacity: 0.8;
 }
 
+.dark-theme .sidebar-header {
+    background: var(--bg-tertiary);
+}
+
+/* Search container - More polished design */
 .search-container {
     position: relative;
-    padding: 15px 20px;
+    padding: 12px 16px;
     border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
 }
 
 .search-input {
     width: 100%;
-    padding: 8px 35px 8px 12px;
-    background-color: var(--bg-tertiary);
-    border: none;
-    border-radius: 4px;
+    padding: 8px 12px;
+    padding-right: 35px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
     color: var(--text-primary);
-    font-size: 14px;
-    transition: background-color 0.3s, color 0.3s;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(255, 123, 71, 0.2);
 }
 
 .search-input::placeholder {
@@ -125,17 +166,19 @@ body {
 
 .search-shortcut {
     position: absolute;
-    right: 30px;
+    right: 25px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: var(--text-muted);
-    color: var(--bg-secondary);
-    padding: 2px 6px;
-    border-radius: 3px;
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+    padding: 2px 5px;
+    border-radius: 4px;
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 500;
+    opacity: 0.8;
 }
 
+/* Navigation lists - Clean, modern styling */
 .nav-list {
     list-style: none;
     padding: 0;
@@ -146,28 +189,40 @@ body {
     margin: 0;
 }
 
+/* Nav links - Professional styling with better icons */
 .nav-link {
-    display: block;
-    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
     color: var(--text-secondary);
     text-decoration: none;
     font-size: 14px;
     transition: all 0.2s ease;
     cursor: pointer;
-    border-left: 3px solid transparent;
+    border-left: 2px solid transparent;
+    font-weight: 500;
 }
 
 .nav-link:hover {
-    background-color: var(--bg-tertiary);
+    background-color: var(--hover-bg);
     color: var(--text-primary);
-    border-left-color: var(--accent-color);
 }
 
 .nav-link.active {
-    background-color: var(--bg-tertiary);
+    background-color: var(--active-item-bg);
     color: var(--accent-color);
     font-weight: 600;
     border-left-color: var(--accent-color);
+}
+
+.nav-link-icon {
+    margin-right: 10px;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    min-width: 18px;
 }
 
 .nav-link.disabled {
@@ -175,36 +230,49 @@ body {
     cursor: not-allowed;
 }
 
+/* Section dividers - More distinctive */
 .section-divider {
-    padding: 12px 20px 8px;
+    padding: 12px 16px 8px;
     color: var(--text-muted);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    background-color: var(--bg-secondary);
+    letter-spacing: 0.7px;
+    background-color: var(--section-bg);
     border-top: 1px solid var(--border-color);
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
 }
 
+.section-divider-icon {
+    margin-right: 6px;
+    font-size: 12px;
+}
+
+/* Section toggles - More interactive and visually appealing */
 .section-toggle {
     display: flex;
     align-items: center;
-    padding: 8px 20px;
+    padding: 10px 16px;
     color: var(--text-secondary);
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
     transition: all 0.2s ease;
+    border-left: 2px solid transparent;
 }
 
 .section-toggle:hover {
-    background-color: var(--bg-tertiary);
+    background-color: var(--hover-bg);
     color: var(--text-primary);
 }
 
 .section-icon {
-    margin-right: 8px;
+    margin-right: 10px;
     font-size: 16px;
+    width: 18px;
+    text-align: center;
 }
 
 .section-toggle span:nth-child(2) {
@@ -212,17 +280,19 @@ body {
 }
 
 .arrow {
-    font-size: 12px;
+    font-size: 10px;
     transition: transform 0.2s ease;
     margin-left: auto;
 }
 
+/* Section content - Better transitions and spacing */
 .section-content {
     list-style: none;
     padding: 0;
     margin: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
+    background-color: var(--bg-secondary);
 }
 
 .section-content.collapsed {
@@ -231,11 +301,13 @@ body {
 
 .section-content.expanded {
     max-height: 500px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .section-content .nav-link {
-    padding-left: 45px;
+    padding: 8px 16px 8px 44px;
     font-size: 13px;
+    font-weight: 400;
 }
 
 .section-content .nav-link:hover {
