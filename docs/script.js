@@ -134,27 +134,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Fonction améliorée pour traiter les chemins d'images
+    // Nouvelle fonction pour traiter les chemins d'images
     function processImagePaths(markdown, basePath) {
-        console.log('Base path for image processing:', basePath);
-        
         return markdown.replace(/!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g, function(match, alt, src) {
-            // Décodage de l'URL pour gérer les espaces et caractères spéciaux
-            src = decodeURIComponent(src.trim());
-            console.log('Processing image path:', src);
+            console.log('Processing image:', src);
             
             // Si le chemin commence déjà par /, c'est un chemin absolu
             if (src.startsWith('/')) {
-                console.log('Absolute path detected, keeping as is:', src);
-                return match;
+                return match; // Garder tel quel
             }
             
-            // Si le chemin commence par ./ ou ../, c'est un chemin relatif
+            // Si le chemin commence par ./, le nettoyer
             if (src.startsWith('./')) {
                 src = src.substring(2);
             }
             
-            // Construction du chemin complet
+            // Construire le chemin complet
             const fullPath = basePath + src;
             console.log('Image path adjusted:', src, '->', fullPath);
             
@@ -162,7 +157,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Amélioration de la fonction de conversion HTML pour mieux gérer les images
+    // Function to show error message - Updated to keep header visible
+    function showErrorMessage(filePath, errorMessage) {
+        if (markdownContainer) {
+            markdownContainer.innerHTML = `
+                <a href="#" class="back-button" id="back-to-main">Retour à l'accueil</a>
+                <div class="info-box" style="background-color: #dc3545; margin: 40px;">
+                    <span class="info-icon">⚠️</span>
+                    <div>
+                        <p style="margin: 0; color: white;"><strong>Erreur lors du chargement du fichier:</strong></p>
+                        <p style="margin: 0; color: white;">${filePath}</p>
+                        <p style="margin: 5px 0 0 0; color: white; font-size: 14px;">${errorMessage}</p>
+                        <p style="margin: 10px 0 0 0; color: white; font-size: 12px;">Vérifiez que le fichier existe dans le dossier Documentation.</p>
+                    </div>
+                </div>
+            `;
+            
+            if (mainContent) mainContent.classList.add('hidden');
+            // Don't hide header: if (mainHeader) mainHeader.classList.add('hidden');
+            markdownContainer.classList.add('active');
+            
+            const backButton = document.getElementById('back-to-main');
+            if (backButton) {
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMainContent();
+                });
+            }
+        }
+    }
+    
+    // Function to show main content - Keep header always visible
+    function showMainContent() {
+        if (mainContent) mainContent.classList.remove('hidden');
+        // Header stays visible: if (mainHeader) mainHeader.classList.remove('hidden');
+        if (markdownContainer) markdownContainer.classList.remove('active');
+        
+        // Reset active navigation to home
+        document.querySelector('.nav-link.active')?.classList.remove('active');
+        const homeLink = document.querySelector('a[href="#accueil"]');
+        if (homeLink) {
+            homeLink.classList.add('active');
+        }
+    }
+    
+    // Improved markdown to HTML converter - Version corrigée
     function convertMarkdownToHTML(markdown) {
         let html = markdown;
         
@@ -178,17 +217,10 @@ document.addEventListener('DOMContentLoaded', function() {
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
         
-        // Convert images with improved error handling
+        // Convert images - Version corrigée et sécurisée
         html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function(match, alt, src) {
-            console.log("Converting image to HTML:", src);
-            
-            // Add specific class and error handler
-            return `<img 
-                src="${src}" 
-                alt="${alt}" 
-                class="markdown-image" 
-                onerror="this.onerror=null; this.src='image-not-found.png'; this.alt='Image non trouvée: ${src}'; this.classList.add('image-error');"
-                style="max-width: 100%; height: auto; display: block; margin: 20px 0;">`;
+            console.log("Converting image to HTML:", src, "with alt:", alt);
+            return `<img src="${src}" alt="${alt}" style="max-width: 100%; height: auto; display: block; margin: 10px 0;" onerror="this.style.border='2px dashed #ccc'; this.style.padding='10px'; this.alt='Image non trouvée: ${src}';">`;
         });
         
         // Convert links AFTER images to avoid conflicts
@@ -239,50 +271,6 @@ document.addEventListener('DOMContentLoaded', function() {
         html = html.replace(/<p>(<ol>[\s\S]*?<\/ol>)<\/p>/g, '$1');
         
         return html;
-    }
-    
-    // Function to show error message - Updated to keep header visible
-    function showErrorMessage(filePath, errorMessage) {
-        if (markdownContainer) {
-            markdownContainer.innerHTML = `
-                <a href="#" class="back-button" id="back-to-main">Retour à l'accueil</a>
-                <div class="info-box" style="background-color: #dc3545; margin: 40px;">
-                    <span class="info-icon">⚠️</span>
-                    <div>
-                        <p style="margin: 0; color: white;"><strong>Erreur lors du chargement du fichier:</strong></p>
-                        <p style="margin: 0; color: white;">${filePath}</p>
-                        <p style="margin: 5px 0 0 0; color: white; font-size: 14px;">${errorMessage}</p>
-                        <p style="margin: 10px 0 0 0; color: white; font-size: 12px;">Vérifiez que le fichier existe dans le dossier Documentation.</p>
-                    </div>
-                </div>
-            `;
-            
-            if (mainContent) mainContent.classList.add('hidden');
-            // Don't hide header: if (mainHeader) mainHeader.classList.add('hidden');
-            markdownContainer.classList.add('active');
-            
-            const backButton = document.getElementById('back-to-main');
-            if (backButton) {
-                backButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    showMainContent();
-                });
-            }
-        }
-    }
-    
-    // Function to show main content - Keep header always visible
-    function showMainContent() {
-        if (mainContent) mainContent.classList.remove('hidden');
-        // Header stays visible: if (mainHeader) mainHeader.classList.remove('hidden');
-        if (markdownContainer) markdownContainer.classList.remove('active');
-        
-        // Reset active navigation to home
-        document.querySelector('.nav-link.active')?.classList.remove('active');
-        const homeLink = document.querySelector('a[href="#accueil"]');
-        if (homeLink) {
-            homeLink.classList.add('active');
-        }
     }
     
     // Handle regular navigation links
