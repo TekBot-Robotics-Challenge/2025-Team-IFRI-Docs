@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Function to load markdown files - Updated to handle image paths
+    // Function to load markdown files - Gestion des images corrigée
     async function loadMarkdownFile(filePath) {
         try {
             console.log('Loading file:', filePath);
@@ -98,25 +98,13 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(`Successfully loaded from: ${workingPath}`);
             const markdownText = await response.text();
             
-            // Process markdown to adjust image paths if needed
-            let processedMarkdown = markdownText.replace(/!\[([^\]]*)\]\((?!http)([^)]+)\)/g, function(match, alt, src) {
-                if (src.startsWith('/')) {
-                    // Already an absolute path
-                    return match;
-                } else if (src.startsWith('./')) {
-                    // Path starting with ./
-                    return `![${alt}](${basePath}${src.substring(2)})`;
-                } else {
-                    // Relative path
-                    return `![${alt}](${basePath}${src})`;
-                }
-            });
+            // Process markdown to adjust image paths - Version corrigée
+            const processedMarkdown = processImagePaths(markdownText, basePath);
             
             const htmlContent = convertMarkdownToHTML(processedMarkdown);
             
             // Hide main content and show markdown content
             if (mainContent) mainContent.classList.add('hidden');
-            // Don't hide header anymore: if (mainHeader) mainHeader.classList.add('hidden');
             if (markdownContainer) {
                 markdownContainer.classList.add('active');
                 markdownContainer.innerHTML = `
@@ -145,7 +133,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Function to show error message - Updated to keep header visible
+    // Nouvelle fonction pour traiter les chemins d'images
+    function processImagePaths(markdown, basePath) {
+        return markdown.replace(/!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g, function(match, alt, src) {
+            console.log('Processing image:', src);
+            
+            // Si le chemin commence déjà par /, c'est un chemin absolu
+            if (src.startsWith('/')) {
+                return match; // Garder tel quel
+            }
+            
+            // Si le chemin commence par ./, le nettoyer
+            if (src.startsWith('./')) {
+                src = src.substring(2);
+            }
+            
+            // Construire le chemin complet
+            const fullPath = basePath + src;
+            console.log('Image path adjusted:', src, '->', fullPath);
+            
+            return `![${alt}](${fullPath})`;
+        });
+    }
+    
+    // Function to show error message
     function showErrorMessage(filePath, errorMessage) {
         if (markdownContainer) {
             markdownContainer.innerHTML = `
@@ -162,7 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             
             if (mainContent) mainContent.classList.add('hidden');
-            // Don't hide header: if (mainHeader) mainHeader.classList.add('hidden');
             markdownContainer.classList.add('active');
             
             const backButton = document.getElementById('back-to-main');
@@ -175,10 +185,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Function to show main content - Keep header always visible
+    // Function to show main content
     function showMainContent() {
         if (mainContent) mainContent.classList.remove('hidden');
-        // Header stays visible: if (mainHeader) mainHeader.classList.remove('hidden');
         if (markdownContainer) markdownContainer.classList.remove('active');
         
         // Reset active navigation to home
@@ -189,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Improved markdown to HTML converter
+    // Improved markdown to HTML converter - Version corrigée
     function convertMarkdownToHTML(markdown) {
         let html = markdown;
         
@@ -205,25 +214,19 @@ document.addEventListener('DOMContentLoaded', function() {
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
         
-        // SIMPLE DIRECT IMAGE REPLACEMENT - Fix image rendering
+        // Convert images - Version simplifiée et corrigée
         html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function(match, alt, src) {
-            console.log("Found image:", src, "with alt:", alt);
-            // Create direct img tag without any fancy processing
-            return `<img src="${src}" alt="${alt}" style="max-width:100%; display:block; margin:10px 0;">`;
+            console.log("Converting image to HTML:", src, "with alt:", alt);
+            return `<img src="${src}" alt="${alt}" style="max-width: 100%; height: auto; display: block; margin: 10px 0;" onerror="this.style.border='2px dashed #ccc'; this.style.padding='10px'; this.alt='Image non trouvée: ${src}';">`;
         });
         
-        // Convert links AFTER images
-        html = html.replace(/\[([^\]]*)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-        
-        // Replace image placeholders with actual <img> tags
-        images.forEach(img => {
-            html = html.replace(img.placeholder, img.imageTag);
-        });
+        // Convert links AFTER images to avoid conflicts
+        html = html.replace(/\[([^\]]*)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
         
         // Enhanced code blocks with language detection
         html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, function(match, language, content) {
             const lang = language || 'text';
-            return `<pre data-language="${lang}"><code>${content}</code></pre>`;
+            return `<pre data-language="${lang}"><code>${content.trim()}</code></pre>`;
         });
         
         // Convert inline code
@@ -237,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const cells = row.split('|').filter(cell => cell.trim()).map(cell => `<td>${cell.trim()}</td>`).join('');
                 return `<tr>${cells}</tr>`;
             }).join('');
-            return `<table><thead><tr>${headerCells}</tr></thead><tbody>${rowsHtml}</tbody></table>`;
+            return `<table style="border-collapse: collapse; width: 100%; margin: 10px 0;"><thead><tr>${headerCells}</tr></thead><tbody>${rowsHtml}</tbody></table>`;
         });
         
         // Convert unordered lists
@@ -292,7 +295,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Search functionality in navigation
-    const searchTimeout = null;
     const searchInput = document.getElementById('search-input');
     
     if (searchInput) {
@@ -314,28 +316,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Back to top button functionality
     const backToTopButton = document.getElementById('backToTop');
     
-    // Show button when user scrolls down 300px from the top
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    });
-    
-    // Scroll to top when button is clicked
-    backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTopButton) {
+        // Show button when user scrolls down 300px from the top
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
         });
-    });
-});
-    // Scroll to top when button is clicked
-    backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+        
+        // Scroll to top when button is clicked
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-    });
+    }
 });
