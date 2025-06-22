@@ -95,9 +95,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const markdownText = await response.text();
             const htmlContent = convertMarkdownToHTML(markdownText);
             
-            // Hide main content and show markdown content
+            // Hide main content, header, and footer
             if (mainContent) mainContent.classList.add('hidden');
             if (mainHeader) mainHeader.classList.add('hidden');
+            
+            // Hide the footer when showing markdown
+            const siteFooter = document.getElementById('site-footer');
+            if (siteFooter) siteFooter.classList.add('hidden');
+            
             if (markdownContainer) {
                 markdownContainer.classList.add('active');
                 markdownContainer.innerHTML = `
@@ -160,7 +165,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function showMainContent() {
         if (mainContent) mainContent.classList.remove('hidden');
         if (mainHeader) mainHeader.classList.remove('hidden');
-        if (markdownContainer) markdownContainer.classList.remove('active');
+        
+        // Show the footer when returning to main content
+        const siteFooter = document.getElementById('site-footer');
+        if (siteFooter) siteFooter.classList.remove('hidden');
+        
+        if (markdownContainer) {
+            markdownContainer.classList.remove('active');
+            markdownContainer.innerHTML = ''; // Clear the content
+        }
         
         // Reset active navigation to home
         document.querySelector('.nav-link.active')?.classList.remove('active');
@@ -253,20 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 showMainContent();
             }
             
-            if (targetElement) {
-                setTimeout(() => {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }, 100);
-            }
-            
-            // Update active state
-            document.querySelector('.nav-link.active')?.classList.remove('active');
-            e.target.classList.add('active');
-        }
-    });
+            if
     
     // Search functionality
     if (searchInput) {

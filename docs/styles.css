@@ -404,6 +404,66 @@ body {
     border-bottom-color: white;
 }
 
+/* Enhanced Markdown content styles */
+.markdown-content {
+    display: none;
+    padding: 0;
+    background-color: var(--bg-primary);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+.markdown-content.active {
+    display: block;
+}
+
+.markdown-wrapper {
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Back button styling */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 20px 40px;
+    transition: all 0.2s ease;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back-button::before {
+    content: '←';
+    font-size: 16px;
+}
+
+/* Hide footer when markdown content is active */
+.site-footer.hidden {
+    display: none;
+}
+
 /* Make the page-nav hidden when markdown is shown */
 .content-header.hidden + .content-body + .markdown-content.active + .site-footer .footer-nav {
     display: none;
