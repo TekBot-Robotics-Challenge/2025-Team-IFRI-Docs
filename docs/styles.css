@@ -13,12 +13,12 @@
     --text-secondary: #495057;
     --text-muted: #6c757d;
     --border-color: #dee2e6;
-    --accent-color: #0066cc; /* Changed from orange to blue */
-    --accent-hover: #0052a3; /* Darker blue for hover states */
-    --header-gradient: linear-gradient(135deg, #0066cc 0%, #0052a3 100%); /* Blue gradient */
+    --accent-color: #ff7b47; /* New orange accent color instead of blue */
+    --accent-hover: #e86a36;
+    --header-gradient: linear-gradient(135deg, #ff7b47 0%, #fd5e38 100%);
     --sidebar-width: 280px;
     --section-bg: #f1f3f5;
-    --active-item-bg: rgba(0, 102, 204, 0.1); /* Blue with transparency */
+    --active-item-bg: rgba(255, 123, 71, 0.1);
     --hover-bg: rgba(0, 0, 0, 0.03);
 }
 
@@ -31,11 +31,11 @@
     --text-secondary: #e9ecef;
     --text-muted: #adb5bd;
     --border-color: #495057;
-    --accent-color: #0066cc; /* Changed to blue */
-    --accent-hover: #3385d6; /* Lighter blue for dark theme hover */
-    --header-gradient: linear-gradient(135deg, #0066cc 0%, #0052a3 100%); /* Blue gradient */
+    --accent-color: #ff7b47;
+    --accent-hover: #e86a36;
+    --header-gradient: linear-gradient(135deg, #ff7b47 0%, #fd5e38 100%);
     --section-bg: #2c3137;
-    --active-item-bg: rgba(0, 102, 204, 0.15); /* Blue with transparency */
+    --active-item-bg: rgba(255, 123, 71, 0.15);
     --hover-bg: rgba(255, 255, 255, 0.05);
 }
 
@@ -407,10 +407,9 @@ body {
     vertical-align: middle;
 }
 
-/* Update domain cell colors for the electronique class */
 .domain-cell.electronique {
-    background-color: rgba(0, 102, 204, 0.1);
-    border-left: 4px solid #0066cc;
+    background-color: rgba(255, 123, 71, 0.1);
+    border-left: 4px solid #ff7b47;
 }
 
 .domain-cell.informatique {
@@ -423,10 +422,9 @@ body {
     border-left: 4px solid #dc3545;
 }
 
-/* Update domain cell colors for the final class */
 .domain-cell.final {
-    background-color: rgba(0, 102, 204, 0.1);
-    border-left: 4px solid #0066cc;
+    background-color: rgba(255, 123, 71, 0.1);
+    border-left: 4px solid #ff7b47;
 }
 
 .timeline {
@@ -463,10 +461,6 @@ body {
     color: white;
     font-weight: 600;
     font-size: 12px;
-}
-
-.timeline-marker i {
-    font-size: 14px;
 }
 
 .timeline-content h3 {
@@ -635,6 +629,8 @@ body {
     padding: 12px 16px;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
 
 .markdown-content th {
     background-color: var(--accent-color);
@@ -883,33 +879,6 @@ body {
     background-color: var(--accent-color);
     color: white;
     transform: translateY(-3px);
-}
-
-/* Button styling for Introduction link */
-.btn-primary {
-    display: inline-block;
-    background-color: white;
-    color: var(--accent-color);
-    padding: 12px 24px;
-    margin-top: 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: 2px solid white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.btn-primary:hover {
-    background-color: transparent;
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.intro-btn {
-    font-size: 16px;
-    letter-spacing: 0.5px;
 }
 
 /* Responsive adjustments */
