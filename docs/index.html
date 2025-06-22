@@ -7,10 +7,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Theme toggle button -->
+    <div class="theme-toggle" id="themeToggle">
+        <span class="theme-toggle-icon" id="themeIcon">🌙</span>
+    </div>
+    
     <div class="container">
         <nav class="sidebar">
             <div class="sidebar-header">
-                <h3>TRC 2025</h3>
+                <h3>TEKBOT 2025</h3>
                 <p>Documentation Équipe IFRI</p>
             </div>
             
@@ -155,7 +160,7 @@
 
         <main class="main-content">
             <div class="content-header" id="main-header">
-                <h1>TEKBOT ROBOTICS CHALLENGE 2025</h1>
+                <h1>TEKBOT Robotics Challenge 2025</h1>
                 <div class="page-nav">
                     <span>Sur cette page</span>
                     <ul class="page-nav-list">
@@ -171,7 +176,7 @@
             <div class="content-body" id="main-content">
                 <section id="accueil">
                     <div class="hero-section">
-                        <h2>Documentations des Tests Techniques de présélection</h2>
+                        <h2>📋 Documentation des Tests Techniques de présélection</h2>
                         <p class="lead">Bienvenue dans la documentation officielle du TEKBOT Robotics Challenge 2025. Ce guide complet vous accompagnera tout au long du processus de présélection organisé par l'équipe IFRI.</p>
                     </div>
                 </section>
@@ -320,5 +325,41 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            
+            // Check for saved theme preference or use preferred color scheme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeIcon.textContent = '☀️';
+            } else if (savedTheme === 'light') {
+                document.body.classList.remove('dark-theme');
+                themeIcon.textContent = '🌙';
+            } else {
+                // Check prefered color scheme
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.body.classList.add('dark-theme');
+                    themeIcon.textContent = '☀️';
+                }
+            }
+            
+            // Toggle theme when button is clicked
+            themeToggle.addEventListener('click', function() {
+                if (document.body.classList.contains('dark-theme')) {
+                    document.body.classList.remove('dark-theme');
+                    themeIcon.textContent = '🌙';
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.body.classList.add('dark-theme');
+                    themeIcon.textContent = '☀️';
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
