@@ -412,34 +412,5 @@
         });
     </script>
 </body>
-    </script>
-</body>
 </html>
-                document.body.classList.remove('dark-theme');
-                themeIcon.textContent = '🌙';
-            } else {
-                // Check prefered color scheme
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.body.classList.add('dark-theme');
-                    themeIcon.textContent = '☀️';
-                }
-            }
-            
-            // Toggle theme when button is clicked
-            themeToggle.addEventListener('click', function() {
-                if (document.body.classList.contains('dark-theme')) {
-                    document.body.classList.remove('dark-theme');
-                    themeIcon.textContent = '🌙';
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    document.body.classList.add('dark-theme');
-                    themeIcon.textContent = '☀️';
-                    localStorage.setItem('theme', 'dark');
-                }
-            });
-        });
-    </script>
-</body>
-    </script>
-</body>
-</html>
+
