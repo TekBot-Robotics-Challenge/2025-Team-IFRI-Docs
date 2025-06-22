@@ -4,7 +4,7 @@
 
 **Équipe IFRI Électronique :**
 * Aretha FAGLA
-* Hugues ANTAN
+* Hugues HANTAN
 * Marielle AGBOSSOUNON
 * Eunice ODJO
 * Livingstone GBOZO
