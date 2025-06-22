@@ -97,85 +97,42 @@ body {
     padding-bottom: 20px;
 }
 
-/* Sidebar header - More professional styling */
+/* Sidebar header - Enhanced and enlarged styling */
 .sidebar-header {
-    padding: 16px 20px;
+    padding: 24px 20px;
     border-bottom: 1px solid var(--border-color);
     background: #fff;
     color: var(--text-primary);
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
+    height: auto;
+    min-height: 90px;
 }
 
 .sidebar-logo {
-    width: 32px;
-    height: 32px;
-    border-radius: 4px;
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
     object-fit: contain;
 }
 
 .sidebar-header h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
     color: var(--text-primary);
 }
 
 .sidebar-header p {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--text-secondary);
     margin-top: 2px;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .dark-theme .sidebar-header {
     background: var(--bg-tertiary);
-}
-
-/* Search container - More polished design */
-.search-container {
-    position: relative;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border-color);
-    background-color: var(--bg-secondary);
-}
-
-.search-input {
-    width: 100%;
-    padding: 8px 12px;
-    padding-right: 35px;
-    background-color: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    color: var(--text-primary);
-    font-size: 13px;
-    transition: all 0.2s ease;
-    font-family: 'Inter', sans-serif;
-}
-
-.search-input:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(255, 123, 71, 0.2);
-}
-
-.search-input::placeholder {
-    color: var(--text-muted);
-}
-
-.search-shortcut {
-    position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--bg-tertiary);
-    color: var(--text-secondary);
-    padding: 2px 5px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 500;
-    opacity: 0.8;
 }
 
 /* Navigation lists - Clean, modern styling */
