@@ -25,17 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Toggling section:', sectionId); // Debug
             
             if (section) {
-                // Toggle classes
+                // Toggle classes - Correction du comportement de dépliage
                 if (section.classList.contains('collapsed')) {
                     section.classList.remove('collapsed');
                     section.classList.add('expanded');
                     arrow.textContent = '▼';
-                    console.log('Expanded section:', sectionId); // Debug
                 } else {
                     section.classList.remove('expanded');
                     section.classList.add('collapsed');
                     arrow.textContent = '▶';
-                    console.log('Collapsed section:', sectionId); // Debug
                 }
             }
         });
