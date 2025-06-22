@@ -304,4 +304,71 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
+    
+    // Replace home content with new text and add introduction button
+    const accueilSection = document.getElementById('accueil');
+    if (accueilSection) {
+        const newContent = `
+            <h1>L'Équipe IFRI au TEKBOT Robotics Challenge 2025</h1>
+            
+            <h2>🚀 Notre Mission</h2>
+            <p>L'équipe IFRI est engagée dans une mission essentielle : contribuer activement à l'évolution technologique de l'Afrique. Notre participation au TEKBOT Robotics Challenge 2025 représente bien plus qu'une simple compétition - c'est l'expression de notre volonté de faire rayonner le génie béninois sur la scène internationale et de démontrer l'excellence de notre savoir-faire.</p>
+            
+            <h2>👥 Notre Équipe</h2>
+            <p>Nous sommes une équipe de 10 membres passionnés, organisés en trois pôles d'expertise complémentaires:</p>
+            <ul>
+                <li><strong>Team IT</strong>: Experts en technologies ROS et intelligence artificielle, créant les systèmes de contrôle intelligents de nos robots</li>
+                <li><strong>Team Électronique</strong>: Maîtres des circuits et capteurs, transformant les concepts en réalités électroniques fonctionnelles</li>
+                <li><strong>Team Mécanique</strong>: Artisans de la précision, concepteurs des structures et mécanismes qui donnent forme à nos innovations</li>
+            </ul>
+            <p>Chaque membre apporte ses compétences uniques pour former un écosystème d'innovation robuste et polyvalent.</p>
+            
+            <h2>💫 Nos Valeurs</h2>
+            <p>Notre équipe se distingue par son amour des défis et sa passion pour l'innovation. Nous abordons chaque problème comme une opportunité d'apprentissage et de dépassement. Notre devise, <em>"Nous incarnons l'excellence"</em>, reflète l'esprit de notre institution mère, l'IFRI, connue pour son engagement à "bâtir l'excellence".</p>
+            
+            <h2>🏆 Nos Objectifs</h2>
+            <p>Notre ambition se décline en plusieurs dimensions:</p>
+            <ul>
+                <li>Remporter le trophée du TEKBOT Robotics Challenge 2025</li>
+                <li>Mettre en lumière les talents technologiques du Bénin</li>
+                <li>Acquérir une expérience pratique inestimable</li>
+                <li>Cultiver l'apprentissage continu et le plaisir de l'innovation</li>
+                <li>Contribuer à la recherche en robotique avec une perspective africaine</li>
+            </ul>
+            
+            <h2>🤝 Notre Réseau de Soutien</h2>
+            <p>Bien que notre équipe officielle compte 10 membres, nous bénéficions du soutien précieux d'autres talents de l'IFRI qui, sans faire partie formellement de l'équipe, nous apportent leur expertise et leurs encouragements. Cette solidarité illustre parfaitement l'esprit de communauté qui anime notre institution.</p>
+            
+            <blockquote>
+                <p>"La technologie n'est rien. Ce qui est important, c'est d'avoir foi en ce que les gens peuvent faire avec. L'innovation, c'est distinguer entre un leader et un suiveur." - Steve Jobs</p>
+            </blockquote>
+            
+            <div class="button-container" style="margin-top: 30px; text-align: center;">
+                <a href="#introduction" class="nav-link action-button">Découvrir la compétition →</a>
+            </div>
+        `;
+        
+        // Replace the content while preserving any existing structure
+        accueilSection.innerHTML = newContent;
+    }
+    
+    // Change orange to blue colors
+    document.querySelectorAll('style').forEach(styleTag => {
+        styleTag.textContent = styleTag.textContent.replace(/orange/g, 'blue').replace(/#ff9800/g, '#0066cc').replace(/#ffa726/g, '#0077dd');
+    });
+    
+    // Change inline styles that might use orange
+    document.querySelectorAll('[style*="orange"], [style*="#ff9800"], [style*="#ffa726"]').forEach(element => {
+        element.setAttribute('style', element.getAttribute('style')
+            .replace(/orange/g, 'blue')
+            .replace(/#ff9800/g, '#0066cc')
+            .replace(/#ffa726/g, '#0077dd'));
+    });
+    
+    // Change any CSS classes that might include orange in their name
+    document.querySelectorAll('[class*="orange"]').forEach(element => {
+        const classes = element.className.split(' ');
+        const newClasses = classes.map(cls => cls.replace('orange', 'blue'));
+        element.className = newClasses.join(' ');
+    });
 });

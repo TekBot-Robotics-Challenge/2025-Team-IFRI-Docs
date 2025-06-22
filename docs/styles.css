@@ -13,12 +13,12 @@
     --text-secondary: #495057;
     --text-muted: #6c757d;
     --border-color: #dee2e6;
-    --accent-color: #ff7b47; /* New orange accent color instead of blue */
-    --accent-hover: #e86a36;
-    --header-gradient: linear-gradient(135deg, #ff7b47 0%, #fd5e38 100%);
+    --accent-color: #3a86ff; /* Changed from #ff7b47 to blue */
+    --accent-hover: #2a76ef; /* Changed from #e86a36 to darker blue */
+    --header-gradient: linear-gradient(135deg, #3a86ff 0%, #2a76ef 100%); /* Changed to blue gradient */
     --sidebar-width: 280px;
     --section-bg: #f1f3f5;
-    --active-item-bg: rgba(255, 123, 71, 0.1);
+    --active-item-bg: rgba(58, 134, 255, 0.1); /* Changed from rgba(255, 123, 71, 0.1) */
     --hover-bg: rgba(0, 0, 0, 0.03);
 }
 
@@ -31,11 +31,11 @@
     --text-secondary: #e9ecef;
     --text-muted: #adb5bd;
     --border-color: #495057;
-    --accent-color: #ff7b47;
-    --accent-hover: #e86a36;
-    --header-gradient: linear-gradient(135deg, #ff7b47 0%, #fd5e38 100%);
+    --accent-color: #3a86ff; /* Changed from #ff7b47 to blue */
+    --accent-hover: #2a76ef; /* Changed from #e86a36 to darker blue */
+    --header-gradient: linear-gradient(135deg, #3a86ff 0%, #2a76ef 100%); /* Changed to blue gradient */
     --section-bg: #2c3137;
-    --active-item-bg: rgba(255, 123, 71, 0.15);
+    --active-item-bg: rgba(58, 134, 255, 0.15); /* Changed from rgba(255, 123, 71, 0.15) */
     --hover-bg: rgba(255, 255, 255, 0.05);
 }
 
@@ -408,8 +408,8 @@ body {
 }
 
 .domain-cell.electronique {
-    background-color: rgba(255, 123, 71, 0.1);
-    border-left: 4px solid #ff7b47;
+    background-color: rgba(58, 134, 255, 0.1); /* Changed from rgba(255, 123, 71, 0.1) */
+    border-left: 4px solid #3a86ff; /* Changed from #ff7b47 */
 }
 
 .domain-cell.informatique {
@@ -423,8 +423,8 @@ body {
 }
 
 .domain-cell.final {
-    background-color: rgba(255, 123, 71, 0.1);
-    border-left: 4px solid #ff7b47;
+    background-color: rgba(58, 134, 255, 0.1); /* Changed from rgba(255, 123, 71, 0.1) */
+    border-left: 4px solid #3a86ff; /* Changed from #ff7b47 */
 }
 
 .timeline {
