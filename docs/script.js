@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Hide main content and show markdown content
             if (mainContent) mainContent.classList.add('hidden');
+            // Don't hide header anymore: if (mainHeader) mainHeader.classList.add('hidden');
             if (markdownContainer) {
                 markdownContainer.classList.add('active');
                 markdownContainer.innerHTML = `
@@ -156,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Function to show error message
+    // Function to show error message - Updated to keep header visible
     function showErrorMessage(filePath, errorMessage) {
         if (markdownContainer) {
             markdownContainer.innerHTML = `
@@ -173,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             
             if (mainContent) mainContent.classList.add('hidden');
+            // Don't hide header: if (mainHeader) mainHeader.classList.add('hidden');
             markdownContainer.classList.add('active');
             
             const backButton = document.getElementById('back-to-main');
@@ -185,9 +187,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Function to show main content
+    // Function to show main content - Keep header always visible
     function showMainContent() {
         if (mainContent) mainContent.classList.remove('hidden');
+        // Header stays visible: if (mainHeader) mainHeader.classList.remove('hidden');
         if (markdownContainer) markdownContainer.classList.remove('active');
         
         // Reset active navigation to home
@@ -214,19 +217,19 @@ document.addEventListener('DOMContentLoaded', function() {
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
         
-        // Convert images - Version simplifiée et corrigée
+        // Convert images - Version corrigée et sécurisée
         html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function(match, alt, src) {
             console.log("Converting image to HTML:", src, "with alt:", alt);
             return `<img src="${src}" alt="${alt}" style="max-width: 100%; height: auto; display: block; margin: 10px 0;" onerror="this.style.border='2px dashed #ccc'; this.style.padding='10px'; this.alt='Image non trouvée: ${src}';">`;
         });
         
         // Convert links AFTER images to avoid conflicts
-        html = html.replace(/\[([^\]]*)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+        html = html.replace(/\[([^\]]*)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
         
         // Enhanced code blocks with language detection
         html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, function(match, language, content) {
             const lang = language || 'text';
-            return `<pre data-language="${lang}"><code>${content.trim()}</code></pre>`;
+            return `<pre data-language="${lang}"><code>${content}</code></pre>`;
         });
         
         // Convert inline code
@@ -240,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const cells = row.split('|').filter(cell => cell.trim()).map(cell => `<td>${cell.trim()}</td>`).join('');
                 return `<tr>${cells}</tr>`;
             }).join('');
-            return `<table style="border-collapse: collapse; width: 100%; margin: 10px 0;"><thead><tr>${headerCells}</tr></thead><tbody>${rowsHtml}</tbody></table>`;
+            return `<table><thead><tr>${headerCells}</tr></thead><tbody>${rowsHtml}</tbody></table>`;
         });
         
         // Convert unordered lists
@@ -295,6 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Search functionality in navigation
+    const searchTimeout = null;
     const searchInput = document.getElementById('search-input');
     
     if (searchInput) {
