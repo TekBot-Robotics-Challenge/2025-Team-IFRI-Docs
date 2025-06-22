@@ -59,10 +59,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Function to load markdown files - Updated for better file loading
+    // Function to load markdown files - Updated to handle image paths
     async function loadMarkdownFile(filePath) {
         try {
             console.log('Loading file:', filePath);
+            
+            // Extract base path for relative images
+            const basePath = filePath.substring(0, filePath.lastIndexOf('/') + 1);
+            console.log('Base path for images:', basePath);
             
             // Try different path variations for GitHub Pages
             const possiblePaths = [
@@ -93,7 +97,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log(`Successfully loaded from: ${workingPath}`);
             const markdownText = await response.text();
-            const htmlContent = convertMarkdownToHTML(markdownText);
+            
+            // Process markdown to adjust image paths if needed
+            let processedMarkdown = markdownText.replace(/!\[([^\]]*)\]\((?!http)([^)]+)\)/g, function(match, alt, src) {
+                if (src.startsWith('/')) {
+                    // Already an absolute path
+                    return match;
+                } else if (src.startsWith('./')) {
+                    // Path starting with ./
+                    return `![${alt}](${basePath}${src.substring(2)})`;
+                } else {
+                    // Relative path
+                    return `![${alt}](${basePath}${src})`;
+                }
+            });
+            
+            const htmlContent = convertMarkdownToHTML(processedMarkdown);
             
             // Hide main content and show markdown content
             if (mainContent) mainContent.classList.add('hidden');
@@ -186,23 +205,15 @@ document.addEventListener('DOMContentLoaded', function() {
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
         
-        // Process images separately with special handling
-        const imageRegex = /!\[([^\]]*)\]\(([^\)]*)\)/g;
-        const images = [];
-        let match;
-        let index = 0;
+        // SIMPLE DIRECT IMAGE REPLACEMENT - Fix image rendering
+        html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function(match, alt, src) {
+            console.log("Found image:", src, "with alt:", alt);
+            // Create direct img tag without any fancy processing
+            return `<img src="${src}" alt="${alt}" style="max-width:100%; display:block; margin:10px 0;">`;
+        });
         
-        // Extract images and replace with placeholders
-        while ((match = imageRegex.exec(html)) !== null) {
-            const placeholder = `__IMAGE_PLACEHOLDER_${index}__`;
-            const imageTag = `<img src="${match[2]}" alt="${match[1]}">`;
-            images.push({ placeholder, imageTag });
-            html = html.replace(match[0], placeholder);
-            index++;
-        }
-        
-        // Convert links (now images are safely out of the way)
-        html = html.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="$2">$1</a>');
+        // Convert links AFTER images
+        html = html.replace(/\[([^\]]*)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
         
         // Replace image placeholders with actual <img> tags
         images.forEach(img => {
@@ -273,7 +284,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 showMainContent();
             }
             
-            if
+            if (targetElement) {
+                // Smooth scroll to target section
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+    
+    // Search functionality in navigation
+    const searchTimeout = null;
+    const searchInput = document.getElementById('search-input');
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
             const allNavItems = document.querySelectorAll('.nav-item');
             
@@ -300,6 +323,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // Scroll to top when button is clicked
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
     // Scroll to top when button is clicked
     backToTopButton.addEventListener('click', function() {
         window.scrollTo({
