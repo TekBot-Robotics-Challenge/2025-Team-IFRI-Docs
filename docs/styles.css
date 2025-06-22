@@ -718,6 +718,33 @@ body {
     display: block;
 }
 
+/* Style amélioré pour les images markdown */
+.markdown-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-error {
+    border: 2px dashed #ccc;
+    padding: 10px;
+    background-color: #f8f8f8;
+    box-shadow: none;
+}
+
+/* Créer une image placeholder à afficher en cas d'erreur */
+.markdown-content img[src="image-not-found.png"]::before {
+    content: "🖼️";
+    display: block;
+    font-size: 48px;
+    text-align: center;
+    color: #ccc;
+    padding: 20px;
+}
+
 /* Horizontal rule */
 .markdown-content hr {
     border: none;

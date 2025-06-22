@@ -134,14 +134,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Nouvelle fonction pour traiter les chemins d'images
+    // Fonction améliorée pour traiter les chemins d'images
     function processImagePaths(markdown, basePath) {
         return markdown.replace(/!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g, function(match, alt, src) {
-            console.log('Processing image:', src);
+            console.log('Processing image path:', src);
             
-            // Si le chemin commence déjà par /, c'est un chemin absolu
+            // Décodage de l'URL pour gérer les espaces et caractères spéciaux
+            src = decodeURIComponent(src.trim());
+            
+            // Si le chemin commence déjà par /, c'est un chemin absolu depuis la racine du site
             if (src.startsWith('/')) {
-                return match; // Garder tel quel
+                console.log('Keeping absolute path:', src);
+                return `![${alt}](${src})`;
             }
             
             // Si le chemin commence par ./, le nettoyer
@@ -149,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 src = src.substring(2);
             }
             
-            // Construire le chemin complet
+            // Construire le chemin complet en utilisant le basePath
             const fullPath = basePath + src;
             console.log('Image path adjusted:', src, '->', fullPath);
             
@@ -217,10 +221,15 @@ document.addEventListener('DOMContentLoaded', function() {
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
         
-        // Convert images - Version corrigée et sécurisée
+        // Convert images - Version améliorée avec gestion d'erreur
         html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function(match, alt, src) {
-            console.log("Converting image to HTML:", src, "with alt:", alt);
-            return `<img src="${src}" alt="${alt}" style="max-width: 100%; height: auto; display: block; margin: 10px 0;" onerror="this.style.border='2px dashed #ccc'; this.style.padding='10px'; this.alt='Image non trouvée: ${src}';">`;
+            console.log("Converting image to HTML:", src);
+            
+            // Nettoyer le chemin d'image (espaces, etc.)
+            src = src.trim();
+            
+            // Ajouter une classe pour les images markdown
+            return `<img src="${src}" alt="${alt}" class="markdown-image" onerror="this.onerror=null; this.src='image-not-found.png'; this.alt='Image non trouvée: ${src}'; this.classList.add('image-error');">`;
         });
         
         // Convert links AFTER images to avoid conflicts
