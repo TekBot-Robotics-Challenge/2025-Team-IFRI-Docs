@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Function to load markdown files - Gestion des images corrigée
+    // Function to load markdown files - Updated to handle image paths
     async function loadMarkdownFile(filePath) {
         try {
             console.log('Loading file:', filePath);
@@ -98,8 +98,19 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(`Successfully loaded from: ${workingPath}`);
             const markdownText = await response.text();
             
-            // Process markdown to adjust image paths - Version corrigée
-            const processedMarkdown = processImagePaths(markdownText, basePath);
+            // Process markdown to adjust image paths if needed
+            let processedMarkdown = markdownText.replace(/!\[([^\]]*)\]\((?!http)([^)]+)\)/g, function(match, alt, src) {
+                if (src.startsWith('/')) {
+                    // Already an absolute path
+                    return match;
+                } else if (src.startsWith('./')) {
+                    // Path starting with ./
+                    return `![${alt}](${basePath}${src.substring(2)})`;
+                } else {
+                    // Relative path
+                    return `![${alt}](${basePath}${src})`;
+                }
+            });
             
             const htmlContent = convertMarkdownToHTML(processedMarkdown);
             
@@ -132,29 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error loading markdown file:', error);
             showErrorMessage(filePath, error.message);
         }
-    }
-    
-    // Nouvelle fonction pour traiter les chemins d'images
-    function processImagePaths(markdown, basePath) {
-        return markdown.replace(/!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g, function(match, alt, src) {
-            console.log('Processing image:', src);
-            
-            // Si le chemin commence déjà par /, c'est un chemin absolu
-            if (src.startsWith('/')) {
-                return match; // Garder tel quel
-            }
-            
-            // Si le chemin commence par ./, le nettoyer
-            if (src.startsWith('./')) {
-                src = src.substring(2);
-            }
-            
-            // Construire le chemin complet
-            const fullPath = basePath + src;
-            console.log('Image path adjusted:', src, '->', fullPath);
-            
-            return `![${alt}](${fullPath})`;
-        });
     }
     
     // Function to show error message - Updated to keep header visible
@@ -201,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Improved markdown to HTML converter - Version corrigée
+    // Improved markdown to HTML converter
     function convertMarkdownToHTML(markdown) {
         let html = markdown;
         
@@ -217,14 +205,20 @@ document.addEventListener('DOMContentLoaded', function() {
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
         
-        // Convert images - Version corrigée et sécurisée
+        // SIMPLE DIRECT IMAGE REPLACEMENT - Fix image rendering
         html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function(match, alt, src) {
-            console.log("Converting image to HTML:", src, "with alt:", alt);
-            return `<img src="${src}" alt="${alt}" style="max-width: 100%; height: auto; display: block; margin: 10px 0;" onerror="this.style.border='2px dashed #ccc'; this.style.padding='10px'; this.alt='Image non trouvée: ${src}';">`;
+            console.log("Found image:", src, "with alt:", alt);
+            // Create direct img tag without any fancy processing
+            return `<img src="${src}" alt="${alt}" style="max-width:100%; display:block; margin:10px 0;">`;
         });
         
-        // Convert links AFTER images to avoid conflicts
+        // Convert links AFTER images
         html = html.replace(/\[([^\]]*)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+        
+        // Replace image placeholders with actual <img> tags
+        images.forEach(img => {
+            html = html.replace(img.placeholder, img.imageTag);
+        });
         
         // Enhanced code blocks with language detection
         html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, function(match, language, content) {
@@ -320,22 +314,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Back to top button functionality
     const backToTopButton = document.getElementById('backToTop');
     
-    if (backToTopButton) {
-        // Show button when user scrolls down 300px from the top
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
+    // Show button when user scrolls down 300px from the top
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+    
+    // Scroll to top when button is clicked
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
-        
-        // Scroll to top when button is clicked
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+    });
+});
+    // Scroll to top when button is clicked
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
-    }
+    });
 });
