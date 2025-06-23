@@ -72,7 +72,7 @@ Le TEKBOT Robotics Challenge 2025 est une compétition internationale annuelle, 
 * **Rôle dans le montage:** Cœur du système : il lit le capteur, exécute le code et pilote l'écran. 
 * **Image:**
     * Img 1 : Arduino Uno
-    ![Arduino Uno](./images/Arduino_Uno_-_R3.jpg)
+    ![Arduino Uno](Documentation/semaine-1/electronique/images/Arduino_Uno_-_R3.jpg)
 
 ### MPU-6050:
 * **Description:** Module I²C combinant un accéléromètre 3 axes ±2 g et un gyroscope 3 axes ±250 °/s. 
@@ -109,7 +109,7 @@ Le TEKBOT Robotics Challenge 2025 est une compétition internationale annuelle, 
     * Img 6 : Breadboard
     ![Breadboard](images/breadboard.jpeg)
     * Img 7 : Fils Dupont
-    ![Fils Dupont (Jumpers)](images/dupont_connectors.avif)
+    ![Fils Dupont (Jumpers)](/2025-Team-IFRI-Docs/docs/Documentation/semaine-1/electronique/images/dupont_connectors.avif)
 
 ## 2.2 Outils Logiciels
 
