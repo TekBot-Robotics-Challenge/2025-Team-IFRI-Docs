@@ -79,35 +79,35 @@ Le TEKBOT Robotics Challenge 2025 est une compétition internationale annuelle, 
 * **Rôle dans le montage:** Mesure l'orientation et l'accélération. 
 * **Image:**
     * Img 2 : MPU-6050
-    ![MPU6050](images/MPU6050.jpg)
+    ![MPU6050](Documentation/semaine-1/electronique/images/MPU6050.jpg)
 
 ### Écran LCD HD44780 16×2:
 * **Description:** Afficheur alphanumérique 16 colonnes × 2 lignes en mode 4 bits. 
 * **Rôle dans le montage:** Présente en temps réel l'orientation et l'intensité du mouvement. 
 * **Image:**
     * Img 3 : Ecran LCD
-    ![Ecran LCD](images/LCD_Screen.jpg)
+    ![Ecran LCD](Documentation/semaine-1/electronique/images/LCD_Screen.jpg)
 
 ### Potentiomètre 10kΩ:
 * **Description:** Résistance variable linéaire. 
 * **Rôle dans le montage:** Permet d'ajuster le contraste de l'écran LCD. 
 * **Image:**
     * Img 4 : Potentiomètre
-    ![Potentiomètre 10kΩ](images/Pot_10K.jpg)
+    ![Potentiomètre 10kΩ](Documentation/semaine-1/electronique/images/Pot_10K.jpg)
 
 ### Pile rechargeable 9V:
 * **Description:** Source de tension. 
 * **Rôle dans le montage:** Fournit une alimentation stable à l'Arduino, au module et à l'écran. 
 * **Image:**
     * Img 5 : Pile 9V rechargeable
-    ![Pile 9V](images/Pile_9v.jpg)
+    ![Pile 9V](Documentation/semaine-1/electronique/images/Pile_9v.jpg)
 
 ### Breadboard + fils Dupont:
 * **Description:** Plaque d'essai sans soudure et câbles colorés. 
 * **Rôle dans le montage:** Montage rapide, structuré et réutilisable. 
 * **Images:**
     * Img 6 : Breadboard
-    ![Breadboard](images/breadboard.jpeg)
+    ![Breadboard](Documentation/semaine-1/electronique/images/breadboard.jpeg)
     * Img 7 : Fils Dupont
     ![Fils Dupont (Jumpers)](/2025-Team-IFRI-Docs/docs/Documentation/semaine-1/electronique/images/dupont_connectors.avif)
 
@@ -118,7 +118,7 @@ Le TEKBOT Robotics Challenge 2025 est une compétition internationale annuelle, 
 * **Lien de téléchargement/Documentation:** https://www.arduino.cc/en/software 
 * **Image:**
     * Img 8 : Logo/Image Arduino IDE
-    ![Arduino IDE](images/Arduino-IDE-Interface.png)
+    ![Arduino IDE](Documentation/semaine-1/electronique/images/Arduino-IDE-Interface.png)
 
 ### I2Cdevlib / MPU6050
 * **Description:** Bibliothèque Arduino pour communiquer facilement avec le MPU-6050, inclut fonctions de calibration et DMP. 
@@ -298,7 +298,7 @@ Chaque étape s'enchaîne dans la boucle principale (`loop()`), produisant un sy
 Pour garantir la clarté et la reproductibilité de notre montage, nous avons réalisé un schéma dans KiCad 7.0. Ci-dessous le rendu principal, suivi d'une explication progressive.
 
 * **Figure:** Fig 1 : Schema_Kicad
-    ![Schema KiCad](images/Kicade-Schema-Official.png)
+    ![Schema KiCad](Documentation/semaine-1/electronique/images/Kicade-Schema-Official.png)
 
 ## 5.1 Description des parties du schéma
 
@@ -489,9 +489,17 @@ Chaque cycle dure 100 ms (~10 Hz) :
 **Vidéo de démonstration :**
 Vous pouvez visionner une démonstration de notre système en action ci-dessous :
 
-[Vidéo demo 1](https://vimeo.com/manage/videos/1092850492)
+<iframe src="https://player.vimeo.com/video/1092850492" 
+        width="640" height="360" 
+        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
+        allowfullscreen>
+</iframe>
 
-[Video demo 2](https://vimeo.com/manage/videos/1092852315/a32b8a9039)
+<iframe src="https://player.vimeo.com/video/1092852315" 
+        width="640" height="360" 
+        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
+        allowfullscreen>
+</iframe>
 
 ---
 
