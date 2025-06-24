@@ -120,42 +120,42 @@ Le pôle mécanique a pour mission de concevoir, modéliser et valider des compo
 
 ### 7.1. Partie 1 – Variations de A, B, C
 
-![Vue détaillée de la pièce](/mecanique/images/picture_piece_partie1.png)
+![Vue détaillée de la pièce](Documentation/semaine-2/mecanique/images/picture_piece_partie1.png)
 
 **Question A**
 
 * Valeurs : A = 81 mm, B = 57 mm, C = 43 mm
-* Fichier : [Télécharger la pièce](/mecanique/Partie%201/piece_partie1_a.SLDPRT)
+* Fichier : [Télécharger la pièce](Documentation/semaine-2/mecanique/Partie%201/piece_partie1_a.SLDPRT)
 * Masse : **939.54 grammes**
-  ![Propriétés de masse](/mecanique/images/picture_mass_properties_partie1_a.jpg)
+  ![Propriétés de masse](Documentation/semaine-2/mecanique/images/picture_mass_properties_partie1_a.jpg)
 
 
 **Question B**
 
 * Valeurs : A = 84 mm, B = 59 mm, C = 45 mm
-* Fichier : [Télécharger la pièce](/mecanique/Partie%201/piece_partie1_b.SLDPRT)
+* Fichier : [Télécharger la pièce](Documentation/semaine-2/mecanique/Partie%201/piece_partie1_b.SLDPRT)
 * Masse : **1032.32 grammes**
-  ![Propriétés de masse](/mecanique/images/picture_mass_properties_partie1_b.png)
+  ![Propriétés de masse](Documentation/semaine-2/mecanique/images/picture_mass_properties_partie1_b.png)
 
 ### 7.2. Partie 2 – Cas supplémentaire
 - Vue de la pièce modéliséé
 
-![Vue détaillée de la pièce](/mecanique/images/picture_piece_partie2.png)
+![Vue détaillée de la pièce](Documentation/semaine-2/mecanique/images/picture_piece_partie2.png)
 
 - Fichier contenant la pièce modélisée
-Fichier : [Télécharger la pièce](/docs/semaine-2/mecanique/Partie%202/piece_partie2.SLDPRT)
+Fichier : [Télécharger la pièce](Documentation/semaine-2/mecanique/Partie%202/piece_partie2.SLDPRT)
 
 * Masse : **628.18 grammes**
-  ![Propriétés de masse](/mecanique/images/picture_mass_properties_partie2.png)
+  ![Propriétés de masse](Documentation/semaine-2/mecanique/images/picture_mass_properties_partie2.png)
 
 ### 7.3. Partie 3 – Exemple de réduction
 - Vue de la pièce de modélisée : 
-![Vue détaillée de la pièce](/mecanique/images/picture_piece_partie3.png)
+![Vue détaillée de la pièce](Documentation/semaine-2/mecanique/images/picture_piece_partie3.png)
 
 Fichier contenant la pièce modélisée :
-* Fichier : [Télécharger la pièce](/mecanique/Partie%203/picture_piece_partie3.SLDPRT)
+* Fichier : [Télécharger la pièce](Documentation/semaine-2/mecanique/Partie%203/picture_piece_partie3.SLDPRT)
 * Masse : **432.58 grammes**
-  ![Propriétés de masse](/mecanique/images/picture_mass_properties_partie3.png)
+  ![Propriétés de masse](Documentation/semaine-2/mecanique/images/picture_mass_properties_partie3.png)
 
 
 
@@ -166,26 +166,26 @@ Fichier contenant la pièce modélisée :
   - Config. B (A=30°, B=115°, C=135°): (X=348.66, Y=-88.48, Z=-91.40)
 
 **Image Assemblage:**
-![Vue détaillée de la pièce - Question a](/mecanique/images/picture_assemblage_a.png)
-![Vue détaillée de la pièce - Question b](/mecanique/images/picture_assemblage_b.png)
+![Vue détaillée de la pièce - Question a](Documentation/semaine-2/mecanique/images/picture_assemblage_a.png)
+![Vue détaillée de la pièce - Question b](Documentation/semaine-2/mecanique/images/picture_assemblage_b.png)
 
 **Résultat**
 
 Fichiers : 
-[Télécharger la pièce - Question a](/mecanique/Assemblage/assemblage_question_a.SLDASM)
+[Télécharger la pièce - Question a](Documentation/semaine-2/mecanique/Assemblage/assemblage_question_a.SLDASM)
 
-[Télécharger la pièce - Question b](/mecanique/Assemblage/assemblage_question_b.SLDASM)
+[Télécharger la pièce - Question b](Documentation/semaine-2/mecanique/Assemblage/assemblage_question_b.SLDASM)
 
 
 **Réponses aux questions**
 
-![Question a](/mecanique/images/picture_mass_properties_a.png)
+![Question a](Documentation/semaine-2/mecanique/images/picture_mass_properties_a.png)
 a) Les coordonnées du centre de masse pour A = 25 degrees ; B = 125 degrees ; C = 130 degrees sont : 
 - X = **327.67**
 - Y = **- 98.39**
 - Z = **- 102.91**
 
-![Question b](/mecanique/images/picture_mass_properties_b.png)
+![Question b](Documentation/semaine-2/mecanique/images/picture_mass_properties_b.png)
 b) Les coordonnées du centre de masse pour A = 30 degrees ; B = 115 degrees ; C = 135 degrees sont :
 - X = **348.66**
 - Y = **- 88.48**
