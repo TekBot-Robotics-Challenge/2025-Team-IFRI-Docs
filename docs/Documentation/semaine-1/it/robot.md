@@ -1,10 +1,10 @@
 ### Class: `Robot` (Abstract Base Class)
 
-![Robot](diagram.png)
+![Robot](Documentation/semaine-1/it/diagram.png)
 
-1. [Wheeled Robot](wheeledrobot.md)
+1. [Wheeled Robot](Documentation/semaine-1/it/wheeledrobot.md)
 
-2. [Robotic Arm](roboticarm.md)
+2. [Robotic Arm](Documentation/semaine-1/it/roboticarm.md)
 
 #### Overview
 
@@ -247,4 +247,4 @@ def distance_to(self, other: Tuple[float, float]) -> float:
   * `__eq__` compares robots by `id` and raises `TypeError` if other object is not a `Robot`.
 
 ## UML Diagram
-![UML Diagram](robot.svg)
+![UML Diagram](Documentation/semaine-1/it/robot.svg)

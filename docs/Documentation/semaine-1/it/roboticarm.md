@@ -1,6 +1,6 @@
 # `RoboticArm` Class Documentation
 
-![RoboticArm](robotic_arm.svg)
+![RoboticArm](Documentation/semaine-1/it/robotic_arm.svg)
 
 The `RoboticArm` class is a concrete implementation of the `Robot` abstract base class. It models an articulated robotic arm with multiple joints, capable of precise movements, picking up, and placing objects.
 

@@ -1,6 +1,6 @@
 # `WheeledRobot` Class Documentation
 
-![Wheeled Robot](wheeled-robot.svg)
+![Wheeled Robot](Documentation/semaine-1/it/wheeled-robot.svg)
 
 The `WheeledRobot` class is a concrete implementation of the `Robot` abstract base class. It represents a mobile robot that moves using wheels and is capable of navigation, basic obstacle avoidance, and carrying items in a storage bay.
 
