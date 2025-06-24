@@ -15,8 +15,8 @@ La conception des pièces a été réalisée avec le logiciel de modélisation *
 - Tous les trous sont débouchants sauf indication contraire
 - **Matériau** : acier AISI 1020 ; Densité : 0,0079 g/mm^3
 
-![Pièce 1 - Vue détaillée](picture_piece_1_trc.jpg)
-![Pièce 1 - Vue complète](picture_piece_1_full.jpg)
+![Pièce 1 - Vue détaillée](Documentation/semaine-1/mecanique/picture_piece_1_full.jpg')
+![Pièce 1 - Vue complète](Documentation/semaine-1/mecanique/picture_piece_1_full.jpg)
 
 **Etapes de réalisation de ce croquis**
 1. Création d'un nouveau projet
@@ -38,7 +38,7 @@ La conception des pièces a été réalisée avec le logiciel de modélisation *
 6. Configuer la matière recommandée : **acier AISI 1020 ; Densité : 0,0079 g/mm^3**
    - Aller dans l'onglet **matériau** puis sélectionner éditer matériau puis choisir l'option acier AISI 1020.
 
-[Pièce 1](pieces/Piece_1/piece_1.SLDPRT)
+[Pièce 1](Documentation/semaine-1/mecanique/pieces/Piece_1/piece_1.SLDPRT)
 
 7. Calcul de la masse
    - Pour trouver la masse, aller dans l'onglet **propriété de masse** et régler la densité et les décimales. La masse de cette pièce est **2811.1991 grammes**.
@@ -50,8 +50,8 @@ La conception des pièces a été réalisée avec le logiciel de modélisation *
 - Tous les trous sont débouchants sauf indication contraire
 - **Matériau** : Aluminium Alliage 1060 ; Densité : 0.0027 g/mm^3
 
-![Pièce 2 - Vue détaillée](picture_piece_2_trc.jpg)
-![Pièce 2 - Vue complète](picture_piece_2_full.jpg)
+![Pièce 2 - Vue détaillée](Documentation/semaine-1/mecanique/picture_piece_2_trc.jpg)
+![Pièce 2 - Vue complète](Documentation/semaine-1/mecanique/picture_piece_2_full.jpg)
 
 **Etapes de réalisation de ce croquis**
 1. Création d'un nouveau projet
@@ -72,7 +72,7 @@ La conception des pièces a été réalisée avec le logiciel de modélisation *
    - Attribuer le matériau : Aluminium Alliage 1060 via l'option **"Matériau"**.
    - Utiliser l'onglet **"Propriétés de masse"** pour obtenir la **masse exacte en grammes** de la pièce.
 
-[Pièce 2](pieces/Piece_2/piece_2.SLDPRT)
+[Pièce 2](Documentation/semaine-1/mecanique/pieces/Piece_2/piece_2.SLDPRT)
 
 La masse de cette pièce est **290.80 grammes**.
 
@@ -84,8 +84,8 @@ La masse de cette pièce est **290.80 grammes**.
 - Tous les trous sont débouchants sauf indication contraire
 - **Matériau** : acier AISI 1020 ; Densité : 0,0079 g/mm^3
 
-![Pièce 3 - Vue détaillée](picture_piece_3_trc.jpg)
-![Pièce 3 - Vue complète](picture_piece_3_full.jpg)
+![Pièce 3 - Vue détaillée](Documentation/semaine-1/mecanique/picture_piece_3_trc.jpg)
+![Pièce 3 - Vue complète](Documentation/semaine-1/mecanique/picture_piece_3_full.jpg)
 
 **Etapes de réalisation de ce croquis**
 1. Esquisse du profil de base
@@ -107,7 +107,7 @@ La masse de cette pièce est **290.80 grammes**.
    - Attribuer le matériau demandé : **acier AISI 1020**.
    - Utiliser **"Propriétés de masse"** pour obtenir la **masse exacte en grammes**.
 
-[Pièce 3](pieces/Piece_3/piece_3.SLDPRT)
+[Pièce 3](Documentation/semaine-1/mecanique/pieces/Piece_3/piece_3.SLDPRT)
 
 La masse de cette pièce est **1633.25 grammes**.
 
@@ -119,8 +119,8 @@ La masse de cette pièce est **1633.25 grammes**.
 - Tous les trous sont débouchants sauf indication contraire
 - **Matériau** : Aluminium Alliage 1060 ; Densité : 0.0027 g/mm^3
 
-![Pièce 4 - Vue détaillée](picture_piece_4_trc.jpg)
-![Pièce 4 - Vue complète](picture_piece_4_full.jpg)
+![Pièce 4 - Vue détaillée](Documentation/semaine-1/mecanique/picture_piece_4_trc.jpg)
+![Pièce 4 - Vue complète](Documentation/semaine-1/mecanique/picture_piece_4_full.jpg)
 
 **Etapes de réalisation de ce croquis**
 1. Esquisse de base
@@ -151,7 +151,7 @@ La masse de cette pièce est **1633.25 grammes**.
 - Vérifier les contraintes dimensionnelles
 - Valider l'assemblage des différentes fonctions
 
-[Pièce 4](pieces/Piece_4/piece_4.SLDPRT)
+[Pièce 4](Documentation/semaine-1/mecanique/pieces/Piece_4/piece_4.SLDPRT)
 
 La masse de cette pièce est **297.29 grammes**.
 
@@ -161,12 +161,12 @@ La masse de cette pièce est **297.29 grammes**.
 - **Décimales** : 2
 - **Origine de l'assemblage** : Celui du fichier assemblage Pince
 
-![Détails de l'assemblage](Piece_assemblage_trc.jpg)
-![Vue d'ensemble de l'assemblage](Piece_assemblage.jpg)
+![Détails de l'assemblage](Documentation/semaine-1/mecanique/Piece_assemblage_trc.jpg)
+![Vue d'ensemble de l'assemblage](Documentation/semaine-1/mecanique/Piece_assemblage.jpg)
 
 L'étape de l'assemblage de pièces consiste à former une pince mécanique. Le travail a été réalisé en respectant les contraintes imposées par les plans d'assemblage.
 
-[Pince](pieces/assemblage%20pince.SLDASM)
+[Pince](Documentation/semaine-1/mecanique/pieces/assemblage%20pince.SLDASM)
 
 
 a) Après avoir fixé l'embout de vérin dans sa position minimale, les coordonnées du centre de masse de cet assemblage sont les suivantes : 
@@ -181,17 +181,17 @@ a) Après avoir fixé l'embout de vérin dans sa position minimale, les coordonn
 
 ### Emplacement des fichiers
 Ci-joint les fichiers des pièces modélisées : 
-- [Pièce I](pieces/Piece_1/piece_1.SLDPRT)
+- [Pièce I](Documentation/semaine-1/mecanique/pieces/Piece_1/piece_1.SLDPRT)
   
-- [Pièce II](pieces/Piece_2/piece_2.SLDPRT)
+- [Pièce II](Documentation/semaine-1/mecanique/pieces/Piece_2/piece_2.SLDPRT)
   
-- [Pièce III](pieces/Piece_3/piece_3.SLDPRT)
+- [Pièce III](Documentation/semaine-1/mecanique/pieces/Piece_3/piece_3.SLDPRT)
   
-- [Pièce IV](pieces/Piece_4/piece_4.SLDPRT)
+- [Pièce IV](Documentation/semaine-1/mecanique/pieces/Piece_4/piece_4.SLDPRT)
   
-- [Dossier A](pieces/Dossier%20%20A.zip)
+- [Dossier A](Documentation/semaine-1/mecanique/pieces/Dossier%20%20A.zip)
   
-- [Dossier B](pieces/Dossier%20%20B.zip)
+- [Dossier B](Documentation/semaine-1/mecanique/pieces/Dossier%20%20B.zip)
 
 
 

@@ -1,12 +1,9 @@
 ### Class: `Robot` (Abstract Base Class)
 
-![Robot](Documentation/semaine-1/it/diagram.png)
+![Robot](Documentation/semaine-1/it/robot.svg)
 
-1. [Wheeled Robot](Documentation/semaine-1/it/wheeledrobot.md)
 
-2. [Robotic Arm](Documentation/semaine-1/it/roboticarm.md)
-
-#### Overview
+### Overview
 
 The `Robot` class is an abstract base class (ABC) that defines the common interface and core functionalities for all robot types within the simulation environment. It handles fundamental attributes like identity, position, orientation, energy, and basic actions. Being an ABC, it cannot be instantiated directly; instead, concrete robot classes must inherit from it and implement its abstract methods.
 
@@ -247,4 +244,4 @@ def distance_to(self, other: Tuple[float, float]) -> float:
   * `__eq__` compares robots by `id` and raises `TypeError` if other object is not a `Robot`.
 
 ## UML Diagram
-![UML Diagram](Documentation/semaine-1/it/robot.svg)
+![UML Diagram](Documentation/semaine-1/it/diagram.png)
