@@ -484,7 +484,9 @@ Chaque cycle dure 100 ms (~10 Hz) :
 * 9600 bauds. 
 * Affiche en continu : 
     * `MONTEE | R:… T:… | Lacet:… |` 
-    * `AX:… DX:… AY:… DY:… | Jerk:…` 
+    * `AX:… DX:… AY:… DY:… | Jerk:…`
+
+
 
 **Vidéo de démonstration :**
 Vous pouvez visionner une démonstration de notre système en action ci-dessous :
