@@ -33,20 +33,20 @@ This diagram illustrates the minimum connections for the BlackBox to function on
     * `INT` -> `D2` (for Data Ready interrupt)
 
 * **BlackBox KiCad Schematic**:
-    ![BlackBox KiCad Schematic](Documentation/semaine-2/images/cube_schema.png)
-    *KiCad File*: [`hardware/cube_pcb/cube_pcb.kicad_sch`](Documentation/semaine-2/hardware/cube_pcb/cube_pcb.kicad_sch)
+    ![BlackBox KiCad Schematic](Documentation/semaine-2/electronique/images/cube_schema.png)
+    *KiCad File*: [`hardware/cube_pcb/cube_pcb.kicad_sch`](Documentation/semaine-2/electronique/hardware/cube_pcb/cube_pcb.kicad_sch)
 
 * **BlackBox 3D PCB Visualization**:
-    ![BlackBox 3D PCB 1](Documentation/semaine-2/images/cube_pcb_PCB_3DViewer1.png)
-    ![BlackBox 3D PCB 2](Documentation/semaine-2/images/cube_pcb_PCB_3DViewer2.png)
-    *KiCad File*: [`hardware/cube_pcb/cube_pcb.kicad_pcb`](Documentation/semaine-2/hardware/cube_pcb/cube_pcb.kicad_pcb)
+    ![BlackBox 3D PCB 1](Documentation/semaine-2/electronique/images/cube_pcb_PCB_3DViewer1.png)
+    ![BlackBox 3D PCB 2](Documentation/semaine-2/electronique/images/cube_pcb_PCB_3DViewer2.png)
+    *KiCad File*: [`hardware/cube_pcb/cube_pcb.kicad_pcb`](Documentation/semaine-2/electronique/hardware/cube_pcb/cube_pcb.kicad_pcb)
 
 * **Prototyping Assembly Photo**:
-    ![BlackBox Prototyping Assembly Photo](Documentation/semaine-2/images/blackbox_prototyping_photo_placeholder.png)
+    ![BlackBox Prototyping Assembly Photo](Documentation/semaine-2/electronique/images/blackbox_prototyping_photo_placeholder.png)
 
 #### Uploading BlackBox Firmware
 
-1.  Open the [`cube_firmware.ino`](Documentation/semaine-2/firmware/cube_firmware/cube_firmware.ino) file in the Arduino IDE.
+1.  Open the [`cube_firmware.ino`](Documentation/semaine-2/electronique/firmware/cube_firmware/cube_firmware.ino) file in the Arduino IDE.
 2.  Ensure the correct board (e.g., "Arduino Uno") and COM/USB port are selected.
 3.  Click "Upload" (right arrow button) to compile and send the code to the microcontroller.
 
@@ -68,20 +68,20 @@ This diagram illustrates the minimum connections for the Control Station to func
     * `SCL` -> `A5` (or dedicated `SCL` if standalone ATmega328P)
 
 * **Control Station KiCad Schematic**:
-    ![Control Station KiCad Schematic](Documentation/semaine-2/images/station_schema.png)
-    *KiCad File*: [`hardware/station_pcb/station_pcb.kicad_sch`](Documentation/semaine-2/hardware/station_pcb/station_pcb.kicad_sch)
+    ![Control Station KiCad Schematic](Documentation/semaine-2/electronique/images/station_schema.png)
+    *KiCad File*: [`hardware/station_pcb/station_pcb.kicad_sch`](Documentation/semaine-2/electronique/hardware/station_pcb/station_pcb.kicad_sch)
 
 * **Control Station 3D PCB Visualization**:
-    ![Control Station 3D PCB 1](Documentation/semaine-2/images/station_pcb_PCB_3Dviewer1.png)
-    ![Control Station 3D PCB 2](Documentation/semaine-2/images/station_pcb_PCB_3Dviewer2.png)
-    *KiCad File*: [`hardware/station_pcb/station_pcb.kicad_pcb`](Documentation/semaine-2/hardware/station_pcb/station_pcb.kicad_pcb)
+    ![Control Station 3D PCB 1](Documentation/semaine-2/electronique/images/station_pcb_PCB_3Dviewer1.png)
+    ![Control Station 3D PCB 2](Documentation/semaine-2/electronique/images/station_pcb_PCB_3Dviewer2.png)
+    *KiCad File*: [`hardware/station_pcb/station_pcb.kicad_pcb`](Documentation/semaine-2/electronique/hardware/station_pcb/station_pcb.kicad_pcb)
 
 * **Prototyping Assembly Photo**:
-    ![Control Station Prototyping Assembly Photo](Documentation/semaine-2/images/controlstation_prototyping_photo_placeholder.png)
+    ![Control Station Prototyping Assembly Photo](Documentation/semaine-2/electronique/images/controlstation_prototyping_photo_placeholder.png)
 
 #### Uploading Control Station Firmware
 
-1.  Open the [`station_firmware.ino`](Documentation/semaine-2/firmware/station_firmware/station_firmware.ino) file in the Arduino IDE.
+1.  Open the [`station_firmware.ino`](Documentation/semaine-2/electronique/firmware/station_firmware/station_firmware.ino) file in the Arduino IDE.
 2.  Ensure the correct board and COM/USB port are selected.
 3.  Click "Upload".
 
