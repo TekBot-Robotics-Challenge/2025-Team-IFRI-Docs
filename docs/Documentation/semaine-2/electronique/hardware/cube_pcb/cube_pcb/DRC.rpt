@@ -1,0 +1,54 @@
+** Drc report for cube_pcb.kicad_pcb **
+** Created on 2025-06-19T10:25:36+0100 **
+
+** Found 11 DRC violations **
+[clearance]: Clearance violation (netclass 'Default' clearance 0.3000 mm; actual 0.1510 mm)
+    Rule: netclass 'Default'; error
+    @(140.1310 mm, 89.5890 mm): Track [/5V] on F.Cu, length 21.5600 mm
+    @(146.5000 mm, 90.8400 mm): PTH pad 22 [/GND] of U2
+[clearance]: Clearance violation (netclass 'Default' clearance 0.3000 mm; actual 0.0260 mm)
+    Rule: netclass 'Default'; error
+    @(151.6260 mm, 75.5336 mm): Track [/SDA] on B.Cu, length 1.4985 mm
+    @(150.5000 mm, 76.0000 mm): PTH pad 1 [/SCL] of R3
+[clearance]: Clearance violation (netclass 'Default' clearance 0.3000 mm; actual 0.2940 mm)
+    Rule: netclass 'Default'; error
+    @(111.5000 mm, 85.4600 mm): Track [/GND] on B.Cu, length 7.1276 mm
+    @(111.5000 mm, 88.0000 mm): PTH pad 1 [/5V] of J4
+[clearance]: Clearance violation (netclass 'Default' clearance 0.3000 mm; actual 0.2740 mm)
+    Rule: netclass 'Default'; error
+    @(166.5000 mm, 88.6260 mm): Track [/INT0] on B.Cu, length 11.3740 mm
+    @(154.5749 mm, 89.5000 mm): Track [/SCL] on B.Cu, length 17.9651 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.3000 mm; actual 0.0260 mm)
+    Rule: netclass 'Default'; error
+    @(146.5000 mm, 75.6000 mm): PTH pad 28 [/SCL] of U2
+    @(150.5664 mm, 74.4740 mm): Track [/SDA] on B.Cu, length 4.5328 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.3000 mm; actual 0.0260 mm)
+    Rule: netclass 'Default'; error
+    @(146.5000 mm, 75.6000 mm): PTH pad 28 [/SCL] of U2
+    @(146.0336 mm, 74.4740 mm): Track [/SDA] on B.Cu, length 0.9328 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.3000 mm; actual 0.0260 mm)
+    Rule: netclass 'Default'; error
+    @(146.5000 mm, 75.6000 mm): PTH pad 28 [/SCL] of U2
+    @(145.3740 mm, 75.1336 mm): Track [/SDA] on B.Cu, length 1.8804 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.3000 mm; actual 0.0260 mm)
+    Rule: netclass 'Default'; error
+    @(151.6260 mm, 81.0240 mm): Track [/SDA] on B.Cu, length 5.4904 mm
+    @(150.5000 mm, 76.0000 mm): PTH pad 1 [/SCL] of R3
+[clearance]: Clearance violation (netclass 'Default' clearance 0.3000 mm; actual 0.0260 mm)
+    Rule: netclass 'Default'; error
+    @(146.5000 mm, 85.7600 mm): PTH pad 24 [unconnected-(U2-PC1-Pad24)] of U2
+    @(151.1340 mm, 84.6340 mm): Track [/INT0] on F.Cu, length 10.8400 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.3000 mm; actual 0.2740 mm)
+    Rule: netclass 'Default'; error
+    @(155.1260 mm, 88.6260 mm): Track [/INT0] on B.Cu, length 4.0673 mm
+    @(154.5749 mm, 89.5000 mm): Track [/SCL] on B.Cu, length 17.9651 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.3000 mm; actual 0.2740 mm)
+    Rule: netclass 'Default'; error
+    @(166.5000 mm, 88.6260 mm): Via [/INT0] on F.Cu - B.Cu
+    @(154.5749 mm, 89.5000 mm): Track [/SCL] on B.Cu, length 17.9651 mm
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **
