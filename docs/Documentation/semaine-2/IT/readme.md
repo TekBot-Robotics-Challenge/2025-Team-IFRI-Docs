@@ -64,7 +64,7 @@ streamlit run streamlit_app.py
 
 ## Documentation
 
-- [`sensor_publisher`](readme_P.md)
-- [`sensor_subscriber`](readme_S.md)
-- [`sensor_launch`](readme_launch.md)
-- [`app streamlit`](readme_st.md)
+- [📤 sensor_publisher](Documentation/semaine-2/IT/readme_P.md) - Node qui génère et publie les données des capteurs
+- [📥 sensor_subscriber](Documentation/semaine-2/IT/readme_S.md) - Node qui traite et analyse les données reçues
+- [🚀 sensor_launch](Documentation/semaine-2/IT/readme_launch.md) - Script de lancement des deux nodes simultanément
+- [📊 app streamlit](Documentation/semaine-2/IT/readme_st.md) - Interface graphique pour visualiser les données
