@@ -15,7 +15,7 @@ La conception des pièces a été réalisée avec le logiciel de modélisation *
 - Tous les trous sont débouchants sauf indication contraire
 - **Matériau** : acier AISI 1020 ; Densité : 0,0079 g/mm^3
 
-![Pièce 1 - Vue détaillée](Documentation/semaine-1/mecanique/picture_piece_1_full.jpg')
+![Pièce 1 - Vue détaillée](Documentation/semaine-1/mecanique/picture_piece_1_full.jpg)
 ![Pièce 1 - Vue complète](Documentation/semaine-1/mecanique/picture_piece_1_full.jpg)
 
 **Etapes de réalisation de ce croquis**
