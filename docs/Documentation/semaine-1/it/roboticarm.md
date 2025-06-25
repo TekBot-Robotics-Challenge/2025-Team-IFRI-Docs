@@ -64,10 +64,14 @@ Initializes a new `RoboticArm` instance.
 
 -   **Parameters:**
     -   `name` (`str`): Name of the robotic arm.
-    -   `position` (`Tuple[float, float]`): The (x, y) coordinates of the arm's base.
-    -   `orientation` (`float`): The base orientation of the arm in radians.
-    -   `energy_source` (`str`): Energy source (from `Robot.ENERGY_SOURCE`).
-    -   `num_joints` (`int`, optional): The number of joints for the arm. Defaults to 6. Must be >= 2.
+
+    -   `position` (`Tuple[float, float]`): The (x, y) coordinates of the arm's base.  
+
+    -   `orientation` (`float`): The base orientation of the arm in radians.  
+
+    -   `energy_source` (`str`): Energy source (from `Robot.ENERGY_SOURCE`).  
+
+    -   `num_joints` (`int`, optional): The number of joints for the arm. Defaults to 6. Must be >= 2.  
 -   **Raises:**
     -   `ValueError`: If `num_joints` is less than 2, or if `energy_source` is invalid (via `super().__init__`).
     -   `TypeError`: For invalid parameter types (via `super().__init__` or direct checks).
