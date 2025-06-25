@@ -307,4 +307,43 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
+    
+    // Mobile sidebar toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebar = document.getElementById('sidebar');
+    
+    // Create overlay element
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay';
+    document.body.appendChild(overlay);
+    
+    // Open sidebar
+    mobileMenuToggle.addEventListener('click', function() {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when sidebar is open
+    });
+    
+    // Close sidebar functions
+    function closeSidebar() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+    
+    // Close sidebar when X is clicked
+    sidebarClose.addEventListener('click', closeSidebar);
+    
+    // Close sidebar when overlay is clicked
+    overlay.addEventListener('click', closeSidebar);
+    
+    // Close sidebar when a link is clicked (mobile only)
+    document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                closeSidebar();
+            }
+        });
+    });
 });
