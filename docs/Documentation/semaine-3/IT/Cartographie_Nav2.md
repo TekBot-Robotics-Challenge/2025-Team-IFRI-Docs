@@ -1,4 +1,4 @@
-Absolument ! Voici une documentation claire et propre pour votre script d'exploration, qui non seulement explique son fonctionnement mais adresse aussi directement le problème que vous avez observé : le robot qui se coince.
+
 
 ---
 
@@ -179,3 +179,9 @@ Le script deviendrait un **Client d'Action**. La logique serait :
     -   Le `timer` peut alors relancer une nouvelle exploration.
 
 Cette approche est plus complexe à coder mais elle est la seule qui soit vraiment robuste pour interagir avec des systèmes comme Nav2.
+
+---
+
+## 📥 Télécharger ce script
+
+[⬇️ Télécharger le fichier Cartographie Nav2.md](Documentation/semaine-3/IT/Cartographie_Nav2.md)
