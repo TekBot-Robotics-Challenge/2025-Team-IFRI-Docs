@@ -317,11 +317,6 @@ Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :
       <td>2025</td>
       <td>Modélisation et calcul de volume</td>
     </tr>
-    <tr>
-      <td>MS Excel</td>
-      <td>–</td>
-      <td>Tableau de calcul et arrondis</td>
-    </tr>
   </tbody>
 </table>
 
