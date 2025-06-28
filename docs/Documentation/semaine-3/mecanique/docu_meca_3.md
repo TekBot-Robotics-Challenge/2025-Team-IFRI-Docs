@@ -211,13 +211,36 @@ Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :
 
 <a name="resultats"></a>
 ## 7. 📊 Présentation des Résultats
-
-| Cas | A (mm) | B (mm) | Masse calculée (g) |
-|-----|--------|--------|--------------------|
-| Q3a | 193    | 88     | **1393,82**        |
-| Q3b | 205    | 100    | **1492,49**        |
-| Q3c | 210    | 105    | **1531,19**        |
-
+<table>
+  <thead>
+    <tr>
+      <th>Cas</th>
+      <th>A (mm)</th>
+      <th>B (mm)</th>
+      <th>Masse calculée (g)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Q3a</td>
+      <td>193</td>
+      <td>88</td>
+      <td><strong>1393,82</strong></td>
+    </tr>
+    <tr>
+      <td>Q3b</td>
+      <td>205</td>
+      <td>100</td>
+      <td><strong>1492,49</strong></td>
+    </tr>
+    <tr>
+      <td>Q3c</td>
+      <td>210</td>
+      <td>105</td>
+      <td><strong>1531,19</strong></td>
+    </tr>
+  </tbody>
+</table>
 
 ### Captures d’écran des masses obtenues
 
@@ -269,11 +292,8 @@ Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :
     allow="autoplay; fullscreen; picture-in-picture" 
     allowfullscreen>
 </iframe>
+
 **Vidéo de présentation de la pièce cible**
-
-
-
-
 
 ---
 
@@ -286,10 +306,27 @@ Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :
 
 
 ### 🛠️ Outils et logiciels
-
-| Outil      | Version | Usage                            |
-|------------|---------|----------------------------------|
-| SolidWorks | 2025    | Modélisation et calcul de volume |
+<table>
+  <thead>
+    <tr>
+      <th>Outil</th>
+      <th>Version</th>
+      <th>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SolidWorks</td>
+      <td>2025</td>
+      <td>Modélisation et calcul de volume</td>
+    </tr>
+    <tr>
+      <td>MS Excel</td>
+      <td>–</td>
+      <td>Tableau de calcul et arrondis</td>
+    </tr>
+  </tbody>
+</table>
 
 
 ### ⚙️ Composants et matériaux / Fonctions
