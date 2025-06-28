@@ -19,20 +19,20 @@
 
 **Test 3 – Niveau avancé**  
 Évaluer la capacité à concevoir, modéliser et valider une pièce mécanique complexe en respectant :
-- la géométrie donnée (plans + rendus 3D)  
-- la masse cible (calcul à la décimale près)  
-- la gestion des erreurs d’unités et d’arrondis  
+1. la géométrie donnée (plans + rendus 3D)  
+2. la masse cible (calcul à la décimale près)  
+3. la gestion des erreurs d’unités et d’arrondis  
 
 ---
 
 <a name="specifications"></a>
 ## 2. 📐 Spécifications et livrables
 
-- **Unité** : MMGS (millimètre, gramme, seconde)  
-- **Décimales** : 2  
-- **Matériau** : Aluminium 1060 (ρ = 2700 kg/m³)  
-- **Congés filetés** : 12 × R10  
-- **Trous** : tous débouchants sauf indication contraire  
+1. **Unité** : MMGS (millimètre, gramme, seconde)  
+2. **Décimales** : 2  
+3. **Matériau** : Aluminium 1060 (ρ = 2700 kg/m³)  
+4. **Congés filetés** : 12 × R10  
+5. **Trous** : tous débouchants sauf indication contraire  
 
 ### Livrables
 
@@ -177,23 +177,23 @@ Nous avons respecté toutes les côtes et tolérances du document fourni. Chaque
 
 Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :
 
-- **Q3a.** A = 193 mm ; B = 88 mm ; W = B/2 ; X = A/4 ; Y = B + 5,5 mm ; Z = B + 15 mm  
-- **Q3b.** A = 205 mm ; B = 100 mm ; W = B/2 ; X = A/4 ; Y = B + 5,5 mm ; Z = B + 15 mm  
-- **Q3c.** A = 210 mm ; B = 105 mm ; W = B/2 ; X = A/4 ; Y = B + 5,5 mm ; Z = B + 15 mm  
+1. **Q3a.** A = 193 mm ; B = 88 mm ; W = B/2 ; X = A/4 ; Y = B + 5,5 mm ; Z = B + 15 mm  
+2. **Q3b.** A = 205 mm ; B = 100 mm ; W = B/2 ; X = A/4 ; Y = B + 5,5 mm ; Z = B + 15 mm  
+3. **Q3c.** A = 210 mm ; B = 105 mm ; W = B/2 ; X = A/4 ; Y = B + 5,5 mm ; Z = B + 15 mm  
 
-> **À fournir** :  
-> - Les valeurs numériques (masse en g, arrondie à 2 décimales)  
-> - Capture d’écran du calcul de volume/masse dans le logiciel CAO  
+**À fournir** :  
+1. - Les valeurs numériques (masse en g, arrondie à 2 décimales)  
+2. - Capture d’écran du calcul de volume/masse dans le logiciel CAO  
 
 ---
 
 <a name="criteres"></a>
 ## 5. ✅ Critères de réussite
 
-- **Exactitude** des masses (< ± 1 % d’écart)  
-- **Conformité géométrique** (tolérances dimensionnelles respectées)  
-- **Clarté** du rapport 
-- **Qualité** du fichier CAO (nommage, structure, mise en plan propre)
+1. **Exactitude** des masses (< ± 1 % d’écart)  
+2. **Conformité géométrique** (tolérances dimensionnelles respectées)  
+3. **Clarté** du rapport 
+4. **Qualité** du fichier CAO (nommage, structure, mise en plan propre)
 
 ---
 
@@ -275,11 +275,11 @@ Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :
 
 ### Pièces réalisées
 
-- 🔗 [Pièce finale - Q3a](Documentation/semaine-3/mecanique/pieces-realises/third_test_final_piece-a.SLDPRT)
+1. 🔗 [Pièce finale - Q3a](Documentation/semaine-3/mecanique/pieces-realises/third_test_final_piece-a.SLDPRT)
 
-- 🔗 [Pièce finale - Q3b](Documentation/semaine-3/mecanique/pieces-realises/third_test_final_piece-b.SLDPRT)
+2. 🔗 [Pièce finale - Q3b](Documentation/semaine-3/mecanique/pieces-realises/third_test_final_piece-b.SLDPRT)
 
-- 🔗 [Pièce finale - Q3c](Documentation/semaine-3/mecanique/pieces-realises/third_test_final_piece-c.SLDPRT)
+3. 🔗 [Pièce finale - Q3c](Documentation/semaine-3/mecanique/pieces-realises/third_test_final_piece-c.SLDPRT)
 
 
 ### Vidéos illustratives
@@ -289,10 +289,9 @@ Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :
         frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
         allowfullscreen>
 </iframe>
-###
-**-**
-###
-**Vidéo de présentation de la pièce cible : [cliquez ici](https://vimeo.com/1097167515/204e839d21?share=copy)**
+
+
+1. **Vidéo de présentation de la pièce cible : [cliquez ici](https://vimeo.com/1097167515/204e839d21?share=copy)**
 
 ---
 
@@ -325,18 +324,19 @@ Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :
 
 ### ⚙️ Composants et matériaux / Fonctions
 
-- **Aluminium 1060** (ρ = 2700 kg/m³)  
-- **Filet R10** pour les congés  
-- **Perçages** : diamètre selon plan  
+1. **Aluminium 1060** (ρ = 2700 kg/m³)  
+2. **Filet R10** pour les congés  
+3. **Perçages** : diamètre selon plan  
 
 ---
+
 
 <a name="annexes"></a>
 ## 9. 📎 Annexes
 
 Aucune annexe pour l’instant. Cette section pourra accueillir :  
-- plans détaillés  
-- calculs avancés  
-- échanges techniques  
+1. plans détaillés  
+2. calculs avancés  
+3. échanges techniques  
 
 ---
