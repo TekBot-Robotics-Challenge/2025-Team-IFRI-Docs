@@ -168,8 +168,7 @@ Une étape fondamentale pour le succès du projet a été la calibration précis
     3.  L'opérateur ajustait manuellement cette valeur dans le code, puis téléversait pour observer le mouvement.
     * Le processus était itératif : ajustement, téléversement, observation, jusqu'à obtenir la position parfaite pour les deux états (sorti/rentré) de chaque segment.
 * **Importance :** Cette calibration unitaire a garanti que chaque segment se déplace avec précision, sans bloquer ni dépasser ses limites, assurant un affichage net et fiable des chiffres.
-* **Visualisation de la Calibration (Exemple) :**
-    ![Image d'un segment en cours de calibration](Documentation/semaine-3/electronique/images_vids/segment_calibration_test.mp4)
+*
 
 ### 4.4. Implications pour la Programmation sur Veroboard
 
@@ -186,8 +185,13 @@ Cette section présente le résultat final du projet, son fonctionnement et une 
 Le circuit électronique assemblé sur veroboard a été intégré à la structure 3D imprimée. Les 7 servomoteurs ont été montés avec précision et connectés au PCA9685. La batterie et le module d'alimentation MP1584EN ont été raccordés pour assurer une alimentation stable à l'ensemble du système.
 
 **Vue d'ensemble du branchement physique final :**
-![Image du branchement physique final](Documentation/semaine-3/electronique/images_vids/physical_wiring_final.jpg)
-*Cette image montre l'intégration de la carte veroboard avec l'ATmega, le PCA9685, le module d'alimentation, et les connexions vers les servomoteurs.*
+![Image du branchement physique final](Documentation/semaine-3/electronique/images_vids/image_totale_1.jpeg)
+
+![Image du branchement physique final](Documentation/semaine-3/electronique/images_vids/image.png)
+![Image du branchement physique final](Documentation/semaine-3/electronique/images_vids/image_copy.png)
+![Image du branchement physique final](Documentation/semaine-3/electronique/images_vids/image_copy1.png)
+![Image du branchement physique final](Documentation/semaine-3/electronique/images_vids/image_copy2.png)
+*Ces images montrent l'intégration de la carte veroboard avec l'ATmega, le PCA9685, le module d'alimentation, et les connexions vers les servomoteurs.*
 
 ### 5.2. Fonctionnement du Système Complet
 
