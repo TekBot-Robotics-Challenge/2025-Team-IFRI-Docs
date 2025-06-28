@@ -284,15 +284,12 @@ Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :
 
 ### Vidéos illustratives
 
-<iframe 
-    src="https://vimeo.com/manage/videos/1097167515/204e839d21" 
-    width="640" 
-    height="360" 
-    frameborder="0" 
-    allow="autoplay; fullscreen; picture-in-picture" 
-    allowfullscreen>
+<iframe src="https://player.vimeo.com/video/1097167515?h=204e839d21" 
+        width="640" height="360" 
+        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
+        allowfullscreen>
 </iframe>
-
+**-**
 **Vidéo de présentation de la pièce cible**
 
 ---
