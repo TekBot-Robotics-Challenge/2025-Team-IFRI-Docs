@@ -66,7 +66,8 @@ Nous avons respecté toutes les côtes et tolérances du document fourni. Chaque
 ---
 
 ### 3. Extrusion et découpe initiale  
-- **But** : donner l’épaisseur de base et définir les volumes à enlever.  
+- **But** : donner l’épaisseur de base et définir les volumes à enlever.
+
 - **Actions** :  
   1. Extruder la forme principale à la hauteur demandée (zones basses et hautes).  
   2. Appliquer une coupe droite pour séparer les deux hauteurs selon.  
@@ -74,7 +75,8 @@ Nous avons respecté toutes les côtes et tolérances du document fourni. Chaque
 ---
 
 ### 4. Création des évidements secondaires et rainures  
-- **But** : réaliser la rainure centrale et les évidements latéraux.  
+- **But** : réaliser la rainure centrale et les évidements latéraux.
+
 - **Actions** :  
   1. Sur la face supérieure, esquisser la rainure (épaisseur 5 mm, profondeur 2,5 mm).  
   2. Extruder enlevé sur la profondeur spécifiée.  
@@ -206,14 +208,16 @@ Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :
 
 ---
 
+
 <a name="resultats"></a>
 ## 7. 📊 Présentation des Résultats
 
-| Cas   | A (mm) | B (mm) | Masse calculée (g) |
-|-------|--------|--------|--------------------|
-| Q3a   | 193    | 88     | **1393,82**            |
-| Q3b   | 205    | 100    | **1492,49**          |
-| Q3c   | 210    | 105    | **1531,19**            |
+| Cas | A (mm) | B (mm) | Masse calculée (g) |
+|-----|--------|--------|--------------------|
+| Q3a | 193    | 88     | **1393,82**        |
+| Q3b | 205    | 100    | **1492,49**        |
+| Q3c | 210    | 105    | **1531,19**        |
+
 
 ### Captures d’écran des masses obtenues
 
@@ -248,9 +252,25 @@ Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :
 
 ### Pièces réalisées
 
-- 🔗 [Pièce finale - Q3a](Documentation/semaine-3/mecanique/pieces-realises/third_test_final_piece-a.SLDPRT)  
-- 🔗 [Pièce finale - Q3b](Documentation/semaine-3/mecanique/pieces-realises/third_test_final_piece-b.SLDPRT)   
-- 🔗 [Pièce finale - Q3c](Documentation/semaine-3/mecanique/pieces-realises/third_test_final_piece-c.SLDPRT)   
+- 🔗 [Pièce finale - Q3a](Documentation/semaine-3/mecanique/pieces-realises/third_test_final_piece-a.SLDPRT)
+
+- 🔗 [Pièce finale - Q3b](Documentation/semaine-3/mecanique/pieces-realises/third_test_final_piece-b.SLDPRT)
+
+- 🔗 [Pièce finale - Q3c](Documentation/semaine-3/mecanique/pieces-realises/third_test_final_piece-c.SLDPRT)
+
+
+### Vidéos illustratives
+
+<iframe 
+    src="https://player.vimeo.com/video/1097167515" 
+    width="640" 
+    height="360" 
+    frameborder="0" 
+    allow="autoplay; fullscreen; picture-in-picture" 
+    allowfullscreen>
+</iframe>
+**Vidéo de présentation de la pièce cible**
+
 
 
 
@@ -264,12 +284,13 @@ Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :
 
 - *SolidWorks: Le guide du débutant* – [PDF]  
 
+
 ### 🛠️ Outils et logiciels
 
-| Outil          | Version | Usage                                  |
-|----------------|---------|----------------------------------------|
-| SolidWorks     | 2025    | Modélisation et calcul de volume       |
-| MS Excel       | –       | Tableau de calcul et arrondis          |
+| Outil      | Version | Usage                            |
+|------------|---------|----------------------------------|
+| SolidWorks | 2025    | Modélisation et calcul de volume |
+
 
 ### ⚙️ Composants et matériaux / Fonctions
 
