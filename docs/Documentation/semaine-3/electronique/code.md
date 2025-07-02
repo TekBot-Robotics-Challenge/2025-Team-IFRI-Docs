@@ -384,10 +384,6 @@ Le développement de cet afficheur a présenté plusieurs défis techniques que 
 - [⬇️ Télécharger le code de calibration](Documentation/semaine-3/electronique/images_vids/calibration_code.ino)
 - [⬇️ Télécharger le code principal](Documentation/semaine-3/electronique/images_vids/main_code.ino)
 
-## Vidéo de démonstration
-
-<iframe width="560" height="315" src="https://player.vimeo.com/video/1092850492" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-
 ## Conclusion
 
 Le projet d'afficheur 7 segments à servomoteurs a été une réussite, même si certains obstacles techniques nous ont empêchés d'achever totalement le prototype. L'absence de résistance pour le reset sur le veroboard, ainsi que la faible résistance mécanique des fils de fer reliant les moteurs aux segments, ont constitué des freins majeurs à la finalisation complète du système. Malgré ces défis — utilisation d'un ATmega328P nu, contraintes de temps, et nécessité d'une calibration mécanique précise — nous avons su concevoir et réaliser un prototype fonctionnel et innovant. L'approche non bloquante du code et la rigueur apportée à la calibration ont été des facteurs clés de réussite. Ce projet illustre notre capacité à transformer une idée originale en réalisation concrète, en relevant des défis matériels et logiciels complexes.
