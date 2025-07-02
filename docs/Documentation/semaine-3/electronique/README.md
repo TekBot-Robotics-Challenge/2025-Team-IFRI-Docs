@@ -107,6 +107,7 @@ Le design a été adapté pour se concentrer sur la fonctionnalité essentielle.
 Initialement prévu sur PCB, le circuit a été monté sur **veroboard** (carte à bandes perforées) en raison des contraintes de temps. Cette adaptation a permis de garantir la réalisation d'un circuit fonctionnel dans le délai imparti.
 
 ![Image du circuit minimal sur Kicad](Documentation/semaine-3/electronique/images_vids/circuit_minimal.png)
+[Image du circuit minimal sur Kicad](Documentation/semaine-3/electronique/images_vids/pcb.png)
 
 ---
 
