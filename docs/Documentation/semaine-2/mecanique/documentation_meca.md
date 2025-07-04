@@ -172,9 +172,9 @@ Fichier contenant la pièce modélisée :
 **Résultat**
 
 Fichiers : 
-[Télécharger la pièce - Question a](Documentation/semaine-2/mecanique/Assemblage/assemblage_question_a.SLDASM)
+[Télécharger la pièce - Question a](Documentation/semaine-2/mecanique/Assemblage/Question_A.zip)
 
-[Télécharger la pièce - Question b](Documentation/semaine-2/mecanique/Assemblage/assemblage_question_b.SLDASM)
+[Télécharger la pièce - Question b](Documentation/semaine-2/mecanique/Assemblage/Question_B.zip)
 
 
 **Réponses aux questions**
