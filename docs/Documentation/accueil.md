@@ -1,9 +1,4 @@
----
-id: accueil
-title: Accueil
-slug: /accueil
-sidebar_position: 1
----
+
 
 # TEKBOT ROBOTICS CHALLENGE 2025
 # Documentations des Tests Techniques de présélection

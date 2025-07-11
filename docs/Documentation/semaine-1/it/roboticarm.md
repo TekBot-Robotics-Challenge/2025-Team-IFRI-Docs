@@ -74,7 +74,7 @@ Initializes a new `RoboticArm` instance.
     -   `num_joints` (`int`, optional): The number of joints for the arm. Defaults to 6. Must be >= 2.  
 -   **Raises:**
     -   `ValueError`: If `num_joints` is less than 2, or if `energy_source` is invalid (via `super().__init__`).
-    -   `TypeError`: For invalid parameter types (via `super().__init__` or direct checks).
+    -   `TypeError`: For invalid parameter types (via `super().__init__` or direct checks).  
 
 **Example:**
 ```python

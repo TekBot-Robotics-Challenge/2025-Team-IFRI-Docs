@@ -41,4 +41,5 @@ Vous trouverez ci-dessous quelques vidéos de tests illustrant notre approche 
 <iframe width="560" height="315" src="https://youtu.be/0EAR1gDy_T8" frameborder="0" allowfullscreen></iframe>
 ---
 
-> ℹ️ N’hésitez pas à consulter les sections suivantes pour en apprendre davantage sur notre approche et nos choix techniques.
+> ℹ️ N’hésitez pas à consulter les sections suivantes pour en apprendre davantage sur notre approche et nos choix techniques. git add .
+git commit -m "corections des bugs"git push origin dev 
