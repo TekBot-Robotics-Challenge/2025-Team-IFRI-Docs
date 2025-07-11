@@ -410,7 +410,6 @@ void loop() {
   delay(5000);
 }
 ```
-
 ---
 
 ## 11. Vidéo de Démonstration
@@ -425,5 +424,3 @@ Une vidéo complète présentant le fonctionnement de l'application, de la simul
 ## 12. Conclusion et Remerciements
 
 Ce projet a été une excellente démonstration de développement full-stack moderne, intégrant des technologies temps réel, des bases de données cloud, et de l'intelligence artificielle. Chaque défi, du débogage CSS à la stabilisation des connexions externes, a été une opportunité d'apprentissage documentée dans ce fichier.
-
-```
