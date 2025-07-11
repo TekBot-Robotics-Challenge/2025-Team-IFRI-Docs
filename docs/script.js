@@ -172,71 +172,55 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Improved markdown to HTML converter
     function convertMarkdownToHTML(markdown) {
-        let html = markdown;
-        
-        // Remove front matter (YAML between ---)
-        html = html.replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
-        
-        // Convert headers
-        html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-        html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-        html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-        
-        // Convert bold and italic
-        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-        
-        // Convert images (must come before links)
-        html = html.replace(/!\[([^\]]*)\]\(([^\)]*)\)/g, '<img src="$2" alt="$1">');
-        
-        // Convert links
-        html = html.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="$2">$1</a>');
-        
-        // Enhanced code blocks with language detection
-        html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, function(match, language, content) {
+        // Normalize line endings and remove front matter
+        let text = markdown.replace(/\r\n/g, '\n').replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
+
+        // Block-level conversions
+        text = text.replace(/^(#{1,6}) (.*$)/gim, (match, hashes, content) => `<h${hashes.length}>${content}</h${hashes.length}>`);
+        text = text.replace(/^---\s*$/gim, '<hr>');
+
+        // Code blocks
+        text = text.replace(/```(\w+)?\n([\s\S]*?)\n```/g, (match, language, content) => {
             const lang = language || 'text';
-            return `<pre data-language="${lang}"><code>${content}</code></pre>`;
+            // Escape HTML inside code blocks
+            const escapedContent = content.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return `<pre data-language="${lang}"><code>${escapedContent}</code></pre>`;
         });
-        
-        // Convert inline code
-        html = html.replace(/`([^`]*)`/g, '<code>$1</code>');
-        
-        // Convert tables
-        const tableRegex = /\|(.+)\|\n\|[-\s\|]+\|\n((?:\|.+\|\n?)*)/g;
-        html = html.replace(tableRegex, function(match, header, rows) {
-            const headerCells = header.split('|').filter(cell => cell.trim()).map(cell => `<th>${cell.trim()}</th>`).join('');
-            const rowsHtml = rows.trim().split('\n').map(row => {
-                const cells = row.split('|').filter(cell => cell.trim()).map(cell => `<td>${cell.trim()}</td>`).join('');
-                return `<tr>${cells}</tr>`;
-            }).join('');
-            return `<table><thead><tr>${headerCells}</tr></thead><tbody>${rowsHtml}</tbody></table>`;
+
+        // Lists (unordered and ordered)
+        // This regex finds consecutive list items and wraps them.
+        text = text.replace(/(?:(?:^[-*] .*(?:\n|$))+)/gim, (match) => {
+            const items = match.trim().split('\n').map(item => `  <li>${item.replace(/^[-*] /, '')}</li>`).join('\n');
+            return `<ul>\n${items}\n</ul>`;
         });
-        
-        // Convert unordered lists
-        html = html.replace(/^\* (.+$)/gim, '<li>$1</li>');
-        html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
-        
-        // Convert numbered lists
-        html = html.replace(/^\d+\. (.+$)/gim, '<li>$1</li>');
-        
-        // Convert line breaks to paragraphs
-        html = html.split('\n\n').map(paragraph => {
-            paragraph = paragraph.trim();
-            if (paragraph && !paragraph.startsWith('<') && !paragraph.match(/^(#{1,6}|[-*]|\d+\.)/)) {
-                return `<p>${paragraph}</p>`;
+        text = text.replace(/(?:(?:^\d+\. .*(?:\n|$))+)/gim, (match) => {
+            const items = match.trim().split('\n').map(item => `  <li>${item.replace(/^\d+\. /, '')}</li>`).join('\n');
+            return `<ol>\n${items}\n</ol>`;
+        });
+
+        // Paragraphs: wrap remaining text blocks in <p> tags
+        // A block is text separated by one or more blank lines.
+        text = text.split(/\n\s*\n/).map(paragraph => {
+            if (paragraph.trim() === '') return '';
+            // Don't wrap if it's already a block element
+            if (paragraph.trim().match(/^(<\/?(h|u|o|li|pre|hr|table|thead|tbody|tr|th|td))/)) {
+                return paragraph;
             }
-            return paragraph;
-        }).join('\n');
+            return `<p>${paragraph.trim()}</p>`;
+        }).join('\n\n');
+
+        // Inline conversions
+        // Images must come before links
+        text = text.replace(/!\[([^\]]*)\]\(([^\)]*)\)/g, '<img src="$2" alt="$1">');
+        text = text.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="$2" target="_blank">$1</a>');
+        text = text.replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/\*([^\*]+)\*/g, '<em>$1</em>');
+        text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
         
-        // Clean up empty paragraphs and fix formatting
-        html = html.replace(/<p><\/p>/g, '');
-        html = html.replace(/<p>(<h[1-6]>.*?<\/h[1-6]>)<\/p>/g, '$1');
-        html = html.replace(/<p>(<table>[\s\S]*?<\/table>)<\/p>/g, '$1');
-        html = html.replace(/<p>(<pre>[\s\S]*?<\/pre>)<\/p>/g, '$1');
-        html = html.replace(/<p>(<ul>[\s\S]*?<\/ul>)<\/p>/g, '$1');
-        html = html.replace(/<p>(<ol>[\s\S]*?<\/ol>)<\/p>/g, '$1');
+        // Cleanup: remove <p> tags around block elements that might have been missed
+        text = text.replace(/<p>\s*(<\/?(h|u|o|li|pre|hr|table|thead|tbody|tr|th|td)[\s\S]*?)\s*<\/p>/g, '$1');
         
-        return html;
+        return text;
     }
     
     // Handle regular navigation links
