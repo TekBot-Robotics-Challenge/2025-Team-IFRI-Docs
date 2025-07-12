@@ -238,27 +238,9 @@ Avec une base stable et fonctionnelle, les nouvelles ambitions du projet se tour
 
 Comprenons en détail comment une information traverse le système, de sa création à son affichage.
 
-```mermaid
-graph TD
-    subgraph "Source de l'Événement"
-        A[ESP32 / Simulateur] -->|1. Requête HTTP POST| B{Backend (Node.js / Express)};
-    end
-
-    subgraph "Serveur Central"
-        B -->|2. Sauvegarde| C[Base de données MongoDB];
-        B -->|3. Émission temps réel| D[Frontend (React)];
-        B -->|Demande d'analyse| E[API Google Gemini];
-        E -->|Réponse| B;
-    end
-
-    subgraph "Interface Utilisateur"
-        D -->|4. Mise à jour de l'UI| F[Dashboard];
-    end
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style C fill:#9f9,stroke:#333,stroke-width:2px
-    style F fill:#9cf,stroke:#333,stroke-width:2px
-```
+<div class="image-container">
+    <img src="Documentation/test-final/media/Untitled diagram _ Mermaid Chart-2025-07-12-143439.png" alt="Schéma d'architecture technique">
+</div>
 
 
 **Flux d'un événement :**
