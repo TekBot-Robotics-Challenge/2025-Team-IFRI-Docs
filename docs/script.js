@@ -175,17 +175,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // Normalize line endings and remove front matter
         let text = markdown.replace(/\r\n/g, '\n').replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
 
-        // Block-level conversions
-        text = text.replace(/^(#{1,6}) (.*$)/gim, (match, hashes, content) => `<h${hashes.length}>${content}</h${hashes.length}>`);
-        text = text.replace(/^---\s*$/gim, '<hr>');
-
-        // Code blocks
+        // Code blocks (must be processed before other block-level elements)
         text = text.replace(/```(\w+)?\n([\s\S]*?)\n```/g, (match, language, content) => {
             const lang = language || 'text';
             // Escape HTML inside code blocks
             const escapedContent = content.replace(/</g, '&lt;').replace(/>/g, '&gt;');
             return `<pre data-language="${lang}"><code>${escapedContent}</code></pre>`;
         });
+
+        // Other block-level conversions
+        text = text.replace(/^(#{1,6}) (.*$)/gim, (match, hashes, content) => `<h${hashes.length}>${content}</h${hashes.length}>`);
+        text = text.replace(/^---\s*$/gim, '<hr>');
 
         // Lists (unordered and ordered)
         // This regex finds consecutive list items and wraps them.
