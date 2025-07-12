@@ -416,8 +416,9 @@ void loop() {
 
 Une vidéo complète présentant le fonctionnement de l'application, de la simulation d'un événement à son analyse par l'IA, est disponible ci-dessous. Elle montre le flux de travail complet et l'interactivité du système.
 
-*<a href="#" target="_blank"><img src="https://i.imgur.com/placeholder.png" alt="Vidéo de démonstration du projet" /></a>*
-*(Cliquez pour voir la vidéo - Remplacez le lien # par l'URL de votre vidéo)*
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/AmRN43rIMaQ" title="Vidéo de démonstration du projet" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ---
 
