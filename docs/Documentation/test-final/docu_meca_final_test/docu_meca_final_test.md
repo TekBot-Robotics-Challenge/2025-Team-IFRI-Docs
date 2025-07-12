@@ -1,3 +1,25 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation – Test 3: Advanced Level</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height:1.6; margin: 20px; }
+    header, nav, section, footer { margin-bottom: 30px; }
+    header h1 { font-size: 2em; margin-bottom: 0.2em; }
+    nav ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap:10px; }
+    nav a { text-decoration: none; color: #007acc; }
+    table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+    table th, table td { border: 1px solid #ddd; padding: 8px; }
+    table th { background-color: #f4f4f4; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap:10px; }
+    .gallery img { width: 100%; height: auto; display: block; border: 1px solid #ddd; border-radius:4px; }
+    .links-list { margin: 15px 0; }
+    .links-list li { margin-bottom: 5px; }
+    h2 { border-bottom: 2px solid #eee; padding-bottom: 5px; }
+  </style>
+</head>
+<body>
 # 🛠️ Documentation – Test 3 : Niveau avancé
 
 ## 📋 Table des matières
@@ -213,72 +235,84 @@ Les composants sélectionnés ont été choisis pour optimiser la compatibilité
 
 ## 9. 🖼️ Galerie d’illustrations <a name="galerie"></a>
 
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/1.png" alt="Vue 1"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/2.png" alt="Vue 2"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/3.png" alt="Vue 3"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/4.png" alt="Vue 4"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/5.png" alt="Vue 5"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/6.png" alt="Vue 6"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/7.png" alt="Vue 7"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/8.png" alt="Vue 8"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/9.png" alt="Vue 9"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/10.png" alt="Vue 10"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/11.png" alt="Vue 11"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/12.png" alt="Vue 12"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/13.png" alt="Vue 13"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/14.png" alt="Vue 14"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/15.png" alt="Vue 15"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/16.png" alt="Vue 16"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/17.png" alt="Vue 17"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/18.png" alt="Vue 18"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/19.png" alt="Vue 19"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/20.png" alt="Vue 20"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/21.png" alt="Vue 21"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/22.png" alt="Vue 22"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/23.png" alt="Vue 23"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/24.png" alt="Vue 24"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/25.png" alt="Vue 25"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/26.png" alt="Vue 26"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/27.png" alt="Vue 27"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/28.png" alt="Vue 28"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/29.png" alt="Vue 29"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/30.png" alt="Vue 30"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/31.png" alt="Vue 31"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/32.png" alt="Vue 32"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/33.png" alt="Vue 33"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/34.png" alt="Vue 34"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/35.png" alt="Vue 35"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/36.png" alt="Vue 36"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/37.png" alt="Vue 37"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/38.png" alt="Vue 38"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/39.png" alt="Vue 39"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/40.png" alt="Vue 40"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/41.png" alt="Vue 41"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/42.png" alt="Vue 42"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/43.png" alt="Vue 43"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/44.png" alt="Vue 44"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/45.png" alt="Vue 45"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/46.png" alt="Vue 46"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/47.png" alt="Vue 47"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/48.png" alt="Vue 48"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/49.png" alt="Vue 49"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/50.png" alt="Vue 50"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/51.png" alt="Vue 51"></div>
-<div class="image-container"><img src="Documentation/test-final/docu_meca_final_test/assets/imgs/52.png" alt="Vue 52"></div>
+<section id="gallery">
+    <div class="gallery">
+      <img src="/assets/imgs/1.png" alt="View 1">
+      <img src="/assets/imgs/2.png" alt="View 2">
+      <img src="/assets/imgs/3.png" alt="View 3">
+      <img src="/assets/imgs/4.png" alt="View 4">
+      <img src="/assets/imgs/5.png" alt="View 5">
+      <img src="/assets/imgs/6.png" alt="View 6">
+      <img src="/assets/imgs/7.png" alt="View 7">
+      <img src="/assets/imgs/8.png" alt="View 8">
+      <img src="/assets/imgs/9.png" alt="View 9">
+      <img src="/assets/imgs/10.png" alt="View 10">
+      <img src="/assets/imgs/11.png" alt="View 11">
+      <img src="/assets/imgs/12.png" alt="View 12">
+      <img src="/assets/imgs/13.png" alt="View 13">
+      <img src="/assets/imgs/14.png" alt="View 14">
+      <img src="/assets/imgs/15.png" alt="View 15">
+      <img src="/assets/imgs/16.png" alt="View 16">
+      <img src="/assets/imgs/17.png" alt="View 17">
+      <img src="/assets/imgs/18.png" alt="View 18">
+      <img src="/assets/imgs/19.png" alt="View 19">
+      <img src="/assets/imgs/20.png" alt="View 20">
+      <img src="/assets/imgs/21.png" alt="View 21">
+      <img src="/assets/imgs/22.png" alt="View 22">
+      <img src="/assets/imgs/23.png" alt="View 23">
+      <img src="/assets/imgs/24.png" alt="View 24">
+      <img src="/assets/imgs/25.png" alt="View 25">
+      <img src="/assets/imgs/26.png" alt="View 26">
+      <img src="/assets/imgs/27.png" alt="View 27">
+      <img src="/assets/imgs/28.png" alt="View 28">
+      <img src="/assets/imgs/29.png" alt="View 29">
+      <img src="/assets/imgs/30.png" alt="View 30">
+      <img src="/assets/imgs/31.png" alt="View 31">
+      <img src="/assets/imgs/32.png" alt="View 32">
+      <img src="/assets/imgs/33.png" alt="View 33">
+      <img src="/assets/imgs/34.png" alt="View 34">
+      <img src="/assets/imgs/35.png" alt="View 35">
+      <img src="/assets/imgs/36.png" alt="View 36">
+      <img src="/assets/imgs/37.png" alt="View 37">
+      <img src="/assets/imgs/38.png" alt="View 38">
+      <img src="/assets/imgs/39.png" alt="View 39">
+      <img src="/assets/imgs/40.png" alt="View 40">
+      <img src="/assets/imgs/41.png" alt="View 41">
+      <img src="/assets/imgs/42.png" alt="View 42">
+      <img src="/assets/imgs/43.png" alt="View 43">
+      <img src="/assets/imgs/44.png" alt="View 44">
+      <img src="/assets/imgs/45.png" alt="View 45">
+      <img src="/assets/imgs/46.png" alt="View 46">
+      <img src="/assets/imgs/47.png" alt="View 47">
+      <img src="/assets/imgs/48.png" alt="View 48">
+      <img src="/assets/imgs/49.png" alt="View 49">
+      <img src="/assets/imgs/50.png" alt="View 50">
+      <img src="/assets/imgs/51.png" alt="View 51">
+      <img src="/assets/imgs/52.png" alt="View 52">
+    </div>
+  </section>
+
+
+
+
+
 
 
 ### Pièces réalisées
 
-- 🔗 [Assemblage du convoyeur](Documentation/test-final/docu_meca_final_test/assets/convoyeur/convoyeur_IFRI.SLDASM)  
-- 🔗 [ZIP - IFRI CONVOYEUR](Documentation/test-final/docu_meca_final_test/assets/IFRI_Convoyeur.zip)
+- 🔗 [Assemblage du convoyeur](assets/convoyeur/convoyeur_IFRI.SLDASM)  
+- 🔗 [ZIP - IFRI CONVOYEUR](assets/IFRI_Convoyeur.zip)
+
+
 
 
 ### Vidéos Illustratives
 
- <div style="padding:56.1% 0 0 0;position:relative;">
-      <iframe src="https://vimeo.com/1100862208?share=copy" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Conveyor Demo"></iframe>
-    </div>
-    <script src="https://player.vimeo.com/api/player.js"></script>
+<iframe src="https://vimeo.com/1100862208" 
+        width="700" height="350" 
+        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
+        allowfullscreen>
+</iframe>
 
 
 
@@ -299,5 +333,5 @@ Les composants sélectionnés ont été choisis pour optimiser la compatibilité
 - SolidWorks 2021
 
 ---
-
-
+</body>
+</html>
