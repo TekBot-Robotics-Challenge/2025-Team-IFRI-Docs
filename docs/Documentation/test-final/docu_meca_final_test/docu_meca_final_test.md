@@ -294,7 +294,7 @@ Les composants sélectionnés ont été choisis pour optimiser la compatibilité
 
 ### Vidéos Illustratives
 
-<iframe src="https://vimeo.com/1100862208" 
+<iframe src="https://youtu.be/vj6xNaSZe-0" 
         width="700" height="350" 
         frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
         allowfullscreen>
