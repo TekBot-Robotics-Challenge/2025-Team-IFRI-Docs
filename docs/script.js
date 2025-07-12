@@ -97,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Hide main content and show markdown content
             if (mainContent) mainContent.classList.add('hidden');
-            // Don't hide header anymore: if (mainHeader) mainHeader.classList.add('hidden');
             if (markdownContainer) {
                 markdownContainer.classList.add('active');
                 markdownContainer.innerHTML = `
@@ -106,6 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         ${htmlContent}
                     </div>
                 `;
+                // Now that the content is in the DOM, render Mermaid diagrams
+                mermaid.run();
             }
             
             // Handle back button
