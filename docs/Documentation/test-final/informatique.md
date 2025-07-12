@@ -294,15 +294,13 @@ Cette section fusionne la présentation des fonctionnalités (ce que l'utilisate
 
 Le tableau de bord principal affiche un flux en direct des événements provenant du convoyeur. Chaque nouvel événement apparaît instantanément sans qu'il soit nécessaire de rafraîchir la page, accompagné d'une animation visuelle pour attirer l'attention. La communication est assurée par Socket.IO pour une instantanéité maximale.
 
-*![GIF animé du tableau de bord principal recevant un nouvel événement](URL_DE_VOTRE_IMAGE_ICI "Tableau de bord principal")*
+
 
 ### b. Visualisations et Statistiques
 
 L'application présente des statistiques agrégées sous forme de graphiques (camemberts, histogrammes) pour visualiser la répartition des différents types de déchets triés sur une période donnée. Ces graphiques sont construits avec la bibliothèque Recharts et sont rendus responsives grâce à des conteneurs dédiés.
 
-<div class="image-container">
-    <img src="Documentation/test-final/media/STATISTIQUES.png" alt="Graphiques statistiques">
-</div>
+
 
 ### c. Page d'Historique, Exports et Rapports
 
@@ -323,9 +321,7 @@ Un onglet "Historique" donne accès à une page dédiée à la consultation de l
     - **CSV :** Pour l'analyse dans des tableurs.
     - **JSON :** Pour l'intégration avec d'autres applications.
 
-<div class="image-container">
-    <img src="" alt="Page d'historique et exports">
-</div>
+
 
 ### d. Assistant IA Conversationnel (Gemini)
 
