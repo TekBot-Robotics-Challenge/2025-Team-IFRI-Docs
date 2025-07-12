@@ -289,8 +289,8 @@ Les composants sélectionnés ont été choisis pour optimiser la compatibilité
 
 ### Pièces réalisées
 
-- 🔗 [Assemblage du convoyeur](assets/convoyeur/convoyeur_IFRI.SLDASM)  
-- 🔗 [ZIP - IFRI CONVOYEUR](assets/IFRI_Convoyeur.zip)
+- 🔗 [Assemblage du convoyeur](./assets/convoyeur/convoyeur_IFRI.SLDASM)  
+- 🔗 [ZIP - IFRI CONVOYEUR](./assets/IFRI_Convoyeur.zip)
 
 
 
