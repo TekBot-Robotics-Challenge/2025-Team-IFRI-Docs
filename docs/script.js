@@ -172,55 +172,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Improved markdown to HTML converter
     function convertMarkdownToHTML(markdown) {
-        // Normalize line endings and remove front matter
-        let text = markdown.replace(/\r\n/g, '\n').replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
-
-        // Code blocks (must be processed before other block-level elements)
-        text = text.replace(/```(\w+)?\n([\s\S]*?)\n```/g, (match, language, content) => {
-            const lang = language || 'text';
-            // Escape HTML inside code blocks
-            const escapedContent = content.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            return `<pre data-language="${lang}"><code>${escapedContent}</code></pre>`;
-        });
-
-        // Other block-level conversions
-        text = text.replace(/^(#{1,6}) (.*$)/gim, (match, hashes, content) => `<h${hashes.length}>${content}</h${hashes.length}>`);
-        text = text.replace(/^---\s*$/gim, '<hr>');
-
-        // Lists (unordered and ordered)
-        // This regex finds consecutive list items and wraps them.
-        text = text.replace(/(?:(?:^[-*] .*(?:\n|$))+)/gim, (match) => {
-            const items = match.trim().split('\n').map(item => `  <li>${item.replace(/^[-*] /, '')}</li>`).join('\n');
-            return `<ul>\n${items}\n</ul>`;
-        });
-        text = text.replace(/(?:(?:^\d+\. .*(?:\n|$))+)/gim, (match) => {
-            const items = match.trim().split('\n').map(item => `  <li>${item.replace(/^\d+\. /, '')}</li>`).join('\n');
-            return `<ol>\n${items}\n</ol>`;
-        });
-
-        // Paragraphs: wrap remaining text blocks in <p> tags
-        // A block is text separated by one or more blank lines.
-        text = text.split(/\n\s*\n/).map(paragraph => {
-            if (paragraph.trim() === '') return '';
-            // Don't wrap if it's already a block element
-            if (paragraph.trim().match(/^(<\/?(h|u|o|li|pre|hr|table|thead|tbody|tr|th|td))/)) {
-                return paragraph;
-            }
-            return `<p>${paragraph.trim()}</p>`;
-        }).join('\n\n');
-
-        // Inline conversions
-        // Images must come before links
-        text = text.replace(/!\[([^\]]*)\]\(([^\)]*)\)/g, '<img src="$2" alt="$1">');
-        text = text.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="$2" target="_blank">$1</a>');
-        text = text.replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>');
-        text = text.replace(/\*([^\*]+)\*/g, '<em>$1</em>');
-        text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
-        
-        // Cleanup: remove <p> tags around block elements that might have been missed
-        text = text.replace(/<p>\s*(<\/?(h|u|o|li|pre|hr|table|thead|tbody|tr|th|td)[\s\S]*?)\s*<\/p>/g, '$1');
-        
-        return text;
+        // Use the marked library to convert markdown to HTML
+        // The library is now included in index.html
+        // It's recommended to sanitize the output in a real-world application
+        // but for this documentation site, it's acceptable.
+        return marked.parse(markdown);
     }
     
     // Handle regular navigation links
