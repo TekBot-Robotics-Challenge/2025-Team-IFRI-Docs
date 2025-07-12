@@ -238,6 +238,29 @@ Avec une base stable et fonctionnelle, les nouvelles ambitions du projet se tour
 
 Comprenons en détail comment une information traverse le système, de sa création à son affichage.
 
+```mermaid
+graph TD
+    subgraph "Source de l'Événement"
+        A[ESP32 / Simulateur] -->|1. Requête HTTP POST| B{Backend (Node.js / Express)};
+    end
+
+    subgraph "Serveur Central"
+        B -->|2. Sauvegarde| C[Base de données MongoDB];
+        B -->|3. Émission temps réel| D[Frontend (React)];
+        B -->|Demande d'analyse| E[API Google Gemini];
+        E -->|Réponse| B;
+    end
+
+    subgraph "Interface Utilisateur"
+        D -->|4. Mise à jour de l'UI| F[Dashboard];
+    end
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#9f9,stroke:#333,stroke-width:2px
+    style F fill:#9cf,stroke:#333,stroke-width:2px
+```
+
+
 **Flux d'un événement :**
 
 1.  **Génération (ESP32 / Simulateur) :**
@@ -361,6 +384,21 @@ L'onglet "Paramètres" est un centre de contrôle incluant une section administr
 ## 10. Code Source du Microcontrôleur (ESP32)
 
 Pour une utilisation en conditions réelles, un code d'exemple pour un microcontrôleur ESP32 est fourni dans le dossier `misc`. Ce code est conçu pour être simple et adaptable.
+
+### Principe de Communication
+
+La communication entre le microcontrôleur ESP32 et le serveur backend est conçue pour être simple et robuste. Elle repose sur le protocole **HTTP**, un standard du web, ce qui évite d'avoir à gérer des protocoles plus complexes comme le MQTT pour ce cas d'usage.
+
+Le processus se déroule en plusieurs étapes clés :
+
+1.  **Connexion au Réseau :** Au démarrage, l'ESP32 se connecte au réseau Wi-Fi local en utilisant les identifiants fournis dans le code.
+2.  **Forge de la Requête :** Lorsqu'un événement est détecté (ici, simulé par la détection d'une couleur), l'ESP32 prépare une requête **HTTP POST**.
+3.  **Format des Données (Payload) :** Les données sont formatées en **JSON**, un format léger et universel. Le corps de la requête contient un objet simple, par exemple : `{"color":"green"}`.
+4.  **En-tête de la Requête :** Un en-tête `Content-Type: application/json` est ajouté pour que le serveur sache comment interpréter le corps de la requête.
+5.  **Envoi au Serveur :** La requête est envoyée à l'endpoint dédié du backend : `http://<IP_DU_SERVEUR>:3001/api/event`. Il est crucial d'utiliser l'adresse IP locale du serveur sur le réseau, et non `localhost`.
+6.  **Traitement Côté Serveur :** Le backend Express écoute sur cette route, reçoit la donnée JSON, la valide, l'enregistre en base de données, puis la propage en temps réel aux clients (navigateurs) via Socket.IO.
+
+Cette approche rend le système facilement débuggable : n'importe quel outil capable d'envoyer une requête HTTP (comme Postman, curl, ou même un autre script) peut simuler le comportement de l'ESP32.
 
 **Fichier : `misc/esp32_sender.ino`**
 
