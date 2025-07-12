@@ -287,9 +287,10 @@ Cette section fusionne la présentation des fonctionnalités (ce que l'utilisate
 
 ### a. Dashboard Principal et Widgets Temps Réel
 
-![Capture d'écran du dashboard principal](media/DEASHBOARD.png "Dashboard principal")
-
-![Détail du journal des événements](media/JOURNALEVENT.png "Journal des événements")
+<div class="image-container">
+    <img src="Documentation/test-final/media/DEASHBOARD.png" alt="Dashboard principal">
+    <img src="Documentation/test-final/media/JOURNALEVENT.png" alt="Journal des événements">
+</div>
 
 Le tableau de bord principal affiche un flux en direct des événements provenant du convoyeur. Chaque nouvel événement apparaît instantanément sans qu'il soit nécessaire de rafraîchir la page, accompagné d'une animation visuelle pour attirer l'attention. La communication est assurée par Socket.IO pour une instantanéité maximale.
 
@@ -299,7 +300,9 @@ Le tableau de bord principal affiche un flux en direct des événements provenan
 
 L'application présente des statistiques agrégées sous forme de graphiques (camemberts, histogrammes) pour visualiser la répartition des différents types de déchets triés sur une période donnée. Ces graphiques sont construits avec la bibliothèque Recharts et sont rendus responsives grâce à des conteneurs dédiés.
 
-![Capture d'écran des graphiques statistiques](media/STATISTIQUES.png "Statistiques visuelles")
+<div class="image-container">
+    <img src="Documentation/test-final/media/STATISTIQUES.png" alt="Graphiques statistiques">
+</div>
 
 ### c. Page d'Historique, Exports et Rapports
 
@@ -320,7 +323,9 @@ Un onglet "Historique" donne accès à une page dédiée à la consultation de l
     - **CSV :** Pour l'analyse dans des tableurs.
     - **JSON :** Pour l'intégration avec d'autres applications.
 
-*![Capture d'écran de la nouvelle page d'historique avec pagination et boutons d'export](URL_DE_VOTRE_IMAGE_ICI "Page d'historique et exports")*
+<div class="image-container">
+    <img src="" alt="Page d'historique et exports">
+</div>
 
 ### d. Assistant IA Conversationnel (Gemini)
 
@@ -335,7 +340,9 @@ L'assistant IA permet un véritable dialogue. Il comprend le contexte du projet 
     5. La réponse est retransmise au client via Socket.IO.
 - **Interface Utilisateur :** Le composant `AIAssistant.js` gère la conversation et intègre la **Web Speech API** pour la reconnaissance vocale.
 
-![Assistant IA](media/ASSISTANTia.png "Assistant IA")
+<div class="image-container">
+    <img src="Documentation/test-final/media/ASSISTANTia.png" alt="Assistant IA">
+</div>
 
 ### e. Page de Paramètres Avancés et Sécurisés
 
@@ -348,9 +355,10 @@ L'onglet "Paramètres" est un centre de contrôle incluant une section administr
     -   **Thème Clair/Sombre :** Sélecteur de thème fonctionnel et thème clair entièrement revu.
     -   **Ergonomie :** Affichage/masquage du mot de passe, harmonisation des styles.
 
-![Accès à la section Admin verrouillé](media/PARAMERROUILLÉ.png "Paramètres Admin - Verrouillé")
-
-![Capture d'écran de la section Admin dans les paramètres](media/ADMINSPACE.png "Paramètres Admin - Déverrouillé")
+<div class="image-container">
+    <img src="Documentation/test-final/media/PARAMERROUILLÉ.png" alt="Paramètres Admin - Verrouillé">
+    <img src="Documentation/test-final/media/ADMINSPACE.png" alt="Paramètres Admin - Déverrouillé">
+</div>
 
 ---
 
