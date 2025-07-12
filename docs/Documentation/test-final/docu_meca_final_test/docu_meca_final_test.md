@@ -237,7 +237,7 @@ Les composants sélectionnés ont été choisis pour optimiser la compatibilité
 
 <section id="gallery">
     <div class="gallery">
-      <img src="/assets/imgs/1.png" alt="View 1">
+      <img src="./assets/imgs/1.png" alt="View 1">
       <img src="/assets/imgs/2.png" alt="View 2">
       <img src="/assets/imgs/3.png" alt="View 3">
       <img src="/assets/imgs/4.png" alt="View 4">
