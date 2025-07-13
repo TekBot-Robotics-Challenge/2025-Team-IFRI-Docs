@@ -294,11 +294,10 @@ Les composants sélectionnés ont été choisis pour optimiser la compatibilité
 
 ### Vidéos Illustratives
 
-<iframe src="https://youtu.be/vj6xNaSZe-0" 
-        width="700" height="350" 
-        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
-        allowfullscreen>
-</iframe>
+
+<div class="video-container">
+  <iframe src="https://youtu.be/vj6xNaSZe-0" title="Vidéo illustrative" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 
 Si la vidéo ne marche pas, [cliquez ici](https://youtu.be/vj6xNaSZe-0?feature=shared).
