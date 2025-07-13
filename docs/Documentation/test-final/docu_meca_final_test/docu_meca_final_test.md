@@ -295,9 +295,7 @@ Les composants sélectionnés ont été choisis pour optimiser la compatibilité
 ### Vidéos Illustratives
 
 
-<div class="video-container">
-  <iframe src="https://youtu.be/vj6xNaSZe-0" title="Vidéo illustrative" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vj6xNaSZe-0?si=icsYnZ1H8NwGMah7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 Si la vidéo ne marche pas, [cliquez ici](https://youtu.be/vj6xNaSZe-0?feature=shared).
