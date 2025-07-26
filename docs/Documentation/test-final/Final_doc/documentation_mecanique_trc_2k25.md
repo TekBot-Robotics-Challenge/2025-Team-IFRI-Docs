@@ -1,7 +1,5 @@
 ## Documentation mécanique - TRC 2025
 
-
-
 ### 1. Vue générale du projet
 
 **Titre du projet :** Conception du système de convoyeur intelligent **"WasteFlow"** pour le tri des déchets.
@@ -82,7 +80,7 @@ Le système de convoyeur "WasteFlow" a pour but d’assurer un tri physique des 
     </tr>
     <tr>
       <td>système de tri</td>
-      <td>glissière mobile supportant les 4 poubelles<br>positionnement automatique selon la couleur</td>
+      <td>glissière mobile supportant les 4 poubelles<br>positionnement automatique selon la couleur (en option)</td>
     </tr>
     <tr>
       <td>assemblage</td>
@@ -104,7 +102,7 @@ Le système de convoyeur "WasteFlow" a pour but d’assurer un tri physique des 
 - tolérances adaptées à l’impression 3D
 - centre de masse correctement placé
 
-## 2.4 hypothèses techniques
+## 2.4 Hypothèses techniques
 
 Pour guider la conception, on suppose :
 
@@ -113,7 +111,7 @@ Pour guider la conception, on suppose :
 - le tapis peut être rigide (type plaque lisse sur rouleaux) ou souple imprimé
 - les supports de capteurs sont réglables et fixés à la structure principale
 
-## 2.5 rappel des spécifications minimales
+## 2.5 Rappel des spécifications minimales
 
 - longueur du convoyeur : 650 mm
 - hauteur du tapis : 100 mm
@@ -125,7 +123,7 @@ Pour guider la conception, on suppose :
 
 # 3. Analyse fonctionnelle
 
-## 3.1 fonctions principales
+## 3.1 Fonctions principales
 
 <table>
   <thead>
@@ -154,7 +152,7 @@ Pour guider la conception, on suppose :
   </tbody>
 </table>
 
-## 3.2 fonctions contraintes
+## 3.2 Fonctions contraintes
 
 <table>
   <thead>
@@ -187,15 +185,9 @@ Pour guider la conception, on suppose :
   </tbody>
 </table>
 
-## 3.3 note sur le diagramme FAST
-
-Un diagramme FAST (Functional Analysis System Technique) simplifié devra être ajouté ici.  
-Il permettra de visualiser graphiquement les relations entre les fonctions principales et les sous-fonctions mécaniques.
-
-**à faire :** créer ce diagramme (sur draw.io ou autre outil) puis insérer une image ou un lien `.png` ici au format Markdown.
 
 
-# 4. conception mécanique et modélisation CAO
+# 4. Conception mécanique et modélisation CAO
 
 Cette section présente en détail les choix mécaniques retenus, les principes de conception et les modélisations réalisées sous SolidWorks. L’objectif est de proposer une structure fonctionnelle, imprimable, respectant l’ensemble des contraintes imposées par le cahier des charges.
 
@@ -212,7 +204,7 @@ Le système "WasteFlow" est conçu de manière modulaire et évolutive, autour d
 
 L’ensemble est pensé pour l'impression 3D, le démontage facile et la compatibilité avec les composants électroniques.
 
-## 4.2 réponse aux contraintes
+## 4.2 Réponse aux contraintes
 
 <table>
   <thead>
@@ -249,37 +241,32 @@ L’ensemble est pensé pour l'impression 3D, le démontage facile et la compati
   </tbody>
 </table>
 
-## 4.3 sous-ensembles modélisés
+## 4.3 Sous-ensembles modélisés
 
 ### châssis principal
 
 Structure de base supportant l’ensemble des éléments. Il est composé de deux flancs latéraux, de traverses, et d’une plaque inférieure.
 
-<!-- insérer ici une image du châssis (ex: /assets/images/chassis.png) -->
 
 ### tambours
 
 Deux tambours de forme cylindrique assurent le guidage de la bande. L’un des tambours est relié à un moteur.
 
-<!-- insérer ici une image des tambours -->
 
 ### bande transporteuse
 
 Elle est modélisée sous forme rigide ou souple selon les matériaux disponibles. Sa tension est assurée par les tambours.
 
-<!-- insérer ici une image de la bande transporteuse -->
 
-### glissière de tri
+### glissière de tri (en option)
 
 Ce système linéaire déplace la base contenant les quatre poubelles vers la bonne position, en fonction de la couleur détectée.
 
-<!-- insérer ici une image de la glissière et des poubelles -->
 
 ### support capteurs
 
 Un système de fixation est intégré pour recevoir le capteur de couleur centré au-dessus du tapis, ainsi qu’un système laser/photodiode en amont.
 
-<!-- insérer ici une image de la zone de capteurs -->
 
 ## 4.4 contraintes de fabrication
 
@@ -309,10 +296,6 @@ Toutes les pièces ont été exportées au format `.stl` depuis SolidWorks, puis
 **support** : activé uniquement pour les surplombs > 45°  
 **orientation** : optimisée pour éviter les supports et renforcer la résistance mécanique
 
-> à insérer : captures des tranches/slices des pièces clés  
-> (ex: screenshot du slicer montrant les pièces posées correctement)
-
-<!-- image slice exemple ici -->
 
 ## 5.2 découpe des pièces
 
@@ -322,9 +305,7 @@ Les grandes pièces (châssis, glissière, plateau) ont été découpées en sou
 - vis M3 utilisées pour la fixation
 - ajustement des tolérances à ±0.3 mm pour les zones d’assemblage
 
-> à insérer : photos des pièces imprimées, posées ou montées partiellement
 
-<!-- image pièces imprimées -->
 
 ## 5.3 problèmes rencontrés et ajustements
 
@@ -363,10 +344,6 @@ Les étapes suivantes ont été appliquées après impression :
 - ponçage léger des zones d’ajustement
 - perçage à la main pour passage de vis
 - collage ou vissage selon les cas
-
-> à insérer : photos du post-traitement ou des pièces assemblées partiellement
-
-<!-- image post-traitement -->
 
 
 # 6. assemblage et vérifications mécaniques
@@ -427,7 +404,7 @@ Chaque pièce modélisée sous SolidWorks a été exportée individuellement au 
 
 ## 6.2 Organisation des fichiers
 
-Tous les fichiers générés sont organisés comme suit :
+On mettra un tableau récapitulatif ici avec tous les fichiers et leur noms et des photos illustratives
 
 ---
 
@@ -439,13 +416,13 @@ Voici quelques images des premières versions de WasteFlow, avec les premiers es
 
 <!-- galerie images section 1 -->
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="/asset/images/convoyeur_v0.png" width="200">
-  <img src="/asset/images/convoyeur-v0.png" width="200">
-  <img src="/asset/images/first_coulisse.png" width="200">
-  <img src="/asset/images/first_jointure.png" width="200">
-  <img src="/asset/images/first-step_jointure.png" width="200">
-  <img src="/asset/images/zero_jointure.png" width="200">
-  <img src="/asset/images/convoyeur_v1.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/convoyeur_v0.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/convoyeur-v0.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/first_coulisse.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/first_jointure.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/first-step_jointure.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/zero_jointure.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/convoyeur_v1.png" width="200">
 
 ---
 
@@ -455,30 +432,30 @@ On retrouve ici les versions plus stables, les impressions finales, les ajusteme
 
 <!-- galerie images section 2 -->
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="/asset/images/convoyeur_v2-assemblage.png" width="200">
-  <img src="/asset/images/convoyeur_v2-assemblage-dessus.png" width="200">
-  <img src="/asset/images/convoyeur_v2-assemblage-face.png" width="200">
-  <img src="/asset/images/convoyeur_v2-assemblage-dessous.png" width="200">
-  <img src="/asset/images/convoyeur_v2-assemblage_part1.png" width="200">
-  <img src="/asset/images/convoyeur_v2-assemblage-part1-moteur.png" width="200">
-  <img src="/asset/images/convoyeur_v2-assemblage_part2.png" width="200">
-  <img src="/asset/images/convoyeur_v2-assemblage-pofil.png" width="200">
-  <img src="/asset/images/axe_moteur.png" width="200">
-  <img src="/asset/images/axe_moteur0.png" width="200">
-  <img src="/asset/images/capteur_couleur.png" width="200">
-  <img src="/asset/images/capteur_laser.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/convoyeur_v2-assemblage.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/convoyeur_v2-assemblage-dessus.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/convoyeur_v2-assemblage-face.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/convoyeur_v2-assemblage-dessous.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/convoyeur_v2-assemblage_part1.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/convoyeur_v2-assemblage-part1-moteur.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/convoyeur_v2-assemblage_part2.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/convoyeur_v2-assemblage-pofil.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/axe_moteur.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/axe_moteur0.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/capteur_couleur.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/capteur_laser.png" width="200">
 </div>
 
 
 ### Notre version réelle (première impression réussie)
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="asset/images/conv-real-img_1.jpg" width="200">
-  <img src="asset/images/conv-real-img_2.jpg" width="200">
-  <img src="asset/images/conv-real-img_3.jpg" width="200">
-  <img src="asset/images/conv-real-img_4.jpg" width="200">
-  <img src="asset/images/conv-real-img_5.jpg" width="200">
-  <img src="asset/images/conv-real-img_6.jpg" width="200">
-  <img src="asset/images/conv-real-img_7.jpg" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv-real-img_1.jpg" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv-real-img_2.jpg" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv-real-img_3.jpg" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv-real-img_4.jpg" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv-real-img_5.jpg" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv-real-img_6.jpg" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv-real-img_7.jpg" width="200">
   
 </div>
 
