@@ -56,6 +56,7 @@ Ce découplage est puissant : le frontend n'a pas besoin de savoir comment ROS2 
 Cette section détaille chaque écran de l'application de contrôle, en justifiant les choix de conception et d'implémentation, et en soulignant les défis techniques surmontés. C'est le reflet du travail réalisé sur l'interface homme-machine.
 
 ### 1. Page du Tableau de Bord (Dashboard)
+![Dashboard](  Documentation/test-final/FinalTest_Conv/ass/dashboard.png)
 
 *   **Objectif et Pertinence :** Fournir à l'opérateur une vue d'ensemble centralisée et intuitive de l'état de santé et de la performance du système. Dans un contexte industriel, un tel tableau de bord est essentiel pour la supervision : il permet de détecter les anomalies d'un seul coup d'œil, de suivre la production et de réduire le temps de réaction en cas de problème. C'est le poste de pilotage principal.
 

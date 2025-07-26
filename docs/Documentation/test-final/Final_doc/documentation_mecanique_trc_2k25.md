@@ -425,9 +425,72 @@ Chaque pièce modélisée sous SolidWorks a été exportée individuellement au 
 
 <!-- slicer preview -->
 
-## 6.2 organisation des fichiers
+## 6.2 Organisation des fichiers
 
 Tous les fichiers générés sont organisés comme suit :
 
+---
 
+## 7. Galerie
+
+### Section 1 — Premières versions & Prototypage
+
+Voici quelques images des premières versions de WasteFlow, avec les premiers essais CAO, impressions et montages.
+
+<!-- galerie images section 1 -->
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="/asset/images/convoyeur_v0.png" width="200">
+  <img src="/asset/images/convoyeur-v0.png" width="200">
+  <img src="/asset/images/first_coulisse.png" width="200">
+  <img src="/asset/images/first_jointure.png" width="200">
+  <img src="/asset/images/first-step_jointure.png" width="200">
+  <img src="/asset/images/zero_jointure.png" width="200">
+  <img src="/asset/images/convoyeur_v1.png" width="200">
+
+---
+
+### section 2 — Conception finale & Impressions réussies
+
+On retrouve ici les versions plus stables, les impressions finales, les ajustements et le convoyeur entièrement assemblé.
+
+<!-- galerie images section 2 -->
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="/asset/images/convoyeur_v2-assemblage.png" width="200">
+  <img src="/asset/images/convoyeur_v2-assemblage-dessus.png" width="200">
+  <img src="/asset/images/convoyeur_v2-assemblage-face.png" width="200">
+  <img src="/asset/images/convoyeur_v2-assemblage-dessous.png" width="200">
+  <img src="/asset/images/convoyeur_v2-assemblage_part1.png" width="200">
+  <img src="/asset/images/convoyeur_v2-assemblage-part1-moteur.png" width="200">
+  <img src="/asset/images/convoyeur_v2-assemblage_part2.png" width="200">
+  <img src="/asset/images/convoyeur_v2-assemblage-pofil.png" width="200">
+  <img src="/asset/images/axe_moteur.png" width="200">
+  <img src="/asset/images/axe_moteur0.png" width="200">
+  <img src="/asset/images/capteur_couleur.png" width="200">
+  <img src="/asset/images/capteur_laser.png" width="200">
+</div>
+
+
+### Notre version réelle (première impression réussie)
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="asset/images/conv-real-img_1.jpg" width="200">
+  <img src="asset/images/conv-real-img_2.jpg" width="200">
+  <img src="asset/images/conv-real-img_3.jpg" width="200">
+  <img src="asset/images/conv-real-img_4.jpg" width="200">
+  <img src="asset/images/conv-real-img_5.jpg" width="200">
+  <img src="asset/images/conv-real-img_6.jpg" width="200">
+  <img src="asset/images/conv-real-img_7.jpg" width="200">
+  
+</div>
+
+
+---
+
+## Conclusion
+
+Ce travail a permis de concevoir un système complet et fonctionnel, avec une forte valeur pédagogique. La modularité et la simplicité mécanique de WasteFlow en font une bonne base pour le challenge final, tout en respectant les contraintes imposées.
+
+
+**Néanmoins, rien n'est encore faire. nous avons du travail.**
+
+---
 
