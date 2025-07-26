@@ -183,7 +183,7 @@ Le choix de l'Arduino Nano est en parfaite adéquation avec le cahier des charge
 
 Les broches clés utilisées sur l'Arduino Nano incluent les broches numériques pour l'interfaçage avec les modules laser et le driver moteur L298N, les broches analogiques pour les lectures des photorésistances, et les broches A4 (SDA) et A5 (SCL) dédiées à la communication I2C.
 
-![Schéma KiCad Final](elec/media/ArduinoNano.jpeg)
+![Schéma KiCad Final](Documentation/test-final/elec/media/ArduinoNano.jpeg)
 
 ##### 1.2.2. Module de Communication et Interface Web (ESP32 Dev Kit v1)
 Le module ESP32 Dev Kit v1 est spécifiquement intégré pour répondre à l'exigence d'une interface web de suivi en temps réel. Sa principale fonction est de gérer la connectivité sans fil (Wi-Fi) et d'héberger le serveur web qui affiche les quantités de déchets triés. L'ESP32 communique avec l'Arduino Nano en tant qu'esclave sur le bus I2C, recevant les données de comptage et d'identification de couleur pour les actualiser sur l'interface web.
@@ -191,7 +191,7 @@ Le module ESP32 Dev Kit v1 est spécifiquement intégré pour répondre à l'exi
 La décision d'utiliser l'ESP32 est motivée par son module Wi-Fi intégré, indispensable pour la connectivité réseau du système. Sa capacité de traitement est amplement suffisante pour gérer simultanément le protocole I2C, le stack réseau Wi-Fi et les requêtes HTTP du serveur web.
 
 Les connexions principales de l'ESP32 incluent son alimentation via VIN (5V), l'utilisation de sa broche 3V3 pour alimenter le côté basse tension du convertisseur de niveau logique, et les broches GPIO21 (SDA) et GPIO22 (SCL) pour la communication I2C.
-![Schéma KiCad Final](elec/media/ESP32.jpeg)
+![Schéma KiCad Final](Documentation/test-final/elec/media/ESP32.jpeg)
 
 ##### 1.2.3. Convertisseur de Niveau Logique Bidirectionnel (Module BSS138)
 Le module convertisseur de niveau logique, basé sur le transistor MOSFET BSS138, est un composant essentiel pour assurer une communication I2C fiable et sécurisée entre l'Arduino Nano (5V) et l'ESP32 (3.3V). Sa fonction est de traduire les signaux logiques bidirectionnellement entre ces deux domaines de tension distincts.
@@ -210,13 +210,13 @@ Les connexions clés incluent l'alimentation du côté Haute Tension (HV) par le
 
 ##### 1.2.4. Capteur de Couleur (Module GY-33)
 Le module capteur de couleur GY-33 (TCS34725) identifie la couleur des déchets. Il mesure l'intensité lumineuse pour les composantes Rouge, Verte, Bleue (RVB) et les transmet à l'Arduino Nano via I2C. Une calibration préalable est nécessaire pour garantir la précision. Le module est connecté aux broches I2C (SDA/SCL) de l'Arduino Nano et alimenté en 5V.
-![Schéma KiCad Final](elec/media/GY33.jpeg)
+![Schéma KiCad Final](Documentation/test-final/elec/media/GY33.jpeg)
 
 ##### 1.2.5. Capteurs de Présence (Modules Laser KY-008 et Photorésistances)
 Deux modules Laser KY-008 et des photorésistances détectent les déchets. Lorsqu'un déchet coupe le faisceau, la résistance de la photorésistance augmente, créant une variation de tension lue par l'Arduino Nano.
 - **Laser de Démarrage (J4)** : Déclenche le démarrage du moteur.
 - **Laser de Zone de Détection (J3)** : Déclenche l'arrêt du moteur pour l'analyse de couleur.
-![Schéma KiCad Final](elec/media/KY008.jpeg)
+![Schéma KiCad Final](Documentation/test-final/elec/media/KY008.jpeg)
 
 ##### 1.2.6. Contrôle du Moteur du Convoyeur (Driver L298N)
 Le module L298N (pont en H) pilote le moteur DC. Il reçoit des signaux logiques du Nano (ENA, IN1, IN2) et fournit la puissance nécessaire au moteur à partir d'une alimentation externe, contrôlant la vitesse et la direction.
@@ -239,9 +239,9 @@ Le développement de notre système électronique a suivi un processus itératif
 
 ##### 1.3.1. Version 1 : Schéma avec Liaison UART
 - **Description** : La première itération privilégiait une communication série UART entre l'Arduino Nano et l'ESP32.
-- **Schéma** : ![Schéma KiCad Final](elec/media/Schema-V1-UART.png)
+- **Schéma** : ![Schéma KiCad Final](Documentation/test-final/elec/media/Schema-V1-UART.png)
 
-- **PCB Associé** : ![Schéma KiCad Final](elec/media/PCB-V1-UART.png)
+- **PCB Associé** : ![Schéma KiCad Final](Documentation/test-final/elec/media/PCB-V1-UART.png)
 - **Abandon** : Complexité logicielle trop élevée sur l'Arduino Nano, qui ne tirait pas pleinement parti des capacités de l'ESP32.
 
 ##### 1.3.2. Version 2 : Schéma avec I2C et Résistances Pull-up Simples
@@ -253,8 +253,8 @@ Le développement de notre système électronique a suivi un processus itératif
 
 ##### 1.3.3. Version 3 (Finale) : Schéma avec I2C et Convertisseur de Niveau Dédié
 - **Description** : Solution finale et la plus robuste, utilisant un convertisseur de niveau logique dédié (BSS138) pour une communication I2C inter-tensions fiable.
-- **Schéma** : ![Schéma KiCad Final](elec/media/Schema-V3-I2C-BSS.png)
-- **PCB Final** : ![Schéma KiCad Final](elec/media/PCB-V3-I2C-BSS.png)
+- **Schéma** : ![Schéma KiCad Final](Documentation/test-final/elec/media/Schema-V3-I2C-BSS.png)
+- **PCB Final** : ![Schéma KiCad Final](Documentation/test-final/elec/media/PCB-V3-I2C-BSS.png)
 - **Optimisation du PCB** : Le design a été optimisé avec des pistes d'alimentation larges, un routage court et direct, et un placement logique des composants. Un contrôle des règles de conception (DRC) a été effectué pour garantir l'absence d'erreurs.
 
 </details>
