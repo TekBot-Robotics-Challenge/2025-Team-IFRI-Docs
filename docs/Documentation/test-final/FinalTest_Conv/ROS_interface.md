@@ -56,7 +56,8 @@ Ce découplage est puissant : le frontend n'a pas besoin de savoir comment ROS2 
 Cette section détaille chaque écran de l'application de contrôle, en justifiant les choix de conception et d'implémentation, et en soulignant les défis techniques surmontés. C'est le reflet du travail réalisé sur l'interface homme-machine.
 
 ### 1. Page du Tableau de Bord (Dashboard)
-![Dashboard](  Documentation/test-final/FinalTest_Conv/ass/dashboard.png)
+![Dashboard](Documentation/test-final/FinalTest_Conv/ass/dashboard.png)
+<!-- Placer le fichier 'dashboard.png' dans le dossier 'ass' -->
 
 *   **Objectif et Pertinence :** Fournir à l'opérateur une vue d'ensemble centralisée et intuitive de l'état de santé et de la performance du système. Dans un contexte industriel, un tel tableau de bord est essentiel pour la supervision : il permet de détecter les anomalies d'un seul coup d'œil, de suivre la production et de réduire le temps de réaction en cas de problème. C'est le poste de pilotage principal.
 
@@ -78,6 +79,8 @@ Cette section détaille chaque écran de l'application de contrôle, en justifia
     *   **Performance :** Le défi principal était d'afficher des données haute fréquence sans ralentir l'interface. La solution a été double : l'utilisation du `Context` de React qui optimise les re-rendus, et la limitation de la taille du jeu de données pour le graphique (`activityData.slice(-20)`), empêchant une surcharge du DOM.
 
 ### 2. Page de Calibration
+![Calibration](Documentation/test-final/FinalTest_Conv/ass/calibrate.png)
+<!-- Placer le fichier 'calibrate.png' dans le dossier 'ass' -->
 
 *   **Objectif et Pertinence :** Aucun système physique n'est parfait. La calibration est une fonctionnalité professionnelle qui permet d'adapter le logiciel aux imperfections et aux variations du monde réel (usure des pièces, changement de lumière). Elle transforme un simple programme en un outil industriellement viable et robuste.
 
@@ -95,6 +98,8 @@ Cette section détaille chaque écran de l'application de contrôle, en justifia
     *   Le défi était de créer une **expérience utilisateur fluide**. La solution `lifting state up` a permis que, dès qu'une couleur est capturée dans un module, elle apparaisse instantanément dans la liste déroulante de l'autre module, sans rechargement de page, offrant une interaction dynamique et intuitive.
 
 ### 3. Page de Contrôle en Direct (Live Control)
+![Live Control](Documentation/test-final/FinalTest_Conv/ass/livecontrol.png)
+<!-- Placer le fichier 'livecontrol.png' dans le dossier 'ass' -->
 
 *   **Objectif et Pertinence :** Offrir un contrôle direct et une visualisation fidèle du système. C'est essentiel pour le débogage, les démonstrations et la compréhension fine du comportement du convoyeur. Le "jumeau numérique" 3D permet de valider la logique de tri sans avoir besoin du matériel physique, ce qui accélère considérablement le développement.
 
@@ -112,6 +117,8 @@ Cette section détaille chaque écran de l'application de contrôle, en justifia
     *   **Synchronisation 3D/ROS :** Le défi était de traduire les messages ROS (qui sont de simples données) en événements dans la scène 3D (création, animation, suppression d'objets). La solution a été de maintenir une liste d'objets dans l'état React et de la synchroniser à chaque message reçu du topic ROS, en s'assurant que les animations restent fluides.
 
 ### 4. Page de Supervision ROS
+![Supervision ROS](Documentation/test-final/FinalTest_Conv/ass/ros_supervision.png)
+<!-- Placer le fichier 'ros_supervision.png' dans le dossier 'ass' -->
 
 *   **Objectif et Pertinence :** Fournir une vue de "debug" de bas niveau, similaire aux outils en ligne de commande de ROS (comme `ros2 topic list`), mais intégrée directement dans l'IHM. C'est une page essentielle pour un développeur qui a besoin de vérifier rapidement si tous les nœuds communiquent correctement, sans avoir à quitter l'application.
 
@@ -129,6 +136,8 @@ Cette section détaille chaque écran de l'application de contrôle, en justifia
     *   **Abandon du graphe dynamique :** Le défi majeur ici a été de reconnaître les limites d'une approche et de pivoter. L'ambition initiale d'un graphe dynamique (similaire à `rqt_graph` avec `React Flow`) a été abandonnée suite à un problème d'architecture (l'objet `ros` n'étant pas dans un `useState`, les mises à jour de connexion ne déclenchaient pas de re-rendu). La décision de **simplifier intentionnellement** la fonctionnalité en listes textuelles est une démonstration de pragmatisme : il est préférable d'avoir une fonctionnalité plus simple mais robuste et fonctionnelle, plutôt qu'une fonctionnalité ambitieuse mais défaillante.
 
 ### 5. Page des Logs
+![Logs](Documentation/test-final/FinalTest_Conv/ass/logs.png)
+<!-- Placer le fichier 'logs.png' dans le dossier 'ass' -->
 
 *   **Objectif et Pertinence :** Fournir une traçabilité complète des événements système. Pour un développeur, c'est un outil de débogage indispensable. Pour un opérateur, c'est un moyen de comprendre ce qu'il s'est passé en cas de comportement inattendu. La capacité de filtrer par source (`origin`) est ce qui rend cet outil véritablement puissant.
 
