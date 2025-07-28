@@ -486,11 +486,12 @@ On retrouve ici les versions plus stables, les impressions finales, les ajusteme
 #### Système de guidage et de fixation au sol
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="Documentation/test-final/Final_doc/asset/images/conv_1.jpg" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/conv_2.jpg" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/conv_3.jpg" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/conv_4.jpg" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/conv_5.jpg" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/guidage.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv_1.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv_2.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv_3.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv_4.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv_5.png" width="200">
   
 </div>
 
