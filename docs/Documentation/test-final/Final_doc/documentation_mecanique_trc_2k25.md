@@ -296,6 +296,21 @@ Toutes les pièces ont été exportées au format `.stl` depuis SolidWorks, puis
 **support** : activé uniquement pour les surplombs > 45°  
 **orientation** : optimisée pour éviter les supports et renforcer la résistance mécanique
 
+#### Quelques photos des impressions
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-1.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-2.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-3.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-4.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-5.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-6.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-7.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-8.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-9.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-10.png" width="200">
+</div>
+
+
 
 ## 5.2 découpe des pièces
 
@@ -423,6 +438,7 @@ Voici quelques images des premières versions de WasteFlow, avec les premiers es
   <img src="Documentation/test-final/Final_doc/asset/images/first-step_jointure.png" width="200">
   <img src="Documentation/test-final/Final_doc/asset/images/zero_jointure.png" width="200">
   <img src="Documentation/test-final/Final_doc/asset/images/convoyeur_v1.png" width="200">
+</div>
 
 ---
 
