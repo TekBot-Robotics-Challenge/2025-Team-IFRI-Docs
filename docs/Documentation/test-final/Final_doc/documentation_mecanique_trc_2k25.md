@@ -298,16 +298,15 @@ Toutes les pièces ont été exportées au format `.stl` depuis SolidWorks, puis
 
 #### Quelques photos des impressions
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-1.png" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-2.png" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-3.png" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-4.png" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-5.png" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-6.png" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-7.png" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-8.png" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-9.png" width="200">
-  <img src="Documentation/test-final/Final_doc/asset/images/impressionbambulab-10.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab-1.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab-2.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab-3.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab-4.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab-5.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab-6.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab-7.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab-8.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab-9.png" width="200">
 </div>
 
 
