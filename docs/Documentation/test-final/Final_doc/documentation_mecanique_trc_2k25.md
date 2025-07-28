@@ -296,7 +296,7 @@ Toutes les pièces ont été exportées au format `.stl` depuis SolidWorks, puis
 **support** : activé uniquement pour les surplombs > 45°  
 **orientation** : optimisée pour éviter les supports et renforcer la résistance mécanique
 
-#### Quelques photos des impressions
+#### Quelques photos des slicings
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
   <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab-1.png" width="200">
   <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab-2.png" width="200">
@@ -349,6 +349,14 @@ Les grandes pièces (châssis, glissière, plateau) ont été découpées en sou
     </tr>
   </tbody>
 </table>
+
+
+### Quelques images et photos de problèmes rencontrés essentiellement lors de l'impression
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab_10.png" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/impression_bambulab-11.png" width="200">
+</div>
 
 ## 5.4 post-traitement
 
@@ -412,7 +420,6 @@ Chaque pièce modélisée sous SolidWorks a été exportée individuellement au 
   </tbody>
 </table>
 
-> à insérer : captures du slicer (vue avant impression, preview G-code)
 
 <!-- slicer preview -->
 
@@ -473,6 +480,20 @@ On retrouve ici les versions plus stables, les impressions finales, les ajusteme
   <img src="Documentation/test-final/Final_doc/asset/images/conv-real-img_7.jpg" width="200">
   
 </div>
+
+
+
+#### Système de guidage et de fixation au sol
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv_1.jpg" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv_2.jpg" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv_3.jpg" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv_4.jpg" width="200">
+  <img src="Documentation/test-final/Final_doc/asset/images/conv_5.jpg" width="200">
+  
+</div>
+
 
 
 ---
