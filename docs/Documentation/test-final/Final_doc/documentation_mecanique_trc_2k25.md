@@ -506,7 +506,7 @@ Vous pouvez télécharger notre assemblage ici.
   <img src="Documentation/test-final/Final_doc/asset/images/3D_img.png" width="500">
 </div>
 
-Télécharger (Assemblage_IFRI_Convoyeur)["Documentation/test-final/Final_doc/asset/ASSEMBLAGE_IFRI_CONVOYEUR.STEP"]
+Télécharger [Assemblage_IFRI_Convoyeur](Documentation/test-final/Final_doc/asset/ASSEMBLAGE_IFRI_CONVOYEUR.STEP)
 
 
 
