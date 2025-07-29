@@ -497,6 +497,21 @@ On retrouve ici les versions plus stables, les impressions finales, les ajusteme
 
 
 
+#### Assets
+
+Vous pouvez télécharger notre assemblage ici.
+
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="Documentation/test-final/Final_doc/asset/images/3D_img.png" width="500">
+</div>
+
+
+
+
+
+
+
 ---
 
 ## Conclusion
