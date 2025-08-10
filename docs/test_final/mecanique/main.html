@@ -1,0 +1,607 @@
+<header>
+  <div class="logo">WF</div>
+  <div class="logo-title">
+    <h1>WasteFlow — Documentation mécanique</h1>
+    <p class="lead">Système de convoyeur intelligent — Tekbot Robotics Challenge 2025</p>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>WasteFlow</h1>
+    <p><strong><i>Triez intelligemment, assemblez facilement.</i></strong><br><br> Un convoyeur modulaire 3D qui détecte, trie
+      et oriente automatiquement vos pièces pour le Tekbot Robotics Challenge 2025.</p>
+    <a href="#contexte-objectifs" class="cta-btn">Découvrir le projet</a>
+  </div>
+</div>
+
+<main>
+  <section id="contexte-objectifs"
+    style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px; margin-bottom: 64px;">
+    <div style="flex: 1 1 700px; min-width: 300px;">
+      <h2>Section 1 — Contexte & objectifs</h2>
+
+      <p>
+        Dans le cadre du Tekbot Robotics Challenge 2025, une entreprise innovante souhaite déployer un convoyeur
+        intelligent pour automatiser le tri de déchets sous forme de cubes colorés (vert, jaune, rouge, bleu). Ce
+        projet multidisciplinaire mobilise trois équipes : électronique, informatique et mécanique, qui doivent
+        collaborer étroitement pour concevoir un système complet et fonctionnel.
+      </p>
+
+      <p>Le système doit détecter la présence des déchets, les identifier par couleur et les orienter vers la benne
+        adéquate, avec un suivi en temps réel via une interface web intuitive.</p>
+
+      <p>
+        La mécanique est responsable de la conception de la structure physique du convoyeur. Elle doit garantir la
+        robustesse, la stabilité, la précision des déplacements, ainsi que la modularité pour faciliter l’assemblage,
+        la maintenance et les évolutions futures du système. Le design mécanique doit aussi prendre en compte les
+        contraintes liées à l’intégration des composants électroniques et à l’impression 3D.
+      </p>
+
+      <p><strong>Les objectifs mécaniques principaux sont :</strong></p>
+      <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.6;">
+        <li style="margin-bottom: 0.4em;">respecter les dimensions du convoyeur (650 mm de long, 100 mm de haut) pour
+          une intégration optimale</li>
+        <li style="margin-bottom: 0.4em;">garantir la compatibilité avec les composants électroniques et
+          l’alimentation par batterie lithium</li>
+        <li style="margin-bottom: 0.4em;">concevoir une structure modulaire, robuste et imprimable en 3D</li>
+        <li style="margin-bottom: 0.4em;">documenter rigoureusement chaque étape de la conception mécanique pour
+          assurer traçabilité et réutilisabilité</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="analyse-besoins-contrainte" style="margin-bottom: 64px;">
+    <h2>Section 2 — Analyse des besoins et contraintes mécaniques</h2>
+
+    <article id="collaboration-reunions" style="margin-bottom: 32px;">
+      <h3>2.1 Collaboration et réunions stratégiques</h3>
+      <p>
+        Avant de débuter la conception mécanique du convoyeur WasteFlow, plusieurs réunions stratégiques ont été
+        organisées, réunissant les équipes électronique, informatique et mécanique. Ces échanges collaboratifs ont été
+        essentiels pour garantir une vision commune et une compréhension approfondie des besoins et contraintes
+        propres à chaque discipline.
+      </p>
+      <p>
+        Durant ces ateliers, chaque équipe a pu exposer ses attentes, ses exigences techniques, ainsi que les
+        limitations liées à ses composants et méthodes. La mécanique, par exemple, a présenté les spécificités liées à
+        l’impression 3D, la robustesse structurelle et la modularité du système. Les échanges ont également porté sur
+        la compatibilité des interfaces physiques, la gestion des câblages, et les accès nécessaires pour la
+        maintenance.
+      </p>
+      <p>
+        Ces réunions ont permis de mettre en lumière les points critiques d’intégration, d’anticiper les difficultés
+        potentielles, et d’aligner les priorités pour le développement. Un cadre commun a été défini afin d’assurer la
+        cohérence des choix techniques et faciliter la collaboration continue tout au long du projet.
+      </p>
+      <p>Les principaux objectifs de ces échanges étaient :</p>
+      <ul style="line-height: 1.6; margin-top: 1em;">
+        <li>partager les attentes et contraintes spécifiques à chaque équipe,</li>
+        <li>identifier les interfaces critiques et points d’intégration,</li>
+        <li>définir un cadre commun de conception et validation,</li>
+        <li>prioriser les exigences fonctionnelles et techniques,</li>
+        <li>assurer une coordination globale et un suivi régulier du projet.</li>
+      </ul>
+      <p>
+        Cette approche collaborative a posé les bases solides nécessaires à la réussite du développement du convoyeur
+        WasteFlow, en garantissant que les solutions mécaniques soient pleinement compatibles avec les contraintes
+        électroniques et informatiques.
+      </p>
+    </article>
+
+
+    <article id="analyse-fonctionnelle-graphique" style="margin-bottom: 32px;">
+      <h3>2.2 Analyse fonctionnelle graphique</h3>
+      <p>
+        L’analyse fonctionnelle graphique permet de visualiser les interactions entre le système mécanique du
+        convoyeur WasteFlow et son environnement, ainsi que les interfaces avec les autres disciplines. Le diagramme
+        de pieuvre ci-dessous synthétise les principales fonctions contraintes et échanges, en mettant en évidence les
+        flux d’énergie, d’information et de matière.
+      </p>
+      <p>
+        Ce diagramme facilite la compréhension globale des exigences mécaniques, tout en servant de base pour affiner
+        la conception et identifier les points d’attention majeurs.
+      </p>
+
+      <!-- Exemple simple de diagramme de pieuvre inséré ici -->
+      <figure style="text-align:center; margin-top: 1em;">
+        <img src="assets/imgs/diagram.png" alt="Diagramme de pieuvre du convoyeur WasteFlow"
+          style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 8px;">
+        <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5em;">
+          Diagramme de pieuvre simplifié illustrant les interactions principales du convoyeur WasteFlow.
+        </figcaption>
+      </figure>
+
+    </article>
+
+
+    <article id="contraintes-generales" style="margin-bottom: 48px;">
+      <h3>2.3 Contraintes générales</h3>
+      <p>
+        À la lumière des échanges entre les équipes électronique, informatique et mécanique, il ressort plusieurs
+        contraintes globales qui encadrent la conception du système. Ces contraintes concernent l’ensemble des
+        sous-systèmes et assurent une cohérence optimale entre les différentes parties du projet.
+      </p>
+      <p>
+        Parmi les contraintes communes retenues, on trouve notamment :
+      </p>
+      <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.6;">
+        <li style="margin-bottom: 0.5em;">la nécessité d’une communication fluide et continue entre les équipes tout
+          au long du projet</li>
+        <li style="margin-bottom: 0.5em;">le respect des dimensions globales du convoyeur pour une installation
+          optimale dans l’espace prévu</li>
+        <li style="margin-bottom: 0.5em;">l’intégration harmonieuse des sous-systèmes (mécanique, électronique,
+          informatique)</li>
+        <li style="margin-bottom: 0.5em;">l’utilisation de composants standards et modulaires pour faciliter la
+          maintenance et l’évolution du système</li>
+        <li style="margin-bottom: 0.5em;">le respect des contraintes d’alimentation électrique pour assurer
+          l’autonomie et la sécurité</li>
+      </ul>
+      <p>
+        Ces contraintes ont guidé toutes les phases du projet, depuis la conception jusqu’à la réalisation,
+        garantissant ainsi un convoyeur à la fois fonctionnel, fiable et adaptable.
+      </p>
+    </article>
+
+
+    <article id="contraintes-mecaniques" style="margin-bottom: 48px;">
+      <h3>2.4 Contraintes mécaniques spécifiques</h3>
+      <p>
+        Voici un tableau récapitulatif des principales contraintes mécaniques retenues, leur description et leur
+        priorité dans la conception du convoyeur "WasteFlow".
+      </p>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+        <thead>
+          <tr style="background-color: #004080; color: white;">
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Contraintes</th>
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Description</th>
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: center; width: 100px;">Priorité</th>
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Remarques</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 10px; border: 1px solid #ddd;">Dimensions</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Longueur totale de 650 mm et hauteur du tapis de 100
+              mm, contraintes d’encombrement</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">Élevée</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Respect strict pour intégration dans l’espace défini
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Compatibilité capteurs</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Supports réglables pour capteurs de couleur et laser
+              intégrés à la structure</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">Moyenne</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Nécessite flexibilité pour ajustements lors des tests
+            </td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 10px; border: 1px solid #ddd;">Assemblage</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Démontage facile pour maintenance et modifications</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">Élevée</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Utilisation de vis M3/M4 et emboîtements adaptés</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Robustesse</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Résistance aux vibrations et chocs pendant le
+              fonctionnement</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">Élevée</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Matériaux et épaisseurs adaptées, renforts locaux</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 10px; border: 1px solid #ddd;">Modularité</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Conception modulaire pour évolutions et réparations
+              rapides</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">Moyenne</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Pièces découplées et connecteurs standards</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Tolérances impression 3D</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Jeu fonctionnel minimal de 0,3 mm sur pièces mobiles
+            </td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">Élevée</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Adaptation aux spécificités FDM et matériaux utilisés
+            </td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 10px; border: 1px solid #ddd;">Centre de masse</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Positionnement pour assurer stabilité et équilibre du
+              convoyeur</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">Moyenne</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Influence directe sur le comportement dynamique</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article id="analyse-fonctionnelle-mecanique" style="margin-bottom: 48px;">
+      <h3>2.5 Analyse fonctionnelle mécanique</h3>
+      <p>
+        L’analyse fonctionnelle mécanique vise à décomposer le système du convoyeur en fonctions principales et
+        secondaires, afin d’identifier précisément les besoins mécaniques à satisfaire pour assurer le bon
+        fonctionnement du système. Cette étape est cruciale pour orienter la conception et garantir la fiabilité de la
+        structure.
+      </p>
+
+      <p>
+        Les fonctions principales du convoyeur mécanique sont :
+      </p>
+      <ul style="padding-left: 20px; line-height: 1.6; margin-bottom: 24px;">
+        <li style="margin-bottom: 0.6em;">supporter la bande transporteuse et assurer son guidage sans déformation
+        </li>
+        <li style="margin-bottom: 0.6em;">permettre la détection précise des déchets via une intégration stable des
+          capteurs</li>
+        <li style="margin-bottom: 0.6em;">faciliter le déplacement fluide et contrôlé des objets (cubes colorés) sur
+          la surface du tapis</li>
+        <li style="margin-bottom: 0.6em;">assurer la robustesse face aux vibrations et aux sollicitations mécaniques
+          répétées</li>
+        <li style="margin-bottom: 0.6em;">permettre un accès facile aux composants pour la maintenance et les
+          ajustements</li>
+      </ul>
+
+      <p>
+        En complément, les fonctions secondaires participent à la modularité, à la facilité d’assemblage et à la
+        compatibilité avec les contraintes d’impression 3D et d’intégration électronique.
+      </p>
+
+      <p>
+        Cette analyse guidera la sélection des matériaux, le choix des procédés de fabrication, ainsi que la
+        définition des jeux et tolérances.
+      </p>
+
+      <!-- Exemple simple de diagramme de pieuvre inséré ici -->
+      <figure style="text-align:center; margin-top: 2em;">
+        <img src="assets/imgs/diagramm.png" alt="Diagramme de pieuvre du convoyeur WasteFlow"
+          style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 8px;">
+        <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5em;">
+          Diagramme fonctionnel « bête à cornes » simplifié du convoyeur WasteFlow.
+        </figcaption>
+      </figure>
+
+      <p style="font-size: 14px; color: #333;">
+        Ce diagramme simplifié illustre le convoyeur comme un système mécanique soumis à son environnement, aux
+        contraintes spécifiques (dimensions, matériaux, intégration électronique) et aux besoins fonctionnels
+        (déplacement, guidage, robustesse). Il aide à visualiser les interactions et les paramètres clés à prendre
+        en compte lors de la conception.
+      </p>
+    </article>
+
+
+
+    <article id="hypotheses-techniques" style="margin-bottom: 64px; max-width: 900px;">
+      <h3>2.6 Hypothèses techniques</h3>
+
+      <h4>2.6.1 Environnement et conditions d’utilisation</h4>
+      <p>
+        Le système est conçu pour un usage intérieur, mais doit fonctionner de manière fiable dans différents
+        environnements lumineux et conditions ambiantes.<br>
+        Pour assurer la stabilité des mesures du capteur couleur, celui-ci est fixé à une distance constante de 5 cm
+        au-dessus de la bande transporteuse, conformément aux recommandations de l’équipe électronique.
+      </p>
+
+      <h4>2.6.2 Matériaux et composants mécaniques</h4>
+      <ul style="line-height: 1.6; padding-left: 20px;">
+        <li style="margin-bottom: 0.5em;">
+          <strong>Impression 3D PLA :</strong> Le choix du PLA pour la fabrication des pièces imprimées repose sur sa
+          rigidité, sa stabilité dimensionnelle et sa facilité d’impression. Ce matériau est adapté pour des pièces
+          structurelles et fonctionnelles sous faibles charges, avec un remplissage optimisé (50 %) pour un bon
+          compromis solidité/légèreté.
+        </li>
+        <li style="margin-bottom: 0.5em;">
+          <strong>Composants standards :</strong> Certains éléments mécaniques comme les roulements 6202-2RS et les
+          écrous M3/M4 ont été sélectionnés pour garantir la fiabilité des assemblages mobiles.
+        </li>
+        <li style="margin-bottom: 0.5em;">
+          <strong>Tapis :</strong> La bande transporteuse est conçue en matériau de chambre à air de moto, retenu pour
+          sa résistance et flexibilité. Malgré son poids élevé, ce choix a été validé pour assurer une bonne adhérence
+          et longévité. Les difficultés liées à ce matériau seront détaillées dans la section dédiée.
+        </li>
+      </ul>
+
+      <h4>2.6.3 Moyens de fabrication et optimisation</h4>
+      <p>
+        Les pièces seront imprimées sur des imprimantes 3D BambuLab et Prusa, compatibles avec des volumes jusqu’à 220
+        x 220 x 250 mm.<br>
+        L’optimisation porte sur :
+      </p>
+      <ul style="line-height: 1.6; padding-left: 20px;">
+        <li style="margin-bottom: 0.5em;">le découpage en sous-ensembles assemblables facilement,</li>
+        <li style="margin-bottom: 0.5em;">l’orientation des pièces pour minimiser les supports et maximiser la
+          résistance,</li>
+        <li style="margin-bottom: 0.5em;">la réduction de la consommation de matière sans compromettre la solidité.
+        </li>
+      </ul>
+
+      <h4>2.6.4 Durabilité et usage industriel</h4>
+      <p>
+        Le convoyeur est conçu pour un usage industriel, avec des matériaux et assemblages offrant une durabilité
+        adaptée à un fonctionnement continu.<br>
+        Le PLA imprimé, bien conçu, assure une robustesse satisfaisante, mais la modularité permet aussi un
+        remplacement facile des pièces en cas d’usure.
+      </p>
+
+      <h4>2.6.5 Mouvements et charges</h4>
+      <p>
+        Les éléments mécaniques incluent des mouvements rotatifs (roulements 6202-2RS, tambours, arbres) et linéaires
+        (glissières pour la tension de la bande).<br>
+        Les charges exercées restent faibles, liées au poids des cubes en PLA (30 mm, creux, remplissage 50 %) et à la
+        force moteur DC. La vitesse n’est pas encore définie précisément, la conception intègre une marge de sécurité.
+      </p>
+
+      <h4>2.6.6 Interface avec l’électronique centrale</h4>
+      <p>
+        La conception mécanique intègre la nécessité de recevoir les composants électroniques centraux (Arduino Nano,
+        ESP32) dans des logements adaptés.<br>
+        Le dimensionnement précis de ces logements attend les spécifications finales de l’équipe électronique, pour
+        garantir intégration, accessibilité et protection optimales.
+      </p>
+    </article>
+
+
+    <article id="specifications-minimales" style="margin-bottom: 32px;">
+      <h3>2.7 Rappel des spécifications minimales</h3>
+      <p>Cette liste synthétise les exigences dimensionnelles et techniques essentielles à respecter pour garantir la
+        réussite du projet :</p>
+      <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.6;">
+        <li style="margin-bottom: 0.4em;">longueur totale du convoyeur : 650 mm</li>
+        <li style="margin-bottom: 0.4em;">hauteur du tapis par rapport au sol : 100 mm</li>
+        <li style="margin-bottom: 0.4em;">dimensions des déchets : cubes de 30 mm de côté</li>
+        <li style="margin-bottom: 0.4em;">utilisation d’un microcontrôleur Arduino Nano ou ATmega328P</li>
+        <li style="margin-bottom: 0.4em;">alimentation par bloc de batteries Lithium</li>
+        <li style="margin-bottom: 0.4em;">capteur couleur placé à 5 cm du tapis transporteur</li>
+        <li style="margin-bottom: 0.4em;">utilisation du PLA imprimable en 3D pour la majorité des pièces mécaniques
+        </li>
+        <li style="margin-bottom: 0.4em;">roulements 6202-2RS et écrous M3/M4 pour les assemblages mécaniques</li>
+        <li style="margin-bottom: 0.4em;">structure modulaire et robuste pour faciliter maintenance et évolutions</li>
+      </ul>
+
+      <p><strong>Cette synthèse marque la transition vers la phase de conception mécanique</strong>, où chaque
+        exigence sera traduite en modélisations précises.</p>
+    </article>
+
+  </section>
+
+  <section id="conception-mecanique" style="margin-bottom: 64px;">
+    <h2>Section 3 — Conception mécanique</h2>
+
+    <p>
+      À partir des analyses, contraintes et spécifications minimales précédemment définies, la phase de conception
+      mécanique débute ici.
+      L’objectif est de traduire les exigences en modèles 3D précis, fonctionnels et optimisés, compatibles avec les
+      matériaux et techniques retenues.
+    </p>
+
+    <p>
+      Cette étape inclut la modélisation des pièces principales, la définition des assemblages, ainsi que la prise en
+      compte des aspects d’impression 3D, robustesse et modularité.
+      Chaque choix sera justifié en fonction des contraintes mécaniques et des objectifs du projet.
+    </p>
+
+    <p><strong>Nous détaillerons successivement :</strong></p>
+    <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.6;">
+      <li style="margin-bottom: 0.4em;">la conception des pièces et sous-ensembles principaux</li>
+      <li style="margin-bottom: 0.4em;">les choix techniques pour les assemblages et fixations</li>
+      <li style="margin-bottom: 0.4em;">les stratégies pour assurer robustesse, modularité et facilité de maintenance
+      </li>
+      <li style="margin-bottom: 0.4em;">les contraintes d’impression 3D et optimisation des matériaux</li>
+    </ul>
+
+    <article id="architecture-globale" style="margin-bottom: 48px;">
+      <h3>3.1 Aperçu global de l’architecture mécanique</h3>
+
+      <p>
+        Le tableau ci-dessous présente les différents sous-ensembles mécaniques, leur rôle principal et les points
+        clés de conception associés.
+      </p>
+
+      <table style="width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.95rem;">
+        <thead>
+          <tr style="background-color: #f2f2f2;">
+            <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Sous-ensemble</th>
+            <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Rôle principal</th>
+            <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Points clés de conception</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">Châssis principal</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Supporter et stabiliser l’ensemble du système</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Robustesse, rigidité, intégration des autres composants
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">Bande transporteuse</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Transporter les cubes entre les différents points du tri
+            </td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Matériau résistant, poids optimisé, bonne adhérence</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">Système de motorisation</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Assurer la rotation fluide de la bande</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Roulements adaptés (6202-2RS), arbre aligné, moteur DC
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">Glissières et tension</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Régler et maintenir la tension optimale de la bande</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Système ajustable, tolérance d’usure, entretien facile
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">Supports capteurs</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Maintenir les capteurs en position idéale</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Positionnement précis (5 cm de la bande), protection
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">Fixations et assemblages</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Relier les composants de manière modulaire</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">Vis M3/M4, démontage rapide, résistance mécanique</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top: 16px;">
+        Cette architecture a été pensée pour favoriser la maintenance, la modularité et la compatibilité avec
+        l’impression 3D, tout en assurant une intégration harmonieuse avec l’électronique et les capteurs.
+      </p>
+    </article>
+
+    <article id="composants-standards" style="margin-bottom: 48px;">
+      <h3>3.2 Composants standards utilisés</h3>
+      <p>
+        Certains éléments du convoyeur ont été conçus en intégrant des composants standards du commerce.
+        Leur utilisation permet de garantir fiabilité, compatibilité et gain de temps en conception, tout en
+        facilitant le remplacement en cas de maintenance. Les modèles 3D ont été intégrés à la conception
+        mécanique lorsque nécessaire.
+      </p>
+
+      <table style="width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.95em;">
+        <thead>
+          <tr style="background-color: #f4f4f4;">
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Composant</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Description / Rôle</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Lien modèle 3D (.zip)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;">Roulement 6202-2RS</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">
+              Roulement à billes étanche utilisé pour assurer la rotation fluide des tambours du convoyeur.
+            </td>
+            <td style="border: 1px solid #ddd; padding: 8px;">
+              <a href="assets/roulement-6202.zip" download
+                style="text-decoration: none; color: #007BFF;">Télécharger</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;">Moteur DC</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">
+              Moteur électrique à courant continu pour entraîner la bande transporteuse.
+            </td>
+            <td style="border: 1px solid #ddd; padding: 8px;">
+              <a href="assets/motor_DC.zip" download style="text-decoration: none; color: #007BFF;">Télécharger</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;">Capteur KY-008 (Laser)</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">
+              Module laser utilisé pour la détection de passage et synchronisation avec la mécanique.
+            </td>
+            <td style="border: 1px solid #ddd; padding: 8px;">
+              <a href="assets/ky008.zip" download style="text-decoration: none; color: #007BFF;">Télécharger</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;">Capteur de couleur TCS34725</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">
+              Capteur RGB haute précision utilisé pour identifier les couleurs des cubes avec correction de lumière.
+            </td>
+            <td style="border: 1px solid #ddd; padding: 8px;">
+              <a href="assets/tcs34725.zip" download style="text-decoration: none; color: #007BFF;">Télécharger</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top: 12px; font-style: italic;">
+        Tous les modèles 3D ont été recherchés principalement sur
+        <a href="https://grabcad.com" target="_blank" style="text-decoration: none; color: #007BFF; font-weight: bold;">
+          GrabCAD – la mine d’or des ingénieurs !
+        </a>
+      </p>
+
+      <!-- Prévisualisation des composants -->
+      <div style="margin-top: 24px;">
+        <h4>Prévisualisation des composants</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+          <div style="flex: 1 1 200px; border: 1px solid #ddd; border-radius: 8px; padding: 8px; text-align: center;">
+            <img src="assets/imgs/moteur_DC.png" alt="Moteur DC" style="max-width: 100%; height: 220px;">
+            <p style="margin-top: 8px; font-size: 0.9em; font-style: italic; font-weight: 700;">Moteur DC</p>
+          </div>
+          <div style="flex: 1 1 200px; border: 1px solid #ddd; border-radius: 8px; padding: 8px; text-align: center;">
+            <img src="assets/imgs/ky008_laser.png" alt="Capteur KY-008" style="max-width: 100%; height: 220px;">
+            <p style="margin-top: 8px; font-size: 0.9em; font-style: italic; font-weight: 700;">Capteur KY-008</p>
+          </div>
+          <div style="flex: 1 1 200px; border: 1px solid #ddd; border-radius: 8px; padding: 8px; text-align: center;">
+            <img src="assets/imgs/roulement-6202.png" alt="Roulement 6202-2RS" style="max-width: 100%; height: 220px;">
+            <p style="margin-top: 8px; font-size: 0.9em; font-style: italic; font-weight: 700;">Roulement 6202-2RS</p>
+          </div>
+          <div style="flex: 1 1 200px; border: 1px solid #ddd; border-radius: 8px; padding: 8px; text-align: center;">
+            <img src="assets/imgs/tcs34725.png" alt="Capteur TCS34725" style="max-width: 100%; height: 220px;">
+            <p style="margin-top: 8px; font-size: 0.9em; font-style: italic; font-weight: 700;">Capteur de couleur TCS34725</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article id="modelisation-3d-preliminaire" style="margin-bottom: 48px;">
+      <h2>3.3 Modélisation 3D préliminaire</h2>
+      <p>
+        La modélisation 3D est une étape clé dans la conception mécanique du convoyeur. Elle permet
+        de visualiser les pièces et assemblages, de vérifier la faisabilité des solutions retenues,
+        et de préparer les fichiers nécessaires à l’impression 3D.
+        Au cours du projet, plusieurs itérations de la modélisation ont été réalisées pour améliorer la
+        robustesse, la modularité et la compatibilité avec les contraintes mécaniques et électroniques.
+        Chaque étape correspond à une version de conception, dont les caractéristiques évoluent pour répondre
+        aux exigences du projet.
+      </p>
+
+      <!-- Première étape -->
+      <section id="evolution-v1" style="margin-top: 32px;">
+        <h3>3.3.1 Première version : conception initiale tout-en-un</h3>
+        <p>
+          La première version du convoyeur a été réalisée sous la forme d’un ensemble unique, sans
+          découpage en modules. Cette approche simplifiée a permis une mise en forme rapide mais a
+          révélé plusieurs problèmes liés à l’assemblage, la maintenance et la compatibilité avec
+          l’impression 3D.
+        </p>
+
+        <!-- Tableau récapitulatif -->
+        <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+          <thead>
+            <tr style="background-color: #f0f0f0;">
+              <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Critère</th>
+              <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Détails</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border: 1px solid #ccc; padding: 8px;">Masse totale</td>
+              <td style="border: 1px solid #ccc; padding: 8px;">X kg (à mesurer)</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ccc; padding: 8px;">Impression</td>
+              <td style="border: 1px solid #ccc; padding: 8px;">Ensemble unique, difficile à imprimer</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ccc; padding: 8px;">Composants</td>
+              <td style="border: 1px solid #ccc; padding: 8px;">Pièces modélisées globalement, roulements et écrous
+                non intégrés</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ccc; padding: 8px;">Points faibles</td>
+              <td style="border: 1px solid #ccc; padding: 8px;">Assemblage compliqué, maintenance difficile, non
+                modulable</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Bloc images + commentaires -->
+        <div style="margin-top: 24px;">
+          <h4>Illustrations de la première version</h4>
+          <p>Rendu 3D global du convoyeur en version initiale, montrant la structure monolithique. Le poids total
+            estimé reste à confirmer sur balance.</p>
+          <img src="assets/imgs/convoyeur_ifri.png" alt="Rendu 3D première version"
+            style="max-width: 100%; height: auto; border: 1px solid #ddd; padding: 4px; margin-top: 12px;">
+          <!-- Ajouter d'autres images ou photos si nécessaire -->
+        </div>
+      </section>
+    </article>
+
+  </section>
+
+
+</main>
