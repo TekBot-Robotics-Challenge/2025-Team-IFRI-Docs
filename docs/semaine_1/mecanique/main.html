@@ -15,7 +15,7 @@ La conception des pièces a été réalisée avec le logiciel de modélisation
 
 <h2 class="section-title">Présentation des croquis</h2>
 
-<!-- === Pièce 1 === -->
+<!-- Pièce 1 -->
 <h3 class="piece-title">Pièce 1</h3>
 <div class="card">
     <div class="caracteristiques">
@@ -29,8 +29,8 @@ La conception des pièces a été réalisée avec le logiciel de modélisation
     </div>
 
     <div class="images">
-        <img src="Documentation/semaine-1/mecanique/picture_piece_1_full.jpg" alt="Pièce 1 - Vue détaillée">
-        <img src="Documentation/semaine-1/mecanique/picture_piece_1_full.jpg" alt="Pièce 1 - Vue complète">
+        <img src="assets/imgs/picture_piece_1_full.jpg" alt="Pièce 1 - Vue détaillée">
+        <img src="assets/imgs/picture_piece_1_full.jpg" alt="Pièce 1 - Vue complète">
     </div>
 
     <div class="steps">
@@ -38,7 +38,7 @@ La conception des pièces a été réalisée avec le logiciel de modélisation
         <ol>
             <li>Création d'un nouveau projet
                 <ul>
-                    <li>Réalisation de la partie circulaire : cercle Ø135.6 mm, deux cercles latéraux R40 mm espacés de 150 mm, reliés par arcs tangents.</li>
+                    <li>Réalisation de la partie circulaire : cercle Ø135.6 mm, deux cercles latéraux R40 mm espacés de 150 mm (75 mm de chaque côté de l’axe), reliés par arcs tangents.</li>
                 </ul>
             </li>
             <li>Extrusion du profil : profondeur 20 mm.</li>
@@ -50,11 +50,146 @@ La conception des pièces a été réalisée avec le logiciel de modélisation
         </ol>
     </div>
 
-    <p><a class="file-link" href="Documentation/semaine-1/mecanique/pieces/Piece_1/piece_1.SLDPRT">Télécharger Pièce 1</a></p>
+    <p><a class="file-link" href="assets/pieces/piece_1/piece_1.SLDPRT">Télécharger Pièce 1</a></p>
 </div>
 
-<!-- Tu répètes la même structure pour Pièce 2, 3, 4, Assemblage, etc. -->
+<!-- Pièce 2 -->
+<h3 class="piece-title">Pièce 2</h3>
+<div class="card">
+    <div class="caracteristiques">
+        <h4>Caractéristiques :</h4>
+        <ul>
+            <li><strong>Systèmes d'unités</strong> : MMGS (millimètre, gramme, seconde)</li>
+            <li><strong>Décimales</strong> : 2</li>
+            <li>Tous les trous sont débouchants sauf indication contraire</li>
+            <li><strong>Matériau</strong> : Aluminium Alliage 1060 ; Densité : 0.0027 g/mm³</li>
+        </ul>
+    </div>
 
+    <div class="images">
+        <img src="assets/imgs/picture_piece_2_trc.jpg" alt="Pièce 2 - Vue détaillée">
+        <img src="assets/imgs/picture_piece_2_full.jpg" alt="Pièce 2 - Vue complète">
+    </div>
+
+    <div class="steps">
+        <h4>Étapes de réalisation</h4>
+        <ol>
+            <li>Création d'un nouveau projet</li>
+            <li>Esquisse du profil principal : plan de face, profil symétrique, respect des diamètres Ø64, Ø55, Ø43, Ø38, Ø34, Ø20 et longueurs correspondantes.</li>
+            <li>Fonction Révolution : commande "Révolution de base" autour de l’axe vertical.</li>
+            <li>Ajout des congés latéraux : rayon 64 mm.</li>
+            <li>Création des perçages : coupe extrudée Ø20 et Ø34 sur les deux extrémités circulaires.</li>
+            <li>Calcul de la masse : attribuer le matériau Aluminium Alliage 1060 et vérifier masse exacte.</li>
+        </ol>
+    </div>
+
+    <p><a class="file-link" href="assets/pieces/piece_2/piece_2.SLDPRT">Télécharger Pièce 2</a></p>
+    <p>Masse : 290.80 g</p>
+</div>
+
+<!-- Pièce 3 -->
+<h3 class="piece-title">Pièce 3</h3>
+<div class="card">
+    <div class="caracteristiques">
+        <h4>Caractéristiques :</h4>
+        <ul>
+            <li><strong>Systèmes d'unités</strong> : MMGS (millimètre, gramme, seconde)</li>
+            <li><strong>Décimales</strong> : 2</li>
+            <li>Tous les trous sont débouchants sauf indication contraire</li>
+            <li><strong>Matériau</strong> : acier AISI 1020 ; Densité : 0,0079 g/mm³</li>
+        </ul>
+    </div>
+
+    <div class="images">
+        <img src="assets/imgs/picture_piece_3_trc.jpg" alt="Pièce 3 - Vue détaillée">
+        <img src="assets/imgs/picture_piece_3_full.jpg" alt="Pièce 3 - Vue complète">
+    </div>
+
+    <div class="steps">
+        <h4>Étapes de réalisation</h4>
+        <ol>
+            <li>Esquisse du profil de base : trapèze fermé, base 150 mm, hauteur 70 mm, épaisseur 10 mm.</li>
+            <li>Fonction Extrusion : profondeur 100 mm.</li>
+            <li>Création des évidements : vides rectangulaires 100×60×20 mm à l’avant et à l’arrière.</li>
+            <li>Ajout des blocs latéraux : 20×60×70 mm sur chaque extrémité.</li>
+            <li>Calcul de la masse : acier AISI 1020, masse 1633.25 g.</li>
+        </ol>
+    </div>
+
+    <p><a class="file-link" href="assets/pieces/piece_3/piece_3.SLDPRT">Télécharger Pièce 3</a></p>
+</div>
+
+<!-- Pièce 4 -->
+<h3 class="piece-title">Pièce 4</h3>
+<div class="card">
+    <div class="caracteristiques">
+        <h4>Caractéristiques :</h4>
+        <ul>
+            <li><strong>Systèmes d'unités</strong> : MMGS (millimètre, gramme, seconde)</li>
+            <li><strong>Décimales</strong> : 2</li>
+            <li>Tous les trous sont débouchants sauf indication contraire</li>
+            <li><strong>Matériau</strong> : Aluminium Alliage 1060 ; Densité : 0.0027 g/mm³</li>
+        </ul>
+    </div>
+
+    <div class="images">
+        <img src="assets/imgs/picture_piece_4_trc.jpg" alt="Pièce 4 - Vue détaillée">
+        <img src="assets/imgs/picture_piece_4_full.jpg" alt="Pièce 4 - Vue complète">
+    </div>
+
+    <div class="steps">
+        <h4>Étapes de réalisation</h4>
+        <ol>
+            <li>Esquisse de base : dimensions 100×50 mm.</li>
+            <li>Extrusion principale : hauteur 25 mm.</li>
+            <li>Perçage cylindrique : Ø30 mm traversant, Ø24 mm en surface.</li>
+            <li>Géométrie inclinée : angle 45°, congés R2.</li>
+            <li>Section transversale complexe : hauteurs 10-15-25 mm, raccords R2, découpes et évidements.</li>
+            <li>Finitions : congés, chanfreins, vérification.</li>
+        </ol>
+    </div>
+
+    <p><a class="file-link" href=assets/pieces/piece_4/piece_4.SLDPRT">Télécharger Pièce 4</a></p>
+    <p>Masse : 297.29 g</p>
+</div>
+
+<!-- Assemblage -->
+<h3 class="piece-title">Assemblage</h3>
+<div class="card">
+    <div class="caracteristiques">
+        <h4>Caractéristiques :</h4>
+        <ul>
+            <li><strong>Systèmes d'unités</strong> : MMGS (millimètre, gramme, seconde)</li>
+            <li><strong>Décimales</strong> : 2</li>
+            <li><strong>Origine</strong> : fichier assemblage Pince</li>
+        </ul>
+    </div>
+
+    <div class="images">
+        <img src="assets/imgs/Piece_assemblage_trc.jpg" alt="Détails de l'assemblage">
+        <img src="assets/imgs/Piece_assemblage.jpg" alt="Vue d'ensemble de l'assemblage">
+    </div>
+
+    <p>L’assemblage forme une pince mécanique respectant les contraintes des plans.</p>
+
+    <div class="coords">
+        <p>Position minimale — Centre de masse : X = <strong>-29.15 mm</strong>, Y = <strong>0.16 mm</strong>, Z = <strong>19.86 mm</strong></p>
+        <p>Position maximale — Centre de masse : X = <strong>-25.78 mm</strong>, Y = <strong>0.06 mm</strong>, Z = <strong>19.86 mm</strong></p>
+    </div>
+</div>
+
+<!-- Emplacement des fichiers -->
+<h3 class="section-title">Emplacement des fichiers</h3>
+<ul>
+    <li><a class="file-link" href="assets/pieces/piece_1/piece_1.SLDPRT">Pièce I</a></li>
+    <li><a class="file-link" href="assets/pieces/piece_2/piece_2.SLDPRT">Pièce II</a></li>
+    <li><a class="file-link" href="assets/pieces/piece_3/piece_3.SLDPRT">Pièce III</a></li>
+    <li><a class="file-link" href="assets/pieces/piece_4/piece_4.SLDPRT">Pièce IV</a></li>
+    <li><a class="file-link" href="assets/zips/Dossier_A.zip">Dossier A</a></li>
+    <li><a class="file-link" href="assets/zips/Dossier_B.zip">Dossier B</a></li>
+</ul>
+
+<!-- Vidéo -->
 <h2 class="section-title">Vidéo de la Pince en mouvement</h2>
 <div class="video-container">
     <iframe src="https://player.vimeo.com/video/1092855533?h=480fde870c" 

@@ -260,6 +260,11 @@ body {
     /*padding: 2rem;*/
 }
 
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+}
 
 /* Container général */
 .content-header {
@@ -701,4 +706,92 @@ section {
 
 .cta-btn:hover {
     background: var(--blue-dark);
+}
+
+
+
+/*---------------------------Mecanique - semaine 1-----------------------------*/
+
+.title-main {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--accent-2);
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: var(--teal-dark);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.piece-title {
+    font-size: 1.3rem;
+    color: var(--blue-dark);
+    margin-top: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.3rem;
+}
+
+.highlight {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.card {
+    background: var(--white-alt);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.caracteristiques ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--text-light);
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+.images img {
+    max-width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.steps ol {
+    padding-left: 1.4rem;
+    color: var(--black-alt);
+}
+
+.steps li {
+    margin-bottom: 0.4rem;
+}
+
+.file-link {
+    color: var(--accent-2);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.file-link:hover {
+    text-decoration: underline;
+}
+
+.video-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.video-container iframe {
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
 }
