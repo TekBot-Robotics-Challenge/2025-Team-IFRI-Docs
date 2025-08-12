@@ -1,0 +1,292 @@
+<h1 class="title-main">Documentation Mécanique</h1>
+
+<p class="subtitle"><strong>Test 2 – Niveau Intermédiaire</strong></p>
+
+<section class="card section-intro">
+  <h2 class="section-title">Introduction et Contexte</h2>
+  <p>
+    Le pôle mécanique a pour mission de concevoir, modéliser et valider des composants assurant la solidité et la précision du robot. Cette documentation vise à :
+  </p>
+  <ul>
+    <li>Décrire en détail la démarche de modélisation paramétrique sous <strong class="highlight">SolidWorks 2025</strong>.</li>
+    <li>Fournir une traçabilité complète des choix techniques, des calculs et des validations.</li>
+    <li>Servir de référence pour la maintenance et l’évolution future des pièces.</li>
+  </ul>
+  <p><strong>Usage</strong> : Ce document est destiné aux membres de l’équipe, au jury de la compétition et aux futurs référents techniques.</p>
+</section>
+
+<section class="card">
+  <h2 class="section-title">Objectifs du Projet</h2>
+  <ol>
+    <li>Reproduire fidèlement une pièce 2D fournie selon un document de spécification technique.</li>
+    <li>Implémenter trois variables globales (A, B, C) pour automatiser les variations dimensionnelles.</li>
+    <li>Calculer la masse des pièces pour chaque jeu de paramètres.</li>
+    <li>Appliquer découpe, congés et assemblage conformément aux spécifications.</li>
+    <li>Répondre aux questions de position du centre de masse pour deux configurations angulaires.</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h2 class="section-title">Portée et Livrables</h2>
+  <ul>
+    <li><strong>Fichiers pièces</strong> : <code>.SLDPRT</code> pour chaque configuration.</li>
+    <li><strong>Fichiers assemblage</strong> : <code>.SLDASM</code> validés et annotés.</li>
+    <li><strong>Captures d’écran</strong> : Vues d’esquisse, isométriques, plan et propriétés de masse.</li>
+    <li><strong>Vidéos</strong> : Tutoriel de modélisation (2 minutes).</li>
+  </ul>
+</section>
+
+<section class="card table-card">
+  <h2 class="section-title">Matériel, Outils et Environnement</h2>
+  <div class="table-responsive">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Détail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Logiciel</td>
+          <td>SolidWorks 2025</td>
+        </tr>
+        <tr>
+          <td>Matériau</td>
+          <td>Acier AISI 1020 (densité 0.0079 g/mm³)</td>
+        </tr>
+        <tr>
+          <td>Unités</td>
+          <td>MMGS (mm, g, s), précision ±0.01 mm/g</td>
+        </tr>
+        <tr>
+          <td>Plugins/Librairies</td>
+          <td>Toolbox standard, équations globales</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="card">
+  <h2 class="section-title">Conception et Réalisation des Pièces</h2>
+
+  <h3 class="subsection-title">5.1. Concept et Cahier des Charges</h3>
+  <ul>
+    <li>Pièce de support modulable, assurant la rigidité sous charge statique.</li>
+    <li>Contraintes : trou Ø14 mm, congés internes/externes (R5, R29), angles critiques (45°, 10°).</li>
+    <li>Objectifs de flexibilité via variables : A (largeur), B (hauteur), C (épaisseur).</li>
+  </ul>
+
+  <h3 class="subsection-title">5.2. Modélisation Paramétrique</h3>
+  <p>Variables globales définies dans l’onglet « Équations ». Liaisons intelligentes : « Jusqu’à suivant » pour profondeur, « A » pour largeur de base, etc.</p>
+
+  <h3 class="subsection-title">5.3. Processus de modélisation</h3>
+
+  <h4 class="mini-title">5.3.1. Préparation du Fichier</h4>
+  <ol>
+    <li>Ouvrir un nouveau document pièce, format MMGS.</li>
+    <li>Définir tolérances par défaut dans Propriétés du document.</li>
+    <li>Enregistrer sous <code>modele_base.SLDPRT</code>.</li>
+  </ol>
+
+  <h4 class="mini-title">5.3.2. Esquisse 2D Detailée</h4>
+  <p>Plan de face (Front Plane). Esquisse des profils :</p>
+  <ol>
+    <li>Ligne principale de base (longueur A).</li>
+    <li>Arcs et cercles (incl. trou Ø14 mm centré).</li>
+    <li>Positionnement des congés internes (R5) et externes (R29).</li>
+    <li>Cotes angulaires (45°, 10°) appliquées via contrainte de cote.</li>
+  </ol>
+
+  <h4 class="mini-title">5.3.3. Définition des Variables Globales</h4>
+  <p>
+    <strong>A</strong> = 81 / 84 mm<br>
+    <strong>B</strong> = 57 / 59 mm<br>
+    <strong>C</strong> = 43 / 45 mm
+  </p>
+
+  <h4 class="mini-title">5.3.4. Opérations de Volume (Extrusion, Congés)</h4>
+  <ol>
+    <li><strong>Extrusion Bossage/Base</strong> sur épaisseur C.</li>
+    <li><strong>Découpe</strong> : extrémités profilées selon A, B.</li>
+    <li><strong>Congés</strong> :
+      <ul>
+        <li>R5 sur arêtes internes avant enlèvement latéral.</li>
+        <li>R29 sur bords externes en finition.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h4 class="mini-title">5.3.5. Contrôles et Validation Géométrique</h4>
+  <ul>
+    <li>Utiliser la fonction « Vérifier géométrie » pour détecter surfaces non-manifold.</li>
+    <li>Visualiser la masse via Propriétés → Propriétés de masse.</li>
+    <li>Comparer contre valeurs attendues.</li>
+  </ul>
+
+  <h4 class="mini-title">5.3.6. Exportation des Pièces</h4>
+  <p>Enregistrer chaque variante sous <code>partieX.SLDPRT</code>.</p>
+
+  <h3 class="subsection-title">5.4. Illustrations et Captures d’Écran</h3>
+  <p>Organisation des images dans un dossier <code>images/</code> contenant les fichiers d’étapes. Insérer légendes et repères (flèches, annotations) sur chaque capture.</p>
+</section>
+
+<section class="card">
+  <h2 class="section-title">Résultats et Réponses aux Questions du Test</h2>
+
+  <h3 class="subsection-title">7.1. Partie 1 – Variations de A, B, C</h3>
+
+  <div class="images">
+    <img src="assets/imgs/picture_piece_partie1.png" alt="Vue détaillée de la pièce - Partie 1">
+  </div>
+
+  <div class="result-block">
+    <h4 class="mini-title">Question A</h4>
+    <ul>
+      <li>Valeurs : <strong>A = 81 mm</strong>, <strong>B = 57 mm</strong>, <strong>C = 43 mm</strong></li>
+      <li>Fichier : <a class="file-link" href="assets/pieces/piece1/piece_partie1_a.SLDPRT">Télécharger la pièce</a></li>
+      <li>Masse : <strong>939.54 grammes</strong></li>
+    </ul>
+    <div class="images small">
+      <img src="assets/imgs/picture_mass_properties_partie1_a.jpg" alt="Propriétés de masse - Partie1 A">
+    </div>
+  </div>
+
+  <div class="result-block">
+    <h4 class="mini-title">Question B</h4>
+    <ul>
+      <li>Valeurs : <strong>A = 84 mm</strong>, <strong>B = 59 mm</strong>, <strong>C = 45 mm</strong></li>
+      <li>Fichier : <a class="file-link" href="assets/pieces/piece1/piece_partie1_b.SLDPRT">Télécharger la pièce</a></li>
+      <li>Masse : <strong>1032.32 grammes</strong></li>
+    </ul>
+    <div class="images small">
+      <img src="assets/imgs/picture_mass_properties_partie1_b.png" alt="Propriétés de masse - Partie1 B">
+    </div>
+  </div>
+
+  <h3 class="subsection-title">7.2. Partie 2 – Cas supplémentaire</h3>
+  <div class="images">
+    <img src="assets/imgs/picture_piece_partie2.png" alt="Vue détaillée de la pièce - Partie 2">
+  </div>
+  <p>Fichier : <a class="file-link" href="assets/pieces/piece2/piece_partie2.SLDPRT">Télécharger la pièce</a></p>
+  <p><strong>Masse : 628.18 grammes</strong></p>
+  <div class="images small">
+    <img src="assets/imgs/picture_mass_properties_partie2.png" alt="Propriétés de masse - Partie2">
+  </div>
+
+  <h3 class="subsection-title">7.3. Partie 3 – Exemple de réduction</h3>
+  <div class="images">
+    <img src="assets/imgs/picture_piece_partie3.png" alt="Vue détaillée de la pièce - Partie 3">
+  </div>
+  <p>Fichier : <a class="file-link" href="assets/pieces/piece3/picture_piece_partie3.SLDPRT">Télécharger la pièce</a></p>
+  <p><strong>Masse : 432.58 grammes</strong></p>
+  <div class="images small">
+    <img src="assets/imgs/picture_mass_properties_partie3.png" alt="Propriétés de masse - Partie3">
+  </div>
+
+  <h3 class="subsection-title">7.4. Assemblage et Centre de Masse</h3>
+  <p><strong>Fichiers</strong> : <code>assemblage_question_a.SLDASM</code>, <code>assemblage_question_b.SLDASM</code></p>
+  <p><strong>Centre de masse</strong> :</p>
+  <ul>
+    <li>Config. A (A=25°, B=125°, C=130°): <strong>(X=327.67, Y=-98.39, Z=-102.91)</strong></li>
+    <li>Config. B (A=30°, B=115°, C=135°): <strong>(X=348.66, Y=-88.48, Z=-91.40)</strong></li>
+  </ul>
+
+  <div class="images small">
+    <img src="assets/imgs/picture_assemblage_a.png" alt="Assemblage - Question A">
+    <img src="assets/imgs/picture_assemblage_b.png" alt="Assemblage - Question B">
+  </div>
+
+  <p>Fichiers : </p>
+  <ul>
+    <li><a class="file-link" href="assets/pieces/assemblage/Question_A.zip">Télécharger la pièce - Question a</a></li>
+    <li><a class="file-link" href="assets/pieces/assemblage/Question_B.zip">Télécharger la pièce - Question b</a></li>
+  </ul>
+
+  <h4 class="mini-title">Réponses aux questions (coordonnées)</h4>
+  <div class="coords">
+    <div class="coords-block">
+      <img src="assets/imgs/picture_mass_properties_a.png" alt="Propriétés masse - Question A">
+      <p>a) Les coordonnées du centre de masse pour A = 25° ; B = 125° ; C = 130° sont :</p>
+      <ul>
+        <li>X = <strong>327.67</strong></li>
+        <li>Y = <strong>-98.39</strong></li>
+        <li>Z = <strong>-102.91</strong></li>
+      </ul>
+    </div>
+
+    <div class="coords-block">
+      <img src="assets/imgs/picture_mass_properties_b.png" alt="Propriétés masse - Question B">
+      <p>b) Les coordonnées du centre de masse pour A = 30° ; B = 115° ; C = 135° sont :</p>
+      <ul>
+        <li>X = <strong>348.66</strong></li>
+        <li>Y = <strong>-88.48</strong></li>
+        <li>Z = <strong>-91.40</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="card table-card">
+  <h2 class="section-title">Difficultés Rencontrées et Solutions Apportées</h2>
+  <div class="table-responsive">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Problème</th>
+          <th>Analyse détaillée</th>
+          <th>Solution mise en place</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Application des congés dans espaces étroits</td>
+          <td>Impossibilité de sélectionner toutes les arêtes sans erreurs de géométrie</td>
+          <td>Séparation en deux opérations : congés internes d’abord, puis externes</td>
+        </tr>
+        <tr>
+          <td>Validation du centre de masse</td>
+          <td>Position non-conforme aux spécifications angulaires</td>
+          <td>Calibration via mesures sur assemblage simulé, ajustement des axes de référence</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="card">
+  <h2 class="section-title">Section Vidéo et Médias</h2>
+  <ul>
+    <li><strong>Vidéo tutoriel</strong> : démonstration des étapes clés (2 min).</li>
+    <li><strong>Liens</strong> :
+      <ul>
+        <li>YouTube : <a class="external-link" href="https://youtu.be/">https://youtu.be/…</a></li>
+        <li>Repos GitHub : <a class="external-link" href="https://github.com/TekBot-Robotics-Challenge/2025-Team-IFRI-Docs">https://github.com/TekBot-Robotics-Challenge/2025-Team-IFRI-Docs</a></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="card glossary">
+  <h2 class="section-title">Glossaire</h2>
+  <ul>
+    <li><strong>Bossage/Base</strong> : extrusion élémentaire créant un volume.</li>
+    <li><strong>Congé</strong> : arrondi appliqué sur une arête.</li>
+    <li><strong>Équations globales</strong> : variables paramétrant le modèle.</li>
+    <li><strong>Manifold</strong> : surface continue sans discontinuité.</li>
+  </ul>
+</section>
+
+<section class="card references">
+  <h2 class="section-title">Références et Liens Utiles</h2>
+  <ul>
+    <li>Manuel SolidWorks 2025 – Chap. Équations et Variables</li>
+    <li>Tutoriels suivis :
+      <ul>
+        <li><a class="external-link" href="https://youtu.be/PQHjY9_b94w?si=Ah0PxEUdaubB3jMf">https://youtu.be/PQHjY9_b94w</a></li>
+        <li><a class="external-link" href="https://youtu.be/ESkXkDUmsNc?si=8zdjJDQK-7fBHAwG">https://youtu.be/ESkXkDUmsNc</a></li>
+      </ul>
+    </li>
+  </ul>
+</section>

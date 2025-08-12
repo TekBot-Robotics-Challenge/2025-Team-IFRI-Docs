@@ -1,0 +1,312 @@
+<h1 class="title-main">🛠️ Documentation – Test 3 : Niveau Avancé</h1>
+
+<section class="card">
+  <h2 class="section-title">1. 🎯 Contexte et Objectif du Test</h2>
+  <p><strong>Test 3 – Niveau avancé</strong></p>
+  <p>
+    Évaluer la capacité à concevoir, modéliser et valider une pièce mécanique complexe en respectant :
+  </p>
+  <ul>
+    <li>la géométrie donnée (plans + rendus 3D)</li>
+    <li>la masse cible (calcul à la décimale près)</li>
+    <li>la gestion des erreurs d’unités et d’arrondis</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2 class="section-title">2. 📐 Spécifications et livrables</h2>
+
+  <ul>
+    <li><strong>Unité</strong> : MMGS (millimètre, gramme, seconde)</li>
+    <li><strong>Décimales</strong> : 2</li>
+    <li><strong>Matériau</strong> : Aluminium 1060 (ρ = 2700 kg/m³)</li>
+    <li><strong>Congés filetés</strong> : 12 × R10</li>
+    <li><strong>Trous</strong> : tous débouchants sauf indication contraire</li>
+  </ul>
+
+  <h3 class="subsection-title">Livrables</h3>
+  <ol>
+    <li>Fichier CAO de la pièce modélisée (<code>.SLDPRT</code> ou équivalent)</li>
+    <li>Tableau de calcul des masses pour les trois jeux de dimensions</li>
+    <li>Rapport détaillé décrivant la démarche et les arrondis appliqués</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h2 class="section-title">3. Processus et méthodologie</h2>
+  <p>
+    Nous avons respecté toutes les côtes et tolérances du document fourni. Chaque étape contient un emplacement pour insérer vos captures d’écran afin d’illustrer l’avancement.
+  </p>
+
+  <h3 class="mini-title">1. Import des plans et préparation du fichier</h3>
+  <p><strong>But</strong> : récupérer les vues 2D/3D et caler l’origine.</p>
+  <ol>
+    <li>Ouvrir le modèle de base (template CAO).</li>
+    <li>Insérer les esquisses des vues (dessus, face, coupe).</li>
+    <li>Vérifier l’échelle (MMGS) et la position de l’origine.</li>
+  </ol>
+
+  <h3 class="mini-title">2. Esquisse de la forme principale</h3>
+  <p><strong>But</strong> : tracer la silhouette trapézoïdale et les grands évidements.</p>
+  <ol>
+    <li>Sur le plan supérieur, dessiner le contour extérieur avec les valeurs adéquates.</li>
+    <li>Ajouter les cavités carrées (grandes alvéoles) centrées.</li>
+    <li>Placer l’axe de symétrie pour assurer la symétrie des opérations suivantes.</li>
+  </ol>
+
+  <h3 class="mini-title">3. Extrusion et découpe initiale</h3>
+  <p><strong>But</strong> : donner l’épaisseur de base et définir les volumes à enlever.</p>
+  <ol>
+    <li>Extruder la forme principale à la hauteur demandée (zones basses et hautes).</li>
+    <li>Appliquer une coupe droite pour séparer les deux hauteurs selon.</li>
+  </ol>
+
+  <h3 class="mini-title">4. Création des évidements secondaires et rainures</h3>
+  <p><strong>But</strong> : réaliser la rainure centrale et les évidements latéraux.</p>
+  <ol>
+    <li>Sur la face supérieure, esquisser la rainure (épaisseur 5 mm, profondeur 2,5 mm).</li>
+    <li>Extruder enlevé sur la profondeur spécifiée.</li>
+    <li>Reproduire l’opération de chaque côté selon symétrie.</li>
+  </ol>
+
+  <h3 class="mini-title">5. Perçages et congés</h3>
+  <p><strong>But</strong> : ajouter tous les trous débouchants et arrondir les arêtes intérieures.</p>
+  <ol>
+    <li>Modéliser chaque perçage Ø10 aux emplacements spécifiés.</li>
+    <li>Appliquer les congés R10 sur les 12 arrêtes intérieures.</li>
+  </ol>
+
+  <h3 class="mini-title">6. Découpe inclinée et formes angulaires</h3>
+  <p><strong>But</strong> : réaliser une coupe à travers la pièce et les transitions.</p>
+  <ol>
+    <li>Esquisser la ligne de coupe inclinée sur la vue latérale.</li>
+    <li>Extruder enlevé en traversant tout le volume.</li>
+    <li>Vérifier l’angle et ajuster si nécessaire.</li>
+  </ol>
+
+  <h3 class="mini-title">7. Détails finaux et contrôle qualité</h3>
+  <ol>
+    <li>Vérifier toutes les côtes critiques avec l’outil de mesure.</li>
+    <li>Comparer visuellement avec les rendus 3D fournis (couleur, placement des éléments).</li>
+    <li>Enregistrer et nommer correctement le fichier <code>.SLDPRT</code>.</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h2 class="section-title">Illustrations — Processus (images)</h2>
+
+  <div class="gallery">
+    <img src="assets/imgs/img_1.png" alt="Processus image 1">
+    <img src="assets/imgs/img_2.png" alt="Processus image 2">
+    <img src="assets/imgs/img_3.png" alt="Processus image 3">
+    <img src="assets/imgs/img_4.png" alt="Processus image 4">
+    <img src="assets/imgs/img_5.png" alt="Processus image 5">
+    <img src="assets/imgs/img_6.png" alt="Processus image 6">
+    <img src="assets/imgs/img_7.png" alt="Processus image 7">
+    <img src="assets/imgs/img_8.png" alt="Processus image 8">
+    <img src="assets/imgs/img_9.png" alt="Processus image 9">
+    <img src="assets/imgs/img_10.png" alt="Processus image 10">
+    <img src="assets/imgs/img_11.png" alt="Processus image 11">
+    <img src="assets/imgs/img_12.png" alt="Processus image 12">
+    <img src="assets/imgs/img_13.png" alt="Processus image 13">
+    <img src="assets/imgs/img_14.png" alt="Processus image 14">
+    <img src="assets/imgs/img_15.png" alt="Processus image 15">
+    <img src="assets/imgs/img_16.png" alt="Processus image 16">
+    <img src="assets/imgs/img_17.png" alt="Processus image 17">
+    <img src="assets/imgs/img_18.png" alt="Processus image 18">
+    <img src="assets/imgs/img_19.png" alt="Processus image 19">
+    <img src="assets/imgs/img_20.png" alt="Processus image 20">
+    <img src="assets/imgs/img_21.png" alt="Processus image 21">
+    <img src="assets/imgs/img_22.png" alt="Processus image 22">
+    <img src="assets/imgs/img_23.png" alt="Processus image 23">
+    <img src="assets/imgs/img_24.png" alt="Processus image 24">
+    <img src="assets/imgs/img_25.png" alt="Processus image 25">
+    <img src="assets/imgs/img_26.png" alt="Processus image 26">
+    <img src="assets/imgs/img_27.png" alt="Processus image 27">
+    <img src="assets/imgs/img_28.png" alt="Processus image 28">
+    <img src="assets/imgs/img_29.png" alt="Processus image 29">
+  </div>
+
+  <p class="figure-caption">Figure : Processus en image de construction de la pièce du test 3.</p>
+</section>
+
+<section class="card">
+  <h2 class="section-title">4. 🛠️ Tâches à réaliser</h2>
+  <p>Pour chaque jeu de dimensions, calculer la masse de la pièce (en grammes) :</p>
+
+  <ol>
+    <li><strong>Q3a.</strong> A = 193 mm ; B = 88 mm ; W = B/2 ; X = A/4 ; Y = B + 5,5 mm ; Z = B + 15 mm</li>
+    <li><strong>Q3b.</strong> A = 205 mm ; B = 100 mm ; W = B/2 ; X = A/4 ; Y = B + 5,5 mm ; Z = B + 15 mm</li>
+    <li><strong>Q3c.</strong> A = 210 mm ; B = 105 mm ; W = B/2 ; X = A/4 ; Y = B + 5,5 mm ; Z = B + 15 mm</li>
+  </ol>
+
+  <p><strong>À fournir :</strong></p>
+  <ol>
+    <li>Les valeurs numériques (masse en g, arrondie à 2 décimales)</li>
+    <li>Capture d’écran du calcul de volume/masse dans le logiciel CAO</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h2 class="section-title">5. ✅ Critères de réussite</h2>
+  <ol>
+    <li><strong>Exactitude</strong> des masses (&lt; ± 1 % d’écart)</li>
+    <li><strong>Conformité géométrique</strong> (tolérances dimensionnelles respectées)</li>
+    <li><strong>Clarté</strong> du rapport</li>
+    <li><strong>Qualité</strong> du fichier CAO (nommage, structure, mise en plan propre)</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h2 class="section-title">6. 🧩 Pièce à Modéliser</h2>
+
+  <div class="images">
+    <figure>
+      <img src="assets/imgs/a_modeliser_1.png" alt="Rendu 1 - vue de dessus">
+      <figcaption>Rendu 1 : Vue de dessus - de droite - trisométrie</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/imgs/a_modeliser_2.png" alt="Rendu 2 - vue de face">
+      <figcaption>Rendu 2 : Vue de face - trisométrie</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="card">
+  <h2 class="section-title">7. 📊 Présentation des Résultats</h2>
+
+  <div class="table-responsive">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Cas</th>
+          <th>A (mm)</th>
+          <th>B (mm)</th>
+          <th>Masse calculée (g)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Q3a</td>
+          <td>193</td>
+          <td>88</td>
+          <td><strong>1393,82</strong></td>
+        </tr>
+        <tr>
+          <td>Q3b</td>
+          <td>205</td>
+          <td>100</td>
+          <td><strong>1492,49</strong></td>
+        </tr>
+        <tr>
+          <td>Q3c</td>
+          <td>210</td>
+          <td>105</td>
+          <td><strong>1531,19</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="mini-title">Captures d’écran des masses obtenues</h3>
+
+  <div class="images small">
+    <figure>
+      <img src="assets/imgs/a_masse.png" alt="Capture volume Q3a">
+      <figcaption>Figure 1 : Calcul de volume et masse pour le cas Q3a</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/imgs/b_masse.png" alt="Capture volume Q3b">
+      <figcaption>Figure 2 : Calcul de volume et masse pour le cas Q3b</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/imgs/c_masse.png" alt="Capture volume Q3c">
+      <figcaption>Figure 3 : Calcul de volume et masse pour le cas Q3c</figcaption>
+    </figure>
+  </div>
+
+  <h3 class="mini-title">Captures d’écran CAO</h3>
+  <div class="images small">
+    <figure>
+      <img src="assets/imgs/dessus_face.png" alt="Capture réalisation top">
+      <figcaption>Figure : vue de dessus</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/imgs/en_face.png" alt="Capture réalisation front">
+      <figcaption>Figure : vue de face</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/imgs/droite_face.png" alt="Capture réalisation right">
+      <figcaption>Figure : vue de droite</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/imgs/trisométrique.png" alt="Capture réalisation trisométrie">
+      <figcaption>Figure : vue trisométrique</figcaption>
+    </figure>
+  </div>
+
+  <h3 class="mini-title">Pièces réalisées</h3>
+  <ol>
+    <li><a class="file-link" href="assets/pieces/third_test-final_piece-a.SLDPRT">Pièce finale - Q3a</a></li>
+    <li><a class="file-link" href="assets/pieces/third_test_final_piece-b.SLDPRT">Pièce finale - Q3b</a></li>
+    <li><a class="file-link" href="assets/pieces/third_test_final_piece-c.SLDPRT">Pièce finale - Q3c</a></li>
+  </ol>
+
+  <h3 class="mini-title">Vidéos illustratives</h3>
+  <div class="video-container">
+    <iframe src="https://player.vimeo.com/video/1097167515?h=204e839d21" 
+            width="640" height="360" frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
+    </iframe>
+  </div>
+
+  <p class="note">Vidéo de présentation de la pièce cible : <a class="external-link" href="https://vimeo.com/1097167515/204e839d21?share=copy">cliquez ici</a></p>
+</section>
+
+<section class="card">
+  <h2 class="section-title">8. 📚 Ressources et Références</h2>
+
+  <h3 class="mini-title">Documentation technique</h3>
+  <ul>
+    <li><em>SolidWorks: Le guide du débutant</em> – [PDF]</li>
+  </ul>
+
+  <h3 class="mini-title">Outils et logiciels</h3>
+  <div class="table-responsive">
+    <table class="data-table">
+      <thead>
+        <tr><th>Outil</th><th>Version</th><th>Usage</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SolidWorks</td>
+          <td>2025</td>
+          <td>Modélisation et calcul de volume</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="mini-title">Composants & matériaux</h3>
+  <ol>
+    <li><strong>Aluminium 1060</strong> (ρ = 2700 kg/m³)</li>
+    <li><strong>Filet R10</strong> pour les congés</li>
+    <li><strong>Perçages</strong> : diamètre selon plan</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h2 class="section-title">9. 📎 Annexes</h2>
+  <p>Aucune annexe pour l’instant. Cette section pourra accueillir :</p>
+  <ol>
+    <li>plans détaillés</li>
+    <li>calculs avancés</li>
+    <li>échanges techniques</li>
+  </ol>
+</section>
