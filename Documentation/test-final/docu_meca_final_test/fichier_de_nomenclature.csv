@@ -1,0 +1,12 @@
+Référence,Nom de la pièce,Matériau,Méthode de fabrication,Qté
+CH-001,Châssis principal,MDF 10mm,Découpe CNC / Manuelle,1
+TM-001,Tambour d'entraînement,PLA (impression 3D),Impression 3D,1
+TR-001,Tambour de retour,PLA,Impression 3D,1
+BD-001,Bande transporteuse,Caoutchouc recyclé,Découpe / recyclage,1
+SC-001,Support capteur couleur,PLA ou bois,Impression 3D / perçage,1
+SL-001,Support laser + LDR,PLA,Impression 3D,1
+AR-001,Support Arduino/ESP8266,PLA ou bois,Impression 3D / assemblage,1
+BT-001,Boîtier batterie,PLA ou ABS,Impression 3D / boîtier prêt-à-l’emploi,1
+BN-001,Bennes de tri (x4),Plastique ou carton,Découpe / pliage,4
+RL-608Z,Roulements 608Z,Acier,Standard,4
+MT-DC01,Moteur DC,—,Assemblage,1

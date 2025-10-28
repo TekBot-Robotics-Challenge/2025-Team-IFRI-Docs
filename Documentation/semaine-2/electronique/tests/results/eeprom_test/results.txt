@@ -1,0 +1,24 @@
+Essai1:
+Test EEPROM
+Ecriture de la valeur 123 a l'adresse 0...
+Lecture de la valeur a l'adresse 0...
+Valeur lue: 123
+Test EEPROM REUSSI!
+
+---
+Essai2:
+Test EEPROM
+Ecriture de la valeur 123 a l'adresse 0...
+Lecture de la valeur a l'adresse 0...
+Valeur lue: 0
+Test EEPROM ECHOUÉ!
+(La valeur lue est 0, ou une autre valeur par défaut, indiquant un problème d'écriture/lecture EEPROM ou un composant défectueux.)
+
+---
+Essai3:
+Test EEPROM
+Ecriture de la valeur 123 a l'adresse 0...
+Lecture de la valeur a l'adresse 0...
+Valeur lue: 123
+Test EEPROM REUSSI!
+(Réussi, mais des messages d'erreur du compilateur peuvent apparaître si la bibliothèque EEPROM est corrompue, ce qui n'est pas le cas ici.)

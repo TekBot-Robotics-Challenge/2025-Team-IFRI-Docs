@@ -1,0 +1,19 @@
+Essai1:
+Test LCD I2C
+Message affiche sur LCD.
+(L'écran LCD affiche:
+LCD Test OK!
+Bonjour Monde!)
+
+---
+Essai2:
+Test LCD I2C
+(L'écran LCD reste noir ou n'affiche rien du tout)
+
+---
+Essai3:
+Test LCD I2C
+Message affiche sur LCD.
+(L'écran LCD s'allume, le rétroéclairage fonctionne,
+mais le texte est illisible ou des caractères aléatoires s'affichent,
+indiquant un problème de contraste ou de données corrompues.)
